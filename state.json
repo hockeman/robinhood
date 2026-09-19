@@ -1,8 +1,9 @@
 {
-  "last_run": "2026-09-18T22:16:00Z",
-  "peak_account_value": 7390.56261755,
+  "last_run": "2026-09-19T08:12:46Z",
+  "peak_account_value": 7435.688271375,
   "account_value_history": [
-    {"ts": "2026-09-18T22:16:00Z", "value": 7390.56261755}
+    {"ts": "2026-09-18T22:16:00Z", "value": 7390.56261755},
+    {"ts": "2026-09-19T08:12:46Z", "value": 7435.688271375}
   ],
   "positions": {
     "MSTR": {
@@ -42,12 +43,14 @@
     {
       "detected": "2026-09-18T22:16:00Z",
       "description": "AAPL position of 0.005949 shares (~$2) bought via a market order at 2026-09-18T19:30:36Z, placed_agent=agentic. This does not fit the strategy: no AAPL signal, no config in place, size far below min_position_usd, and order type (market, dollar-based) is not the marketable-limit entry the rules specify. No protective order exists or is feasible for a fractional position this small. Left unmanaged and flagged for the owner; not sold or otherwise acted on this run.",
-      "action_taken": "none - reported only"
+      "action_taken": "none - reported only",
+      "status_2026-09-19": "still present, still unmanaged; still no owner confirmation on record. Re-flagged this run."
     },
     {
       "detected": "2026-09-18T22:16:00Z",
       "description": "MSTR position was built from two same-day buy fills (12 sh ~150.10, then 11 sh ~150.50), i.e. an addition to an already-open position, which the standing rules forbid ('never average down or add to an existing position'). Several of today's buy fills also used stop-triggered limit orders rather than the plain marketable limit the entry procedure specifies (see get_equity_orders for TRMD, ALVO, MSTR order history). This predates this state file; no corrective action taken this run beyond flagging it.",
-      "action_taken": "none - reported only"
+      "action_taken": "none - reported only",
+      "status_2026-09-19": "position unchanged since; already recorded as a single 23-share legacy lot with protection intact. No further action taken. Re-flagged this run pending owner confirmation of the routine/config that produced these fills."
     }
   ]
 }

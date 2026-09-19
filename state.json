@@ -1,8 +1,9 @@
 {
-  "last_run": "2026-09-18T22:16:00Z",
-  "peak_account_value": 7390.56261755,
+  "last_run": "2026-09-19T15:14:00Z",
+  "peak_account_value": 7435.688271375,
   "account_value_history": [
-    {"ts": "2026-09-18T22:16:00Z", "value": 7390.56261755}
+    {"ts": "2026-09-18T22:16:00Z", "value": 7390.56261755},
+    {"ts": "2026-09-19T15:14:00Z", "value": 7435.688271375}
   ],
   "positions": {
     "MSTR": {
@@ -48,6 +49,11 @@
       "detected": "2026-09-18T22:16:00Z",
       "description": "MSTR position was built from two same-day buy fills (12 sh ~150.10, then 11 sh ~150.50), i.e. an addition to an already-open position, which the standing rules forbid ('never average down or add to an existing position'). Several of today's buy fills also used stop-triggered limit orders rather than the plain marketable limit the entry procedure specifies (see get_equity_orders for TRMD, ALVO, MSTR order history). This predates this state file; no corrective action taken this run beyond flagging it.",
       "action_taken": "none - reported only"
+    },
+    {
+      "detected": "2026-09-19T15:14:00Z",
+      "description": "get_advanced_orders returned SERVICE_DISABLED ('not yet enabled for this account') for the Agentic account. All four existing protective sells are plain stop_limit equity orders (not OCO), so this had no effect this run, but it means place_advanced_order/review_advanced_order (used for trailing-stop OCO replacement in Step 2 and the take-profit/stop-loss bracket in Step 5) will likely fail on this account until advanced orders are enabled. No trailing adjustment or new entry was needed this run, so untested in practice. Flagged for the owner; future runs should fall back to a plain stop_market sell (as the standing instructions already specify as a fallback) if place_advanced_order errors.",
+      "action_taken": "none - reported only, no order activity blocked by this run"
     }
   ]
 }

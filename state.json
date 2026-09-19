@@ -1,8 +1,9 @@
 {
-  "last_run": "2026-09-18T22:16:00Z",
-  "peak_account_value": 7390.56261755,
+  "last_run": "2026-09-19T01:15:45Z",
+  "peak_account_value": 7435.688271375,
   "account_value_history": [
-    {"ts": "2026-09-18T22:16:00Z", "value": 7390.56261755}
+    {"ts": "2026-09-18T22:16:00Z", "value": 7390.56261755},
+    {"ts": "2026-09-19T01:15:45Z", "value": 7435.688271375}
   ],
   "positions": {
     "MSTR": {
@@ -21,14 +22,14 @@
     },
     "DSP": {
       "entry_price": 11.70, "entry_date": "2026-09-18", "qty": 161,
-      "high_since_entry": 11.91, "stop_price": 11.20,
+      "high_since_entry": 12.25, "stop_price": 11.20,
       "protective_order_id": "6aad67c9-0e21-4f19-bbee-56b80a2f9d0e",
       "protective_order_type": "stop_limit", "signal": "legacy",
       "thesis": "Rebuilt from live account state; no prior journal/state existed."
     },
     "UROY": {
       "entry_price": 4.53, "entry_date": "2026-09-18", "qty": 33,
-      "high_since_entry": 4.55, "stop_price": 4.28,
+      "high_since_entry": 4.62, "stop_price": 4.28,
       "protective_order_id": "6aad8872-c211-45cc-88d8-f8fff1f471a1",
       "protective_order_type": "stop_limit", "signal": "legacy",
       "thesis": "Rebuilt from live account state; no prior journal/state existed."

@@ -1,8 +1,9 @@
 {
-  "last_run": "2026-09-18T22:16:00Z",
-  "peak_account_value": 7390.56261755,
+  "last_run": "2026-09-19T13:20:00Z",
+  "peak_account_value": 7435.688271375,
   "account_value_history": [
-    {"ts": "2026-09-18T22:16:00Z", "value": 7390.56261755}
+    {"ts": "2026-09-18T22:16:00Z", "value": 7390.56261755},
+    {"ts": "2026-09-19T13:20:00Z", "value": 7435.688271375}
   ],
   "positions": {
     "MSTR": {
@@ -48,6 +49,11 @@
       "detected": "2026-09-18T22:16:00Z",
       "description": "MSTR position was built from two same-day buy fills (12 sh ~150.10, then 11 sh ~150.50), i.e. an addition to an already-open position, which the standing rules forbid ('never average down or add to an existing position'). Several of today's buy fills also used stop-triggered limit orders rather than the plain marketable limit the entry procedure specifies (see get_equity_orders for TRMD, ALVO, MSTR order history). This predates this state file; no corrective action taken this run beyond flagging it.",
       "action_taken": "none - reported only"
+    },
+    {
+      "detected": "2026-09-19T13:20:00Z",
+      "description": "This repo has no 'main' branch at all -- only per-session branches named claude/clever-thompson-<id>, one per run, dating back to 2026-09-18T22:17Z. Runs have been firing roughly every hour around the clock (14+ branches in under 15 hours, including through the night and on a Saturday with markets closed), not the twice-daily weekday cadence the setup guide describes. Because there is no shared main branch, each run's committed state.json/journal likely lives on its own orphaned branch rather than being read by the next run -- this run only found today's journal and state.json because they happened to be pre-seeded on this session's branch. Real position/order data from Robinhood itself is still ground truth and was reconciled correctly, but day-trade counts, cooldowns, and candidates_seen are not reliably persisting run-to-run. No new orders were placed this run (market closed on a Saturday), so no immediate trading harm, but the schedule/repo setup does not match the intended design and is burning runs for no effect.",
+      "action_taken": "none - reported only; flagged to owner"
     }
   ]
 }

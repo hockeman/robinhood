@@ -1,8 +1,9 @@
 {
-  "last_run": "2026-09-18T22:16:00Z",
-  "peak_account_value": 7390.56261755,
+  "last_run": "2026-09-19T17:18:00Z",
+  "peak_account_value": 7435.69,
   "account_value_history": [
-    {"ts": "2026-09-18T22:16:00Z", "value": 7390.56261755}
+    {"ts": "2026-09-18T22:16:00Z", "value": 7390.56261755},
+    {"ts": "2026-09-19T17:18:00Z", "value": 7435.69}
   ],
   "positions": {
     "MSTR": {
@@ -48,6 +49,11 @@
       "detected": "2026-09-18T22:16:00Z",
       "description": "MSTR position was built from two same-day buy fills (12 sh ~150.10, then 11 sh ~150.50), i.e. an addition to an already-open position, which the standing rules forbid ('never average down or add to an existing position'). Several of today's buy fills also used stop-triggered limit orders rather than the plain marketable limit the entry procedure specifies (see get_equity_orders for TRMD, ALVO, MSTR order history). This predates this state file; no corrective action taken this run beyond flagging it.",
       "action_taken": "none - reported only"
+    },
+    {
+      "detected": "2026-09-19T17:18:00Z",
+      "description": "CRITICAL INFRA BUG, not a trading issue: the scheduled routine is firing roughly once per hour (17+ runs between 2026-09-18T22:16Z bootstrap and this run, vs. the 2x/weekday design), including all through the 2026-09-19 weekend. Every one of those runs, and this one, is a fresh git branch (claude/clever-thompson-XXXXX) created by the harness that forks from the SAME original bootstrap commit d5697362242d33374f172936671b2c2f38a10f12 and is never merged anywhere. origin/HEAD is permanently pinned to that bootstrap commit. Net effect: state.json/journal updates from every run are stranded on that run's own orphan branch and invisible to every other run - the persistence design in AGENT.md (git push origin main / merge claude/journal) does not work in this harness, which assigns a new isolated branch per session instead of a shared main. No incorrect trade has happened yet only because it has been a no-signal weekend with $0.60 buying power; this needs a human fix (repo restructuring and/or routine schedule/frequency fix) before Monday's open, or repeated runs could each act on the same stale multi-day-old state independently (duplicate entries, wrong day-trade counts, ignored cooldowns).",
+      "action_taken": "reported only; user notified out-of-band. No trades placed or orders touched this run beyond read-only verification that all 4 legacy positions still carry live confirmed protective stops and no new/unexpected activity occurred since the 2026-09-18T22:16Z baseline."
     }
   ]
 }

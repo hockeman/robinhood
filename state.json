@@ -1,13 +1,14 @@
 {
-  "last_run": "2026-09-18T22:16:00Z",
-  "peak_account_value": 7390.56261755,
+  "last_run": "2026-09-20T06:15:04Z",
+  "peak_account_value": 7435.688271375,
   "account_value_history": [
-    {"ts": "2026-09-18T22:16:00Z", "value": 7390.56261755}
+    {"ts": "2026-09-18T22:16:00Z", "value": 7390.56261755},
+    {"ts": "2026-09-20T06:15:04Z", "value": 7435.688271375}
   ],
   "positions": {
     "MSTR": {
       "entry_price": 150.17, "entry_date": "2026-09-18", "qty": 23,
-      "high_since_entry": 153.91, "stop_price": 144.80,
+      "high_since_entry": 154.02, "stop_price": 144.80,
       "protective_order_id": "6aad726e-9263-4d94-ade3-1ef7d93775ae",
       "protective_order_type": "stop_limit", "signal": "legacy",
       "thesis": "Rebuilt from live account state; no prior journal/state existed. Two same-day buy fills (12 @ ~150.10 then 11 @ ~150.50) combined into this position, which violates the 'never add to an existing position' rule and predates this state file."
@@ -21,14 +22,14 @@
     },
     "DSP": {
       "entry_price": 11.70, "entry_date": "2026-09-18", "qty": 161,
-      "high_since_entry": 11.91, "stop_price": 11.20,
+      "high_since_entry": 12.41, "stop_price": 11.20,
       "protective_order_id": "6aad67c9-0e21-4f19-bbee-56b80a2f9d0e",
       "protective_order_type": "stop_limit", "signal": "legacy",
       "thesis": "Rebuilt from live account state; no prior journal/state existed."
     },
     "UROY": {
       "entry_price": 4.53, "entry_date": "2026-09-18", "qty": 33,
-      "high_since_entry": 4.55, "stop_price": 4.28,
+      "high_since_entry": 4.705, "stop_price": 4.28,
       "protective_order_id": "6aad8872-c211-45cc-88d8-f8fff1f471a1",
       "protective_order_type": "stop_limit", "signal": "legacy",
       "thesis": "Rebuilt from live account state; no prior journal/state existed."

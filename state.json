@@ -1,8 +1,9 @@
 {
-  "last_run": "2026-09-18T22:16:00Z",
-  "peak_account_value": 7390.56261755,
+  "last_run": "2026-09-20T07:16:00Z",
+  "peak_account_value": 7435.688271375,
   "account_value_history": [
-    {"ts": "2026-09-18T22:16:00Z", "value": 7390.56261755}
+    {"ts": "2026-09-18T22:16:00Z", "value": 7390.56261755},
+    {"ts": "2026-09-20T07:16:00Z", "value": 7435.688271375}
   ],
   "positions": {
     "MSTR": {
@@ -42,12 +43,17 @@
     {
       "detected": "2026-09-18T22:16:00Z",
       "description": "AAPL position of 0.005949 shares (~$2) bought via a market order at 2026-09-18T19:30:36Z, placed_agent=agentic. This does not fit the strategy: no AAPL signal, no config in place, size far below min_position_usd, and order type (market, dollar-based) is not the marketable-limit entry the rules specify. No protective order exists or is feasible for a fractional position this small. Left unmanaged and flagged for the owner; not sold or otherwise acted on this run.",
-      "action_taken": "none - reported only"
+      "action_taken": "none - reported only, still present and unchanged as of 2026-09-20T07:16Z"
     },
     {
       "detected": "2026-09-18T22:16:00Z",
       "description": "MSTR position was built from two same-day buy fills (12 sh ~150.10, then 11 sh ~150.50), i.e. an addition to an already-open position, which the standing rules forbid ('never average down or add to an existing position'). Several of today's buy fills also used stop-triggered limit orders rather than the plain marketable limit the entry procedure specifies (see get_equity_orders for TRMD, ALVO, MSTR order history). This predates this state file; no corrective action taken this run beyond flagging it.",
       "action_taken": "none - reported only"
+    },
+    {
+      "detected": "2026-09-19T17:19:00Z",
+      "description": "CRITICAL INFRA BUG (first found by a prior run, still unfixed): this repository has no shared 'main' branch. origin/HEAD is permanently pinned to the bootstrap commit d569736, and every scheduled run creates a brand-new orphan branch ('claude/clever-thompson-XXXXXX') off that same bootstrap commit instead of continuing from the previous run's state. Over 30 such sibling branches exist as of 2026-09-20T07:16Z, none merged into any shared branch. Consequence: state.json/journal updates never actually carry over between runs; every run re-derives the account snapshot live (which is why no incorrect data has surfaced so far) but cumulative fields that MUST persist across runs to enforce the rules -- day_trades (PDT rolling 5-day count), stopped_out_recently (re-entry cooldown), candidates_seen, and true peak_account_value history -- cannot actually accumulate. No incorrect trade has resulted yet only because signals have been absent and buying power has been $0.60 since bootstrap. Also observed: the routine appears to be firing roughly hourly, including all weekend, rather than the 2x/weekday cadence the design (AGENT.md Part 1) describes, which is a real usage-cost concern separate from the persistence bug. Pushed a 'main' branch from this run's consolidated state as a stopgap so a continuation point exists; the owner still needs to point the routine/environment at a stable branch (e.g. always checkout+push 'main') rather than letting the harness assign a fresh branch per session. Owner notified via push notification this run.",
+      "action_taken": "flagged to owner; pushed consolidated state to a new 'main' branch as a stopgap; no trades placed or orders modified"
     }
   ]
 }

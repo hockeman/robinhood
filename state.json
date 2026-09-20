@@ -1,8 +1,9 @@
 {
-  "last_run": "2026-09-18T22:16:00Z",
-  "peak_account_value": 7390.56261755,
+  "last_run": "2026-09-20T18:15:00Z",
+  "peak_account_value": 7435.688271375,
   "account_value_history": [
-    {"ts": "2026-09-18T22:16:00Z", "value": 7390.56261755}
+    {"ts": "2026-09-18T22:16:00Z", "value": 7390.56261755},
+    {"ts": "2026-09-20T18:15:00Z", "value": 7435.688271375}
   ],
   "positions": {
     "MSTR": {
@@ -48,6 +49,11 @@
       "detected": "2026-09-18T22:16:00Z",
       "description": "MSTR position was built from two same-day buy fills (12 sh ~150.10, then 11 sh ~150.50), i.e. an addition to an already-open position, which the standing rules forbid ('never average down or add to an existing position'). Several of today's buy fills also used stop-triggered limit orders rather than the plain marketable limit the entry procedure specifies (see get_equity_orders for TRMD, ALVO, MSTR order history). This predates this state file; no corrective action taken this run beyond flagging it.",
       "action_taken": "none - reported only"
+    },
+    {
+      "detected": "2026-09-20T18:15:00Z",
+      "description": "Weekend reconciliation run re-checked get_equity_orders back to 2026-09-18 and found no new fills, cancellations, or agentic activity since the 2026-09-18 anomalies above (AAPL fractional lot, MSTR same-day add) were flagged. Those two items remain unresolved and un-acted-upon; the prior run's request for owner confirmation before further unattended passes has not been answered as of this run.",
+      "action_taken": "none - reported only; owner notified out-of-band this run"
     }
   ]
 }

@@ -1,0 +1,481 @@
+<title>Agentic Ledger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F6F7F5;
+    --surface: #FFFFFF;
+    --surface-2: #EEF0EC;
+    --ink: #14181A;
+    --ink-muted: #5C6560;
+    --border: #DDE1DA;
+    --accent: #2B4C3F;
+    --accent-soft: #E4EBE6;
+    --good: #1E8E5A;
+    --good-soft: #E3F2EA;
+    --bad: #C1432E;
+    --bad-soft: #FBEAE7;
+    --warn: #B8791A;
+    --warn-soft: #FAF1E1;
+    --shadow: 0 1px 2px rgba(20,24,22,0.06), 0 1px 1px rgba(20,24,22,0.04);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0E1210;
+      --surface: #171C19;
+      --surface-2: #1F2521;
+      --ink: #E7EBE6;
+      --ink-muted: #93A093;
+      --border: #2A322C;
+      --accent: #6FBE9C;
+      --accent-soft: #1C2B24;
+      --good: #4CC488;
+      --good-soft: #16281F;
+      --bad: #E2695A;
+      --bad-soft: #2D1C19;
+      --warn: #E0A94C;
+      --warn-soft: #2B2216;
+      --shadow: 0 1px 2px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0E1210;
+    --surface: #171C19;
+    --surface-2: #1F2521;
+    --ink: #E7EBE6;
+    --ink-muted: #93A093;
+    --border: #2A322C;
+    --accent: #6FBE9C;
+    --accent-soft: #1C2B24;
+    --good: #4CC488;
+    --good-soft: #16281F;
+    --bad: #E2695A;
+    --bad-soft: #2D1C19;
+    --warn: #E0A94C;
+    --warn-soft: #2B2216;
+    --shadow: 0 1px 2px rgba(0,0,0,0.35);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    padding-inline: 16px;
+    padding-block: 20px 40px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+
+  header.page {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px 16px;
+    margin-bottom: 20px;
+  }
+  header.page .titles h1 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 2px;
+    letter-spacing: -0.01em;
+  }
+  header.page .titles p {
+    margin: 0;
+    color: var(--ink-muted);
+    font-size: 13px;
+  }
+  .updated {
+    font-size: 12px;
+    color: var(--ink-muted);
+    text-align: right;
+  }
+  .updated .ts { color: var(--ink); font-weight: 500; }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px 3px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+  .pill::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .pill.good { background: var(--good-soft); color: var(--good); }
+  .pill.warn { background: var(--warn-soft); color: var(--warn); }
+  .pill.bad { background: var(--bad-soft); color: var(--bad); }
+  .pill.neutral { background: var(--surface-2); color: var(--ink-muted); }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  @media (max-width: 560px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  .stat {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    box-shadow: var(--shadow);
+  }
+  .stat .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-muted);
+    margin-bottom: 6px;
+  }
+  .stat .value {
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.1;
+  }
+  .stat .sub {
+    font-size: 12px;
+    margin-top: 4px;
+    color: var(--ink-muted);
+  }
+  .stat .sub.good { color: var(--good); }
+  .stat .sub.bad { color: var(--bad); }
+
+  section.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow);
+  }
+  section.card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-muted);
+    margin: 0 0 12px;
+    font-weight: 600;
+  }
+
+  #chart-wrap { position: relative; }
+  #chart-tip {
+    position: absolute;
+    pointer-events: none;
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 11px;
+    padding: 4px 7px;
+    border-radius: 6px;
+    transform: translate(-50%, -130%);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.1s;
+    font-family: "IBM Plex Mono", monospace;
+  }
+
+  .table-scroll { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: right; padding: 8px 6px; white-space: nowrap; }
+  th:first-child, td:first-child { text-align: left; }
+  th {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+  }
+  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr:last-child { border-bottom: none; }
+  td.sym { font-weight: 600; }
+  td.pl-good { color: var(--good); }
+  td.pl-bad { color: var(--bad); }
+  td .status-pill { display: inline-block; }
+
+  .flags { display: flex; flex-direction: column; gap: 10px; }
+  .flag {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+  }
+  .flag .pill { flex-shrink: 0; margin-top: 1px; }
+  .flag p { margin: 0; font-size: 13px; line-height: 1.45; }
+  .flag p .sym { font-weight: 600; }
+
+  footer {
+    font-size: 11.5px;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    padding-top: 6px;
+  }
+  footer strong { color: var(--ink); }
+</style>
+
+<header class="page">
+  <div class="titles">
+    <h1>Agentic Ledger</h1>
+    <p>Robinhood ••••4292 &middot; autonomous account</p>
+  </div>
+  <div class="updated">
+    <div>as of <span class="ts mono" id="updated-ts">Sun Sep 20, 10:15 AM ET</span></div>
+    <div id="status-pill-slot"></div>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="stat">
+    <div class="label">Account value</div>
+    <div class="value mono">$7,435.69</div>
+    <div class="sub good">+$45.13 since Fri</div>
+  </div>
+  <div class="stat">
+    <div class="label">Unrealized P&amp;L</div>
+    <div class="value mono good-text" style="color:var(--good)">+$163.99</div>
+    <div class="sub">+2.26% on cost basis</div>
+  </div>
+  <div class="stat">
+    <div class="label">Buying power</div>
+    <div class="value mono">$0.60</div>
+    <div class="sub">below $100 minimum</div>
+  </div>
+  <div class="stat">
+    <div class="label">Drawdown</div>
+    <div class="value mono">0.0%</div>
+    <div class="sub">at peak &middot; $7,435.69</div>
+  </div>
+</div>
+
+<section class="card">
+  <h2>Account value</h2>
+  <div id="chart-wrap">
+    <svg id="chart" viewBox="0 0 660 160" preserveAspectRatio="none" style="width:100%; height:140px; display:block; overflow:visible;"></svg>
+    <div id="chart-tip"></div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Positions</h2>
+  <div class="table-scroll">
+    <table id="positions-table">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Qty</th>
+          <th>Entry</th>
+          <th>Last</th>
+          <th>P&amp;L</th>
+          <th>Stop</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Open flags</h2>
+  <div class="flags" id="flags"></div>
+</section>
+
+<footer>
+  <p><strong>Not investment advice.</strong> This account runs a rules-based process on public insider and STOCK Act disclosures — signals, not guarantees. Every protective stop shown above was verified live before this page was published.</p>
+  <p>Updated only when something changes: a trade fills, a position closes, a stop moves, or a new flag appears. Silent runs mean nothing needed your attention.</p>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  // ---- data (filled in by the run that publishes this page) ----
+  var DATA = {
+    updatedISO: "2026-09-20T14:15:00Z",
+    updatedLabel: "Sun Sep 20, 10:15 AM ET",
+    allProtected: true,
+    accountValueHistory: [
+      { ts: "2026-09-18T22:16:00Z", label: "Fri 6:16 PM", value: 7390.56 },
+      { ts: "2026-09-20T07:16:00Z", label: "Sun 3:16 AM", value: 7435.69 },
+      { ts: "2026-09-20T08:15:00Z", label: "Sun 4:15 AM", value: 7435.69 },
+      { ts: "2026-09-20T10:14:00Z", label: "Sun 6:14 AM", value: 7435.69 },
+      { ts: "2026-09-20T14:15:00Z", label: "Sun 10:15 AM", value: 7435.69 }
+    ],
+    positions: [
+      { symbol: "MSTR", qty: "23", entry: 150.17, last: 153.19, plDollar: 69.48, plPct: 2.01, stop: 144.80, status: "protected" },
+      { symbol: "ALVO", qty: "300", entry: 5.94, last: 5.95, plDollar: 3.00, plPct: 0.17, stop: 5.65, status: "protected" },
+      { symbol: "DSP", qty: "161", entry: 11.70, last: 12.25, plDollar: 88.55, plPct: 4.70, stop: 11.20, status: "protected" },
+      { symbol: "UROY", qty: "33", entry: 4.53, last: 4.62, plDollar: 2.97, plPct: 1.99, stop: 4.28, status: "protected" },
+      { symbol: "AAPL", qty: "0.005949", entry: 336.19, last: 334.88, plDollar: -0.01, plPct: -0.39, stop: null, status: "unmanaged" }
+    ],
+    flags: [
+      { level: "warn", symbol: "AAPL", text: "~$2 fractional position with no matching signal and no protective order &mdash; too small for a normal stop. Left unmanaged pending your decision." },
+      { level: "warn", symbol: "MSTR", text: "Position was built from two same-day buy fills, which the standing rule against adding to an open position forbids. Stop now covers all 23 shares; the entry itself predates this state file and hasn't been unwound." },
+      { level: "neutral", symbol: "Infra", text: "Advanced/OCO orders are disabled on this account (get_advanced_orders: SERVICE_DISABLED). All stops above are plain stop-limit orders, so this hasn't blocked anything yet &mdash; flagged for when a bracket order is first needed." }
+    ]
+  };
+
+  // ---- status pill ----
+  var pillSlot = document.getElementById("status-pill-slot");
+  var pill = document.createElement("span");
+  pill.className = "pill " + (DATA.allProtected ? "good" : "bad");
+  pill.textContent = DATA.allProtected ? "All positions protected" : "Unprotected position";
+  pillSlot.appendChild(pill);
+  document.getElementById("updated-ts").textContent = DATA.updatedLabel;
+
+  // ---- positions table ----
+  var tbody = document.querySelector("#positions-table tbody");
+  DATA.positions.forEach(function (p) {
+    var tr = document.createElement("tr");
+
+    var plClass = p.plDollar > 0 ? "pl-good" : (p.plDollar < 0 ? "pl-bad" : "");
+    var sign = p.plDollar > 0 ? "+" : "";
+    var plStr = sign + "$" + p.plDollar.toFixed(2) + " (" + sign + p.plPct.toFixed(2) + "%)";
+
+    var statusPill = p.status === "protected"
+      ? '<span class="pill good status-pill">Protected</span>'
+      : '<span class="pill warn status-pill">Unmanaged</span>';
+
+    tr.innerHTML =
+      '<td class="sym mono">' + p.symbol + '</td>' +
+      '<td class="mono">' + p.qty + '</td>' +
+      '<td class="mono">$' + p.entry.toFixed(2) + '</td>' +
+      '<td class="mono">$' + p.last.toFixed(2) + '</td>' +
+      '<td class="mono ' + plClass + '">' + plStr + '</td>' +
+      '<td class="mono">' + (p.stop != null ? "$" + p.stop.toFixed(2) : "&mdash;") + '</td>' +
+      '<td>' + statusPill + '</td>';
+    tbody.appendChild(tr);
+  });
+
+  // ---- flags ----
+  var flagsEl = document.getElementById("flags");
+  if (DATA.flags.length === 0) {
+    var none = document.createElement("p");
+    none.style.cssText = "font-size:13px;color:var(--ink-muted);margin:0;";
+    none.textContent = "No open flags.";
+    flagsEl.appendChild(none);
+  } else {
+    DATA.flags.forEach(function (f) {
+      var row = document.createElement("div");
+      row.className = "flag";
+      var pillClass = f.level === "warn" ? "warn" : (f.level === "bad" ? "bad" : "neutral");
+      var pillLabel = f.level === "warn" ? "Flag" : (f.level === "bad" ? "Alert" : "Note");
+      row.innerHTML =
+        '<span class="pill ' + pillClass + '">' + pillLabel + '</span>' +
+        '<p><span class="sym">' + f.symbol + ':</span> ' + f.text + '</p>';
+      flagsEl.appendChild(row);
+    });
+  }
+
+  // ---- account value chart ----
+  var svg = document.getElementById("chart");
+  var tip = document.getElementById("chart-tip");
+  var W = 660, H = 160, PAD_L = 54, PAD_R = 10, PAD_T = 14, PAD_B = 24;
+  var hist = DATA.accountValueHistory;
+  var values = hist.map(function (d) { return d.value; });
+  var minV = Math.min.apply(null, values);
+  var maxV = Math.max.apply(null, values);
+  var span = maxV - minV;
+  if (span < 1) { // near-flat series: give it visible room
+    var mid = (maxV + minV) / 2;
+    minV = mid - 20; maxV = mid + 20; span = 40;
+  } else {
+    minV -= span * 0.15; maxV += span * 0.15; span = maxV - minV;
+  }
+
+  function xAt(i) { return PAD_L + (i / (hist.length - 1)) * (W - PAD_L - PAD_R); }
+  function yAt(v) { return PAD_T + (1 - (v - minV) / span) * (H - PAD_T - PAD_B); }
+
+  var svgns = "http://www.w3.org/2000/svg";
+  function el(tag, attrs) {
+    var e = document.createElementNS(svgns, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+
+  // gridlines + y labels (3 lines)
+  var ticks = [minV + span * 0.15, (minV + maxV) / 2, maxV - span * 0.15];
+  ticks.forEach(function (t) {
+    var y = yAt(t);
+    svg.appendChild(el("line", { x1: PAD_L, x2: W - PAD_R, y1: y, y2: y, stroke: "var(--border)", "stroke-width": 1 }));
+    var label = el("text", { x: PAD_L - 8, y: y + 3, "text-anchor": "end", "font-size": 10, fill: "var(--ink-muted)", "font-family": "IBM Plex Mono, monospace" });
+    label.textContent = "$" + t.toFixed(0);
+    svg.appendChild(label);
+  });
+
+  // area fill
+  var areaPath = "M" + xAt(0) + "," + yAt(hist[0].value);
+  hist.forEach(function (d, i) { if (i > 0) areaPath += " L" + xAt(i) + "," + yAt(d.value); });
+  areaPath += " L" + xAt(hist.length - 1) + "," + (H - PAD_B) + " L" + xAt(0) + "," + (H - PAD_B) + " Z";
+  var area = el("path", { d: areaPath, fill: "var(--accent-soft)", stroke: "none" });
+  svg.appendChild(area);
+
+  // line
+  var linePath = "M" + xAt(0) + "," + yAt(hist[0].value);
+  hist.forEach(function (d, i) { if (i > 0) linePath += " L" + xAt(i) + "," + yAt(d.value); });
+  svg.appendChild(el("path", { d: linePath, fill: "none", stroke: "var(--accent)", "stroke-width": 2, "stroke-linecap": "round", "stroke-linejoin": "round" }));
+
+  // points (dots + hit targets)
+  var dots = [];
+  hist.forEach(function (d, i) {
+    var cx = xAt(i), cy = yAt(d.value);
+    var dot = el("circle", { cx: cx, cy: cy, r: 3, fill: "var(--surface)", stroke: "var(--accent)", "stroke-width": 2 });
+    svg.appendChild(dot);
+    dots.push({ cx: cx, cy: cy, d: d });
+  });
+
+  // endpoint label
+  var last = hist[hist.length - 1];
+  var endLabel = el("text", { x: xAt(hist.length - 1), y: yAt(last.value) - 10, "text-anchor": "end", "font-size": 11, "font-weight": 600, fill: "var(--ink)", "font-family": "IBM Plex Mono, monospace" });
+  endLabel.textContent = "$" + last.value.toFixed(2);
+  svg.appendChild(endLabel);
+
+  // hover layer
+  var hitArea = el("rect", { x: PAD_L, y: PAD_T, width: (W - PAD_L - PAD_R), height: (H - PAD_T - PAD_B), fill: "transparent" });
+  svg.appendChild(hitArea);
+  var crosshair = el("line", { y1: PAD_T, y2: H - PAD_B, stroke: "var(--ink-muted)", "stroke-width": 1, "stroke-dasharray": "3,3", opacity: 0 });
+  svg.appendChild(crosshair);
+
+  function nearestIdx(px) {
+    var best = 0, bestD = Infinity;
+    dots.forEach(function (p, i) {
+      var dd = Math.abs(p.cx - px);
+      if (dd < bestD) { bestD = dd; best = i; }
+    });
+    return best;
+  }
+
+  function showTip(evt) {
+    var rect = svg.getBoundingClientRect();
+    var px = (evt.clientX - rect.left) * (W / rect.width);
+    var i = nearestIdx(px);
+    var d = dots[i];
+    crosshair.setAttribute("x1", d.cx);
+    crosshair.setAttribute("x2", d.cx);
+    crosshair.setAttribute("opacity", 1);
+    tip.style.opacity = 1;
+    tip.style.left = (d.cx / W) * 100 + "%";
+    tip.style.top = (d.cy / H) * 100 + "%";
+    tip.textContent = d.d.label + " — $" + d.d.value.toFixed(2);
+  }
+  function hideTip() {
+    crosshair.setAttribute("opacity", 0);
+    tip.style.opacity = 0;
+  }
+  hitArea.addEventListener("mousemove", showTip);
+  hitArea.addEventListener("mouseleave", hideTip);
+  hitArea.addEventListener("touchstart", function (e) { showTip(e.touches[0]); }, { passive: true });
+  hitArea.addEventListener("touchmove", function (e) { showTip(e.touches[0]); }, { passive: true });
+  hitArea.addEventListener("touchend", hideTip);
+})();
+</script>

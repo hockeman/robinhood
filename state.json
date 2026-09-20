@@ -1,8 +1,9 @@
 {
-  "last_run": "2026-09-18T22:16:00Z",
-  "peak_account_value": 7390.56261755,
+  "last_run": "2026-09-20T17:16:00Z",
+  "peak_account_value": 7435.688271375,
   "account_value_history": [
-    {"ts": "2026-09-18T22:16:00Z", "value": 7390.56261755}
+    {"ts": "2026-09-18T22:16:00Z", "value": 7390.56261755},
+    {"ts": "2026-09-20T17:16:00Z", "value": 7435.688271375}
   ],
   "positions": {
     "MSTR": {
@@ -48,6 +49,11 @@
       "detected": "2026-09-18T22:16:00Z",
       "description": "MSTR position was built from two same-day buy fills (12 sh ~150.10, then 11 sh ~150.50), i.e. an addition to an already-open position, which the standing rules forbid ('never average down or add to an existing position'). Several of today's buy fills also used stop-triggered limit orders rather than the plain marketable limit the entry procedure specifies (see get_equity_orders for TRMD, ALVO, MSTR order history). This predates this state file; no corrective action taken this run beyond flagging it.",
       "action_taken": "none - reported only"
+    },
+    {
+      "detected": "2026-09-20T17:16:00Z",
+      "description": "Both 2026-09-18 anomalies above are still unresolved two days later (no STOP file, config change, or other indication the owner reviewed them). Also newly observed: origin has ~39 unmerged 'claude/clever-thompson-*' branches besides main, only one of which (09-18's) is merged; this suggests scheduled runs commit to isolated branches that don't reach main, which would explain why 09-18 found no prior state despite live trades already existing. This run's own commit is on branch claude/clever-thompson-a731bh, not main, for the same reason.",
+      "action_taken": "none - reported only, re-flagged to owner"
     }
   ]
 }

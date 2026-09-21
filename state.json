@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-21T14:22:00Z",
+  "last_run": "2026-09-21T15:14:00Z",
   "canonical_branch": "claude/trading-state",
   "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
   "peak_account_value": 7727.2372613663,
@@ -259,6 +259,10 @@
     {
       "ts": "2026-09-21T14:16:00Z",
       "value": 7611.770122348
+    },
+    {
+      "ts": "2026-09-21T15:14:00Z",
+      "value": 7726.58630025
     }
   ],
   "positions": {
@@ -266,12 +270,12 @@
       "entry_price": 150.17,
       "entry_date": "2026-09-18",
       "qty": 23,
-      "high_since_entry": 165.888,
+      "high_since_entry": 167.46,
       "stop_price": 149.3,
       "protective_order_id": "6ab12e3d-aea4-49a4-b6bd-f4f6aa74d643",
       "protective_order_type": "stop_limit",
       "signal": "legacy",
-      "thesis": "Rebuilt from live account state; no prior journal/state existed at bootstrap. Two same-day buy fills (12 @ ~150.10 then 11 @ ~150.50) combined into this position, which violates the 'never add to an existing position' rule and predates the state file (see anomaly log). Trailing stop raised 2026-09-21 to $149.30/$149.00 (order 6ab12e3d-aea4-49a4-b6bd-f4f6aa74d643) after a pre-market high of $165.888 (+10.5% from entry) crossed the 10% trail trigger. Re-verified live against the broker at 2026-09-21T14:13Z: order still confirmed, unchanged; current price $165.76 has not exceeded the recorded high, so no further trail update due this run."
+      "thesis": "Rebuilt from live account state; no prior journal/state existed at bootstrap. Two same-day buy fills (12 @ ~150.10 then 11 @ ~150.50) combined into this position, which violates the 'never add to an existing position' rule and predates the state file (see anomaly log). Trailing stop raised 2026-09-21 to $149.30/$149.00 (order 6ab12e3d-aea4-49a4-b6bd-f4f6aa74d643) after a pre-market high of $165.888 crossed the 10% trail trigger. Re-verified live against the broker at 2026-09-21T15:13Z: order still confirmed, unchanged. Price made a new high of $167.46 this run (updated high_since_entry from $165.888) -- recalculated trail stop = $167.46 x 0.90 = $150.714, only 0.95% above the current $149.30 stop (below the 1% replace threshold), so the stop was left as-is this run per the rules. Will re-check against the new high next run."
     },
     "ALVO": {
       "entry_price": 5.94,

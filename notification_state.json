@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "initialized_at": "2026-09-21T13:35:00Z",
+  "baseline_as_of": "2026-09-21T13:32:00Z",
+  "last_successful_reconciliation_at": "2026-09-21T13:32:00Z",
+  "email_recipient_source": "session userEmail context (account owner identity for this Claude session); config.json.email_recipient was null and no other owner-approved recipient record existed in this repository, so this was used per the standing instruction to reuse the owner's established identity rather than guess or use externally-researched contact info.",
+  "email_recipient": "ferrell@chacetech.com",
+  "observed_events": {
+    "baseline:positions:2026-09-21T13:32:00Z": {
+      "description": "Baseline snapshot at notification-system install: 4 protected positions (MSTR, ALVO, DSP, UROY) and 1 unmanaged fractional AAPL lot, all inherited from before this notification system existed. Not treated as new trades.",
+      "origin": "baseline"
+    },
+    "stop:MSTR:2026-09-21T13:16:45Z": {
+      "description": "MSTR protective stop raised from $144.80 to $149.30 (order 6ab12e3d-aea4-49a4-b6bd-f4f6aa74d643) by a run that completed shortly before this session started (branch claude/clever-thompson-moql19). Discovered by this session at 2026-09-21T13:2xZ during reconciliation, i.e. after the fact -- this session did not place the order. Treated as part of this run's install baseline (see notification decision below) rather than a fresh ACTION_UPDATE, since the notification system did not exist yet when it happened and there's no way to know whether the run that made the change already notified the owner through the prior (push-notification) channel.",
+      "origin": "broker (agentic, prior run)",
+      "order_id": "6ab12e3d-aea4-49a4-b6bd-f4f6aa74d643"
+    }
+  },
+  "reported_event_ids": [],
+  "critical_issue_fingerprints": {
+    "git-branch-persistence-bug": {
+      "first_detected": "2026-09-19T17:19:00Z",
+      "last_reported_in_email": "2026-09-21T13:35:00Z",
+      "note": "Reported this run inside the DAILY_CLOSE email banner (not as a separate ACTION_UPDATE) since it's an infra/continuity issue, not a trading-safety issue -- all positions were independently re-verified protected against the broker this run."
+    }
+  },
+  "outbox": {
+    "close-acct4292-2026-09-18-delayed": {
+      "report_id": "close-acct4292-2026-09-18-delayed",
+      "type": "DAILY_CLOSE",
+      "session_date": "2026-09-18",
+      "included_event_ids": ["baseline:positions:2026-09-21T13:32:00Z", "stop:MSTR:2026-09-21T13:16:45Z"],
+      "recipient": "ferrell@chacetech.com",
+      "status": "accepted",
+      "prepared_at": "2026-09-21T13:34:00Z",
+      "sent_at": "2026-09-21T13:35:00Z",
+      "provider": "gmail",
+      "provider_message_id": "1a0c42c727850f44",
+      "provider_thread_id": "1a0c42c727850f44",
+      "note": "send_message returned a message id, which this account's Gmail integration treats as acceptance by the provider, not confirmed recipient delivery. Delayed summary for the most recent completed session (Fri 2026-09-18); no DAILY_CLOSE had ever been sent for this account before this run. Weekend sessions 9/19-9/20 do not exist and owe no summary. Weekly-recap section (Section 7) omitted: 9/18 was the first tracked day, so no week of prior data exists to summarize."
+    }
+  },
+  "daily_summaries": {
+    "close:acct4292:2026-09-18": {
+      "report_id": "close-acct4292-2026-09-18-delayed",
+      "status": "verified_sent",
+      "sent_at": "2026-09-21T13:35:00Z"
+    }
+  },
+  "close_snapshots": {
+    "2026-09-18": {
+      "reconstruction_basis": "qty (unchanged since bootstrap) x official close price per get_equity_quotes, plus cash; not a same-day broker snapshot",
+      "total_value": 7366.92,
+      "cash": 0.6
+    }
+  },
+  "last_weekly_statistics_session": null
+}

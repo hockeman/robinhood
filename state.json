@@ -1,37 +1,47 @@
 {
-  "last_run": "2026-09-18T22:16:00Z",
-  "peak_account_value": 7390.56261755,
+  "last_run": "2026-09-21T13:32:00Z",
+  "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
+  "peak_account_value": 7727.2372613663,
   "account_value_history": [
-    {"ts": "2026-09-18T22:16:00Z", "value": 7390.56261755}
+    {"ts": "2026-09-18T22:16:00Z", "value": 7390.56261755},
+    {"ts": "2026-09-20T07:16:00Z", "value": 7435.688271375},
+    {"ts": "2026-09-20T08:15:00Z", "value": 7435.688271375},
+    {"ts": "2026-09-20T10:14:00Z", "value": 7435.688271375},
+    {"ts": "2026-09-20T14:15:00Z", "value": 7435.688271375},
+    {"ts": "2026-09-21T02:16:00Z", "value": 7414.89023795},
+    {"ts": "2026-09-21T07:18:46Z", "value": 7450.04487817},
+    {"ts": "2026-09-21T10:14:05Z", "value": 7646.95565154},
+    {"ts": "2026-09-21T13:17:00Z", "value": 7727.2372613663},
+    {"ts": "2026-09-21T13:32:00Z", "value": 7634.3731558}
   ],
   "positions": {
     "MSTR": {
       "entry_price": 150.17, "entry_date": "2026-09-18", "qty": 23,
-      "high_since_entry": 153.91, "stop_price": 144.80,
-      "protective_order_id": "6aad726e-9263-4d94-ade3-1ef7d93775ae",
+      "high_since_entry": 165.888, "stop_price": 149.30,
+      "protective_order_id": "6ab12e3d-aea4-49a4-b6bd-f4f6aa74d643",
       "protective_order_type": "stop_limit", "signal": "legacy",
-      "thesis": "Rebuilt from live account state; no prior journal/state existed. Two same-day buy fills (12 @ ~150.10 then 11 @ ~150.50) combined into this position, which violates the 'never add to an existing position' rule and predates this state file."
+      "thesis": "Rebuilt from live account state; no prior journal/state existed. Two same-day buy fills (12 @ ~150.10 then 11 @ ~150.50) combined into this position, which violates the 'never add to an existing position' rule and predates this state file. Trailing stop raised 2026-09-21 (by a prior run this session did not create, ~13:16 UTC) after a pre-market print of $165.89 (+10.5% from entry) crossed the 10% trail trigger. Verified confirmed and unchanged by this run at 13:3x UTC; current price has not exceeded that high since."
     },
     "ALVO": {
       "entry_price": 5.94, "entry_date": "2026-09-18", "qty": 300,
-      "high_since_entry": 5.99, "stop_price": 5.65,
+      "high_since_entry": 6.00, "stop_price": 5.65,
       "protective_order_id": "6aad6bf8-ce1b-4aa8-83e8-1440b89993be",
       "protective_order_type": "stop_limit", "signal": "legacy",
-      "thesis": "Rebuilt from live account state; no prior journal/state existed."
+      "thesis": "Rebuilt from live account state; no prior journal/state existed. Verified confirmed and unchanged by this run."
     },
     "DSP": {
       "entry_price": 11.70, "entry_date": "2026-09-18", "qty": 161,
-      "high_since_entry": 11.91, "stop_price": 11.20,
+      "high_since_entry": 12.41, "stop_price": 11.20,
       "protective_order_id": "6aad67c9-0e21-4f19-bbee-56b80a2f9d0e",
       "protective_order_type": "stop_limit", "signal": "legacy",
-      "thesis": "Rebuilt from live account state; no prior journal/state existed."
+      "thesis": "Rebuilt from live account state; no prior journal/state existed. Verified confirmed and unchanged by this run."
     },
     "UROY": {
       "entry_price": 4.53, "entry_date": "2026-09-18", "qty": 33,
-      "high_since_entry": 4.55, "stop_price": 4.28,
+      "high_since_entry": 4.705, "stop_price": 4.28,
       "protective_order_id": "6aad8872-c211-45cc-88d8-f8fff1f471a1",
       "protective_order_type": "stop_limit", "signal": "legacy",
-      "thesis": "Rebuilt from live account state; no prior journal/state existed."
+      "thesis": "Rebuilt from live account state; no prior journal/state existed. Verified confirmed and unchanged by this run."
     }
   },
   "closed": [],
@@ -41,13 +51,22 @@
   "anomalies": [
     {
       "detected": "2026-09-18T22:16:00Z",
-      "description": "AAPL position of 0.005949 shares (~$2) bought via a market order at 2026-09-18T19:30:36Z, placed_agent=agentic. This does not fit the strategy: no AAPL signal, no config in place, size far below min_position_usd, and order type (market, dollar-based) is not the marketable-limit entry the rules specify. No protective order exists or is feasible for a fractional position this small. Left unmanaged and flagged for the owner; not sold or otherwise acted on this run.",
-      "action_taken": "none - reported only"
+      "description": "AAPL position of 0.005949 shares (~$2) bought via a market order at 2026-09-18T19:30:36Z, placed_agent=agentic. This does not fit the strategy: no AAPL signal, no config in place, size far below min_position_usd, and order type (market, dollar-based) is not the marketable-limit entry the rules specify. No protective order exists or is feasible for a fractional position this small.",
+      "action_taken": "none - reported only",
+      "acknowledged_by_owner": "2026-09-21",
+      "status": "A prior run (branch claude/clever-thompson-moql19, 2026-09-21T13:17Z) recorded that the owner acknowledged this in a live conversation and asked not to keep flagging it; this session did not independently verify that conversation and is carrying the note forward as reported. Not re-flagged this run. Left as-is (unmanaged, no protective order)."
     },
     {
       "detected": "2026-09-18T22:16:00Z",
-      "description": "MSTR position was built from two same-day buy fills (12 sh ~150.10, then 11 sh ~150.50), i.e. an addition to an already-open position, which the standing rules forbid ('never average down or add to an existing position'). Several of today's buy fills also used stop-triggered limit orders rather than the plain marketable limit the entry procedure specifies (see get_equity_orders for TRMD, ALVO, MSTR order history). This predates this state file; no corrective action taken this run beyond flagging it.",
-      "action_taken": "none - reported only"
+      "description": "MSTR position was built from two same-day buy fills (12 sh ~150.10, then 11 sh ~150.50), i.e. an addition to an already-open position, which the standing rules forbid ('never average down or add to an existing position'). Several of today's buy fills also used stop-triggered limit orders rather than the plain marketable limit the entry procedure specifies. This predates this state file.",
+      "action_taken": "none beyond normal ongoing management (trailing stop raised 2026-09-21 by a prior run)",
+      "acknowledged_by_owner": "2026-09-21",
+      "status": "Same unverified-but-carried-forward owner acknowledgment as the AAPL anomaly above (source: claude/clever-thompson-moql19). Not re-flagged this run; position continues to be managed normally."
+    },
+    {
+      "detected": "2026-09-19T17:19:00Z",
+      "description": "CRITICAL INFRA BUG, still unresolved: this repository has no stable session-start branch. GitHub's configured default branch is still pinned to the original bootstrap commit (d569736), so every scheduled run cold-starts on a brand-new throwaway branch ('claude/clever-thompson-XXXXXX' or, this session, 'claude/elegant-tesla-opd7nk') off that same stale commit, with none of the intervening history. A prior run mitigated this by adding a 'fetch origin/main first' instruction to the top of AGENT.md and having subsequent runs push their consolidated state to 'main'. That mitigation only works AFTER a run has actually read the fixed AGENT.md -- but because cold starts check out the stale default branch, a session's own local AGENT.md is the pre-fix copy that has no 'fetch main' instruction in it, so the fix does not propagate to fresh sessions on its own; it only worked when a run happened to think to check main anyway. Evidence this run: 'main' has not advanced past 2026-09-21T10:16:11Z (the 06:14 ET run) even though at least three later runs happened (claude/clever-thompson-gipv4x @ 11:16Z, -xsfzqi @ 12:15Z, -moql19 @ 13:23Z), each starting fresh from the bootstrap commit and never reaching main.",
+      "action_taken": "flagged to owner previously; a stopgap 'main' branch push convention was adopted by prior runs (see history above) but has been silently failing again for the last several hourly runs, for the reason described above. Update 2026-09-21T13:32Z (this run): this session's own operating environment explicitly restricts pushes to one assigned branch per session (claude/elegant-tesla-opd7nk) unless the task instructions themselves direct otherwise, and this run's actual standing-instructions document (delivered fresh by the scheduler, revision 2026-09-21) never mentions 'main' as a persistence target at all -- it names a differently-named fallback branch, 'claude/journal', instead, and does not carry AGENT.md's 'fetch main first' convention. Given that fork between what AGENT.md (repo content, evolved informally by prior runs) says and what this run's actual scheduled-task instructions say, this run is following its own instructions: it read origin/main and this branch's most recent sibling (claude/clever-thompson-moql19) to reconstruct current state, and is pushing its consolidated commit to a new 'claude/journal' branch (creating it) plus this session's own assigned branch, but NOT to 'main', since pushing to 'main' is not something this run's actual instructions authorize and the session-level restriction otherwise forbids pushing to branches its instructions do not name. Net effect: 'main' is now itself a second stale/orphaned convention alongside the per-session throwaway branches, and 'claude/journal' is a new one this run originated. RECOMMENDED OWNER ACTION (the one fix that would end all of this): GitHub repo Settings -> General -> Default branch, and point it at a single stable branch name; then make sure whichever standing-instructions document is actually fed to each scheduled run names that same branch as the persistence target, so there is exactly one convention instead of three ('main', 'claude/journal', and ad hoc throwaway branches). Until that is done, day_trades/stopped_out_recently/candidates_seen/peak_account_value history will keep fragmenting across branches; this run reconstructed peak_account_value and account_value_history by merging every branch it could find, but a future run that does not think to do that merge could silently lose data (e.g. undercount day trades toward the PDT limit)."
     }
   ]
 }

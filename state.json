@@ -1,8 +1,8 @@
 {
-  "last_run": "2026-09-21T19:13:00Z",
+  "last_run": "2026-09-21T20:17:00Z",
   "canonical_branch": "claude/trading-state",
   "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
-  "peak_account_value": 7727.2372613663,
+  "peak_account_value": 7842.46462885,
   "account_value_history": [
     {
       "ts": "2026-09-18T22:16:00Z",
@@ -279,6 +279,10 @@
     {
       "ts": "2026-09-21T19:13:00Z",
       "value": 7707.034610435
+    },
+    {
+      "ts": "2026-09-21T20:17:00Z",
+      "value": 7842.46462885
     }
   ],
   "positions": {
@@ -286,12 +290,12 @@
       "entry_price": 150.17,
       "entry_date": "2026-09-18",
       "qty": 23,
-      "high_since_entry": 167.46,
-      "stop_price": 149.3,
-      "protective_order_id": "6ab12e3d-aea4-49a4-b6bd-f4f6aa74d643",
+      "high_since_entry": 169.5,
+      "stop_price": 152.55,
+      "protective_order_id": "6ab19029-22ac-4b79-9319-06b6f0fc6251",
       "protective_order_type": "stop_limit",
       "signal": "legacy",
-      "thesis": "Rebuilt from live account state; no prior journal/state existed at bootstrap. Two same-day buy fills (12 @ ~150.10 then 11 @ ~150.50) combined into this position, which violates the 'never add to an existing position' rule and predates the state file (see anomaly log). Trailing stop raised 2026-09-21 to $149.30/$149.00 (order 6ab12e3d-aea4-49a4-b6bd-f4f6aa74d643) after a pre-market high of $165.888 crossed the 10% trail trigger. Re-verified live against the broker at 2026-09-21T16:13Z: order still confirmed, unchanged. Current price $165.52 remains below the recorded high ($167.46), so high_since_entry is unchanged this run; recalculated trail stop off that high = $167.46 x 0.90 = $150.714, still only 0.95% above the current $149.30 stop (below the 1% replace threshold), so the stop was left as-is again this run per the rules."
+      "thesis": "Rebuilt from live account state; no prior journal/state existed at bootstrap. Two same-day buy fills (12 @ ~150.10 then 11 @ ~150.50) combined into this position, which violates the 'never add to an existing position' rule and predates the state file (see anomaly log). Trailing stop raised 2026-09-21 15:13 ET run to $149.30/$149.00 after a pre-market high of $165.888 crossed the 10% trail trigger; left unchanged at the 15:13 ET run since the trail-off-high recalculation was still below the 1% replace threshold. This run (16:14 ET, at/after the regular close): get_equity_historicals (5minute bars, regular session) showed an intraday high of $169.50, a new high_since_entry (was $167.46) and a 12.87% gain from entry -- above the 10% trail trigger. New trail stop = $169.50 x 0.90 = $152.55, which is 2.18% above the prior $149.30 stop (above the 1% replace threshold), so it was replaced: cancelled order 6ab12e3d-... (confirmed cancelled), then placed+verified new stop-limit sell 23 sh, stop $152.55/limit $152.25, GTC, regular_hours (order 6ab19029-22ac-4b79-9319-06b6f0fc6251). Placed after the 20:00 UTC regular close, so broker state is 'queued' (not yet 'confirmed') pending the next regular-session open -- this is expected for a GTC regular_hours order placed after hours, not a fill/protection gap, since no trading (and therefore no exposure) occurs while queued. Advanced orders (OCO) remain SERVICE_DISABLED on this account, so this stays a plain stop-limit sell rather than a bracket."
     },
     "ALVO": {
       "entry_price": 5.94,
@@ -308,23 +312,23 @@
       "entry_price": 11.7,
       "entry_date": "2026-09-18",
       "qty": 161,
-      "high_since_entry": 12.48,
+      "high_since_entry": 12.7,
       "stop_price": 11.2,
       "protective_order_id": "6aad67c9-0e21-4f19-bbee-56b80a2f9d0e",
       "protective_order_type": "stop_limit",
       "signal": "legacy",
-      "thesis": "Rebuilt from live account state; no prior journal/state existed. Re-verified live against the broker at 2026-09-21T16:13Z: order still confirmed, unchanged since 2026-09-18. Price made a new high of $12.48 this run (updated high_since_entry from $12.41); up 6.67% from entry ($11.70) -- still below the 10% trail trigger, no stop change due."
+      "thesis": "Rebuilt from live account state; no prior journal/state existed. Re-verified live against the broker this run (16:14 ET, order still confirmed, unchanged since 2026-09-18). get_equity_historicals (5minute bars, regular session) shows a new intraday high of $12.70 (was $12.48); up 8.55% from entry ($11.70) -- still below the 10% trail trigger, no stop change due."
     },
     "BORR": {
       "entry_price": 4.4685,
       "entry_date": "2026-09-21",
       "qty": 26,
-      "high_since_entry": 4.4685,
+      "high_since_entry": 4.575,
       "stop_price": 4.11,
       "protective_order_id": "6ab13b9c-0bd2-4a33-92e3-34e9d86ccd63",
       "protective_order_type": "stop_market",
       "signal": "insider",
-      "thesis": "Insider cluster buy verified via SEC EDGAR Form 4 filing index (3 filings: 2026-09-17, 2026-09-18, 2026-09-21, all confirmed against OpenInsider data). CEO Bruno Morand De Oliveira bought $200,200 on 2026-09-18; Director Tor Olav Troim bought $656,925 (2026-09-17) and $4,299,500/1,000,000sh (2026-09-16). Signal score 7 (CEO/officer open-market buy +3, other director buy +2, 2-insider cluster +2; no ΔOwn>=5% bonus, no politician confluence, no penalties -- chase from $4.40 signal price to $4.47 entry was only +1.6%, RSI(14)=53 mid-range, price above 50-day SMA). Universe screen passed: market cap $1.38B, 30-day avg volume 5.28M shares, bid/ask spread 0.22%, tradable, no earnings within blackout (next report 2026-11-04), financial_status_description clean. Entered 26 sh at $4.4685 avg (marketable limit, regular hours). Advanced orders (OCO) remain SERVICE_DISABLED on this account (standing constraint, see anomalies) -- protected with a plain stop_market sell at $4.11 (8% initial stop) instead of a bracket; verified confirmed same run. Re-verified live against the broker at 2026-09-21T16:13Z: order still confirmed, unchanged. Current price $4.425 essentially flat vs. entry, no trail trigger."
+      "thesis": "Insider cluster buy verified via SEC EDGAR Form 4 filing index (3 filings: 2026-09-17, 2026-09-18, 2026-09-21, all confirmed against OpenInsider data). CEO Bruno Morand De Oliveira bought $200,200 on 2026-09-18; Director Tor Olav Troim bought $656,925 (2026-09-17) and $4,299,500/1,000,000sh (2026-09-16). Signal score 7 (CEO/officer open-market buy +3, other director buy +2, 2-insider cluster +2; no ΔOwn>=5% bonus, no politician confluence, no penalties -- chase from $4.40 signal price to $4.47 entry was only +1.6%, RSI(14)=53 mid-range, price above 50-day SMA). Universe screen passed: market cap $1.38B, 30-day avg volume 5.28M shares, bid/ask spread 0.22%, tradable, no earnings within blackout (next report 2026-11-04), financial_status_description clean. Entered 26 sh at $4.4685 avg (marketable limit, regular hours). Advanced orders (OCO) remain SERVICE_DISABLED on this account (standing constraint, see anomalies) -- protected with a plain stop_market sell at $4.11 (8% initial stop) instead of a bracket; verified confirmed same run. Re-verified live against the broker this run (16:14 ET, order still confirmed, unchanged). get_equity_historicals shows a new intraday high of $4.575 (was $4.4685); up 2.38% from entry -- still well below the 10% trail trigger, no stop change due."
     }
   },
   "closed": [
@@ -393,6 +397,13 @@
       "description": "Two agentic runs executed concurrently in the same ~10-minute window (no lock exists by design, see PERSISTENCE.md): one run (session 01Y4ZaPhUjiaRjn5hHAJg8Rz, commit 9cc6f76) did the real work -- researched and entered BORR on a verified insider-cluster signal, reconciled the UROY stop-out, and sent one accurate ACTION_UPDATE (Gmail message 1a0c454286356df8, sent 2026-09-21T14:17:25Z, verified_sent). A second, separately-scheduled run (this session, 015xk18GJTXNeSFonnmdPvt7) started its own Step 0 orientation in the same minute the first run's BORR order filled, found the same live UROY-exit/BORR-entry facts on the broker before the first run's push had reached claude/trading-state, and -- not yet aware a concurrent run existed -- independently reconciled the same events into its own draft state and sent its own ACTION_UPDATE for the same event set. That second run's first send (Gmail message 1a0c455632cdf6cf, 2026-09-21T14:18:45Z) also had a tooling defect: htmlBody was sent as the literal text '$(cat)' due to a shell-substitution pattern mistakenly used in a non-shell tool call, so it carried no graphical body. It was immediately corrected with a third message in the same thread (1a0c456205331c54, 2026-09-21T14:19:34Z) containing the correct HTML. All three messages report the same underlying facts (UROY stopped out -$8.25; BORR entered and protected) and none contains incorrect information, but the owner received 3 emails for one event set instead of 1, and one of the three briefly had a broken body before being corrected in-thread. When this session's own push was rejected as non-fast-forward, it fetched the concurrent run's already-pushed state and deferred to it as authoritative (real BORR thesis/candidates_seen/signal research) rather than overwriting it; this session only appended its own account_value_history snapshot on top.",
       "action_taken": "No corrective email sent -- the facts already delivered to the owner are accurate and complete, and a fourth 'disregard the duplicates' email would add more noise, not less. Disclosed here and in this run's journal entry for transparency. No rule violation occurred (both runs independently satisfied review-before-place and verify-after for their own actions; the duplication is a notification-layer side effect of concurrent scheduling with no lock, which PERSISTENCE.md already documents as an accepted risk). If this recurs, a future maintenance session may want to consider a lightweight advisory check (e.g. re-fetching immediately before Step 8's send, not just at Step 0) to shrink the race window between two concurrent runs' sends -- not a hard requirement, since PERSISTENCE.md's git-push compare-and-swap already prevents any actual state corruption.",
       "status": "informational, no owner action needed"
+    },
+    {
+      "id": "shell-substitution-htmlbody-defect-20260921t2019z",
+      "detected": "2026-09-21T20:19:50Z",
+      "description": "This run's first DAILY_CLOSE send (Gmail message 1a0c59ff61679c97, 2026-09-21T20:19:50Z) used the literal text '$(cat /home/user/robinhood/reporting/sent/daily_close_2026-09-21.html)' as the htmlBody parameter, expecting shell command substitution -- but the Gmail send_message tool is not a shell and does not evaluate that syntax, so the literal string was sent as the HTML body. plaintextBody was correct. This is the identical class of defect already documented in anomaly concurrent-run-duplicate-action-update-20260921t1414z from an earlier run today, which this run's own orientation reading should have (and did not) prevent.",
+      "action_taken": "Caught immediately via get_message re-verification before declaring the send complete (per reporting/README.md's send-discipline rule to verify by re-reading rather than trusting send_message's return value). Sent an in-thread corrective follow-up (message 1a0c5a0f254b8164, 20:20:54Z) with the actual rendered HTML pasted directly into the parameter (read via the Read tool, not referenced via shell syntax); verified via get_message FULL_CONTENT that the correction carries the real markup (18400 bytes) before marking the DAILY_CLOSE report verified_sent. See notification_state.json outbox entry close-acct4292-2026-09-21 for full detail.",
+      "status": "corrected_same_run; recommend a future maintenance session add an explicit pre-send lint/checklist step (e.g. 'does htmlBody start with <!DOCTYPE or <table, not $ or a shell metacharacter?') to prevent recurrence, since documentation alone did not prevent the repeat"
     }
   ]
 }

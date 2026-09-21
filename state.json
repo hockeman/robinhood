@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-21T13:32:00Z",
+  "last_run": "2026-09-21T14:14:01Z",
   "canonical_branch": "claude/trading-state",
   "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
   "peak_account_value": 7727.2372613663,
@@ -251,6 +251,10 @@
     {
       "ts": "2026-09-21T13:32:00Z",
       "value": 7634.3731558
+    },
+    {
+      "ts": "2026-09-21T14:14:01Z",
+      "value": 7610.84999147
     }
   ],
   "positions": {
@@ -263,7 +267,7 @@
       "protective_order_id": "6ab12e3d-aea4-49a4-b6bd-f4f6aa74d643",
       "protective_order_type": "stop_limit",
       "signal": "legacy",
-      "thesis": "Rebuilt from live account state; no prior journal/state existed at bootstrap. Two same-day buy fills (12 @ ~150.10 then 11 @ ~150.50) combined into this position, which violates the 'never add to an existing position' rule and predates the state file (see anomaly log). Trailing stop raised 2026-09-21 to $149.30/$149.00 (order 6ab12e3d-aea4-49a4-b6bd-f4f6aa74d643) after a pre-market high of $165.888 (+10.5% from entry) crossed the 10% trail trigger. Re-verified live against the broker at 2026-09-21T13:35Z (maintenance session): order still confirmed, unchanged."
+      "thesis": "Rebuilt from live account state; no prior journal/state existed at bootstrap. Two same-day buy fills (12 @ ~150.10 then 11 @ ~150.50) combined into this position, which violates the 'never add to an existing position' rule and predates the state file (see anomaly log). Trailing stop raised 2026-09-21 to $149.30/$149.00 (order 6ab12e3d-aea4-49a4-b6bd-f4f6aa74d643) after a pre-market high of $165.888 (+10.5% from entry) crossed the 10% trail trigger. Re-verified live against the broker at 2026-09-21T14:13Z: order still confirmed, unchanged; current price $165.76 has not exceeded the recorded high, so no further trail update due this run."
     },
     "ALVO": {
       "entry_price": 5.94,
@@ -274,7 +278,7 @@
       "protective_order_id": "6aad6bf8-ce1b-4aa8-83e8-1440b89993be",
       "protective_order_type": "stop_limit",
       "signal": "legacy",
-      "thesis": "Rebuilt from live account state; no prior journal/state existed. Re-verified live against the broker at 2026-09-21T13:35Z (maintenance session): order still confirmed, unchanged since 2026-09-18."
+      "thesis": "Rebuilt from live account state; no prior journal/state existed. Re-verified live against the broker at 2026-09-21T14:13Z: order still confirmed, unchanged since 2026-09-18. Current price $5.87 remains below entry; no trail trigger."
     },
     "DSP": {
       "entry_price": 11.7,
@@ -285,30 +289,55 @@
       "protective_order_id": "6aad67c9-0e21-4f19-bbee-56b80a2f9d0e",
       "protective_order_type": "stop_limit",
       "signal": "legacy",
-      "thesis": "Rebuilt from live account state; no prior journal/state existed. Re-verified live against the broker at 2026-09-21T13:35Z (maintenance session): order still confirmed, unchanged since 2026-09-18."
+      "thesis": "Rebuilt from live account state; no prior journal/state existed. Re-verified live against the broker at 2026-09-21T14:13Z: order still confirmed, unchanged since 2026-09-18. Current price $12.01 is below recorded high ($12.41) and up only ~2.6% from entry -- below the 10% trail trigger, no stop change due."
     },
-    "UROY": {
-      "entry_price": 4.53,
-      "entry_date": "2026-09-18",
-      "qty": 33,
-      "high_since_entry": 4.705,
-      "stop_price": 4.28,
-      "protective_order_id": "6aad8872-c211-45cc-88d8-f8fff1f471a1",
-      "protective_order_type": "stop_limit",
-      "signal": "legacy",
-      "thesis": "Rebuilt from live account state; no prior journal/state existed. Re-verified live against the broker at 2026-09-21T13:35Z (maintenance session): order still confirmed, unchanged since 2026-09-18."
+    "BORR": {
+      "entry_price": 4.4685,
+      "entry_date": "2026-09-21",
+      "qty": 26,
+      "high_since_entry": 4.4685,
+      "stop_price": 4.11,
+      "protective_order_id": "6ab13b9c-0bd2-4a33-92e3-34e9d86ccd63",
+      "protective_order_type": "stop_market",
+      "signal": "insider",
+      "thesis": "Insider cluster buy verified via SEC EDGAR Form 4 filing index (3 filings: 2026-09-17, 2026-09-18, 2026-09-21, all confirmed against OpenInsider data). CEO Bruno Morand De Oliveira bought $200,200 on 2026-09-18; Director Tor Olav Troim bought $656,925 (2026-09-17) and $4,299,500/1,000,000sh (2026-09-16). Signal score 7 (CEO/officer open-market buy +3, other director buy +2, 2-insider cluster +2; no ΔOwn>=5% bonus, no politician confluence, no penalties -- chase from $4.40 signal price to $4.47 entry was only +1.6%, RSI(14)=53 mid-range, price above 50-day SMA). Universe screen passed: market cap $1.38B, 30-day avg volume 5.28M shares, bid/ask spread 0.22%, tradable, no earnings within blackout (next report 2026-11-04), financial_status_description clean. Entered 26 sh at $4.4685 avg (marketable limit, regular hours). Advanced orders (OCO) remain SERVICE_DISABLED on this account (standing constraint, see anomalies) -- protected with a plain stop_market sell at $4.11 (8% initial stop) instead of a bracket; verified confirmed same run."
     }
   },
-  "closed": [],
+  "closed": [
+    {
+      "symbol": "UROY",
+      "entry_price": 4.5299,
+      "entry_date": "2026-09-18",
+      "exit_price": 4.28,
+      "exit_date": "2026-09-21",
+      "qty": 33,
+      "exit_reason": "automatic_stop_market_fill",
+      "protective_order_id": "6aad8872-c211-45cc-88d8-f8fff1f471a1",
+      "realized_pnl_usd": -8.2467,
+      "day_trade": false,
+      "notes": "Protective stop (raised from initial stop via broker-side trigger at $4.28) filled automatically at 2026-09-21T14:08:43Z per get_equity_orders execution records (2 executions, 1 sh + 32 sh, both at $4.28). Position was opened 2026-09-18 and closed 2026-09-21 (3 calendar days held) -- not a same-day round trip, so no day trade recorded. Discovered by this run via Step 1 reconciliation (position present in state.json but absent from live get_equity_positions)."
+    }
+  ],
   "day_trades": [],
-  "stopped_out_recently": {},
-  "candidates_seen": {},
+  "stopped_out_recently": {
+    "UROY": {
+      "stopped_out_date": "2026-09-21",
+      "cooldown_until": "2026-10-21"
+    }
+  },
+  "candidates_seen": {
+    "2026-09-21": {
+      "BORR": {"score": 7, "decision": "entered", "signal": "insider_cluster (CEO + Director)"},
+      "SBLK": {"score": 6, "decision": "rejected_position_sizing", "signal": "insider_cluster (5 insiders incl. co-CFO)", "notes": "Passed universe/technical screens and scoring (>= min_signal_score) but at $32.39 ask, the $116.84 available budget only buys 3 whole shares ($97.17), below min_position_usd ($100). Only one new position allowed per run; BORR took the slot."},
+      "BWMX": {"score": null, "decision": "rejected_universe", "signal": "insider_cluster (3 insiders incl. CEO+Chairman)", "notes": "Disqualified before scoring: 30-day avg volume 73,584 sh (below 500,000 minimum) and bid/ask spread ~2.6% (above 1.0% max)."}
+    }
+  },
   "anomalies": [
     {
       "id": "aapl-fractional-lot",
       "detected": "2026-09-18T22:16:00Z",
       "description": "AAPL position of 0.005949 shares (~$2) bought via a market order at 2026-09-18T19:30:36Z, placed_agent=agentic. Does not fit the strategy: no AAPL signal, no config in place, size far below min_position_usd, and order type (market, dollar-based) is not the marketable-limit entry the rules specify. No protective order exists or is feasible for a fractional position this small.",
-      "action_taken": "Reported only from 2026-09-18 through 2026-09-21; reconfirmed unchanged and unresolved on at least 9 separate runs across that window (see journal/ for individual confirmations). A run on branch claude/clever-thompson-moql19 (2026-09-21T13:17Z) recorded that the owner acknowledged this in a live conversation and asked not to keep re-flagging it. That claim has not been independently verified by any session (including this one) beyond the fact that it is consistently recorded. Carried forward as reported; not re-flagged in routine runs going forward unless the position or its status changes.",
+      "action_taken": "Reported only from 2026-09-18 through 2026-09-21; reconfirmed unchanged and unresolved on at least 10 separate runs across that window (see journal/ for individual confirmations). A run on branch claude/clever-thompson-moql19 (2026-09-21T13:17Z) recorded that the owner acknowledged this in a live conversation and asked not to keep re-flagging it. That claim has not been independently verified by any session beyond the fact that it is consistently recorded. Carried forward as reported; not re-flagged in routine runs going forward unless the position or its status changes. Unchanged this run (still 0.005949 sh, still unprotected, still unmanaged).",
       "status": "acknowledged_by_owner (unverified, per moql19 2026-09-21)",
       "still_unmanaged": true
     },
@@ -316,23 +345,23 @@
       "id": "mstr-same-day-add",
       "detected": "2026-09-18T22:16:00Z",
       "description": "MSTR's 23-share position was built from two same-day buy fills (12 sh ~150.10, then 11 sh ~150.50), i.e. an addition to an already-open position, which the standing rules forbid ('never average down or add to an existing position'). Several 2026-09-18 buy fills also used stop-triggered limit orders rather than the plain marketable limit the entry procedure specifies. Predates this repo's state file.",
-      "action_taken": "Reported only from 2026-09-18 through 2026-09-21; reconfirmed unchanged and unresolved on at least 9 separate runs across that window. Same owner-acknowledgment claim (moql19, 2026-09-21T13:17Z, unverified) as the AAPL anomaly above. Position continues to be managed normally as a single legacy lot (trailing stop raised 2026-09-21); not unwound.",
+      "action_taken": "Reported only from 2026-09-18 through 2026-09-21; reconfirmed unchanged and unresolved across that window. Same owner-acknowledgment claim (moql19, 2026-09-21T13:17Z, unverified) as the AAPL anomaly above. Position continues to be managed normally as a single legacy lot; not unwound.",
       "status": "acknowledged_by_owner (unverified, per moql19 2026-09-21)",
       "still_unmanaged": false
     },
     {
       "id": "advanced-orders-disabled",
       "detected": "2026-09-19T15:14:00Z",
-      "description": "get_advanced_orders / place_advanced_order / review_advanced_order return SERVICE_DISABLED ('not yet enabled for this account') for the Agentic account (604824292). All 4 protective orders on this account are therefore plain stop-limit equity sells, not OCO brackets. Independently reconfirmed on at least 2 later runs (2026-09-20T16:20Z, 2026-09-21T05:15Z).",
-      "action_taken": "No corrective action possible or needed from this agent; this is a standing account-level constraint. Any future entry (Step 5 bracket) or trailing-stop replacement that would use place_advanced_order must fall back to a plain stop_market/stop_limit sell, per the rules' own documented fallback. Not an anomaly requiring owner action -- kept in this list as a standing operational note so a future run doesn't assume OCO will succeed.",
+      "description": "get_advanced_orders / place_advanced_order / review_advanced_order return SERVICE_DISABLED ('not yet enabled for this account') for the Agentic account (604824292). All protective orders on this account are therefore plain stop-limit/stop-market equity sells, not OCO brackets. Reconfirmed again this run (2026-09-21T14:13Z) when bracketing the new BORR entry -- review_advanced_order still SERVICE_DISABLED, fell back to a plain stop_market sell per the rules' documented fallback.",
+      "action_taken": "No corrective action possible or needed from this agent; this is a standing account-level constraint. Any future entry (Step 5 bracket) or trailing-stop replacement that would use place_advanced_order must fall back to a plain stop_market/stop_limit sell. Not an anomaly requiring owner action -- kept in this list as a standing operational note.",
       "status": "standing_constraint, no owner action needed"
     },
     {
       "id": "git-branch-persistence",
       "detected": "2026-09-19T13:20:00Z",
-      "description": "CRITICAL INFRA BUG. GitHub's configured default branch for hockeman/robinhood is pinned to the original bootstrap commit (d5697362242d33374f172936671b2c2f38a10f12, on branch claude/clever-thompson-2hr5eq) and has never been changed. Because of this, every scheduled run's session cold-starts on a brand-new throwaway branch off that same stale commit instead of continuing from the previous run's state. Over 60 such sibling branches accumulated between 2026-09-18T22:17Z and 2026-09-21T13:23Z, the large majority of them never merged anywhere, each holding a fragment of that run's own journal entry and its own from-scratch guess at state.json. A 2026-09-20 mitigation (documented in AGENT.md) had later runs fetch and push to a branch named 'main'; that worked for a few runs (through 2026-09-21T10:16Z) but then silently stopped again on at least 3 subsequent runs (11:16Z, 12:15Z, 13:23Z) that cold-started and never reached main. A 2026-09-21T13:32Z run found that its own actual scheduled-task instructions (delivered fresh by the scheduler, not read from this repo) named a *different* branch, 'claude/journal', creating a second, unreconciled persistence convention alongside 'main' and the per-session throwaway branches.",
-      "action_taken": "Fully reconciled and resolved in a 2026-09-21T13:35Z maintenance session (this one): read every one of the 60+ branches on the remote, merged all account_value_history entries (62 unique, no numeric conflicts), all 63 journal files (61 unique dates + 2 disambiguated same-timestamp duplicates, renamed with a '-b' suffix), all distinct anomalies, and this notification system's own state, onto one new permanent branch, 'claude/trading-state', verified pushed to origin (see RECONCILIATION.md on that branch for the full audit trail and the exact commit SHA). AGENT.md and this run's saved-Instructions replacement text now name 'claude/trading-state' as the single persistence target and explicitly retire the 'main' and 'claude/journal' conventions. REMAINING OWNER ACTION (the only thing an agent session cannot do itself): GitHub repo Settings -> General -> Default branch, change it from 'claude/clever-thompson-2hr5eq' to 'claude/trading-state', so future sessions cold-start on the branch that actually has continuity. Until that setting is changed, every future session must still explicitly fetch and check out origin/claude/trading-state itself before doing anything else (now written into the replacement Instructions) rather than relying on the default checkout.",
-      "status": "reconciled_2026-09-21; one manual GitHub setting still required from the owner"
+      "description": "CRITICAL INFRA BUG. GitHub's configured default branch for hockeman/robinhood is pinned to the original bootstrap commit and has never been changed, so every scheduled run's session cold-starts on a brand-new throwaway branch instead of continuing from the previous run's state unless it explicitly fetches and checks out claude/trading-state itself.",
+      "action_taken": "Fully reconciled in a 2026-09-21T13:35Z maintenance session; claude/trading-state is now the single canonical persistence branch (see PERSISTENCE.md and RECONCILIATION.md). This run (2026-09-21T14:14Z) followed that protocol from a scheduled-task prompt whose own text also names claude/trading-state, fetched/checked out origin/claude/trading-state per Step 0, and will push back to it per Step 6 -- no fork or ambiguity encountered this run. REMAINING OWNER ACTION (unchanged): GitHub repo Settings -> General -> Default branch still needs to be changed from the stale bootstrap branch to claude/trading-state so future sessions cold-start correctly without relying on every session's own Step 0 discipline.",
+      "status": "reconciled_2026-09-21; one manual GitHub setting still required from the owner; this run's own Step 0/Step 6 protocol followed correctly with no fork"
     }
   ]
 }

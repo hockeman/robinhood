@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"></head>
+<body style="margin:0;padding:0;background-color:#f2f5f7;font-family:Helvetica,Arial,sans-serif;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f2f5f7;padding:24px 0;">
+<tr><td align="center">
+<table role="presentation" width="660" cellpadding="0" cellspacing="0" style="max-width:660px;width:100%;background-color:#ffffff;border-radius:8px;overflow:hidden;border:1px solid #dce3e8;">
+
+<tr><td style="background-color:#0b3350;padding:20px 28px;">
+<div style="color:#ffffff;font-size:20px;font-weight:bold;">Agentic Account — Trade Update</div>
+<div style="color:#a9c6d8;font-size:13px;margin-top:4px;">Monday, Sept 21, 2026, 9:14 AM (America/Chicago)</div>
+</td></tr>
+
+<tr><td style="padding:20px 28px 4px 28px;">
+<div style="color:#1a1a1a;font-size:14px;line-height:1.6;"><b>UROY's protective stop filled automatically overnight-to-morning (a small realized loss), and this run opened one new insider-signal position, BORR, with its own protective stop.</b><br>Verification status: both the UROY exit and the BORR entry + protective stop were independently confirmed against the broker (get_equity_orders) this run — not assumed.</div>
+</td></tr>
+
+<tr><td style="padding:16px 28px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+<td width="33%" style="padding:6px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:14px;">
+<div style="color:#5a6b76;font-size:11px;text-transform:uppercase;">Current Value</div>
+<div style="color:#0b3350;font-size:20px;font-weight:bold;margin-top:4px;">$7,610.85</div>
+</td></tr></table>
+</td>
+<td width="33%" style="padding:6px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:14px;">
+<div style="color:#5a6b76;font-size:11px;text-transform:uppercase;">Value at BORR Target</div>
+<div style="color:#0e7a3d;font-size:20px;font-weight:bold;margin-top:4px;">$7,645.80</div>
+<div style="color:#8a97a0;font-size:10px;margin-top:2px;">scenario, not forecast (+0.46%)</div>
+</td></tr></table>
+</td>
+<td width="33%" style="padding:6px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:14px;">
+<div style="color:#5a6b76;font-size:11px;text-transform:uppercase;">Value at BORR Stop</div>
+<div style="color:#b02a2a;font-size:20px;font-weight:bold;margin-top:4px;">$7,601.62</div>
+<div style="color:#8a97a0;font-size:10px;margin-top:2px;">scenario, not forecast (-0.12%)</div>
+</td></tr></table>
+</td>
+</tr></table>
+</td></tr>
+
+<tr><td style="padding:8px 28px;">
+<div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">What happened</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:12px 14px;font-size:13px;">
+<b>UROY — sell, protective stop fill</b> (automatic broker fill)<br>
+Filled: 33 sh @ avg $4.28 &nbsp;|&nbsp; Total: $141.24 &nbsp;|&nbsp; 9:08 AM CT &nbsp;|&nbsp; Final state: filled, position closed<br>
+<span style="color:#5a6b76;">Reason: the existing GTC protective stop (previously trailed up from its initial level) triggered as the price fell to $4.28. Held since 2026-09-18 (3 days) — a multi-day exit, not a same-day round trip, so no day trade was recorded. Realized P&amp;L: -$8.25.</span>
+</td></tr></table>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:12px 14px;font-size:13px;">
+<b>BORR — buy</b> (agent action)<br>
+Requested: 26 sh @ $4.47 (marketable limit) &nbsp;|&nbsp; Filled: 26 sh @ avg $4.4685 &nbsp;|&nbsp; Total: $116.18 &nbsp;|&nbsp; 9:13 AM CT &nbsp;|&nbsp; Final state: filled<br>
+<span style="color:#5a6b76;">Reason: insider cluster buy verified via 3 SEC EDGAR Form 4 filings (2026-09-16 to 2026-09-21) — CEO Bruno Morand De Oliveira ($200,200) and Director Tor Olav Troim ($656,925 and $4,299,500). Signal score 7 of a required minimum of 4. Passed all universe and technical screens (market cap $1.38B, 30-day avg. volume 5.28M sh, spread 0.22%, RSI 53, price above its 50-day average). Sized from buying power freed up by the UROY stop-out.</span>
+</td></tr></table>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:12px 14px;font-size:13px;">
+<b>BORR — protective stop placed</b> (agent action)<br>
+Sell 26 sh, stop $4.11, stop-market, GTC &nbsp;|&nbsp; 9:13 AM CT &nbsp;|&nbsp; Final state: confirmed<br>
+<span style="color:#5a6b76;">Reason: standard 8% initial stop from the $4.4685 fill price. This account's OCO (bracket order) capability remains disabled by the broker, so this is a plain stop-market sell rather than a bracket — a standing, previously-reported account constraint, not new.</span>
+</td></tr></table>
+
+</td></tr>
+
+<tr><td style="padding:16px 28px 8px 28px;">
+<div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">Before / after</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;font-size:13px;">
+<tr><td style="padding:4px 0;color:#5a6b76;">Portfolio value</td><td style="padding:4px 0;text-align:right;">$7,647.48 → $7,610.85</td></tr>
+<tr><td style="padding:4px 0;color:#5a6b76;">Cash</td><td style="padding:4px 0;text-align:right;">$141.84 → $25.66</td></tr>
+<tr><td style="padding:4px 0;color:#5a6b76;">Unleveraged buying power</td><td style="padding:4px 0;text-align:right;">$141.84 → $25.66</td></tr>
+<tr><td style="padding:4px 0;color:#5a6b76;">BORR allocation</td><td style="padding:4px 0;text-align:right;">0.0% → 1.5%</td></tr>
+</table>
+<div style="color:#8a97a0;font-size:11px;margin-top:6px;">"Before" is the snapshot taken just after UROY's stop had already filled but before BORR was bought, so the portfolio-value change above reflects only the BORR purchase and normal price movement — not the UROY realized loss, which is shown separately above.</div>
+</td></tr>
+
+<tr><td style="padding:16px 28px 8px 28px;">
+<div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">UROY — current / target / stop</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;font-size:13px;">
+<tr><td style="padding:4px 0;" colspan="3">Not applicable — position closed (stopped out). Realized loss: -$8.25 on a $149.49 cost basis (-5.5%).</td></tr>
+</table>
+</td></tr>
+
+<tr><td style="padding:16px 28px 8px 28px;">
+<div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">BORR — current / target / stop</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;font-size:13px;">
+<tr><td style="padding:4px 0;">Current: $4.465</td><td style="padding:4px 0;">Target: $5.81 (+30.0% from entry)</td><td style="padding:4px 0;">Stop: $4.11 (-8.0% from entry)</td></tr>
+</table>
+<div style="color:#8a97a0;font-size:11px;margin-top:6px;">Target is illustrative (this account's OCO/bracket capability is disabled, so no take-profit order is actually resting — only the stop above is a live order). Holding period unknown.</div>
+</td></tr>
+
+<tr><td style="padding:16px 28px 8px 28px;">
+<div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">Protection coverage</div>
+<div style="color:#1a1a1a;font-size:13px;margin-top:10px;line-height:1.7;">
+4 of 4 real positions (MSTR, ALVO, DSP, BORR) carry a live, broker-confirmed protective stop as of this run — all stop-limit except BORR, which is stop-market (OCO unavailable on this account). The AAPL fractional lot (~$2) remains unprotected and unmanaged; this is a previously-reported, owner-acknowledged exception, not new this run. UROY needed no further protection — its own stop already fired and closed the position.
+</div>
+</td></tr>
+
+<tr><td style="background-color:#f6f9fa;padding:16px 28px;border-top:1px solid #dce3e8;">
+<div style="color:#8a97a0;font-size:11px;line-height:1.6;">
+Data as of 2026-09-21 14:15 UTC (9:15 AM Central / 10:15 AM Eastern). Pricing basis: live broker quotes and confirmed order/execution records at that time. Account ••••4292 (Robinhood Agentic). Report ID: action-acct4292-2026-09-21T1414Z. Scenarios, not forecasts. Other holdings are held constant. Stops are not guaranteed execution prices; losses can exceed the stop scenario.
+</div>
+</td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>

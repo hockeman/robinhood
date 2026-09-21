@@ -56,7 +56,22 @@
       "provider_message_id": "1a0c454286356df8",
       "provider_thread_id": "1a0c454286356df8",
       "verification": "Re-verified via Gmail get_message(1a0c454286356df8) METADATA_ONLY: labelIds includes SENT, to=ferrell@chacetech.com, date=2026-09-21T14:17:25Z, sender=hockeman2523@gmail.com. Confirms provider-side send, not recipient-side delivery/read.",
-      "note": "UROY automatic stop-out + new BORR entry/protection this run. Rendered HTML saved at reporting/sent/action_update_2026-09-21T1414Z.html before send."
+      "note": "UROY automatic stop-out + new BORR entry/protection this run. Rendered HTML saved at reporting/sent/action_update_2026-09-21T1414Z.html before send.",
+      "duplicate_sends_by_concurrent_session": [
+        {
+          "message_id": "1a0c455632cdf6cf",
+          "sent_at": "2026-09-21T14:18:45Z",
+          "by_session": "015xk18GJTXNeSFonnmdPvt7",
+          "defect": "htmlBody parameter contained the literal text '$(cat)' instead of rendered HTML (tooling error), so this send had no graphical body. plaintextBody was correct."
+        },
+        {
+          "message_id": "1a0c456205331c54",
+          "sent_at": "2026-09-21T14:19:34Z",
+          "by_session": "015xk18GJTXNeSFonnmdPvt7",
+          "defect": "none -- corrected follow-up in the same thread with proper HTML, superseding the defective send above."
+        }
+      ],
+      "duplicate_note": "A second, separately-scheduled run (session 015xk18GJTXNeSFonnmdPvt7) started concurrently, independently reconciled the same UROY/BORR events before this run's push had reached claude/trading-state, and sent its own 2 messages (1 defective, 1 corrective) reporting the same facts as this report. No incorrect information was sent in any of the 3 messages; see state.json anomaly concurrent-run-duplicate-action-update-20260921t1414z for the full incident. Do not resend or otherwise re-report these event IDs -- already fully (if redundantly) delivered."
     },
     "close-acct4292-2026-09-18-delayed": {
       "report_id": "close-acct4292-2026-09-18-delayed",

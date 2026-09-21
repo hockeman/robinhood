@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-21T14:14:01Z",
+  "last_run": "2026-09-21T14:22:00Z",
   "canonical_branch": "claude/trading-state",
   "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
   "peak_account_value": 7727.2372613663,
@@ -255,6 +255,10 @@
     {
       "ts": "2026-09-21T14:14:01Z",
       "value": 7610.84999147
+    },
+    {
+      "ts": "2026-09-21T14:16:00Z",
+      "value": 7611.770122348
     }
   ],
   "positions": {
@@ -362,6 +366,13 @@
       "description": "CRITICAL INFRA BUG. GitHub's configured default branch for hockeman/robinhood is pinned to the original bootstrap commit and has never been changed, so every scheduled run's session cold-starts on a brand-new throwaway branch instead of continuing from the previous run's state unless it explicitly fetches and checks out claude/trading-state itself.",
       "action_taken": "Fully reconciled in a 2026-09-21T13:35Z maintenance session; claude/trading-state is now the single canonical persistence branch (see PERSISTENCE.md and RECONCILIATION.md). This run (2026-09-21T14:14Z) followed that protocol from a scheduled-task prompt whose own text also names claude/trading-state, fetched/checked out origin/claude/trading-state per Step 0, and will push back to it per Step 6 -- no fork or ambiguity encountered this run. REMAINING OWNER ACTION (unchanged): GitHub repo Settings -> General -> Default branch still needs to be changed from the stale bootstrap branch to claude/trading-state so future sessions cold-start correctly without relying on every session's own Step 0 discipline.",
       "status": "reconciled_2026-09-21; one manual GitHub setting still required from the owner; this run's own Step 0/Step 6 protocol followed correctly with no fork"
+    },
+    {
+      "id": "concurrent-run-duplicate-action-update-20260921t1414z",
+      "detected": "2026-09-21T14:22:00Z",
+      "description": "Two agentic runs executed concurrently in the same ~10-minute window (no lock exists by design, see PERSISTENCE.md): one run (session 01Y4ZaPhUjiaRjn5hHAJg8Rz, commit 9cc6f76) did the real work -- researched and entered BORR on a verified insider-cluster signal, reconciled the UROY stop-out, and sent one accurate ACTION_UPDATE (Gmail message 1a0c454286356df8, sent 2026-09-21T14:17:25Z, verified_sent). A second, separately-scheduled run (this session, 015xk18GJTXNeSFonnmdPvt7) started its own Step 0 orientation in the same minute the first run's BORR order filled, found the same live UROY-exit/BORR-entry facts on the broker before the first run's push had reached claude/trading-state, and -- not yet aware a concurrent run existed -- independently reconciled the same events into its own draft state and sent its own ACTION_UPDATE for the same event set. That second run's first send (Gmail message 1a0c455632cdf6cf, 2026-09-21T14:18:45Z) also had a tooling defect: htmlBody was sent as the literal text '$(cat)' due to a shell-substitution pattern mistakenly used in a non-shell tool call, so it carried no graphical body. It was immediately corrected with a third message in the same thread (1a0c456205331c54, 2026-09-21T14:19:34Z) containing the correct HTML. All three messages report the same underlying facts (UROY stopped out -$8.25; BORR entered and protected) and none contains incorrect information, but the owner received 3 emails for one event set instead of 1, and one of the three briefly had a broken body before being corrected in-thread. When this session's own push was rejected as non-fast-forward, it fetched the concurrent run's already-pushed state and deferred to it as authoritative (real BORR thesis/candidates_seen/signal research) rather than overwriting it; this session only appended its own account_value_history snapshot on top.",
+      "action_taken": "No corrective email sent -- the facts already delivered to the owner are accurate and complete, and a fourth 'disregard the duplicates' email would add more noise, not less. Disclosed here and in this run's journal entry for transparency. No rule violation occurred (both runs independently satisfied review-before-place and verify-after for their own actions; the duplication is a notification-layer side effect of concurrent scheduling with no lock, which PERSISTENCE.md already documents as an accepted risk). If this recurs, a future maintenance session may want to consider a lightweight advisory check (e.g. re-fetching immediately before Step 8's send, not just at Step 0) to shrink the race window between two concurrent runs' sends -- not a hard requirement, since PERSISTENCE.md's git-push compare-and-swap already prevents any actual state corruption.",
+      "status": "informational, no owner action needed"
     }
   ]
 }

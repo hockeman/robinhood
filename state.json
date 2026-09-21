@@ -42,15 +42,17 @@
   "anomalies": [
     {
       "detected": "2026-09-18T22:16:00Z",
-      "description": "AAPL position of 0.005949 shares (~$2) bought via a market order at 2026-09-18T19:30:36Z, placed_agent=agentic. This does not fit the strategy: no AAPL signal, no config in place, size far below min_position_usd, and order type (market, dollar-based) is not the marketable-limit entry the rules specify. No protective order exists or is feasible for a fractional position this small. Left unmanaged and flagged for the owner; not sold or otherwise acted on this run.",
+      "description": "AAPL position of 0.005949 shares (~$2) bought via a market order at 2026-09-18T19:30:36Z, placed_agent=agentic. This does not fit the strategy: no AAPL signal, no config in place, size far below min_position_usd, and order type (market, dollar-based) is not the marketable-limit entry the rules specify. No protective order exists or is feasible for a fractional position this small.",
       "action_taken": "none - reported only",
-      "status_2026-09-21": "still open, unchanged; re-verified via get_equity_orders (no activity on this lot since 2026-09-18); no new unexplained orders appeared since the last run"
+      "acknowledged_by_owner": "2026-09-21",
+      "status": "owner acknowledged and asked to stop flagging this going forward; left as-is (unmanaged, no protective order); do not re-raise in future run reports"
     },
     {
       "detected": "2026-09-18T22:16:00Z",
-      "description": "MSTR position was built from two same-day buy fills (12 sh ~150.10, then 11 sh ~150.50), i.e. an addition to an already-open position, which the standing rules forbid ('never average down or add to an existing position'). Several of today's buy fills also used stop-triggered limit orders rather than the plain marketable limit the entry procedure specifies (see get_equity_orders for TRMD, ALVO, MSTR order history). This predates this state file; no corrective action taken this run beyond flagging it.",
-      "action_taken": "none - reported only",
-      "status_2026-09-21": "historical fact, cannot be undone; position now carries a trailing stop and is being actively managed going forward"
+      "description": "MSTR position was built from two same-day buy fills (12 sh ~150.10, then 11 sh ~150.50), i.e. an addition to an already-open position, which the standing rules forbid ('never average down or add to an existing position'). Several of today's buy fills also used stop-triggered limit orders rather than the plain marketable limit the entry procedure specifies (see get_equity_orders for TRMD, ALVO, MSTR order history). This predates this state file.",
+      "action_taken": "none beyond normal ongoing management (trailing stop raised 2026-09-21)",
+      "acknowledged_by_owner": "2026-09-21",
+      "status": "owner acknowledged and asked to stop flagging this going forward; position continues to be managed normally under state.positions.MSTR; do not re-raise in future run reports"
     }
   ]
 }

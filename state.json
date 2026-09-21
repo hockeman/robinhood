@@ -1,47 +1,302 @@
 {
   "last_run": "2026-09-21T13:32:00Z",
+  "canonical_branch": "claude/trading-state",
   "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
   "peak_account_value": 7727.2372613663,
   "account_value_history": [
-    {"ts": "2026-09-18T22:16:00Z", "value": 7390.56261755},
-    {"ts": "2026-09-20T07:16:00Z", "value": 7435.688271375},
-    {"ts": "2026-09-20T08:15:00Z", "value": 7435.688271375},
-    {"ts": "2026-09-20T10:14:00Z", "value": 7435.688271375},
-    {"ts": "2026-09-20T14:15:00Z", "value": 7435.688271375},
-    {"ts": "2026-09-21T02:16:00Z", "value": 7414.89023795},
-    {"ts": "2026-09-21T07:18:46Z", "value": 7450.04487817},
-    {"ts": "2026-09-21T10:14:05Z", "value": 7646.95565154},
-    {"ts": "2026-09-21T13:17:00Z", "value": 7727.2372613663},
-    {"ts": "2026-09-21T13:32:00Z", "value": 7634.3731558}
+    {
+      "ts": "2026-09-18T22:16:00Z",
+      "value": 7390.56261755
+    },
+    {
+      "ts": "2026-09-18T23:14:00Z",
+      "value": 7449.72327194
+    },
+    {
+      "ts": "2026-09-19T00:13:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T01:15:45Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T02:13:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T03:14:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T04:14:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T05:13:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T06:15:47Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T07:20:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T08:12:46Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T09:15:20Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T10:14:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T12:14:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T13:20:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T14:15:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T15:14:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T16:14:33Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T17:18:00Z",
+      "value": 7435.69
+    },
+    {
+      "ts": "2026-09-19T18:14:35Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T19:20:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T20:14:15Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T21:15:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T22:14:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T23:14:22Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T00:13:48Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T02:14:21Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T03:14:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T04:14:43Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T05:14:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T06:15:04Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T07:16:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T08:15:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T09:14:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T10:14:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T11:13:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T12:20:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T13:20:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T14:15:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T15:14:19Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T16:20:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T17:16:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T18:15:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T19:20:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T20:13:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T21:14:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T22:13:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T23:13:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-21T00:20:00Z",
+      "value": 7438.81386684
+    },
+    {
+      "ts": "2026-09-21T01:14:00Z",
+      "value": 7459.74148724
+    },
+    {
+      "ts": "2026-09-21T02:16:00Z",
+      "value": 7414.89023795
+    },
+    {
+      "ts": "2026-09-21T03:14:47Z",
+      "value": 7402.89166571
+    },
+    {
+      "ts": "2026-09-21T05:15:14Z",
+      "value": 7406.10845325
+    },
+    {
+      "ts": "2026-09-21T06:20:00Z",
+      "value": 7439.9235099
+    },
+    {
+      "ts": "2026-09-21T07:18:46Z",
+      "value": 7450.04487817
+    },
+    {
+      "ts": "2026-09-21T08:14:34Z",
+      "value": 7440.9760078851
+    },
+    {
+      "ts": "2026-09-21T09:13:00Z",
+      "value": 7664.072915
+    },
+    {
+      "ts": "2026-09-21T10:14:05Z",
+      "value": 7646.95565154
+    },
+    {
+      "ts": "2026-09-21T11:16:01Z",
+      "value": 7599.3261911143
+    },
+    {
+      "ts": "2026-09-21T12:16:00Z",
+      "value": 7682.69273737
+    },
+    {
+      "ts": "2026-09-21T13:17:00Z",
+      "value": 7727.2372613663
+    },
+    {
+      "ts": "2026-09-21T13:32:00Z",
+      "value": 7634.3731558
+    }
   ],
   "positions": {
     "MSTR": {
-      "entry_price": 150.17, "entry_date": "2026-09-18", "qty": 23,
-      "high_since_entry": 165.888, "stop_price": 149.30,
+      "entry_price": 150.17,
+      "entry_date": "2026-09-18",
+      "qty": 23,
+      "high_since_entry": 165.888,
+      "stop_price": 149.3,
       "protective_order_id": "6ab12e3d-aea4-49a4-b6bd-f4f6aa74d643",
-      "protective_order_type": "stop_limit", "signal": "legacy",
-      "thesis": "Rebuilt from live account state; no prior journal/state existed. Two same-day buy fills (12 @ ~150.10 then 11 @ ~150.50) combined into this position, which violates the 'never add to an existing position' rule and predates this state file. Trailing stop raised 2026-09-21 (by a prior run this session did not create, ~13:16 UTC) after a pre-market print of $165.89 (+10.5% from entry) crossed the 10% trail trigger. Verified confirmed and unchanged by this run at 13:3x UTC; current price has not exceeded that high since."
+      "protective_order_type": "stop_limit",
+      "signal": "legacy",
+      "thesis": "Rebuilt from live account state; no prior journal/state existed at bootstrap. Two same-day buy fills (12 @ ~150.10 then 11 @ ~150.50) combined into this position, which violates the 'never add to an existing position' rule and predates the state file (see anomaly log). Trailing stop raised 2026-09-21 to $149.30/$149.00 (order 6ab12e3d-aea4-49a4-b6bd-f4f6aa74d643) after a pre-market high of $165.888 (+10.5% from entry) crossed the 10% trail trigger. Re-verified live against the broker at 2026-09-21T13:35Z (maintenance session): order still confirmed, unchanged."
     },
     "ALVO": {
-      "entry_price": 5.94, "entry_date": "2026-09-18", "qty": 300,
-      "high_since_entry": 6.00, "stop_price": 5.65,
+      "entry_price": 5.94,
+      "entry_date": "2026-09-18",
+      "qty": 300,
+      "high_since_entry": 6.0,
+      "stop_price": 5.65,
       "protective_order_id": "6aad6bf8-ce1b-4aa8-83e8-1440b89993be",
-      "protective_order_type": "stop_limit", "signal": "legacy",
-      "thesis": "Rebuilt from live account state; no prior journal/state existed. Verified confirmed and unchanged by this run."
+      "protective_order_type": "stop_limit",
+      "signal": "legacy",
+      "thesis": "Rebuilt from live account state; no prior journal/state existed. Re-verified live against the broker at 2026-09-21T13:35Z (maintenance session): order still confirmed, unchanged since 2026-09-18."
     },
     "DSP": {
-      "entry_price": 11.70, "entry_date": "2026-09-18", "qty": 161,
-      "high_since_entry": 12.41, "stop_price": 11.20,
+      "entry_price": 11.7,
+      "entry_date": "2026-09-18",
+      "qty": 161,
+      "high_since_entry": 12.41,
+      "stop_price": 11.2,
       "protective_order_id": "6aad67c9-0e21-4f19-bbee-56b80a2f9d0e",
-      "protective_order_type": "stop_limit", "signal": "legacy",
-      "thesis": "Rebuilt from live account state; no prior journal/state existed. Verified confirmed and unchanged by this run."
+      "protective_order_type": "stop_limit",
+      "signal": "legacy",
+      "thesis": "Rebuilt from live account state; no prior journal/state existed. Re-verified live against the broker at 2026-09-21T13:35Z (maintenance session): order still confirmed, unchanged since 2026-09-18."
     },
     "UROY": {
-      "entry_price": 4.53, "entry_date": "2026-09-18", "qty": 33,
-      "high_since_entry": 4.705, "stop_price": 4.28,
+      "entry_price": 4.53,
+      "entry_date": "2026-09-18",
+      "qty": 33,
+      "high_since_entry": 4.705,
+      "stop_price": 4.28,
       "protective_order_id": "6aad8872-c211-45cc-88d8-f8fff1f471a1",
-      "protective_order_type": "stop_limit", "signal": "legacy",
-      "thesis": "Rebuilt from live account state; no prior journal/state existed. Verified confirmed and unchanged by this run."
+      "protective_order_type": "stop_limit",
+      "signal": "legacy",
+      "thesis": "Rebuilt from live account state; no prior journal/state existed. Re-verified live against the broker at 2026-09-21T13:35Z (maintenance session): order still confirmed, unchanged since 2026-09-18."
     }
   },
   "closed": [],
@@ -50,23 +305,34 @@
   "candidates_seen": {},
   "anomalies": [
     {
+      "id": "aapl-fractional-lot",
       "detected": "2026-09-18T22:16:00Z",
-      "description": "AAPL position of 0.005949 shares (~$2) bought via a market order at 2026-09-18T19:30:36Z, placed_agent=agentic. This does not fit the strategy: no AAPL signal, no config in place, size far below min_position_usd, and order type (market, dollar-based) is not the marketable-limit entry the rules specify. No protective order exists or is feasible for a fractional position this small.",
-      "action_taken": "none - reported only",
-      "acknowledged_by_owner": "2026-09-21",
-      "status": "A prior run (branch claude/clever-thompson-moql19, 2026-09-21T13:17Z) recorded that the owner acknowledged this in a live conversation and asked not to keep flagging it; this session did not independently verify that conversation and is carrying the note forward as reported. Not re-flagged this run. Left as-is (unmanaged, no protective order)."
+      "description": "AAPL position of 0.005949 shares (~$2) bought via a market order at 2026-09-18T19:30:36Z, placed_agent=agentic. Does not fit the strategy: no AAPL signal, no config in place, size far below min_position_usd, and order type (market, dollar-based) is not the marketable-limit entry the rules specify. No protective order exists or is feasible for a fractional position this small.",
+      "action_taken": "Reported only from 2026-09-18 through 2026-09-21; reconfirmed unchanged and unresolved on at least 9 separate runs across that window (see journal/ for individual confirmations). A run on branch claude/clever-thompson-moql19 (2026-09-21T13:17Z) recorded that the owner acknowledged this in a live conversation and asked not to keep re-flagging it. That claim has not been independently verified by any session (including this one) beyond the fact that it is consistently recorded. Carried forward as reported; not re-flagged in routine runs going forward unless the position or its status changes.",
+      "status": "acknowledged_by_owner (unverified, per moql19 2026-09-21)",
+      "still_unmanaged": true
     },
     {
+      "id": "mstr-same-day-add",
       "detected": "2026-09-18T22:16:00Z",
-      "description": "MSTR position was built from two same-day buy fills (12 sh ~150.10, then 11 sh ~150.50), i.e. an addition to an already-open position, which the standing rules forbid ('never average down or add to an existing position'). Several of today's buy fills also used stop-triggered limit orders rather than the plain marketable limit the entry procedure specifies. This predates this state file.",
-      "action_taken": "none beyond normal ongoing management (trailing stop raised 2026-09-21 by a prior run)",
-      "acknowledged_by_owner": "2026-09-21",
-      "status": "Same unverified-but-carried-forward owner acknowledgment as the AAPL anomaly above (source: claude/clever-thompson-moql19). Not re-flagged this run; position continues to be managed normally."
+      "description": "MSTR's 23-share position was built from two same-day buy fills (12 sh ~150.10, then 11 sh ~150.50), i.e. an addition to an already-open position, which the standing rules forbid ('never average down or add to an existing position'). Several 2026-09-18 buy fills also used stop-triggered limit orders rather than the plain marketable limit the entry procedure specifies. Predates this repo's state file.",
+      "action_taken": "Reported only from 2026-09-18 through 2026-09-21; reconfirmed unchanged and unresolved on at least 9 separate runs across that window. Same owner-acknowledgment claim (moql19, 2026-09-21T13:17Z, unverified) as the AAPL anomaly above. Position continues to be managed normally as a single legacy lot (trailing stop raised 2026-09-21); not unwound.",
+      "status": "acknowledged_by_owner (unverified, per moql19 2026-09-21)",
+      "still_unmanaged": false
     },
     {
-      "detected": "2026-09-19T17:19:00Z",
-      "description": "CRITICAL INFRA BUG, still unresolved: this repository has no stable session-start branch. GitHub's configured default branch is still pinned to the original bootstrap commit (d569736), so every scheduled run cold-starts on a brand-new throwaway branch ('claude/clever-thompson-XXXXXX' or, this session, 'claude/elegant-tesla-opd7nk') off that same stale commit, with none of the intervening history. A prior run mitigated this by adding a 'fetch origin/main first' instruction to the top of AGENT.md and having subsequent runs push their consolidated state to 'main'. That mitigation only works AFTER a run has actually read the fixed AGENT.md -- but because cold starts check out the stale default branch, a session's own local AGENT.md is the pre-fix copy that has no 'fetch main' instruction in it, so the fix does not propagate to fresh sessions on its own; it only worked when a run happened to think to check main anyway. Evidence this run: 'main' has not advanced past 2026-09-21T10:16:11Z (the 06:14 ET run) even though at least three later runs happened (claude/clever-thompson-gipv4x @ 11:16Z, -xsfzqi @ 12:15Z, -moql19 @ 13:23Z), each starting fresh from the bootstrap commit and never reaching main.",
-      "action_taken": "flagged to owner previously; a stopgap 'main' branch push convention was adopted by prior runs (see history above) but has been silently failing again for the last several hourly runs, for the reason described above. Update 2026-09-21T13:32Z (this run): this session's own operating environment explicitly restricts pushes to one assigned branch per session (claude/elegant-tesla-opd7nk) unless the task instructions themselves direct otherwise, and this run's actual standing-instructions document (delivered fresh by the scheduler, revision 2026-09-21) never mentions 'main' as a persistence target at all -- it names a differently-named fallback branch, 'claude/journal', instead, and does not carry AGENT.md's 'fetch main first' convention. Given that fork between what AGENT.md (repo content, evolved informally by prior runs) says and what this run's actual scheduled-task instructions say, this run is following its own instructions: it read origin/main and this branch's most recent sibling (claude/clever-thompson-moql19) to reconstruct current state, and is pushing its consolidated commit to a new 'claude/journal' branch (creating it) plus this session's own assigned branch, but NOT to 'main', since pushing to 'main' is not something this run's actual instructions authorize and the session-level restriction otherwise forbids pushing to branches its instructions do not name. Net effect: 'main' is now itself a second stale/orphaned convention alongside the per-session throwaway branches, and 'claude/journal' is a new one this run originated. RECOMMENDED OWNER ACTION (the one fix that would end all of this): GitHub repo Settings -> General -> Default branch, and point it at a single stable branch name; then make sure whichever standing-instructions document is actually fed to each scheduled run names that same branch as the persistence target, so there is exactly one convention instead of three ('main', 'claude/journal', and ad hoc throwaway branches). Until that is done, day_trades/stopped_out_recently/candidates_seen/peak_account_value history will keep fragmenting across branches; this run reconstructed peak_account_value and account_value_history by merging every branch it could find, but a future run that does not think to do that merge could silently lose data (e.g. undercount day trades toward the PDT limit)."
+      "id": "advanced-orders-disabled",
+      "detected": "2026-09-19T15:14:00Z",
+      "description": "get_advanced_orders / place_advanced_order / review_advanced_order return SERVICE_DISABLED ('not yet enabled for this account') for the Agentic account (604824292). All 4 protective orders on this account are therefore plain stop-limit equity sells, not OCO brackets. Independently reconfirmed on at least 2 later runs (2026-09-20T16:20Z, 2026-09-21T05:15Z).",
+      "action_taken": "No corrective action possible or needed from this agent; this is a standing account-level constraint. Any future entry (Step 5 bracket) or trailing-stop replacement that would use place_advanced_order must fall back to a plain stop_market/stop_limit sell, per the rules' own documented fallback. Not an anomaly requiring owner action -- kept in this list as a standing operational note so a future run doesn't assume OCO will succeed.",
+      "status": "standing_constraint, no owner action needed"
+    },
+    {
+      "id": "git-branch-persistence",
+      "detected": "2026-09-19T13:20:00Z",
+      "description": "CRITICAL INFRA BUG. GitHub's configured default branch for hockeman/robinhood is pinned to the original bootstrap commit (d5697362242d33374f172936671b2c2f38a10f12, on branch claude/clever-thompson-2hr5eq) and has never been changed. Because of this, every scheduled run's session cold-starts on a brand-new throwaway branch off that same stale commit instead of continuing from the previous run's state. Over 60 such sibling branches accumulated between 2026-09-18T22:17Z and 2026-09-21T13:23Z, the large majority of them never merged anywhere, each holding a fragment of that run's own journal entry and its own from-scratch guess at state.json. A 2026-09-20 mitigation (documented in AGENT.md) had later runs fetch and push to a branch named 'main'; that worked for a few runs (through 2026-09-21T10:16Z) but then silently stopped again on at least 3 subsequent runs (11:16Z, 12:15Z, 13:23Z) that cold-started and never reached main. A 2026-09-21T13:32Z run found that its own actual scheduled-task instructions (delivered fresh by the scheduler, not read from this repo) named a *different* branch, 'claude/journal', creating a second, unreconciled persistence convention alongside 'main' and the per-session throwaway branches.",
+      "action_taken": "Fully reconciled and resolved in a 2026-09-21T13:35Z maintenance session (this one): read every one of the 60+ branches on the remote, merged all account_value_history entries (62 unique, no numeric conflicts), all 63 journal files (61 unique dates + 2 disambiguated same-timestamp duplicates, renamed with a '-b' suffix), all distinct anomalies, and this notification system's own state, onto one new permanent branch, 'claude/trading-state', verified pushed to origin (see RECONCILIATION.md on that branch for the full audit trail and the exact commit SHA). AGENT.md and this run's saved-Instructions replacement text now name 'claude/trading-state' as the single persistence target and explicitly retire the 'main' and 'claude/journal' conventions. REMAINING OWNER ACTION (the only thing an agent session cannot do itself): GitHub repo Settings -> General -> Default branch, change it from 'claude/clever-thompson-2hr5eq' to 'claude/trading-state', so future sessions cold-start on the branch that actually has continuity. Until that setting is changed, every future session must still explicitly fetch and check out origin/claude/trading-state itself before doing anything else (now written into the replacement Instructions) rather than relying on the default checkout.",
+      "status": "reconciled_2026-09-21; one manual GitHub setting still required from the owner"
     }
   ]
 }

@@ -1,0 +1,133 @@
+<!--
+DAILY_CLOSE template. Fill every {{TOKEN}} from verified data per the
+standing instructions (Section 6.5/6.6) and reporting/README.md before
+sending. {{HOLDINGS_ROWS}} and {{HISTORY_ROWS}} are each a block of <tr>
+markup, one row per holding / per observation — build them from state.json,
+not by hand. Delete the whole banner <tr> block (lines marked
+ACTION-NEEDED-BANNER-START/END) when there is no critical issue to surface;
+never leave it in with placeholder text.
+-->
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"></head>
+<body style="margin:0;padding:0;background-color:#f2f5f7;font-family:Helvetica,Arial,sans-serif;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f2f5f7;padding:24px 0;">
+<tr><td align="center">
+<table role="presentation" width="660" cellpadding="0" cellspacing="0" style="max-width:660px;width:100%;background-color:#ffffff;border-radius:8px;overflow:hidden;border:1px solid #dce3e8;">
+
+<tr><td style="background-color:#0b3350;padding:20px 28px;">
+<div style="color:#ffffff;font-size:20px;font-weight:bold;">Agentic Account — Market Close Summary</div>
+<div style="color:#a9c6d8;font-size:13px;margin-top:4px;">Session: {{SESSION_DATE_LONG}} &nbsp;•&nbsp; {{SENT_TIMING_NOTE}}</div>
+</td></tr>
+
+<!-- ACTION-NEEDED-BANNER-START (delete this <tr> entirely if nothing critical to report) -->
+<tr><td style="background-color:#fff4e0;border-left:4px solid #c98a12;padding:14px 28px;">
+<div style="color:#8a5a00;font-weight:bold;font-size:13px;">ACTION NEEDED — {{BANNER_TITLE}}</div>
+<div style="color:#5c4008;font-size:13px;margin-top:4px;line-height:1.5;">{{BANNER_BODY}}</div>
+</td></tr>
+<!-- ACTION-NEEDED-BANNER-END -->
+
+<tr><td style="padding:20px 28px 4px 28px;">
+<div style="color:#1a1a1a;font-size:14px;line-height:1.6;">{{OVERVIEW_PARAGRAPH}}</div>
+</td></tr>
+
+<tr><td style="padding:16px 28px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+<td width="33%" style="padding:6px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:14px;">
+<div style="color:#5a6b76;font-size:11px;text-transform:uppercase;">Closing Value</div>
+<div style="color:#0b3350;font-size:22px;font-weight:bold;margin-top:4px;">{{CLOSING_VALUE}}</div>
+</td></tr></table>
+</td>
+<td width="33%" style="padding:6px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:14px;">
+<div style="color:#5a6b76;font-size:11px;text-transform:uppercase;">Day P&amp;L</div>
+<div style="color:{{DAY_PNL_COLOR}};font-size:16px;font-weight:bold;margin-top:4px;">{{DAY_PNL}}</div>
+<div style="color:#8a97a0;font-size:11px;margin-top:2px;">{{DAY_PNL_NOTE}}</div>
+</td></tr></table>
+</td>
+<td width="33%" style="padding:6px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:14px;">
+<div style="color:#5a6b76;font-size:11px;text-transform:uppercase;">Open / Protected</div>
+<div style="color:#0b3350;font-size:22px;font-weight:bold;margin-top:4px;">{{OPEN_PROTECTED_COUNT}}</div>
+<div style="color:#8a97a0;font-size:11px;margin-top:2px;">{{OPEN_PROTECTED_NOTE}}</div>
+</td></tr></table>
+</td>
+</tr></table>
+</td></tr>
+
+<tr><td style="padding:4px 28px 16px 28px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+<td width="50%" style="padding:6px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:14px;">
+<div style="color:#5a6b76;font-size:11px;text-transform:uppercase;">Cash</div>
+<div style="color:#0b3350;font-size:17px;font-weight:bold;margin-top:2px;">{{CASH}}</div>
+</td></tr></table>
+</td>
+<td width="50%" style="padding:6px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:14px;">
+<div style="color:#5a6b76;font-size:11px;text-transform:uppercase;">Unleveraged Buying Power</div>
+<div style="color:#0b3350;font-size:17px;font-weight:bold;margin-top:2px;">{{BUYING_POWER}}</div>
+</td></tr></table>
+</td>
+</tr></table>
+</td></tr>
+
+<tr><td style="padding:8px 28px;">
+<div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">Holdings as of {{SESSION_DATE_SHORT}} close</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;font-size:13px;border-collapse:collapse;">
+<tr style="background-color:#0e6e6e;color:#ffffff;">
+<td style="padding:8px 6px;">Symbol</td><td style="padding:8px 6px;">Shares</td><td style="padding:8px 6px;">Close</td><td style="padding:8px 6px;">Value</td><td style="padding:8px 6px;">Unreal. P&amp;L</td><td style="padding:8px 6px;">Stop</td><td style="padding:8px 6px;">Protected</td>
+</tr>
+{{HOLDINGS_ROWS}}
+<!-- each row: <tr style="background-color:#f6f9fa;"><td style="padding:8px 6px;">SYM</td><td style="padding:8px 6px;">QTY</td><td style="padding:8px 6px;">$CLOSE</td><td style="padding:8px 6px;">$VALUE</td><td style="padding:8px 6px;color:#0e7a3d or #b02a2a;">+/-$X (+/-X%)</td><td style="padding:8px 6px;">$STOP or n/a</td><td style="padding:8px 6px;color:#0e7a3d or #b02a2a;">Yes/No</td></tr> — alternate background-color:#f6f9fa / none for zebra striping -->
+</table>
+<div style="color:#8a97a0;font-size:11px;margin-top:8px;line-height:1.5;">{{HOLDINGS_FOOTNOTE}}</div>
+</td></tr>
+
+<tr><td style="padding:16px 28px 8px 28px;">
+<div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">Allocation (of {{CLOSING_VALUE}})</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;font-size:13px;">
+{{ALLOCATION_ROWS}}
+<!-- each row: <tr><td style="padding:4px 0;width:70px;">SYM</td><td style="padding:4px 0;"><div style="background-color:#0e6e6e;height:10px;width:PCT%;border-radius:3px;"></div></td><td style="padding:4px 0;width:50px;text-align:right;">PCT%</td></tr> -->
+</table>
+</td></tr>
+
+<tr><td style="padding:16px 28px 8px 28px;">
+<div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">Account value observations</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;font-size:12px;border-collapse:collapse;">
+<tr style="background-color:#0e6e6e;color:#ffffff;"><td style="padding:6px;">Time (UTC)</td><td style="padding:6px;">Value</td></tr>
+{{HISTORY_ROWS}}
+<!-- real timestamped observations only, from state.json account_value_history — never an interpolated/smoothed line -->
+</table>
+<div style="color:#8a97a0;font-size:11px;margin-top:6px;">{{HISTORY_FOOTNOTE}}</div>
+</td></tr>
+
+<tr><td style="padding:16px 28px 8px 28px;">
+<div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">Realized vs. unrealized</div>
+<div style="color:#1a1a1a;font-size:13px;margin-top:10px;line-height:1.6;">
+Realized P&amp;L ({{REALIZED_PERIOD}}): <b>{{REALIZED_PNL}}</b>. &nbsp;|&nbsp; Unrealized P&amp;L across all holdings, vs. cost basis: <b style="color:{{UNREALIZED_COLOR}};">{{UNREALIZED_PNL}}</b>.
+</div>
+</td></tr>
+
+<tr><td style="padding:16px 28px 20px 28px;">
+<div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">Gates &amp; unresolved items</div>
+<div style="color:#1a1a1a;font-size:13px;margin-top:10px;line-height:1.7;">
+Kill switch: {{STOP_STATUS}} &nbsp;|&nbsp; Drawdown halt: {{DRAWDOWN_STATUS}} &nbsp;|&nbsp; Day trades (5-day): {{DAY_TRADES}} &nbsp;|&nbsp; Open positions: {{OPEN_POSITIONS_COUNT}}<br>
+<b>Unresolved:</b> {{UNRESOLVED_SUMMARY}}
+</div>
+</td></tr>
+
+<!-- OPTIONAL: weekly recap section, last trading session of the week only. Insert a <tr> here in the same style if applicable; omit entirely otherwise. -->
+
+<tr><td style="background-color:#f6f9fa;padding:16px 28px;border-top:1px solid #dce3e8;">
+<div style="color:#8a97a0;font-size:11px;line-height:1.6;">
+Data as of {{DATA_AS_OF}}. Account {{MASKED_ACCOUNT}} (Robinhood Agentic). Report ID: {{REPORT_ID}}. Scenarios, not forecasts. Other holdings are held constant. Stops are not guaranteed execution prices; losses can exceed the stop scenario.
+</div>
+</td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>

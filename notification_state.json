@@ -1,8 +1,10 @@
 {
   "schema_version": 1,
+  "canonical_branch": "claude/trading-state",
   "initialized_at": "2026-09-21T13:35:00Z",
   "baseline_as_of": "2026-09-21T13:32:00Z",
   "last_successful_reconciliation_at": "2026-09-21T13:32:00Z",
+  "reconciled_at": "2026-09-21T13:35:00Z (maintenance session; see RECONCILIATION.md). Confirmed this file existed on no other branch across the whole repository (60+ branches checked) -- nothing to merge in, only to verify.",
   "email_recipient_source": "session userEmail context (account owner identity for this Claude session); config.json.email_recipient was null and no other owner-approved recipient record existed in this repository, so this was used per the standing instruction to reuse the owner's established identity rather than guess or use externally-researched contact info.",
   "email_recipient": "ferrell@chacetech.com",
   "observed_events": {
@@ -31,20 +33,22 @@
       "session_date": "2026-09-18",
       "included_event_ids": ["baseline:positions:2026-09-21T13:32:00Z", "stop:MSTR:2026-09-21T13:16:45Z"],
       "recipient": "ferrell@chacetech.com",
-      "status": "accepted",
+      "status": "verified_sent",
       "prepared_at": "2026-09-21T13:34:00Z",
       "sent_at": "2026-09-21T13:35:00Z",
       "provider": "gmail",
       "provider_message_id": "1a0c42c727850f44",
       "provider_thread_id": "1a0c42c727850f44",
-      "note": "send_message returned a message id, which this account's Gmail integration treats as acceptance by the provider, not confirmed recipient delivery. Delayed summary for the most recent completed session (Fri 2026-09-18); no DAILY_CLOSE had ever been sent for this account before this run. Weekend sessions 9/19-9/20 do not exist and owe no summary. Weekly-recap section (Section 7) omitted: 9/18 was the first tracked day, so no week of prior data exists to summarize."
+      "note": "send_message returned a message id, which this account's Gmail integration treats as acceptance by the provider, not confirmed recipient delivery. Delayed summary for the most recent completed session (Fri 2026-09-18); no DAILY_CLOSE had ever been sent for this account before this run. Weekend sessions 9/19-9/20 do not exist and owe no summary. Weekly-recap section (Section 7) omitted: 9/18 was the first tracked day, so no week of prior data exists to summarize.",
+      "verification": "Re-verified read-only in the 2026-09-21T13:35Z maintenance session via Gmail get_message(1a0c42c727850f44): labelIds includes SENT, to=ferrell@chacetech.com, date=2026-09-21T13:34:02Z, sender=hockeman2523@gmail.com. This confirms the message exists in the Sent mailbox (provider-side acceptance and send), not that the recipient has opened or received it into their inbox (no read receipt / bounce data available). Status upgraded from 'accepted' to 'verified_sent' on this evidence. Not resent -- do not resend for the 9/18 session under any circumstance."
     }
   },
   "daily_summaries": {
     "close:acct4292:2026-09-18": {
       "report_id": "close-acct4292-2026-09-18-delayed",
       "status": "verified_sent",
-      "sent_at": "2026-09-21T13:35:00Z"
+      "sent_at": "2026-09-21T13:35:00Z",
+      "verified_in_mailbox_at": "2026-09-21T13:40:00Z"
     }
   },
   "close_snapshots": {

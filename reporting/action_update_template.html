@@ -1,0 +1,109 @@
+<!--
+ACTION_UPDATE template. Fill every {{TOKEN}} from verified data per the
+standing instructions (Section 6.2/6.3/6.4) and reporting/README.md.
+{{TRADE_CARDS}} is a block of one card per material action this run
+(order placed/filled/cancelled, stop raised, position closed, protection
+installed, critical issue). Only include the scenario section
+({{SCENARIO_SECTION}}) when there is a still-open affected position with
+reliable target/stop inputs — omit it rather than inventing one. Delete the
+CRITICAL-BANNER block when this update is not for a critical issue.
+-->
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"></head>
+<body style="margin:0;padding:0;background-color:#f2f5f7;font-family:Helvetica,Arial,sans-serif;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f2f5f7;padding:24px 0;">
+<tr><td align="center">
+<table role="presentation" width="660" cellpadding="0" cellspacing="0" style="max-width:660px;width:100%;background-color:#ffffff;border-radius:8px;overflow:hidden;border:1px solid #dce3e8;">
+
+<tr><td style="background-color:#0b3350;padding:20px 28px;">
+<div style="color:#ffffff;font-size:20px;font-weight:bold;">Agentic Account — Trade Update</div>
+<div style="color:#a9c6d8;font-size:13px;margin-top:4px;">{{RUN_TIME_LABEL}} (America/Chicago)</div>
+</td></tr>
+
+<!-- CRITICAL-BANNER-START (delete entirely for a routine, non-critical update) -->
+<tr><td style="background-color:#fdeaea;border-left:4px solid #b02a2a;padding:14px 28px;">
+<div style="color:#7a1f1f;font-weight:bold;font-size:13px;">ACTION REQUIRED — {{CRITICAL_TITLE}}</div>
+<div style="color:#5c1414;font-size:13px;margin-top:4px;line-height:1.5;">{{CRITICAL_BODY}} What is known, what is not, and the specific next action: {{CRITICAL_NEXT_ACTION}}</div>
+</td></tr>
+<!-- CRITICAL-BANNER-END -->
+
+<tr><td style="padding:20px 28px 4px 28px;">
+<div style="color:#1a1a1a;font-size:14px;line-height:1.6;"><b>{{ONE_SENTENCE_SUMMARY}}</b><br>Verification status: {{VERIFICATION_STATUS}}</div>
+</td></tr>
+
+<tr><td style="padding:16px 28px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+<td width="33%" style="padding:6px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:14px;">
+<div style="color:#5a6b76;font-size:11px;text-transform:uppercase;">Current Value</div>
+<div style="color:#0b3350;font-size:20px;font-weight:bold;margin-top:4px;">{{CURRENT_VALUE}}</div>
+</td></tr></table>
+</td>
+<td width="33%" style="padding:6px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:14px;">
+<div style="color:#5a6b76;font-size:11px;text-transform:uppercase;">Value at Target</div>
+<div style="color:#0e7a3d;font-size:20px;font-weight:bold;margin-top:4px;">{{VALUE_AT_TARGET}}</div>
+<div style="color:#8a97a0;font-size:10px;margin-top:2px;">scenario, not forecast</div>
+</td></tr></table>
+</td>
+<td width="33%" style="padding:6px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:14px;">
+<div style="color:#5a6b76;font-size:11px;text-transform:uppercase;">Value at Stop</div>
+<div style="color:#b02a2a;font-size:20px;font-weight:bold;margin-top:4px;">{{VALUE_AT_STOP}}</div>
+<div style="color:#8a97a0;font-size:10px;margin-top:2px;">scenario, not forecast</div>
+</td></tr></table>
+</td>
+</tr></table>
+</td></tr>
+
+<tr><td style="padding:8px 28px;">
+<div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">What happened</div>
+{{TRADE_CARDS}}
+<!-- each card, one per material action:
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:12px 14px;font-size:13px;">
+<b>SYMBOL — buy/sell/order change</b> (agent action | automatic broker fill | external/manual change)<br>
+Requested: QTY @ $PRICE &nbsp;|&nbsp; Filled: QTY @ avg $PRICE &nbsp;|&nbsp; Total: $AMOUNT &nbsp;|&nbsp; TIME (CT)<br>
+Old level → New level (for a stop/target change) &nbsp;|&nbsp; Final state: STATE<br>
+<span style="color:#5a6b76;">Reason: REASON, based on the existing strategy and evidence actually used.</span>
+</td></tr></table>
+-->
+</td></tr>
+
+<tr><td style="padding:16px 28px 8px 28px;">
+<div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">Before / after</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;font-size:13px;">
+<tr><td style="padding:4px 0;color:#5a6b76;">Portfolio value</td><td style="padding:4px 0;text-align:right;">{{VALUE_BEFORE}} → {{VALUE_AFTER}}</td></tr>
+<tr><td style="padding:4px 0;color:#5a6b76;">Cash</td><td style="padding:4px 0;text-align:right;">{{CASH_BEFORE}} → {{CASH_AFTER}}</td></tr>
+<tr><td style="padding:4px 0;color:#5a6b76;">Unleveraged buying power</td><td style="padding:4px 0;text-align:right;">{{BP_BEFORE}} → {{BP_AFTER}}</td></tr>
+<tr><td style="padding:4px 0;color:#5a6b76;">Affected-position allocation</td><td style="padding:4px 0;text-align:right;">{{ALLOC_BEFORE}} → {{ALLOC_AFTER}}</td></tr>
+</table>
+<div style="color:#8a97a0;font-size:11px;margin-top:6px;">The before/after value difference is not automatically labeled as profit from this action alone — see Realized/Unrealized where applicable.</div>
+</td></tr>
+
+{{SCENARIO_SECTION}}
+<!-- when present, one block per affected still-open position:
+<tr><td style="padding:16px 28px 8px 28px;">
+<div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">SYMBOL — current / target / stop</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;font-size:13px;">
+<tr><td style="padding:4px 0;">Current: $MARK</td><td style="padding:4px 0;">Target: $TARGET (+X.X%)</td><td style="padding:4px 0;">Stop: $STOP (-X.X%)</td></tr>
+</table>
+</td></tr>
+-->
+
+<tr><td style="padding:16px 28px 20px 28px;">
+<div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">Protection coverage</div>
+<div style="color:#1a1a1a;font-size:13px;margin-top:10px;line-height:1.7;">{{PROTECTION_SUMMARY}}</div>
+</td></tr>
+
+<tr><td style="background-color:#f6f9fa;padding:16px 28px;border-top:1px solid #dce3e8;">
+<div style="color:#8a97a0;font-size:11px;line-height:1.6;">
+Data as of {{DATA_AS_OF}}. Account {{MASKED_ACCOUNT}} (Robinhood Agentic). Report ID: {{REPORT_ID}}. Scenarios, not forecasts. Other holdings are held constant. Stops are not guaranteed execution prices; losses can exceed the stop scenario.
+</div>
+</td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>

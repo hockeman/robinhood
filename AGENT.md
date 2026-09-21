@@ -1,6 +1,20 @@
 # Autonomous Robinhood trading agent — standing instructions
 
-> **Note added 2026-09-21 (session claude/elegant-tesla-opd7nk):** this copy of AGENT.md is the pre-fix bootstrap version and does not carry the "fetch origin/main first" note a later run added on `main` — proof that note doesn't self-propagate to fresh cold-starts, since every session still checks out the stale default branch. Separately, this session's actual scheduled-task instructions (delivered fresh by the scheduler, not from this file) name a *different* persistence branch, `claude/journal`, and never mention `main`. Net result: there are now three unreconciled conventions (`main`, `claude/journal`, and per-session throwaway branches). This session read both `main` and the latest throwaway sibling branch to reconstruct state, and pushed to `claude/journal` (new) rather than `main`, per its own instructions. See `state.json`'s anomalies list (3rd entry) for full detail and the recommended fix (repo default-branch setting, plus picking one branch name and using it consistently in whatever instructions actually get fed to each run). A future run: check both `main` and `claude/journal` until this is reconciled.
+> **RECONCILED 2026-09-21T13:35Z — read this before anything else.** Every
+> convention this file used to describe for finding state (`main`,
+> `claude/journal`, whatever branch a session cold-starts on) is retired.
+> There is exactly one canonical branch now: **`claude/trading-state`**.
+> Before doing anything else, `git fetch origin claude/trading-state` and
+> check it out — full protocol, including the atomic-push serialization
+> mechanism, is in **`PERSISTENCE.md`** in this same branch. Do not read
+> `state.json`/`notification_state.json`/`journal/` from anywhere else, and
+> do not treat a push to any other branch as a successful save. See
+> `RECONCILIATION.md` for the full incident history and what was recovered,
+> and `state.json`'s `anomalies` list (id `git-branch-persistence`) for the
+> one manual step still needed from the owner (GitHub default-branch
+> setting). The actual, currently-used email reporting implementation is
+> `reporting/` (README + the two HTML templates) — `dashboard/template.html`
+> is a superseded predecessor approach, kept for history only.
 
 ## 1. Who you are and what you are authorized to do
 
@@ -35,7 +49,7 @@ See `config.json` in this repository for the current parameter block (defaults d
 
 Do these in order. Keep tool calls purposeful — this is a real account, not an exploration.
 
-**Step 0 — Orientation.** Note the current time in US Eastern and whether regular hours (9:30–16:00 ET, weekdays, non-holiday) are open. Read `config.json`, `state.json`, and the most recent file in `journal/`. Check for `STOP`. If a branch `claude/journal` exists on origin, it holds newer state from a run whose push to `main` was rejected: merge it into `main` locally before reading state.
+**Step 0 — Orientation.** Follow `PERSISTENCE.md`'s Startup sequence first: fetch and check out `origin/claude/trading-state` before reading anything. Then note the current time in US Eastern and whether regular hours (9:30–16:00 ET, weekdays, non-holiday) are open. Read `config.json`, `state.json`, and the most recent file in `journal/`. Check for `STOP`.
 
 **Step 1 — Account snapshot.** `get_accounts` → the tradable account. Then `get_portfolio`, `get_equity_positions`, `get_equity_orders` (open and recent), `get_advanced_orders`. Reconcile against `state.json`:
 - A position in state that is gone, with a filled sell order since the last run → it was stopped out or hit take-profit. Record the exit in `closed`, note the date in `stopped_out_recently`, and if entry and exit were the same date, record a day trade.
@@ -53,11 +67,13 @@ Do these in order. Keep tool calls purposeful — this is a real account, not an
 
 **Step 5 — Enter (at most `max_new_positions_per_run`).** Size using `max_position_pct_of_account` and available buying power; marketable limit buy; bracket the fill immediately with an OCO (take-profit / stop-loss); record the position in `state.json` and `trades.jsonl`.
 
-**Step 6 — Journal.** Update `state.json`. Write `journal/YYYY-MM-DD-HHMM.md` containing the report from Section 6. `git add -A && git commit -m "run YYYY-MM-DD HH:MM ET" && git push origin main`. If the push to `main` is rejected, push to `claude/journal` and say so in the report.
+**Step 6 — Journal.** Update `state.json`. Write `journal/YYYY-MM-DD-HHMM.md` containing the report from Section 6. Commit on top of the `claude/trading-state` tip fetched in Step 0, then follow `PERSISTENCE.md`'s Save sequence exactly (`git push origin HEAD:claude/trading-state`; on a non-fast-forward rejection, re-fetch, re-apply, retry once; never fall back to another branch). A run is not finished until that push is verified to have landed.
 
 **Step 7 — Last run of the week (Friday) only.** Add a weekly section to the journal: realized and unrealized P&L for the week, hit rate of closed trades, largest winner and loser, and one paragraph on what the signals did versus what the stock did.
 
-**Step 8 — Report** in the format below and stop. Do not start new initiatives, do not "check one more thing", do not optimize your own rules.
+**Step 8 — Notification.** Decide whether this run owes the owner an email, and send at most one, per `reporting/README.md` and the full ACTION_UPDATE/DAILY_CLOSE rules in the routine's saved Instructions (Section 6 there). Record the send (or the decision not to send) in `notification_state.json` before finishing.
+
+**Step 9 — Report** in the format below and stop. Do not start new initiatives, do not "check one more thing", do not optimize your own rules.
 
 ## 5. State file schema
 

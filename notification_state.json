@@ -47,9 +47,36 @@
       "first_detected": "2026-09-19T17:19:00Z",
       "last_reported_in_email": "2026-09-21T13:35:00Z",
       "note": "Reported this run inside the DAILY_CLOSE email banner (not as a separate ACTION_UPDATE) since it's an infra/continuity issue, not a trading-safety issue -- all positions were independently re-verified protected against the broker this run."
+    },
+    "robinhood-mcp-connector-failure": {
+      "first_detected": "2026-09-21T23:13:00Z",
+      "last_reported_in_email": "2026-09-21T23:13:00Z",
+      "note": "The Robinhood-Trading MCP connector failed to connect (HTTP 502 at the connector/transport layer, error CLIENT_HTTP_NOT_IMPLEMENTED) for the entire run -- no Robinhood tool (get_accounts, get_portfolio, get_equity_positions, get_equity_orders, review/place order, etc.) was discoverable or callable. Confirmed via two independent ToolSearch attempts, both returning the same connector-failure notice with no matching tools. Not a per-call error eligible for the standard single retry -- this is a platform-level connection failure to the entire connector, per Section 7 ('do not attempt any workaround; write the journal with what you know and report'). First occurrence; no prior journal or notification_state entry documents this specific failure mode."
     }
   },
   "outbox": {
+    "action-acct4292-2026-09-21T2313Z": {
+      "report_id": "action-acct4292-2026-09-21T2313Z",
+      "type": "ACTION_UPDATE",
+      "included_event_ids": [],
+      "critical_issue_fingerprint": "robinhood-mcp-connector-failure",
+      "recipient": "ferrell@chacetech.com",
+      "status": "verified_sent",
+      "prepared_at": "2026-09-21T23:13:00Z",
+      "sent_at": "2026-09-21T23:15:45Z",
+      "provider": "gmail",
+      "provider_message_id": "1a0c64104fa41397",
+      "provider_thread_id": "1a0c64080098e8cb",
+      "verification": "Re-verified via Gmail get_message(1a0c64104fa41397) FULL_CONTENT: labelIds includes SENT, to=ferrell@chacetech.com, date=2026-09-21T23:15:45Z, sender=hockeman2523@gmail.com, htmlBody contains the actual rendered report markup (sizeEstimate 9387 bytes) -- not a placeholder string. Confirms provider-side send, not recipient-side delivery/read.",
+      "note": "Robinhood connector unreachable all run (HTTP 502). No account data obtainable. Rendered HTML saved at reporting/sent/action_update_2026-09-21T2313Z.html before send.",
+      "tooling_defect_in_first_send": {
+        "message_id": "1a0c64080098e8cb",
+        "sent_at": "2026-09-21T23:15:11Z",
+        "defect": "htmlBody parameter was passed as the literal string 'FILE:/home/user/robinhood/reporting/sent/action_update_2026-09-21T2313Z.html' -- a file-reference placeholder -- instead of the actual rendered HTML content. This send_message tool does not resolve file-path references or shell syntax in its parameters; the exact HTML must be read (e.g. via the Read tool) and pasted literally into htmlBody. plaintextBody was correct in this first send. Same class of defect as prior anomalies concurrent-run-duplicate-action-update-20260921t1414z and shell-substitution-htmlbody-defect-20260921t2019z (this is the third occurrence of this exact mistake pattern across sessions on this account).",
+        "corrected_by_message_id": "1a0c64104fa41397",
+        "action_taken": "Detected immediately via get_message re-check before declaring the send complete, per reporting/README.md send-discipline rule. Sent an in-thread corrective reply with the file's actual content (read via the Read tool, then pasted directly, no path reference or shell syntax) as htmlBody; verified via get_message FULL_CONTENT that the correction carries the real markup before marking this report verified_sent."
+      }
+    },
     "action-acct4292-2026-09-21T1414Z": {
       "report_id": "action-acct4292-2026-09-21T1414Z",
       "type": "ACTION_UPDATE",

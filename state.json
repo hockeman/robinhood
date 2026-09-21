@@ -1,13 +1,14 @@
 {
-  "last_run": "2026-09-18T22:16:00Z",
-  "peak_account_value": 7390.56261755,
+  "last_run": "2026-09-21T01:14:00Z",
+  "peak_account_value": 7459.74148724,
   "account_value_history": [
-    {"ts": "2026-09-18T22:16:00Z", "value": 7390.56261755}
+    {"ts": "2026-09-18T22:16:00Z", "value": 7390.56261755},
+    {"ts": "2026-09-21T01:14:00Z", "value": 7459.74148724}
   ],
   "positions": {
     "MSTR": {
       "entry_price": 150.17, "entry_date": "2026-09-18", "qty": 23,
-      "high_since_entry": 153.91, "stop_price": 144.80,
+      "high_since_entry": 153.92, "stop_price": 144.80,
       "protective_order_id": "6aad726e-9263-4d94-ade3-1ef7d93775ae",
       "protective_order_type": "stop_limit", "signal": "legacy",
       "thesis": "Rebuilt from live account state; no prior journal/state existed. Two same-day buy fills (12 @ ~150.10 then 11 @ ~150.50) combined into this position, which violates the 'never add to an existing position' rule and predates this state file."
@@ -28,7 +29,7 @@
     },
     "UROY": {
       "entry_price": 4.53, "entry_date": "2026-09-18", "qty": 33,
-      "high_since_entry": 4.55, "stop_price": 4.28,
+      "high_since_entry": 4.56, "stop_price": 4.28,
       "protective_order_id": "6aad8872-c211-45cc-88d8-f8fff1f471a1",
       "protective_order_type": "stop_limit", "signal": "legacy",
       "thesis": "Rebuilt from live account state; no prior journal/state existed."
@@ -42,12 +43,14 @@
     {
       "detected": "2026-09-18T22:16:00Z",
       "description": "AAPL position of 0.005949 shares (~$2) bought via a market order at 2026-09-18T19:30:36Z, placed_agent=agentic. This does not fit the strategy: no AAPL signal, no config in place, size far below min_position_usd, and order type (market, dollar-based) is not the marketable-limit entry the rules specify. No protective order exists or is feasible for a fractional position this small. Left unmanaged and flagged for the owner; not sold or otherwise acted on this run.",
-      "action_taken": "none - reported only"
+      "action_taken": "none - reported only",
+      "status": "unresolved as of 2026-09-21T01:14:00Z run; position and its absence of a protective order are unchanged since detection"
     },
     {
       "detected": "2026-09-18T22:16:00Z",
       "description": "MSTR position was built from two same-day buy fills (12 sh ~150.10, then 11 sh ~150.50), i.e. an addition to an already-open position, which the standing rules forbid ('never average down or add to an existing position'). Several of today's buy fills also used stop-triggered limit orders rather than the plain marketable limit the entry procedure specifies (see get_equity_orders for TRMD, ALVO, MSTR order history). This predates this state file; no corrective action taken this run beyond flagging it.",
-      "action_taken": "none - reported only"
+      "action_taken": "none - reported only",
+      "status": "unresolved as of 2026-09-21T01:14:00Z run; no owner confirmation received yet on whether prior fills came from this same routine"
     }
   ]
 }

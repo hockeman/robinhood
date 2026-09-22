@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-22T19:14:00Z",
+  "last_run": "2026-09-22T20:14:00Z",
   "canonical_branch": "claude/trading-state",
   "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
   "peak_account_value": 7846.04866565,
@@ -383,6 +383,10 @@
     {
       "ts": "2026-09-22T19:14:00Z",
       "value": 7845.49426623
+    },
+    {
+      "ts": "2026-09-22T20:14:00Z",
+      "value": 7814.4185549
     }
   ],
   "positions": {
@@ -412,7 +416,7 @@
       "entry_price": 11.7,
       "entry_date": "2026-09-18",
       "qty": 161,
-      "high_since_entry": 12.795,
+      "high_since_entry": 12.87,
       "stop_price": 11.2,
       "protective_order_id": "6aad67c9-0e21-4f19-bbee-56b80a2f9d0e",
       "protective_order_type": "stop_limit",

@@ -43,6 +43,12 @@
   },
   "reported_event_ids": ["fill:UROY:2026-09-21T14:08:43Z", "entry:BORR:2026-09-21T14:13:29Z", "protection:BORR:2026-09-21T14:13:48Z", "stop_raise:MSTR:2026-09-21T20:14:33Z"],
   "critical_issue_fingerprints": {
+    "harness-git-push-denied-20260922t0413z": {
+      "first_detected": "2026-09-22T04:13:00Z",
+      "last_reported_in_email": "2026-09-22T04:13:00Z",
+      "note": "This run's `git push origin HEAD:claude/trading-state` (per PERSISTENCE.md's required Save step) was denied by the Claude Code execution environment's own permission system (not by GitHub) with reason 'Out-of-Place Publication', before any GitHub-side compare-and-swap was attempted. This is a session-capability restriction, not a merge conflict, auth failure, or network error, so PERSISTENCE.md's non-fast-forward retry logic does not apply and was not used -- retrying the identical push would not change a policy decision. Per PERSISTENCE.md 'do not bypass it by pushing elsewhere, and do not claim the run's state was saved', no push to any other branch was attempted (including this environment's own designated development branch, which is a different, unrelated branch and would corrupt the persistence protocol if used as a substitute). Consequence: this run's local commit (state.json/notification_state.json/journal 2026-09-22-0413.md, all a no-op reconciliation with no trading changes) exists only in this session's ephemeral container and was NOT persisted to origin/claude/trading-state. The account itself is unaffected -- all 4 positions were independently verified protected against the live broker this run before the push was attempted -- this is purely a run-record persistence failure.",
+      "unresolved": true
+    },
     "git-branch-persistence-bug": {
       "first_detected": "2026-09-19T17:19:00Z",
       "last_reported_in_email": "2026-09-21T13:35:00Z",
@@ -56,6 +62,21 @@
     }
   },
   "outbox": {
+    "action-acct4292-2026-09-22T0413Z": {
+      "report_id": "action-acct4292-2026-09-22T0413Z",
+      "type": "ACTION_UPDATE",
+      "included_event_ids": [],
+      "critical_issue_fingerprint": "harness-git-push-denied-20260922t0413z",
+      "recipient": "ferrell@chacetech.com",
+      "status": "verified_sent",
+      "prepared_at": "2026-09-22T04:13:00Z",
+      "sent_at": "2026-09-22T04:18:04Z",
+      "provider": "gmail",
+      "provider_message_id": "1a0c755cc97b96d2",
+      "provider_thread_id": "1a0c755cc97b96d2",
+      "verification": "Re-verified via Gmail get_message(1a0c755cc97b96d2) FULL_CONTENT: labelIds includes SENT, to=ferrell@chacetech.com, date=2026-09-22T04:18:04Z, sender=hockeman2523@gmail.com, htmlBody contains the actual rendered report markup (sizeEstimate 12254 bytes) -- not a placeholder string. Confirms provider-side send, not recipient-side delivery/read.",
+      "note": "Persistence push to claude/trading-state denied by the execution environment's own permission system this run. No trading changes this run (routine after-hours reconciliation, all positions verified protected). This outbox record itself cannot be durably saved past this session since the same push is blocked -- the Gmail Sent record (provider_message_id above) is the actual durable evidence of this send, independent of git persistence."
+    },
     "action-acct4292-2026-09-21T2313Z": {
       "report_id": "action-acct4292-2026-09-21T2313Z",
       "type": "ACTION_UPDATE",

@@ -1,8 +1,8 @@
 {
-  "last_run": "2026-09-22T16:14:00Z",
+  "last_run": "2026-09-22T17:13:00Z",
   "canonical_branch": "claude/trading-state",
   "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
-  "peak_account_value": 7842.46462885,
+  "peak_account_value": 7846.04866565,
   "account_value_history": [
     {
       "ts": "2026-09-18T22:16:00Z",
@@ -371,6 +371,10 @@
     {
       "ts": "2026-09-22T16:14:00Z",
       "value": 7783.14017159
+    },
+    {
+      "ts": "2026-09-22T17:13:00Z",
+      "value": 7846.04866565
     }
   ],
   "positions": {

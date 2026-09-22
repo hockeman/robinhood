@@ -3,7 +3,7 @@
   "canonical_branch": "claude/trading-state",
   "initialized_at": "2026-09-21T13:35:00Z",
   "baseline_as_of": "2026-09-21T13:32:00Z",
-  "last_successful_reconciliation_at": "2026-09-22T13:16:00Z",
+  "last_successful_reconciliation_at": "2026-09-22T14:14:00Z",
   "reconciled_at": "2026-09-21T13:35:00Z (maintenance session; see RECONCILIATION.md). Confirmed this file existed on no other branch across the whole repository (60+ branches checked) -- nothing to merge in, only to verify.",
   "email_recipient_source": "session userEmail context (account owner identity for this Claude session); config.json.email_recipient was null and no other owner-approved recipient record existed in this repository, so this was used per the standing instruction to reuse the owner's established identity rather than guess or use externally-researched contact info.",
   "email_recipient": "ferrell@chacetech.com",
@@ -21,7 +21,10 @@
       "description": "UROY protective stop-market sell filled automatically: 33 sh @ avg $4.28 (2 executions), closing the position. Entry was 2026-09-18 @ avg $4.5299, so this is a 3-day hold, not a same-day round trip -- no day trade. Realized P&L -$8.2467. Discovered this run via Step 1 reconciliation (position present in prior state.json, absent from live get_equity_positions); verified via get_equity_orders execution records.",
       "origin": "broker (automatic stop fill)",
       "order_id": "6aad8872-c211-45cc-88d8-f8fff1f471a1",
-      "execution_ids": ["6ab13a6b-8f21-4991-8741-0c0f568e5edc", "6ab13a6b-6629-462f-bfc9-cdfbf1a06ed9"]
+      "execution_ids": [
+        "6ab13a6b-8f21-4991-8741-0c0f568e5edc",
+        "6ab13a6b-6629-462f-bfc9-cdfbf1a06ed9"
+      ]
     },
     "entry:BORR:2026-09-21T14:13:29Z": {
       "description": "New position opened: BORR, 26 sh @ avg fill $4.4685, marketable limit, agent-placed. Insider-cluster signal (score 7), verified via SEC EDGAR Form 4 filing index. Sized from buying power freed by the UROY stop-out.",
@@ -41,7 +44,12 @@
       "cancelled_order_id": "6ab12e3d-aea4-49a4-b6bd-f4f6aa74d643"
     }
   },
-  "reported_event_ids": ["fill:UROY:2026-09-21T14:08:43Z", "entry:BORR:2026-09-21T14:13:29Z", "protection:BORR:2026-09-21T14:13:48Z", "stop_raise:MSTR:2026-09-21T20:14:33Z"],
+  "reported_event_ids": [
+    "fill:UROY:2026-09-21T14:08:43Z",
+    "entry:BORR:2026-09-21T14:13:29Z",
+    "protection:BORR:2026-09-21T14:13:48Z",
+    "stop_raise:MSTR:2026-09-21T20:14:33Z"
+  ],
   "critical_issue_fingerprints": {
     "harness-git-push-denied-20260922t0413z": {
       "first_detected": "2026-09-22T04:13:00Z",
@@ -103,7 +111,11 @@
     "action-acct4292-2026-09-21T1414Z": {
       "report_id": "action-acct4292-2026-09-21T1414Z",
       "type": "ACTION_UPDATE",
-      "included_event_ids": ["fill:UROY:2026-09-21T14:08:43Z", "entry:BORR:2026-09-21T14:13:29Z", "protection:BORR:2026-09-21T14:13:48Z"],
+      "included_event_ids": [
+        "fill:UROY:2026-09-21T14:08:43Z",
+        "entry:BORR:2026-09-21T14:13:29Z",
+        "protection:BORR:2026-09-21T14:13:48Z"
+      ],
       "recipient": "ferrell@chacetech.com",
       "status": "verified_sent",
       "prepared_at": "2026-09-21T14:16:00Z",
@@ -133,7 +145,10 @@
       "report_id": "close-acct4292-2026-09-18-delayed",
       "type": "DAILY_CLOSE",
       "session_date": "2026-09-18",
-      "included_event_ids": ["baseline:positions:2026-09-21T13:32:00Z", "stop:MSTR:2026-09-21T13:16:45Z"],
+      "included_event_ids": [
+        "baseline:positions:2026-09-21T13:32:00Z",
+        "stop:MSTR:2026-09-21T13:16:45Z"
+      ],
       "recipient": "ferrell@chacetech.com",
       "status": "verified_sent",
       "prepared_at": "2026-09-21T13:34:00Z",
@@ -148,7 +163,12 @@
       "report_id": "close-acct4292-2026-09-21",
       "type": "DAILY_CLOSE",
       "session_date": "2026-09-21",
-      "included_event_ids": ["stop_raise:MSTR:2026-09-21T20:14:33Z", "fill:UROY:2026-09-21T14:08:43Z", "entry:BORR:2026-09-21T14:13:29Z", "protection:BORR:2026-09-21T14:13:48Z"],
+      "included_event_ids": [
+        "stop_raise:MSTR:2026-09-21T20:14:33Z",
+        "fill:UROY:2026-09-21T14:08:43Z",
+        "entry:BORR:2026-09-21T14:13:29Z",
+        "protection:BORR:2026-09-21T14:13:48Z"
+      ],
       "recipient": "ferrell@chacetech.com",
       "status": "verified_sent",
       "prepared_at": "2026-09-21T20:18:00Z",

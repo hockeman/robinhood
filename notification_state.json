@@ -3,7 +3,7 @@
   "canonical_branch": "claude/trading-state",
   "initialized_at": "2026-09-21T13:35:00Z",
   "baseline_as_of": "2026-09-21T13:32:00Z",
-  "last_successful_reconciliation_at": "2026-09-21T22:13:00Z",
+  "last_successful_reconciliation_at": "2026-09-22T00:13:00Z",
   "reconciled_at": "2026-09-21T13:35:00Z (maintenance session; see RECONCILIATION.md). Confirmed this file existed on no other branch across the whole repository (60+ branches checked) -- nothing to merge in, only to verify.",
   "email_recipient_source": "session userEmail context (account owner identity for this Claude session); config.json.email_recipient was null and no other owner-approved recipient record existed in this repository, so this was used per the standing instruction to reuse the owner's established identity rather than guess or use externally-researched contact info.",
   "email_recipient": "ferrell@chacetech.com",
@@ -51,7 +51,8 @@
     "robinhood-mcp-connector-failure": {
       "first_detected": "2026-09-21T23:13:00Z",
       "last_reported_in_email": "2026-09-21T23:13:00Z",
-      "note": "The Robinhood-Trading MCP connector failed to connect (HTTP 502 at the connector/transport layer, error CLIENT_HTTP_NOT_IMPLEMENTED) for the entire run -- no Robinhood tool (get_accounts, get_portfolio, get_equity_positions, get_equity_orders, review/place order, etc.) was discoverable or callable. Confirmed via two independent ToolSearch attempts, both returning the same connector-failure notice with no matching tools. Not a per-call error eligible for the standard single retry -- this is a platform-level connection failure to the entire connector, per Section 7 ('do not attempt any workaround; write the journal with what you know and report'). First occurrence; no prior journal or notification_state entry documents this specific failure mode."
+      "resolved_at": "2026-09-22T00:13:00Z",
+      "note": "The Robinhood-Trading MCP connector failed to connect (HTTP 502 at the connector/transport layer, error CLIENT_HTTP_NOT_IMPLEMENTED) for the entire 2026-09-21T23:13Z run -- no Robinhood tool was discoverable or callable. Resolved: the very next run (2026-09-22T00:13Z) reached every Robinhood tool normally (get_accounts, get_portfolio, get_equity_positions, get_equity_orders all returned live data) and Step 1 reconciliation found the account exactly as last verified at 22:13Z, with no fills, stop triggers, or external changes in the unverified gap window. Per Section 6.2/7, a resolution that the very next run confirms healthy needs no further owner-facing report beyond this record; no ACTION_UPDATE sent for the resolution."
     }
   },
   "outbox": {

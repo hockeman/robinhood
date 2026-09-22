@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-21T23:13:00Z",
+  "last_run": "2026-09-22T00:13:00Z",
   "canonical_branch": "claude/trading-state",
   "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
   "peak_account_value": 7842.46462885,
@@ -291,6 +291,10 @@
     {
       "ts": "2026-09-21T22:13:00Z",
       "value": 7806.09275661
+    },
+    {
+      "ts": "2026-09-22T00:13:00Z",
+      "value": 7803.03498579
     }
   ],
   "positions": {
@@ -418,7 +422,7 @@
       "detected": "2026-09-21T23:13:00Z",
       "description": "The Robinhood-Trading MCP connector failed to connect for this entire run: 'Robinhood-Trading- (502): SdkHttpError dialing .../mcp (CLIENT_HTTP_NOT_IMPLEMENTED)'. No Robinhood tool (get_accounts, get_portfolio, get_equity_positions, get_equity_orders, review/place_equity_order, review/place_advanced_order, get_equity_quotes, get_equity_historicals, get_equity_technical_indicators, get_equity_fundamentals, get_equity_tradability, get_earnings_results, get_politician_trades, get_sec_filing_index, etc.) was discoverable via ToolSearch (confirmed by two independent queries, both returning only the connector-failure notice, no matching tools). This is a platform-level connection failure to the whole connector, not a single failing call, so the standing 'retry once' rule for a Robinhood tool error does not apply as written -- there was no tool to retry. No workaround was attempted per Section 7's explicit instruction not to work around an unavailable/failed connector. Consequence: Step 1 (account snapshot/reconciliation), Step 2 (protective-order verification/management), and Steps 3-5 (entry gates/signal research/entry) were entirely skipped this run -- not because of any trading-rule gate, but because there was no way to read or act on the account. All position/order data in this file remains exactly as of the prior run (2026-09-21T22:13:00Z, last_successful_reconciliation_at unchanged in notification_state.json) and is UNVERIFIED as of this run's timestamp.",
       "action_taken": "Reported this run as a critical issue via one ACTION_UPDATE email with an ACTION REQUIRED banner (report_id action-acct4292-2026-09-21T2313Z, recipient ferrell@chacetech.com, verified_sent) per Section 6.2's 'loss of required account access' category. No trading action was taken or attempted. Git orientation (fetch/checkout claude/trading-state, STOP check, config/state/journal read) was completed normally since it does not depend on the Robinhood connector. This run's git Save step (Step 6) will still commit and push the journal/notification_state/state updates documenting this outage.",
-      "status": "unresolved_pending_connector_recovery; next scheduled run will retry automatically and should attempt full Step 1 reconciliation immediately on regaining access, since up to one hour of unverified broker-side activity (fills, automatic stop triggers, external changes) may have occurred during the outage window"
+      "status": "resolved_2026-09-22T00:13:00Z; the next scheduled run reached every Robinhood tool normally and Step 1 reconciliation found the account exactly as last verified at 22:13Z on 2026-09-21 -- no fills, stop triggers, or external changes occurred during the outage window"
     }
   ]
 }

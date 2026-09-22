@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-22T14:28:00Z",
+  "last_run": "2026-09-22T14:41:00Z",
   "canonical_branch": "claude/trading-state",
   "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
   "peak_account_value": 7842.46462885,
@@ -359,6 +359,10 @@
     {
       "ts": "2026-09-22T14:28:00Z",
       "value": 7808.9824117802
+    },
+    {
+      "ts": "2026-09-22T14:41:00Z",
+      "value": 7769.65129173
     }
   ],
   "positions": {
@@ -404,7 +408,7 @@
       "protective_order_id": "6ab13b9c-0bd2-4a33-92e3-34e9d86ccd63",
       "protective_order_type": "stop_market",
       "signal": "insider",
-      "thesis": "Insider cluster buy verified via SEC EDGAR Form 4 filing index (3 filings: 2026-09-17, 2026-09-18, 2026-09-21, all confirmed against OpenInsider data). CEO Bruno Morand De Oliveira bought $200,200 on 2026-09-18; Director Tor Olav Troim bought $656,925 (2026-09-17) and $4,299,500/1,000,000sh (2026-09-16). Signal score 7 (CEO/officer open-market buy +3, other director buy +2, 2-insider cluster +2; no ΔOwn>=5% bonus, no politician confluence, no penalties -- chase from $4.40 signal price to $4.47 entry was only +1.6%, RSI(14)=53 mid-range, price above 50-day SMA). Universe screen passed: market cap $1.38B, 30-day avg volume 5.28M shares, bid/ask spread 0.22%, tradable, no earnings within blackout (next report 2026-11-04), financial_status_description clean. Entered 26 sh at $4.4685 avg (marketable limit, regular hours). Advanced orders (OCO) remain SERVICE_DISABLED on this account (standing constraint, see anomalies) -- protected with a plain stop_market sell at $4.11 (8% initial stop) instead of a bracket; verified confirmed same run. Re-verified live against the broker this run (16:14 ET, order still confirmed, unchanged). get_equity_historicals shows a new intraday high of $4.575 (was $4.4685); up 2.38% from entry -- still well below the 10% trail trigger, no stop change due."
+      "thesis": "Insider cluster buy verified via SEC EDGAR Form 4 filing index (3 filings: 2026-09-17, 2026-09-18, 2026-09-21, all confirmed against OpenInsider data). CEO Bruno Morand De Oliveira bought $200,200 on 2026-09-18; Director Tor Olav Troim bought $656,925 (2026-09-17) and $4,299,500/1,000,000sh (2026-09-16). Signal score 7 (CEO/officer open-market buy +3, other director buy +2, 2-insider cluster +2; no \u0394Own>=5% bonus, no politician confluence, no penalties -- chase from $4.40 signal price to $4.47 entry was only +1.6%, RSI(14)=53 mid-range, price above 50-day SMA). Universe screen passed: market cap $1.38B, 30-day avg volume 5.28M shares, bid/ask spread 0.22%, tradable, no earnings within blackout (next report 2026-11-04), financial_status_description clean. Entered 26 sh at $4.4685 avg (marketable limit, regular hours). Advanced orders (OCO) remain SERVICE_DISABLED on this account (standing constraint, see anomalies) -- protected with a plain stop_market sell at $4.11 (8% initial stop) instead of a bracket; verified confirmed same run. Re-verified live against the broker this run (16:14 ET, order still confirmed, unchanged). get_equity_historicals shows a new intraday high of $4.575 (was $4.4685); up 2.38% from entry -- still well below the 10% trail trigger, no stop change due."
     }
   },
   "closed": [
@@ -431,9 +435,23 @@
   },
   "candidates_seen": {
     "2026-09-21": {
-      "BORR": {"score": 7, "decision": "entered", "signal": "insider_cluster (CEO + Director)"},
-      "SBLK": {"score": 6, "decision": "rejected_position_sizing", "signal": "insider_cluster (5 insiders incl. co-CFO)", "notes": "Passed universe/technical screens and scoring (>= min_signal_score) but at $32.39 ask, the $116.84 available budget only buys 3 whole shares ($97.17), below min_position_usd ($100). Only one new position allowed per run; BORR took the slot."},
-      "BWMX": {"score": null, "decision": "rejected_universe", "signal": "insider_cluster (3 insiders incl. CEO+Chairman)", "notes": "Disqualified before scoring: 30-day avg volume 73,584 sh (below 500,000 minimum) and bid/ask spread ~2.6% (above 1.0% max)."}
+      "BORR": {
+        "score": 7,
+        "decision": "entered",
+        "signal": "insider_cluster (CEO + Director)"
+      },
+      "SBLK": {
+        "score": 6,
+        "decision": "rejected_position_sizing",
+        "signal": "insider_cluster (5 insiders incl. co-CFO)",
+        "notes": "Passed universe/technical screens and scoring (>= min_signal_score) but at $32.39 ask, the $116.84 available budget only buys 3 whole shares ($97.17), below min_position_usd ($100). Only one new position allowed per run; BORR took the slot."
+      },
+      "BWMX": {
+        "score": null,
+        "decision": "rejected_universe",
+        "signal": "insider_cluster (3 insiders incl. CEO+Chairman)",
+        "notes": "Disqualified before scoring: 30-day avg volume 73,584 sh (below 500,000 minimum) and bid/ask spread ~2.6% (above 1.0% max)."
+      }
     }
   },
   "anomalies": [

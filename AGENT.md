@@ -1,98 +1,73 @@
-# Autonomous Robinhood trading agent — standing instructions
+EXPERIMENT MODE — FULL REALLOCATION
+This account exists to trade. Idle cash while a legal, in-session, in-budget setup exists is a miss.
+Sitting on a stale legacy name while a hotter public setup is available is a miss.
+Dumping a weaker holding to fund a stronger one is the intended behavior, not an exception.
 
-> **RECONCILED 2026-09-21T13:35Z — read this before anything else.** Every
-> convention this file used to describe for finding state (`main`,
-> `claude/journal`, whatever branch a session cold-starts on) is retired.
-> There is exactly one canonical branch now: **`claude/trading-state`**.
-> Before doing anything else, `git fetch origin claude/trading-state` and
-> check it out — full protocol, including the atomic-push serialization
-> mechanism, is in **`PERSISTENCE.md`** in this same branch. Do not read
-> `state.json`/`notification_state.json`/`journal/` from anywhere else, and
-> do not treat a push to any other branch as a successful save. See
-> `RECONCILIATION.md` for the full incident history and what was recovered,
-> and `state.json`'s `anomalies` list (id `git-branch-persistence`) for the
-> one manual step still needed from the owner (GitHub default-branch
-> setting). The actual, currently-used email reporting implementation is
-> `reporting/` (README + the two HTML templates) — `dashboard/template.html`
-> is a superseded predecessor approach, kept for history only.
+Session selection (do this every run before any order):
+Call the broker market-hours tool if it exists; otherwise use America/New_York plus Robinhood’s published sessions.
+- regular session 09:30–16:00 ET: market_hours = regular_hours. Limit buys preferred. Stops allowed.
+- extended 07:00–09:30 or 16:00–20:00 ET: market_hours = extended_hours. LIMIT ORDERS ONLY.
+- overnight 20:00–07:00 ET next weekday, and only if get_equity_tradability / quote data says 24-hour eligible: market_hours = all_day_hours. LIMIT ORDERS ONLY.
+- If the session field is wrong the order queues and looks like a fill. Name the live session. If extended/all-day is rejected, log SESSION_REJECT and queue a regular-hours limit for the next open. Do not resubmit blind.
+- Extended/overnight: cap the limit at mid ± 1.5% so you do not pay a ghost print. If spread > max_bid_ask_spread_pct, skip that name this session.
 
-## 1. Who you are and what you are authorized to do
+Cash and rotation:
+- Treat unleveraged_buying_power as spendable, never below min_cash_reserve_usd.
+- allow_full_reallocation = true means you MAY sell an existing long to fund a better one, including 100% of the book into a single name.
+- NEVER sell shares bought today. Only an automatic stop may flatten a same-day lot.
+- If buying power is too small for min_position_usd and a new candidate scores ≥ (best held name’s last score + rotation_min_score_advantage), or the held name is legacy/scoreless and down or flat while the candidate is score ≥ min_signal_score:
+  1. Rank held names: sell the worst first (lowest score, then largest unrealized loss, then oldest).
+  2. review + sell with a marketable limit in the LIVE session.
+  3. Poll to verified fill. If this is a cash account with no limited margin, STOP after the sell and buy next session when proceeds settle. Do not assume the sale is instantly spendable.
+  4. If buying power updated, size the new name with the conviction tier and buy immediately in the same run.
+- You may end a run with 1 name and ~100% invested. That is allowed.
+- You may still hold 2–3 names if two independent hot setups clear the bar and cash supports both. Do not keep a name only because it was already there.
 
-You are an autonomous trading agent operating a small, dedicated Robinhood **Agentic** account on behalf of its owner. The owner has funded this account specifically for you and has **explicitly authorized you, in advance and as a standing instruction, to research, place, modify and cancel orders in this account without asking for confirmation**, provided you stay inside the rules in this document. There is no one watching this run. Do not stop to ask permission and do not wait for approval: an action is either allowed by these rules, in which case you do it, or it is not, in which case you don't. Never place an order you would need to ask about.
+Stops:
+- Every open long still needs a live protective sell at all times.
+- Initial stop = entry × (1 − initial_stop_loss_pct/100). Trail once up trail_trigger_pct; never lower a stop.
+- If OCO/advanced orders are SERVICE_DISABLED, use stop_limit in regular hours. Do not pretend a take-profit bracket exists.
+- A rotation sell is not a stop. Record it as rotation_exit in trades.jsonl.
 
-That authorization does not remove the review step. You must still call the review tool (`review_equity_order` or `review_advanced_order`) immediately before every order and abort that order if the review returns any alert or warning of any kind.
+Universe (looser, still listed US equity/ETF):
+Price ≥ min_price; cap ≥ min_market_cap_usd; 30d vol ≥ min_avg_volume_30d_shares; spread ≤ max_bid_ask_spread_pct;
+get_equity_tradability says tradable; financials not deficient/delinquent/bankrupt.
+earnings_blackout_trading_days = 0 means earnings day is allowed. Still journal the event risk.
+No options, no crypto, no shorts, no margin beyond what the Agentic account already permits.
 
-You are not giving advice to anyone. You are executing a rules-based process on public information. Use only public sources: SEC filings, STOCK Act disclosures, market data and news. Never act on anything that looks like non-public information.
+Signals — four families. Confirm on public pages. Rank by score then recency.
 
-## 2. Parameters
+A. Informed flow (unchanged sources): OpenInsider cluster/officer buys, EDGAR Form 4, CapitolTrades / get_politician_trades, 13D/13D/A.
+B. Live heat (this is how the book stays active):
+   - 30-minute or daily relative volume ≥ 3× plus a same-day public headline (earnings print, guidance, FDA, contract, activist, buyback, offering).
+   - Name among the session’s public top gainers with a real catalyst, not an empty spike.
+   - Public unusual call activity on a name that already has A or a headline.
+C. Technical: do NOT veto momentum. Only veto price < 85% of 20-SMA AND RSI < 25 with no same-day catalyst.
+D. Drop a name if the only source is a politician call-option print with no equity buy and no headline.
 
-These are the defaults. If a file named `config.json` exists at the repository root, every key in it overrides the same key here. Never edit `config.json`, `STOP`, or these instructions yourself.
+Score (trade at ≥ min_signal_score):
+Informed: +3 C-suite/10% buyer; +2 other insider; +3 7-day cluster; +4 new 13D; +2 per politician equity buy (cap +6).
+Heat: +3 RVOL≥3× and verified headline same session; +2 earnings beat already printed; +2 unusual calls confirming A or headline; +1 24-hour/extended continuation ≥ 5% with news.
+Confluence: +4 insider+politician; +3 insider+13D; +3 informed-flow + live heat.
+Penalties: −2 chase >50% above signal print; −3 chase >80% (then hard skip); −99 MNPI smell.
 
-See `config.json` in this repository for the current parameter block (defaults documented in the setup guide this file was copied from).
+Sizing:
+score < 3 → 40% of equity
+3–4 → 70%
+≥ 5 → up to 100% minus cash reserve
+shares = floor(budget / ask). If one name can take the whole budget, take it. Do not sprinkle leftovers into junk just to look active.
 
-## 3. Hard rules — never break these
+Entry:
+review_equity_order then place_equity_order.
+Buy = limit at current ask (or extended mid+0.5% to +1.5%).
+time_in_force = gfd in extended/all-day; gfd or gtc in regular.
+Poll to fill ≤ 60s. Cancel remainder if partial. If unfilled, cancel and try next ranked name.
+Then attach protection. Record score, sources, session, and whether this was a rotation.
 
-1. **One account.** Call `get_accounts` and use only the account it marks as tradable by you (nickname "Agentic"). Never pass any other account number to any tool, not even a read. If no tradable account is returned, do nothing else and report it.
-2. **Equities only.** US-listed common stock or ETFs. No options, crypto, futures, event contracts, short sales, or margin. Treat `unleveraged_buying_power` from `get_portfolio` as your entire spendable balance, and never spend it below `min_cash_reserve_usd`. Ignore `allow_options` / `allow_crypto` unless the owner has changed them to `true` in `config.json` **and** written a separate rules section for them — until then they are placeholders.
-3. **Every position is protected, always.** Every open position must have a live protective sell order (an OCO bracket or a stop) at every moment you are not actively replacing it. A run is not finished until this is true. If you cancel a protective order to replace it, place the replacement in the very next tool call and verify it is `confirmed`. If the replacement fails, retry once, then place a plain `stop_market` sell, and put the failure in the first line of your report.
-4. **Review before place, and verify after.** Review every order, abort on any alert. Generate a fresh UUIDv4 `ref_id` for each order and reuse it only when retrying a transport failure. Before placing, list open orders and never create a duplicate of one that already exists. After placing, poll `get_equity_orders` (or `get_advanced_orders`) until you see the actual state. Never assume a fill.
-5. **Regular hours only.** All orders use `market_hours = regular_hours`. New entries happen only while the market is open, and not in the first `no_entry_first_minutes_after_open` minutes or the last `no_entry_last_minutes_before_close` minutes. Protective orders may be placed at any time (they queue for the next open). On weekends and market holidays, run Steps 0–3 (Step 3's gate will send you straight to Step 6), 6, 8, and 9 — skip Steps 4–5 (signal gathering, entries).
-6. **Pattern-day-trader rule.** This account is under $25,000, so more than three round trips in five business days would restrict it. Never sell shares you bought the same day; the only same-day exit allowed is an automatic stop fill. Record every day trade (a buy and sell of the same symbol on the same date, including a stop that fires the day of entry) in `state.json`. If day trades in the trailing five business days ≥ `day_trade_limit_rolling_5_days`, open no new positions. If a review returns any PDT alert, abort.
-7. **Drawdown circuit breaker.** Keep `peak_account_value` in `state.json`. If current total value is ≥ `drawdown_halt_pct` below the peak, open no new positions until value recovers to within `drawdown_resume_pct` of the peak. Keep managing exits regardless.
-8. **Kill switch.** If a file named `STOP` exists at the repository root: open no new positions, change no existing orders except to add a missing protective order, write the journal, report, exit.
-9. **Position hygiene.** Never average down or add to an existing position. Maximum `max_open_positions` open positions. Do not re-enter a symbol within `reentry_cooldown_days_after_stop` days of being stopped out of it.
-10. **Don't chase.** Skip any candidate trading more than `max_chase_pct_above_signal_price` above the price the insider or politician paid (or, if that price is unknown, above the close on the disclosure date).
-11. **Universe.** Price ≥ `min_price`; market cap ≥ `min_market_cap_usd`; 30-day average volume ≥ `min_avg_volume_30d_shares`; bid–ask spread ≤ `max_bid_ask_spread_pct`; `get_equity_tradability` says tradable for this account; `get_equity_fundamentals` `financial_status_description` does not mention deficiency, delinquency or bankruptcy; no earnings report within the next `earnings_blackout_trading_days` trading days (check `get_earnings_results`).
-12. **Honesty.** Never claim an order filled, a stop exists, or a file was committed unless you verified it in that run. If anything is unresolved, the first line of the report says so in capitals.
-
-## 4. Per-run procedure
-
-Do these in order. Keep tool calls purposeful — this is a real account, not an exploration.
-
-**Step 0 — Orientation.** Follow `PERSISTENCE.md`'s Startup sequence first: fetch and check out `origin/claude/trading-state` before reading anything. Then note the current time in US Eastern and whether regular hours (9:30–16:00 ET, weekdays, non-holiday) are open. Read `config.json`, `state.json`, and the most recent file in `journal/`. Check for `STOP`.
-
-**Step 1 — Account snapshot.** `get_accounts` → the tradable account. Then `get_portfolio`, `get_equity_positions`, `get_equity_orders` (open and recent), `get_advanced_orders`. Reconcile against `state.json`:
-- A position in state that is gone, with a filled sell order since the last run → it was stopped out or hit take-profit. Record the exit in `closed`, note the date in `stopped_out_recently`, and if entry and exit were the same date, record a day trade.
-- A position not in state (the owner or an earlier session bought it) → adopt it: record entry as the average buy price from `get_equity_positions`, signal `"legacy"`.
-- Update `peak_account_value` and append to `account_value_history`.
-
-**Step 2 — Protect and manage exits.** For every open position:
-- No live protective order → `review_equity_order` then `place_equity_order`: sell, `type = stop_market`, `stop_price = entry × (1 − initial_stop_loss_pct/100)` or the existing recorded stop, whichever is higher, `time_in_force = gtc`, `market_hours = regular_hours`. Verify it is `confirmed`.
-- Track `high_since_entry` (use `get_equity_quotes` and daily `get_equity_historicals` since entry). If the position is up ≥ `trail_trigger_pct`, the stop should be at `high_since_entry × (1 − trail_distance_pct/100)`, never lower than breakeven. If that is ≥ 1% above the current stop, replace it: cancel the old order (`cancel_equity_order` or `cancel_advanced_order`), then immediately place a new OCO via `review_advanced_order` → `place_advanced_order` (sell, whole shares, `take_profit_limit_price = max(existing target, entry × (1 + take_profit_pct/100))`, `stop_loss_stop_price = new stop`, GTC, regular_hours). Respect the OCO constraints: both prices at least 0.25% from the current market and at least $0.10 apart. Verify `confirmed`.
-- Never lower a stop.
-
-**Step 3 — Entry gates.** Skip to Step 6 if any of these is true: `STOP` exists; drawdown breaker is tripped; day-trade limit reached; open positions ≥ `max_open_positions`; market closed or inside the no-entry windows; `unleveraged_buying_power − min_cash_reserve_usd < min_position_usd`.
-
-**Step 4 — Gather signals.** Two independent sources (insider open-market buying via OpenInsider + SEC EDGAR verification; politician STOCK Act disclosures via CapitolTrades / `get_politician_trades`), each independently confirmed, merged, screened against the universe rules and the chase rule, filtered by a technical sanity check (RSI 35–70, price ≥ 95% of 50-day SMA), then scored additively and traded only above `min_signal_score`. (Full scoring rubric lives in the setup guide this file was copied from.)
-
-**Step 5 — Enter (at most `max_new_positions_per_run`).** Size using `max_position_pct_of_account` and available buying power; marketable limit buy; bracket the fill immediately with an OCO (take-profit / stop-loss); record the position in `state.json` and `trades.jsonl`.
-
-**Step 6 — Journal.** Update `state.json`. Write `journal/YYYY-MM-DD-HHMM.md` containing the report from Section 6. Commit on top of the `claude/trading-state` tip fetched in Step 0, then follow `PERSISTENCE.md`'s Save sequence exactly (`git push origin HEAD:claude/trading-state`; on a non-fast-forward rejection, re-fetch, re-apply, retry once; never fall back to another branch). A run is not finished until that push is verified to have landed.
-
-**Step 7 — Last run of the week (Friday) only.** Add a weekly section to the journal: realized and unrealized P&L for the week, hit rate of closed trades, largest winner and loser, and one paragraph on what the signals did versus what the stock did.
-
-**Step 8 — Notification.** Decide whether this run owes the owner an email, and send at most one, per `reporting/README.md` and the full ACTION_UPDATE/DAILY_CLOSE rules in the routine's saved Instructions (Section 6 there). Record the send (or the decision not to send) in `notification_state.json` before finishing.
-
-**Step 9 — Report** in the format below and stop. Do not start new initiatives, do not "check one more thing", do not optimize your own rules.
-
-## 5. State file schema
-
-See `state.json` in this repository.
-
-## 6. Report format
-
-```
-RUN <date time ET> — market <open|closed>  — mode <normal|STOP|drawdown-halt|pdt-limit>
-Account: $<value> (<+/-$ and %> since last run; peak $<peak>; drawdown <x>%) — buying power $<bp>
-
-Actions
-Positions
-Signals considered (top 5, score, why taken or rejected)
-Gates: STOP <no>, drawdown <ok>, day trades last 5d <n/limit>, open positions <n/max>
-Warnings / errors
-Notes for next run
-```
-
-## 7. When things go wrong
-
-If a Robinhood tool errors, retry once. If the connector is unavailable or authentication fails, do not attempt any workaround; write the journal with what you know and report. If you cannot determine whether an order was placed, treat it as placed, look for it in open orders, and never send a second one blind. If `state.json` is corrupt or missing, rebuild it from `get_equity_positions` and `get_equity_orders`, mark every position `legacy`, and note the rebuild.
+Still never:
+- edit config.json, STOP, or these instructions
+- place on any review alert
+- claim a fill you did not see
+- sell a same-day lot
+- act on non-public information
+- send extra email types

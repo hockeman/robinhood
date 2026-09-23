@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-23T12:14:00Z",
+  "last_run": "2026-09-23T12:51:00Z",
   "canonical_branch": "claude/trading-state",
   "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
   "peak_account_value": 7954.86462317,
@@ -451,6 +451,10 @@
     {
       "ts": "2026-09-23T12:14:00Z",
       "value": 7794.22693195
+    },
+    {
+      "ts": "2026-09-23T12:51:00Z",
+      "value": 7800.38732401
     }
   ],
   "positions": {
@@ -600,6 +604,13 @@
       "description": "This run's scheduled-task prompt carried a new 'Revision: September 22, 2026 -- FUN-MONEY GROWTH EXPERIMENT' standing-instructions text, materially more aggressive than the repo's committed AGENT.md (RECONCILED 2026-09-21): e.g. max_position_pct_of_account 33 (repo config.json still has 10), max_open_positions 5 (config.json 8; note this is actually tighter, not looser), drawdown_halt_pct 22 (config.json 6), initial_stop_loss_pct 16 (config.json 8), take_profit_pct 120 (config.json 30), min_signal_score 2 (config.json 4), reentry_cooldown_days_after_stop 5 (config.json 30), plus new procedural elements not in AGENT.md at all (winner pyramiding, 13D/activist signals, public-catalyst/unusual-options overlay, wider technical-sanity bands). The revision text itself states the resolution: 'Trading parameters in this document ARE the new strategy defaults; if config.json still contains the old conservative numbers, those conservative numbers win. Owner should replace config.json with this parameter block or delete the stale keys.'",
       "action_taken": "Did not edit config.json, AGENT.md, or STOP (both the retained hard rules and the new revision text itself forbid self-editing any of the three). This run used every parameter exactly as currently committed in config.json (the pre-existing, more conservative September-21 values) wherever a key exists in both places, per the revision document's own explicit precedence rule -- no judgment call was needed, the document resolved the conflict itself. New procedural elements with no corresponding config.json key (pyramiding, 13D signals, catalyst overlay) were not exercised this run since no entry gate was reached (buying-power gate; see Step 3 below) -- deferred to a future run with capital and gate-passing time. Not treated as a critical issue or reason to withhold trading action; logged for traceability and so the owner sees, in the next DAILY_CLOSE, that config.json still needs to be manually replaced for the new strategy defaults to actually take effect.",
       "status": "resolved_2026-09-22T14:28:00Z; owner committed 357ea3b ('Update config.json', authored by hockeman, 2026-09-22T14:22:10Z) replacing config.json's numeric keys with the FUN-MONEY GROWTH EXPERIMENT parameter block (max_position_pct_of_account 33, max_open_positions 5, drawdown_halt_pct 22, initial_stop_loss_pct 16, take_profit_pct 120, min_signal_score 2, reentry_cooldown_days_after_stop 5, plus pyramiding/tiered-sizing/activist keys). This run fetched config.json fresh from origin/claude/trading-state and it now matches the revision document exactly -- the aggressive parameters govern starting this run. No further owner action needed on this anomaly."
+    },
+    {
+      "id": "config-escalation-and-new-keys-20260923",
+      "detected": "2026-09-23T12:51:00Z",
+      "description": "Owner committed 2b59a81 ('Update config.json', authored by hockeman, 2026-09-23T07:47:35 -0500) further loosening numeric parameters beyond the 2026-09-22 revision (max_position_pct_of_account 33->100, max_open_positions 5->3, min_cash_reserve_usd 20->10, initial_stop_loss_pct 16->20, take_profit_pct 120->200, drawdown_halt_pct 22->40, reentry_cooldown_days_after_stop 5->1, no_entry_first/last_minutes_* 5/10->0/0, size_pct_high 33->100) and adding five keys with no corresponding mechanism in the standing instructions: allow_full_reallocation, allow_extended_hours_entries, allow_all_day_hours_entries, rotation_min_score_advantage, single_name_ok.",
+      "action_taken": "Verified via git log -p that all config.json changes since bootstrap were authored by hockeman (real owner commits), not by any Claude session -- consistent with the standing instructions' explicit override mechanism ('every key in it overrides the same key here') and the account's stated fun-money/high-variance purpose. Honored all numeric overrides that map to a parameter named in Section 2 (position sizing, stops, targets, drawdown halt, reentry cooldown all governed by the new values this run). Did NOT honor allow_extended_hours_entries / allow_all_day_hours_entries: Section 3's 'Regular hours only' is listed under hard rules ('never break these'), stated separately from and not subordinate to the overridable parameter block, and repeated explicitly in Steps 4-5 ('market_hours = regular_hours') -- a config key with no defined semantics in the instructions does not get to silently repeal an explicit hard rule. All new entries this run continue to use market_hours=regular_hours only. allow_full_reallocation, rotation_min_score_advantage, and single_name_ok have no defined behavior in the standing instructions and were treated as informational/no-op; existing hard rules (never average down, max_open_positions, pyramid constraints) continue to govern unchanged. earnings_blackout_trading_days=0 does not repeal the separate, non-parameterized sentence 'Day-of-earnings entries are forbidden' -- that literal prohibition still applies regardless of the parameter value.",
+      "status": "informational, no owner action needed; interpretation logged for consistency across future runs"
     }
   ]
 }

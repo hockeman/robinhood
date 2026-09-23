@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-23T13:16:00Z",
+  "last_run": "2026-09-23T14:20:00Z",
   "canonical_branch": "claude/trading-state",
   "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
   "peak_account_value": 7954.86462317,
@@ -463,6 +463,10 @@
     {
       "ts": "2026-09-23T13:16:00Z",
       "value": 7807.064290289
+    },
+    {
+      "ts": "2026-09-23T14:20:00Z",
+      "value": 7596.74511045
     }
   ],
   "positions": {
@@ -476,17 +480,6 @@
       "protective_order_type": "stop_limit",
       "signal": "legacy",
       "thesis": "Rebuilt from live account state; no prior journal/state existed at bootstrap. Two same-day buy fills (12 @ ~150.10 then 11 @ ~150.50) combined into this position, which violates the 'never add to an existing position' rule and predates the state file (see anomaly log). Trailing stop raised 2026-09-21 15:13 ET run to $149.30/$149.00 after a pre-market high of $165.888 crossed the 10% trail trigger; left unchanged at the 15:13 ET run since the trail-off-high recalculation was still below the 1% replace threshold. This run (16:14 ET, at/after the regular close): get_equity_historicals (5minute bars, regular session) showed an intraday high of $169.50, a new high_since_entry (was $167.46) and a 12.87% gain from entry -- above the 10% trail trigger. New trail stop = $169.50 x 0.90 = $152.55, which is 2.18% above the prior $149.30 stop (above the 1% replace threshold), so it was replaced: cancelled order 6ab12e3d-... (confirmed cancelled), then placed+verified new stop-limit sell 23 sh, stop $152.55/limit $152.25, GTC, regular_hours (order 6ab19029-22ac-4b79-9319-06b6f0fc6251). Placed after the 20:00 UTC regular close, so broker state is 'queued' (not yet 'confirmed') pending the next regular-session open -- this is expected for a GTC regular_hours order placed after hours, not a fill/protection gap, since no trading (and therefore no exposure) occurs while queued. Advanced orders (OCO) remain SERVICE_DISABLED on this account, so this stays a plain stop-limit sell rather than a bracket."
-    },
-    "ALVO": {
-      "entry_price": 5.94,
-      "entry_date": "2026-09-18",
-      "qty": 300,
-      "high_since_entry": 6.0,
-      "stop_price": 5.65,
-      "protective_order_id": "6aad6bf8-ce1b-4aa8-83e8-1440b89993be",
-      "protective_order_type": "stop_limit",
-      "signal": "legacy",
-      "thesis": "Rebuilt from live account state; no prior journal/state existed. Re-verified live against the broker at 2026-09-21T16:13Z: order still confirmed, unchanged since 2026-09-18. Current price $5.85 remains below entry; no trail trigger."
     },
     "DSP": {
       "entry_price": 11.7,
@@ -509,9 +502,36 @@
       "protective_order_type": "stop_market",
       "signal": "insider",
       "thesis": "Insider cluster buy verified via SEC EDGAR Form 4 filing index (3 filings: 2026-09-17, 2026-09-18, 2026-09-21, all confirmed against OpenInsider data). CEO Bruno Morand De Oliveira bought $200,200 on 2026-09-18; Director Tor Olav Troim bought $656,925 (2026-09-17) and $4,299,500/1,000,000sh (2026-09-16). Signal score 7 (CEO/officer open-market buy +3, other director buy +2, 2-insider cluster +2; no \u0394Own>=5% bonus, no politician confluence, no penalties -- chase from $4.40 signal price to $4.47 entry was only +1.6%, RSI(14)=53 mid-range, price above 50-day SMA). Universe screen passed: market cap $1.38B, 30-day avg volume 5.28M shares, bid/ask spread 0.22%, tradable, no earnings within blackout (next report 2026-11-04), financial_status_description clean. Entered 26 sh at $4.4685 avg (marketable limit, regular hours). Advanced orders (OCO) remain SERVICE_DISABLED on this account (standing constraint, see anomalies) -- protected with a plain stop_market sell at $4.11 (8% initial stop) instead of a bracket; verified confirmed same run. Re-verified live against the broker this run (16:14 ET, order still confirmed, unchanged). get_equity_historicals shows a new intraday high of $4.575 (was $4.4685); up 2.38% from entry -- still well below the 10% trail trigger, no stop change due."
+    },
+    "SBLK": {
+      "entry_price": 30.3452,
+      "entry_date": "2026-09-23",
+      "qty": 57,
+      "high_since_entry": 30.3452,
+      "stop_price": 24.28,
+      "protective_order_id": "6ab3e015-0fb8-4f15-b158-977f2ce8ea5b",
+      "protective_order_type": "stop_market",
+      "signal": "insider_cluster (rotation entry)",
+      "score": 5,
+      "sources": ["openinsider_cluster_buys", "sec_edgar_form4_index", "sec_edgar_full_text_search"],
+      "pyramids_done": 0,
+      "thesis": "Insider director cluster verified independently via both get_sec_filing_index (10 Form 4 filings for Star Bulk Carriers Corp, 2026-09-16 through 2026-09-22) and a direct SEC EDGAR full-text search (efts.sec.gov, 10 hits, same accession numbers) after OpenInsider's latest-cluster-buys page flagged an 8-insider cluster. Fetched and read the actual Form 4 XML (primary_doc.xml) for 5 of the filers directly from sec.gov to confirm relationship codes rather than trusting OpenInsider's summary: Zagari Raffaele (Director, 10,000sh+50,000sh @ $28.27), Karellis Nikolaos (Director), Balakrishnan Mahesh (Director, 10,000sh @ $32.34), Vrettou Eleni (Director, 3,500sh @ $32.12), Pappas Alexandros (Other/related party, 74,400sh @ $28.27, shares surname with CEO Petros Alexandros Pappas but relationship not confirmed as officer). No confirmed C-suite personal buy -- scored as director-level cluster, not the higher CEO/CFO tier. Score 5: +2 (confirmed director open-market buys, each well above the $25k threshold), +3 (5+ distinct insiders within a 7-day trade-date window, 2026-09-15 to 2026-09-22, filings through 2026-09-22). No penalties: chase from $28.27 signal price to $30.35 entry ask was +7.4% (well under the 80% cap), RSI(14)=51.9 (mid-range), price 97.3% of 20-day SMA (not blow-off), spread 0.07%, financial_status_description empty (no going-concern language). Universe passed: market cap $3.39B, 30-day avg volume 1.74M shares, tradable, next earnings 2026-11-17 (far outside blackout, not same-day). This was a ROTATION entry, not a fresh-cash entry: buying power was $15.66 (below $100 min_position_usd) going into this run; per AGENT.md's 2026-09-23 full-reallocation authorization (explicitly confirmed live by the account owner in chat the same day), sold the worst-ranked held position (ALVO -- legacy/scoreless and down -3.2% intraday, the only legacy holding not up on the day) to fund this entry rather than sitting in cash on a qualifying signal. Sized at score_tier_high (score 5 >= score_tier_high 5) but the actual budget was cash-constrained to the $1,740.68 freed by the ALVO sale (spendable buying power after settlement), not the nominal 100% tier -- limited-margin account showed the ALVO sale proceeds as spendable buying power immediately (get_portfolio re-checked post-fill), so no cash-account settlement delay applied. Bought 57 sh at $30.35 marketable limit, filled in full at avg $30.3452. Advanced/OCO orders remain SERVICE_DISABLED on this account (standing constraint) -- protected immediately with a plain stop_market sell at $24.28 (20% initial stop per current config), verified confirmed same run."
     }
   },
   "closed": [
+    {
+      "symbol": "ALVO",
+      "entry_price": 5.94,
+      "entry_date": "2026-09-18",
+      "exit_price": 5.7504,
+      "exit_date": "2026-09-23",
+      "qty": 300,
+      "exit_reason": "rotation_exit",
+      "protective_order_id": null,
+      "realized_pnl_usd": -56.98,
+      "day_trade": false,
+      "notes": "Not a stop/target fill -- a deliberate rotation sale under AGENT.md's 2026-09-23 full-reallocation authorization (owner confirmed live in chat same day). Ranked worst among held legacy positions per the rotation rule (lowest score/legacy, then largest unrealized loss): MSTR and DSP were both up on the day, ALVO was the only legacy holding down (-3.2%) at decision time. Cancelled its existing protective stop-limit (6aad6bf8-...) first (confirmed cancelled), then sold 300 sh via marketable limit at $5.74, filled in full at avg $5.7504, fee $0.10. Proceeds funded the same-run SBLK entry. Entry 2026-09-18, exit 2026-09-23 -- 5 calendar days held, not a day trade."
+    },
     {
       "symbol": "UROY",
       "entry_price": 4.5299,
@@ -619,6 +639,13 @@
       "description": "Owner committed 2b59a81 ('Update config.json', authored by hockeman, 2026-09-23T07:47:35 -0500) further loosening numeric parameters beyond the 2026-09-22 revision (max_position_pct_of_account 33->100, max_open_positions 5->3, min_cash_reserve_usd 20->10, initial_stop_loss_pct 16->20, take_profit_pct 120->200, drawdown_halt_pct 22->40, reentry_cooldown_days_after_stop 5->1, no_entry_first/last_minutes_* 5/10->0/0, size_pct_high 33->100) and adding five keys with no corresponding mechanism in the standing instructions: allow_full_reallocation, allow_extended_hours_entries, allow_all_day_hours_entries, rotation_min_score_advantage, single_name_ok.",
       "action_taken": "Verified via git log -p that all config.json changes since bootstrap were authored by hockeman (real owner commits), not by any Claude session -- consistent with the standing instructions' explicit override mechanism ('every key in it overrides the same key here') and the account's stated fun-money/high-variance purpose. Honored all numeric overrides that map to a parameter named in Section 2 (position sizing, stops, targets, drawdown halt, reentry cooldown all governed by the new values this run). Did NOT honor allow_extended_hours_entries / allow_all_day_hours_entries: Section 3's 'Regular hours only' is listed under hard rules ('never break these'), stated separately from and not subordinate to the overridable parameter block, and repeated explicitly in Steps 4-5 ('market_hours = regular_hours') -- a config key with no defined semantics in the instructions does not get to silently repeal an explicit hard rule. All new entries this run continue to use market_hours=regular_hours only. allow_full_reallocation, rotation_min_score_advantage, and single_name_ok have no defined behavior in the standing instructions and were treated as informational/no-op; existing hard rules (never average down, max_open_positions, pyramid constraints) continue to govern unchanged. earnings_blackout_trading_days=0 does not repeal the separate, non-parameterized sentence 'Day-of-earnings entries are forbidden' -- that literal prohibition still applies regardless of the parameter value.",
       "status": "informational, no owner action needed; interpretation logged for consistency across future runs"
+    },
+    {
+      "id": "rotation-authorized-live-20260923",
+      "detected": "2026-09-23T14:12:00Z",
+      "description": "Account owner (ferrell@chacetech.com, live chat, not a scheduled-task prompt) explicitly confirmed the AGENT.md 2026-09-23 full-reallocation/rotation mechanism is authorized and should be exercised autonomously going forward, without pausing for further per-instance confirmation -- in response to a prior run's report that buying-power exhaustion was blocking all new entries and that rotation had been deliberately withheld pending explicit owner sign-off (see anomaly config-escalation-and-new-keys-20260923). Owner's own words: 'trade based on what instructions i've given you and not wait for me to give instructions.'",
+      "action_taken": "Treated as live, in-session authorization from the account owner (matches the same GitHub identity, hockeman, that authored AGENT.md and config.json directly) to exercise the rotation mechanism going forward. Same run: sold ALVO (worst-ranked legacy/down holding) and rotated into a freshly-verified SBLK insider-cluster signal (score 5); see the SBLK position thesis and the ALVO closed-position notes for the full mechanics. The one carve-out from full deference stated back to the owner and unchanged by this authorization: day-of-earnings entries remain treated as forbidden (the standing instructions' absolute wording, not a tunable parameter) regardless of earnings_blackout_trading_days=0 -- the owner's authorization was specifically about rotation/buying-power gating, not about relitigating that separate hard rule, which was not part of what they confirmed.",
+      "status": "resolved_2026-09-23T14:20:00Z; rotation mechanism now live for future runs without per-instance confirmation"
     }
   ]
 }

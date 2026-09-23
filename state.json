@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-23T14:36:00Z",
+  "last_run": "2026-09-23T15:16:43Z",
   "canonical_branch": "claude/trading-state",
   "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
   "peak_account_value": 7954.86462317,
@@ -471,6 +471,10 @@
     {
       "ts": "2026-09-23T14:36:00Z",
       "value": 7608.056448975
+    },
+    {
+      "ts": "2026-09-23T15:16:43Z",
+      "value": 7603.093926035
     }
   ],
   "positions": {
@@ -511,13 +515,17 @@
       "entry_price": 30.3452,
       "entry_date": "2026-09-23",
       "qty": 57,
-      "high_since_entry": 30.3452,
+      "high_since_entry": 30.53,
       "stop_price": 24.28,
       "protective_order_id": "6ab3e015-0fb8-4f15-b158-977f2ce8ea5b",
       "protective_order_type": "stop_market",
       "signal": "insider_cluster (rotation entry)",
       "score": 5,
-      "sources": ["openinsider_cluster_buys", "sec_edgar_form4_index", "sec_edgar_full_text_search"],
+      "sources": [
+        "openinsider_cluster_buys",
+        "sec_edgar_form4_index",
+        "sec_edgar_full_text_search"
+      ],
       "pyramids_done": 0,
       "thesis": "Insider director cluster verified independently via both get_sec_filing_index (10 Form 4 filings for Star Bulk Carriers Corp, 2026-09-16 through 2026-09-22) and a direct SEC EDGAR full-text search (efts.sec.gov, 10 hits, same accession numbers) after OpenInsider's latest-cluster-buys page flagged an 8-insider cluster. Fetched and read the actual Form 4 XML (primary_doc.xml) for 5 of the filers directly from sec.gov to confirm relationship codes rather than trusting OpenInsider's summary: Zagari Raffaele (Director, 10,000sh+50,000sh @ $28.27), Karellis Nikolaos (Director), Balakrishnan Mahesh (Director, 10,000sh @ $32.34), Vrettou Eleni (Director, 3,500sh @ $32.12), Pappas Alexandros (Other/related party, 74,400sh @ $28.27, shares surname with CEO Petros Alexandros Pappas but relationship not confirmed as officer). No confirmed C-suite personal buy -- scored as director-level cluster, not the higher CEO/CFO tier. Score 5: +2 (confirmed director open-market buys, each well above the $25k threshold), +3 (5+ distinct insiders within a 7-day trade-date window, 2026-09-15 to 2026-09-22, filings through 2026-09-22). No penalties: chase from $28.27 signal price to $30.35 entry ask was +7.4% (well under the 80% cap), RSI(14)=51.9 (mid-range), price 97.3% of 20-day SMA (not blow-off), spread 0.07%, financial_status_description empty (no going-concern language). Universe passed: market cap $3.39B, 30-day avg volume 1.74M shares, tradable, next earnings 2026-11-17 (far outside blackout, not same-day). This was a ROTATION entry, not a fresh-cash entry: buying power was $15.66 (below $100 min_position_usd) going into this run; per AGENT.md's 2026-09-23 full-reallocation authorization (explicitly confirmed live by the account owner in chat the same day), sold the worst-ranked held position (ALVO -- legacy/scoreless and down -3.2% intraday, the only legacy holding not up on the day) to fund this entry rather than sitting in cash on a qualifying signal. Sized at score_tier_high (score 5 >= score_tier_high 5) but the actual budget was cash-constrained to the $1,740.68 freed by the ALVO sale (spendable buying power after settlement), not the nominal 100% tier -- limited-margin account showed the ALVO sale proceeds as spendable buying power immediately (get_portfolio re-checked post-fill), so no cash-account settlement delay applied. Bought 57 sh at $30.35 marketable limit, filled in full at avg $30.3452. Advanced/OCO orders remain SERVICE_DISABLED on this account (standing constraint) -- protected immediately with a plain stop_market sell at $24.28 (20% initial stop per current config), verified confirmed same run."
     },
@@ -531,9 +539,13 @@
       "protective_order_type": "none_fractional_lot_infeasible",
       "signal": "insider_director (single insider, not a cluster)",
       "score": 4,
-      "sources": ["openinsider_cluster_buys (claim of 3-insider cluster NOT corroborated)", "sec_edgar_full_text_search", "sec_edgar_form4_direct_read"],
+      "sources": [
+        "openinsider_cluster_buys (claim of 3-insider cluster NOT corroborated)",
+        "sec_edgar_full_text_search",
+        "sec_edgar_form4_direct_read"
+      ],
       "pyramids_done": 0,
-      "thesis": "Owner explicitly requested a small speculative 'penny stock' buy with the $21.00 remaining buying power, after I twice declined a blind hype-driven buy (crypto is hard-blocked; a pure unverified momentum pick has no basis in this strategy). Compromise: ran the actual verification process on a cheap, high-beta name instead of picking blind. OpenInsider's latest-cluster-buys page listed ANGX (Angel Studios, Inc.) with an 'Ins' count of 3 and +337% ΔOwn. Independently checked via SEC EDGAR full-text search (efts.sec.gov) and by reading the actual Form 4 XML directly from sec.gov -- this did NOT corroborate a 3-distinct-insider cluster: all 3 filings (2026-09-03, 2026-09-11, 2026-09-14) are the same person, Steven I. Sarowitz, a confirmed Director (reportingOwnerRelationship isDirector=1). His 2026-09-11 purchase: 88,647 sh @ $5.3313 (~$472,624), raising his post-transaction stake to 1,329,488 sh (a ~7.1% increase over his prior holding). Scored as a single-insider director buy, not a cluster: +2 (director open-market buy > $25k threshold), +1 (ΔOwn >= 5%), +1 (trade date 2026-09-11 is within 5 days of the 2026-09-14 filing date) = 4, clearing min_signal_score (2). No penalties: current entry price ($4.8499) is actually BELOW all three of the insider's own purchase prices ($5.10-$5.33), so this is not a chase -- if anything a discount to the insider's own cost basis. RSI(14)=55.5 (neutral), price ~99.7% of 20-day SMA (no wreckage, no blow-off). Universe: market cap $904.8M (real small-cap, not a shell/OTC microcap), 30-day avg volume 1.87M shares, tradable, financial_status_description empty, next earnings 2026-11-12 (not same-day, outside blackout). Sized at the user's explicit instruction to use the full $21.00 buying power for this one trade (overriding both min_position_usd=$100 and min_cash_reserve_usd=$10 for this single instance only -- not a standing config change). Bought via dollar-based fractional market order (type=market required for dollar_amount, regular_hours) since $21 does not buy a whole share at ~$4.85. Filled in full: 4.329986 sh @ avg $4.8499. NOT PROTECTED: flagged to the owner before placing that a stop order is not practically placeable on a fractional lot this small, same known limitation as the existing unmanaged AAPL fractional lot -- this position carries real, unmitigated downside risk with no stop, by explicit owner acceptance of that tradeoff for a token-sized speculative position."
+      "thesis": "Owner explicitly requested a small speculative 'penny stock' buy with the $21.00 remaining buying power, after I twice declined a blind hype-driven buy (crypto is hard-blocked; a pure unverified momentum pick has no basis in this strategy). Compromise: ran the actual verification process on a cheap, high-beta name instead of picking blind. OpenInsider's latest-cluster-buys page listed ANGX (Angel Studios, Inc.) with an 'Ins' count of 3 and +337% \u0394Own. Independently checked via SEC EDGAR full-text search (efts.sec.gov) and by reading the actual Form 4 XML directly from sec.gov -- this did NOT corroborate a 3-distinct-insider cluster: all 3 filings (2026-09-03, 2026-09-11, 2026-09-14) are the same person, Steven I. Sarowitz, a confirmed Director (reportingOwnerRelationship isDirector=1). His 2026-09-11 purchase: 88,647 sh @ $5.3313 (~$472,624), raising his post-transaction stake to 1,329,488 sh (a ~7.1% increase over his prior holding). Scored as a single-insider director buy, not a cluster: +2 (director open-market buy > $25k threshold), +1 (\u0394Own >= 5%), +1 (trade date 2026-09-11 is within 5 days of the 2026-09-14 filing date) = 4, clearing min_signal_score (2). No penalties: current entry price ($4.8499) is actually BELOW all three of the insider's own purchase prices ($5.10-$5.33), so this is not a chase -- if anything a discount to the insider's own cost basis. RSI(14)=55.5 (neutral), price ~99.7% of 20-day SMA (no wreckage, no blow-off). Universe: market cap $904.8M (real small-cap, not a shell/OTC microcap), 30-day avg volume 1.87M shares, tradable, financial_status_description empty, next earnings 2026-11-12 (not same-day, outside blackout). Sized at the user's explicit instruction to use the full $21.00 buying power for this one trade (overriding both min_position_usd=$100 and min_cash_reserve_usd=$10 for this single instance only -- not a standing config change). Bought via dollar-based fractional market order (type=market required for dollar_amount, regular_hours) since $21 does not buy a whole share at ~$4.85. Filled in full: 4.329986 sh @ avg $4.8499. NOT PROTECTED: flagged to the owner before placing that a stop order is not practically placeable on a fractional lot this small, same known limitation as the existing unmanaged AAPL fractional lot -- this position carries real, unmitigated downside risk with no stop, by explicit owner acceptance of that tradeoff for a token-sized speculative position."
     }
   },
   "closed": [

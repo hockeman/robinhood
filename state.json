@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-23T21:17:00Z",
+  "last_run": "2026-09-23T22:14:00Z",
   "canonical_branch": "claude/trading-state",
   "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
   "peak_account_value": 7954.86462317,
@@ -495,6 +495,10 @@
     {
       "ts": "2026-09-23T21:17:00Z",
       "value": 7574.0422091484
+    },
+    {
+      "ts": "2026-09-23T22:14:00Z",
+      "value": 7598.56732725
     }
   ],
   "positions": {
@@ -535,7 +539,7 @@
       "entry_price": 30.3452,
       "entry_date": "2026-09-23",
       "qty": 57,
-      "high_since_entry": 30.53,
+      "high_since_entry": 30.60,
       "stop_price": 25.49,
       "protective_order_id": "6ab441d6-a7ae-435a-8c1b-9f64f9993956",
       "protective_order_type": "stop_market",
@@ -604,6 +608,38 @@
     }
   },
   "candidates_seen": {
+    "2026-09-23T2214Z": {
+      "ALP": {
+        "score": 10,
+        "decision": "rejected_universe",
+        "signal": "insider_cluster (CEO Kaiser + CFO Levitt + Director/Officer Villani, 3 distinct filers verified via direct Form 4 XML read; all three bought on 2026-09-09, Villani continued buying through 2026-09-22)",
+        "notes": "Would have scored 10 (C-suite +3, other insider +2, 7-day cluster +3, >=5% ownership increase +1, <=5-day filing lag +1) -- well above the rotation bar (best-held BORR score 7 + rotation_min_score_advantage 2 = 9). Disqualified anyway: financial_status_description='Noncompliant' (listing deficiency) and market cap only $7.0M, far below min_market_cap_usd ($25M). Company describes itself as pivoting to a 'Telegram super app' / digital-asset treasury strategy after collapsing from a $690 52-week high to $4.52 -- classic microcap shell pattern the universe filter exists to catch. Hard disqualification, not a score question."
+      },
+      "DUOT": {
+        "score": 10,
+        "decision": "rejected_spread_this_session",
+        "signal": "insider_cluster (CEO Recker Frank Douglas, brand-new stake, $84.5k on 2026-09-22 + Director Nixon James Craig, $49.3k on 2026-09-18, both verified via direct Form 4 XML read)",
+        "notes": "Score 10 (CEO +3, other director +2, cluster within 7 days +3, >=5% ownership increase +1, <=5-day filing lag +1) -- clears the rotation bar. Passed financials (status blank), market cap $282.8M, volume, RSI 53.6 (neutral), price ~101% of 20-day SMA (no wreckage), no earnings blackout (next report 2026-11-11), chase only +3.9% from signal price. Recent Q2 2026 earnings beat (actual $1.37 vs est $0.52) as supporting context. REJECTED FOR THIS SESSION ONLY per AGENT.md's extended-hours rule: live bid/ask spread was 9.03/9.50 = 5.07%, above max_bid_ask_spread_pct (4.0%) -- 'If spread > max_bid_ask_spread_pct, skip that name this session.' Not a permanent disqualification; worth re-checking at the next regular-session open when spreads should tighten, if the signal is still fresh (filing lag would then be 1-2 days, still within the 7-day cluster window)."
+      },
+      "SKIL": {
+        "score": null,
+        "decision": "rejected_universe",
+        "signal": "insider_cluster (2 insiders per OpenInsider, not independently verified further once disqualified)",
+        "notes": "Disqualified before full scoring: financial_status_description='Noncompliant'."
+      },
+      "ADC": {
+        "score": null,
+        "decision": "rejected_low_conviction",
+        "signal": "insider_cluster (3 insiders, $4.1M aggregate) at Agree Realty Corp, an $8.3B net-lease REIT paying a monthly dividend",
+        "notes": "Passed financials/market cap/spread (1.4%) but not independently scored in full -- routine director buying at a slow-moving, high-yield blue-chip REIT is a poor fit for this book's high-variance informed-flow thesis and was very unlikely to reach the rotation bar (best case estimate ~5: other-insider +2, cluster +2 non-7-day, freshness +1) even before considering it is not the kind of setup this experiment is meant to chase. Not fully verified insider-by-insider since it could not plausibly clear score 9 regardless."
+      },
+      "RWAY": {
+        "score": null,
+        "decision": "rejected_spread_this_session",
+        "signal": "insider_cluster (3 insiders, $169k aggregate) at Runway Growth Finance Corp, a BDC",
+        "notes": "Live bid/ask spread 6.70/7.12 = 6.08%, above max_bid_ask_spread_pct (4.0%) -- skipped this session per AGENT.md's extended-hours rule before full insider-by-insider verification, since the wide spread alone is disqualifying right now regardless of score."
+      }
+    },
     "2026-09-21": {
       "BORR": {
         "score": 7,
@@ -702,7 +738,7 @@
       "detected": "2026-09-23T18:18:00Z",
       "description": "OpenInsider (latest-cluster-buys) and CapitolTrades (/trades) both failed twice each this run: OpenInsider returned HTTP 503, CapitolTrades returned HTTP 429. Retried once per Section 7's general retry rule; both still failed. No workaround attempted.",
       "action_taken": "Skipped Step 4 signal-gathering for this run rather than substitute an unverified source. Buying power was $0.00 anyway (fully invested), so no new entry was possible without a rotation, and rotation without a freshly verified candidate is not justified by today's broad-market weakness alone. All existing positions re-verified protected via the broker directly (not dependent on these sources). Disclosed in this run's ACTION_UPDATE and journal. Re-checked next run (2026-09-23T19:15Z): OpenInsider latest-cluster-buys still 503, latest-officer-purchases-25k also 503 (site-wide, not one page), CapitolTrades /trades still 429. Same conclusion -- no new entry/rotation possible without a verified candidate; all four protectable positions re-verified live against the broker instead (unchanged stops, no new highs, nothing red-flagged).",
-      "status": "monitor_next_run; outage has now persisted across 2 consecutive hourly runs (18:18Z, 19:15Z) -- still treated as transient rate-limiting/outage on the public sites, not an account-side issue, but worth flagging to the owner if it persists into a 3rd run"
+      "status": "partially_resolved_2026-09-23T22:14Z; OpenInsider (both latest-cluster-buys and latest-officer-purchases-25k) returned HTTP 200 this run and real signal research was performed (see candidates_seen 2026-09-23T2214Z: ALP, DUOT, SKIL, ADC, RWAY all screened, two independently EDGAR-verified insider clusters found and scored). CapitolTrades /trades still returned HTTP 429 this run -- politician-trade discovery remains degraded, though get_politician_trades(equity_symbol=...) per-candidate lookups worked fine (both returned empty, correctly, not an error) for the two candidates checked."
     },
     {
       "id": "angx-unprotected-speculative-lot-20260923",

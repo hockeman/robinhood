@@ -96,7 +96,10 @@
       "report_id": "action-acct4292-2026-09-23T1818Z",
       "type": "ACTION_UPDATE",
       "critical_issue_fingerprint": "angx-unprotected-lot-never-reported-20260923",
-      "included_event_ids": ["entry:ANGX:2026-09-23T14:36:00Z", "critical:ANGX:unprotected:2026-09-23T18:18:00Z"],
+      "included_event_ids": [
+        "entry:ANGX:2026-09-23T14:36:00Z",
+        "critical:ANGX:unprotected:2026-09-23T18:18:00Z"
+      ],
       "recipient": "ferrell@chacetech.com",
       "status": "verified_sent",
       "prepared_at": "2026-09-23T18:18:40Z",
@@ -110,7 +113,11 @@
     "action-acct4292-2026-09-23T1420Z": {
       "report_id": "action-acct4292-2026-09-23T1420Z",
       "type": "ACTION_UPDATE",
-      "included_event_ids": ["rotation_exit:ALVO:2026-09-23T14:19:30Z", "entry:SBLK:2026-09-23T14:19:50Z", "protection:SBLK:2026-09-23T14:20:05Z"],
+      "included_event_ids": [
+        "rotation_exit:ALVO:2026-09-23T14:19:30Z",
+        "entry:SBLK:2026-09-23T14:19:50Z",
+        "protection:SBLK:2026-09-23T14:20:05Z"
+      ],
       "recipient": "ferrell@chacetech.com",
       "status": "verified_sent",
       "prepared_at": "2026-09-23T14:24:00Z",
@@ -247,6 +254,24 @@
       "sent_at": "2026-09-22T20:17:49Z",
       "provider_message_id": "1a0cac47a8def914",
       "provider_thread_id": "1a0cac47a8def914"
+    },
+    "close-acct4292-2026-09-23": {
+      "report_id": "close-acct4292-2026-09-23",
+      "type": "DAILY_CLOSE",
+      "session_date": "2026-09-23",
+      "included_event_ids": [
+        "close-snapshot-2026-09-23T2016Z"
+      ],
+      "recipient": "ferrell@chacetech.com",
+      "status": "verified_sent",
+      "timestamps": {
+        "prepared": "2026-09-23T20:16:00Z",
+        "sent": "2026-09-23T20:19:48Z",
+        "verified": "2026-09-23T20:20:30Z"
+      },
+      "provider_message_id": "1a0cfeca8664b7b3",
+      "thread_id": "1a0cfebdb1457d4a",
+      "notes": "First send in this thread (1a0cfebdb1457d4a) went out with a literal placeholder string in the htmlBody field due to my own tool-call mistake (typed a placeholder instead of the real HTML, not a shell-substitution artifact this time). Immediately corrected with a threaded reply (1a0cfeca8664b7b3) carrying the real HTML body; verified via get_message (labelIds includes SENT, sizeEstimate 16677 bytes, correct recipient). Plain-text body of the original message was already correct and complete, so no financial/account information was ever wrong -- only the HTML rendering of the first send was blank/placeholder text. Treating 1a0cfeca8664b7b3 as the canonical verified_sent id for this report."
     }
   },
   "daily_summaries": {
@@ -267,6 +292,12 @@
       "closing_value": 7814.4185549,
       "day_pnl": -28.04607394999948,
       "report_id": "close-acct4292-2026-09-22"
+    },
+    "close:acct4292:2026-09-23": {
+      "session_date": "2026-09-23",
+      "closing_value": 7553.31119424,
+      "day_pnl": -261.10736066,
+      "report_id": "close-acct4292-2026-09-23"
     }
   },
   "close_snapshots": {
@@ -284,6 +315,11 @@
       "reconstruction_basis": "get_portfolio total_value captured 2026-09-22T20:14-20:16Z (14-16 min after the 20:00 UTC regular close), broker-computed marks; not a same-day official settled-close feed. Per-holding table uses last regular-session trade prints (19:59:54-19:59:59 UTC) instead, which sum ~0.06% above this total -- see holdings footnote.",
       "total_value": 7814.4185549,
       "cash": 25.66
+    },
+    "2026-09-23": {
+      "reconstruction_basis": "get_portfolio total_value captured 2026-09-23T20:15-20:16Z (15-16 min after the 20:00 UTC regular close), broker-computed marks; not a same-day official settled-close feed. Per-holding table uses last regular-session trade prints (19:59:49-19:59:59 UTC) instead, which sum ~0.41% above this total -- see holdings footnote.",
+      "total_value": 7553.31119424,
+      "cash": 0.0
     }
   },
   "last_weekly_statistics_session": null

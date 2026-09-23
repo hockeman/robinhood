@@ -8,6 +8,15 @@
   "email_recipient_source": "session userEmail context (account owner identity for this Claude session); config.json.email_recipient was null and no other owner-approved recipient record existed in this repository, so this was used per the standing instruction to reuse the owner's established identity rather than guess or use externally-researched contact info.",
   "email_recipient": "ferrell@chacetech.com",
   "observed_events": {
+    "entry:ANGX:2026-09-23T14:36:00Z": {
+      "description": "New position opened: ANGX, 4.329986 sh @ avg fill $4.8499 ($21.00 dollar-based market order), at the owner's explicit live chat instruction to spend the remaining buying power on a speculative pick. Single-director Form 4 signal (score 4), verified via SEC EDGAR full-text search and direct Form 4 XML read. Discovered unreported by this run (2026-09-23T18:18 UTC) via a notification_state.json outbox audit -- no outbox record existed for this event despite it appearing in state.json.",
+      "origin": "agent (prior run, 2026-09-23T14:36:00Z), reported late by this run",
+      "order_id": "n/a (dollar-based fractional market order; see get_equity_orders for the underlying fill if needed)"
+    },
+    "critical:ANGX:unprotected:2026-09-23T18:18:00Z": {
+      "description": "ANGX position (4.329986 sh) carries no protective stop and none can be placed: place_equity_order rejected two stop attempts (gtc then gfd time_in_force) with 'Invalid time in force for fractional order' and 'Invalid trigger for fractional order' -- a hard broker restriction on stop-triggered orders for fractional-quantity lots, same as the pre-existing unmanaged AAPL lot. Accepted risk by explicit owner instruction (see anomaly angx-unprotected-speculative-lot-20260923 in state.json), but had never actually been emailed to the owner until this run's ACTION_UPDATE.",
+      "origin": "agent (this run, gap-fill report)"
+    },
     "baseline:positions:2026-09-21T13:32:00Z": {
       "description": "Baseline snapshot at notification-system install: 4 protected positions (MSTR, ALVO, DSP, UROY) and 1 unmanaged fractional AAPL lot, all inherited from before this notification system existed. Not treated as new trades.",
       "origin": "baseline"
@@ -48,9 +57,21 @@
     "fill:UROY:2026-09-21T14:08:43Z",
     "entry:BORR:2026-09-21T14:13:29Z",
     "protection:BORR:2026-09-21T14:13:48Z",
-    "stop_raise:MSTR:2026-09-21T20:14:33Z"
+    "stop_raise:MSTR:2026-09-21T20:14:33Z",
+    "rotation_exit:ALVO:2026-09-23T14:19:30Z",
+    "entry:SBLK:2026-09-23T14:19:50Z",
+    "protection:SBLK:2026-09-23T14:20:05Z",
+    "entry:ANGX:2026-09-23T14:36:00Z",
+    "critical:ANGX:unprotected:2026-09-23T18:18:00Z"
   ],
   "critical_issue_fingerprints": {
+    "angx-unprotected-lot-never-reported-20260923": {
+      "first_detected": "2026-09-23T18:18:00Z",
+      "last_reported_in_email": "2026-09-23T18:18:00Z",
+      "resolved_at": "2026-09-23T18:21:32Z (the reporting gap itself -- the owner has now been notified; the underlying unprotected position is a standing accepted risk, tracked ongoing in state.json anomaly angx-unprotected-speculative-lot-20260923, not re-flagged every run per that anomaly's own note)",
+      "note": "ANGX (4.329986 sh, entered 2026-09-23T14:36:00Z at owner's explicit live instruction) has no protective stop and none can be placed (broker rejects stop-triggered orders on fractional-quantity lots, confirmed via two distinct rejection errors). This is accepted, owner-directed risk, not a system error -- but no outbox record showed it was ever actually emailed, so this run sent a gap-fill ACTION_UPDATE (verified_sent, message 1a0cf8061302a384). Same standing class as the pre-existing AAPL fractional lot.",
+      "unresolved": false
+    },
     "harness-git-push-denied-20260922t0413z": {
       "first_detected": "2026-09-22T04:13:00Z",
       "last_reported_in_email": "2026-09-22T04:13:00Z",
@@ -71,6 +92,21 @@
     }
   },
   "outbox": {
+    "action-acct4292-2026-09-23T1818Z": {
+      "report_id": "action-acct4292-2026-09-23T1818Z",
+      "type": "ACTION_UPDATE",
+      "critical_issue_fingerprint": "angx-unprotected-lot-never-reported-20260923",
+      "included_event_ids": ["entry:ANGX:2026-09-23T14:36:00Z", "critical:ANGX:unprotected:2026-09-23T18:18:00Z"],
+      "recipient": "ferrell@chacetech.com",
+      "status": "verified_sent",
+      "prepared_at": "2026-09-23T18:18:40Z",
+      "sent_at": "2026-09-23T18:21:32Z",
+      "provider": "gmail",
+      "provider_message_id": "1a0cf8061302a384",
+      "provider_thread_id": "1a0cf8061302a384",
+      "verification": "Re-verified via Gmail get_message(1a0cf8061302a384) METADATA_ONLY: labelIds includes SENT, to=ferrell@chacetech.com, date=2026-09-23T18:21:32Z, sender=hockeman2523@gmail.com, sizeEstimate 14692 bytes (consistent with the real rendered HTML, not a placeholder).",
+      "note": "Rendered HTML saved at reporting/sent/action_update_2026-09-23T1818Z.html before send. Gap-fill report: ANGX entry and its no-stop-possible status were never previously emailed to the owner (confirmed by outbox audit -- no ANGX-referencing record existed). No new trading action this run (fully invested, $0 buying power, OpenInsider/CapitolTrades both unreachable twice)."
+    },
     "action-acct4292-2026-09-23T1420Z": {
       "report_id": "action-acct4292-2026-09-23T1420Z",
       "type": "ACTION_UPDATE",

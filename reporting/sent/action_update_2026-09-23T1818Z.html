@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"></head>
+<body style="margin:0;padding:0;background-color:#f2f5f7;font-family:Helvetica,Arial,sans-serif;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f2f5f7;padding:24px 0;">
+<tr><td align="center">
+<table role="presentation" width="660" cellpadding="0" cellspacing="0" style="max-width:660px;width:100%;background-color:#ffffff;border-radius:8px;overflow:hidden;border:1px solid #dce3e8;">
+
+<tr><td style="background-color:#0b3350;padding:20px 28px;">
+<div style="color:#ffffff;font-size:20px;font-weight:bold;">Agentic Account — Trade Update</div>
+<div style="color:#a9c6d8;font-size:13px;margin-top:4px;">2026-09-23 01:18 PM (America/Chicago)</div>
+</td></tr>
+
+<tr><td style="background-color:#fdeaea;border-left:4px solid #b02a2a;padding:14px 28px;">
+<div style="color:#7a1f1f;font-weight:bold;font-size:13px;">ACTION REQUIRED — ANGX position has no stop-loss protection</div>
+<div style="color:#5c1414;font-size:13px;margin-top:4px;line-height:1.5;">Earlier today (10:36 AM CT) this routine bought a small ANGX fractional-share position at your explicit, live, real-time request ("something hot, cheap, penny stock... don't wait for approval"). That event was never actually emailed to you — this report fills that gap. Robinhood rejected two separate attempts to attach a stop order to it ("Invalid time in force for fractional order", then "Invalid trigger for fractional order") — fractional-quantity lots cannot carry a stop-triggered order on this broker, on any date, the same standing limitation already affecting the pre-existing unmanaged AAPL lot. What is known: 4.329986 sh, cost basis $21.00, currently worth about $20.78, no stop or bracket exists or can be placed. What is not known: how far it could fall before you'd want out, since there's no owner-set floor on this one. Next action: nothing is required — you accepted this risk explicitly when you asked for the trade — but if you want the exposure removed, the only way is a full outright sale (a plain sell needs no trigger type, so it is not blocked the way a stop is); it cannot be sold today (bought today, PDT same-day-sell rule) but could be sold starting the next regular session if you ask for that.</div>
+</td></tr>
+
+<tr><td style="padding:20px 28px 4px 28px;">
+<div style="color:#1a1a1a;font-size:14px;line-height:1.6;"><b>No new trades this run — fully invested, $0 buying power, all fresh-signal sources (OpenInsider, CapitolTrades) unreachable twice (503/429). Reporting a previously-unsent critical gap: the ANGX fractional lot from earlier today carries no stop.</b><br>Verification status: all 5 real positions and their protective orders re-verified live via get_equity_positions / get_equity_orders this run; the ANGX stop-rejection was independently re-confirmed from the two logged 400 responses, not assumed.</div>
+</td></tr>
+
+<tr><td style="padding:16px 28px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+<td width="33%" style="padding:6px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:14px;">
+<div style="color:#5a6b76;font-size:11px;text-transform:uppercase;">Current Value</div>
+<div style="color:#0b3350;font-size:20px;font-weight:bold;margin-top:4px;">$7,555.76</div>
+</td></tr></table>
+</td>
+<td width="33%" style="padding:6px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:14px;">
+<div style="color:#5a6b76;font-size:11px;text-transform:uppercase;">ANGX at +200% target</div>
+<div style="color:#0e7a3d;font-size:20px;font-weight:bold;margin-top:4px;">$7,597.98</div>
+<div style="color:#8a97a0;font-size:10px;margin-top:2px;">scenario, not forecast — no bracket exists</div>
+</td></tr></table>
+</td>
+<td width="33%" style="padding:6px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:14px;">
+<div style="color:#5a6b76;font-size:11px;text-transform:uppercase;">ANGX at Stop</div>
+<div style="color:#b02a2a;font-size:20px;font-weight:bold;margin-top:4px;">N/A</div>
+<div style="color:#8a97a0;font-size:10px;margin-top:2px;">no stop order exists — see banner above</div>
+</td></tr></table>
+</td>
+</tr></table>
+</td></tr>
+
+<tr><td style="padding:8px 28px;">
+<div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">What happened</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:12px 14px;font-size:13px;">
+<b>ANGX — buy (new position, delayed report)</b> (agent action, at your explicit live instruction)<br>
+Requested: $21.00 dollar-based market order &nbsp;|&nbsp; Filled: 4.329986 sh @ avg $4.8499 &nbsp;|&nbsp; Total: $21.00 &nbsp;|&nbsp; 10:36 AM CT (earlier today)<br>
+Final state: filled, NOT protected (see banner above)<br>
+<span style="color:#5a6b76;">Reason: you asked twice for a cheap, high-beta speculative buy and said not to wait for approval. Crypto was declined (hard-blocked). Ran the real verification process instead of a blind pick: Angel Studios (ANGX), single-director Form 4 buy (Steven I. Sarowitz, ~$472,624 on 2026-09-11, verified directly against the raw SEC filing), score 4. Entry price was actually below the insider's own cost basis. Sized at your explicit instruction to use the full $21.00, overriding the normal $100 minimum for this one instance only.</span>
+</td></tr></table>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:12px 14px;font-size:13px;">
+<b>No new entries or rotations this run</b> (routine hourly check)<br>
+<span style="color:#5a6b76;">Reason: buying power is $0.00 (fully invested across 5 real positions). OpenInsider and CapitolTrades both failed twice (HTTP 503 / 429) so no fresh candidate could be verified to justify a rotation out of an already-vetted, currently-protected holding. Today's across-the-board weakness (MSTR -2.9%, DSP -5.7%, BORR -3.2%, SBLK -1.8%, ANGX -5.9% intraday) looks like broad market softness, not a stock-specific problem — no stop is close to triggering and no held name reports earnings today.</span>
+</td></tr></table>
+
+</td></tr>
+
+<tr><td style="padding:16px 28px 8px 28px;">
+<div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">Before / after (at time of the ANGX entry, 10:36 AM CT)</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;font-size:13px;">
+<tr><td style="padding:4px 0;color:#5a6b76;">Portfolio value</td><td style="padding:4px 0;text-align:right;">$7,596.75 → $7,608.06</td></tr>
+<tr><td style="padding:4px 0;color:#5a6b76;">Cash / unleveraged buying power</td><td style="padding:4px 0;text-align:right;">$21.00 → $0.00</td></tr>
+<tr><td style="padding:4px 0;color:#5a6b76;">ANGX allocation</td><td style="padding:4px 0;text-align:right;">0% → 0.27%</td></tr>
+</table>
+<div style="color:#8a97a0;font-size:11px;margin-top:6px;">Current portfolio value as of this run is $7,555.76 — down from the entry-time snapshot, consistent with the broad intraday weakness across all five holdings noted above, not specific to this trade.</div>
+</td></tr>
+
+<tr><td style="padding:16px 28px 20px 28px;">
+<div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">Protection coverage</div>
+<div style="color:#1a1a1a;font-size:13px;margin-top:10px;line-height:1.7;">4 of 6 open positions carry a live, confirmed protective stop: MSTR $152.55, DSP $11.20, BORR $4.11, SBLK $24.28 (all plain stop orders — advanced/OCO brackets remain disabled on this account). Two positions carry no protection at all, both fractional-share lots the broker will not accept a stop-triggered order for: the pre-existing AAPL lot (0.005949 sh, previously acknowledged, unchanged) and this ANGX lot (4.329986 sh, new as of today, this report).</div>
+</td></tr>
+
+<tr><td style="background-color:#f6f9fa;padding:16px 28px;border-top:1px solid #dce3e8;">
+<div style="color:#8a97a0;font-size:11px;line-height:1.6;">
+Data as of 2026-09-23 18:18 UTC (2:18 PM ET / 1:18 PM CT). Account ••••4292 (Robinhood Agentic). Report ID: action-acct4292-2026-09-23T1818Z. Scenarios, not forecasts. Other holdings are held constant. Stops are not guaranteed execution prices; losses can exceed the stop scenario.
+</div>
+</td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>

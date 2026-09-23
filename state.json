@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-23T17:17:00Z",
+  "last_run": "2026-09-23T18:18:40Z",
   "canonical_branch": "claude/trading-state",
   "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
   "peak_account_value": 7954.86462317,
@@ -479,6 +479,10 @@
     {
       "ts": "2026-09-23T17:17:00Z",
       "value": 7572.035840625
+    },
+    {
+      "ts": "2026-09-23T18:18:40Z",
+      "value": 7555.7605626926
     }
   ],
   "positions": {
@@ -680,6 +684,13 @@
       "description": "Account owner (ferrell@chacetech.com, live chat, not a scheduled-task prompt) explicitly confirmed the AGENT.md 2026-09-23 full-reallocation/rotation mechanism is authorized and should be exercised autonomously going forward, without pausing for further per-instance confirmation -- in response to a prior run's report that buying-power exhaustion was blocking all new entries and that rotation had been deliberately withheld pending explicit owner sign-off (see anomaly config-escalation-and-new-keys-20260923). Owner's own words: 'trade based on what instructions i've given you and not wait for me to give instructions.'",
       "action_taken": "Treated as live, in-session authorization from the account owner (matches the same GitHub identity, hockeman, that authored AGENT.md and config.json directly) to exercise the rotation mechanism going forward. Same run: sold ALVO (worst-ranked legacy/down holding) and rotated into a freshly-verified SBLK insider-cluster signal (score 5); see the SBLK position thesis and the ALVO closed-position notes for the full mechanics. The one carve-out from full deference stated back to the owner and unchanged by this authorization: day-of-earnings entries remain treated as forbidden (the standing instructions' absolute wording, not a tunable parameter) regardless of earnings_blackout_trading_days=0 -- the owner's authorization was specifically about rotation/buying-power gating, not about relitigating that separate hard rule, which was not part of what they confirmed.",
       "status": "resolved_2026-09-23T14:20:00Z; rotation mechanism now live for future runs without per-instance confirmation"
+    },
+    {
+      "id": "public-signal-sources-unreachable-20260923t1818z",
+      "detected": "2026-09-23T18:18:00Z",
+      "description": "OpenInsider (latest-cluster-buys) and CapitolTrades (/trades) both failed twice each this run: OpenInsider returned HTTP 503, CapitolTrades returned HTTP 429. Retried once per Section 7's general retry rule; both still failed. No workaround attempted.",
+      "action_taken": "Skipped Step 4 signal-gathering for this run rather than substitute an unverified source. Buying power was $0.00 anyway (fully invested), so no new entry was possible without a rotation, and rotation without a freshly verified candidate is not justified by today's broad-market weakness alone. All existing positions re-verified protected via the broker directly (not dependent on these sources). Disclosed in this run's ACTION_UPDATE and journal.",
+      "status": "monitor_next_run; likely transient rate-limiting/outage on the public sites, not an account-side issue"
     },
     {
       "id": "angx-unprotected-speculative-lot-20260923",

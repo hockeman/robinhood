@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"></head>
+<body style="margin:0;padding:0;background-color:#f2f5f7;font-family:Helvetica,Arial,sans-serif;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f2f5f7;padding:24px 0;">
+<tr><td align="center">
+<table role="presentation" width="660" cellpadding="0" cellspacing="0" style="max-width:660px;width:100%;background-color:#ffffff;border-radius:8px;overflow:hidden;border:1px solid #dce3e8;">
+
+<tr><td style="background-color:#0b3350;padding:20px 28px;">
+<div style="color:#ffffff;font-size:20px;font-weight:bold;">Agentic Account — Trade Update</div>
+<div style="color:#a9c6d8;font-size:13px;margin-top:4px;">2026-09-24 12:17 PM (America/Chicago)</div>
+</td></tr>
+
+<tr><td style="padding:20px 28px 4px 28px;">
+<div style="color:#1a1a1a;font-size:14px;line-height:1.6;"><b>Rotated out of DSP (+$83.66 realized gain) to fund a new DUOT position (207 sh @ $9.4299, insider-cluster score 10), now protected with a stop at $7.54.</b><br>Verification status: all fills and the new stop verified <b>confirmed</b> directly against the broker this run.</div>
+</td></tr>
+
+<tr><td style="padding:16px 28px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+<td width="33%" style="padding:6px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:14px;">
+<div style="color:#5a6b76;font-size:11px;text-transform:uppercase;">Current Value</div>
+<div style="color:#0b3350;font-size:20px;font-weight:bold;margin-top:4px;">$7,544.98</div>
+</td></tr></table>
+</td>
+<td width="33%" style="padding:6px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:14px;">
+<div style="color:#5a6b76;font-size:11px;text-transform:uppercase;">Value at Target</div>
+<div style="color:#0e7a3d;font-size:20px;font-weight:bold;margin-top:4px;">≈$11,448.94</div>
+<div style="color:#8a97a0;font-size:10px;margin-top:2px;">scenario, not forecast — if DUOT alone reaches its +120% target</div>
+</td></tr></table>
+</td>
+<td width="33%" style="padding:6px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:14px;">
+<div style="color:#5a6b76;font-size:11px;text-transform:uppercase;">Value at Stop</div>
+<div style="color:#b02a2a;font-size:20px;font-weight:bold;margin-top:4px;">≈$7,153.75</div>
+<div style="color:#8a97a0;font-size:10px;margin-top:2px;">scenario, not forecast — if DUOT alone hits its stop</div>
+</td></tr></table>
+</td>
+</tr></table>
+</td></tr>
+
+<tr><td style="padding:8px 28px;">
+<div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">What happened</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:12px 14px;font-size:13px;">
+<b>DSP — sell (rotation exit)</b> (agent action)<br>
+Requested: 161 sh @ $12.22 &nbsp;|&nbsp; Filled: 161 sh @ avg $12.2201 &nbsp;|&nbsp; Total: $1,967.44 &nbsp;|&nbsp; 12:16 PM CT<br>
+Protective stop $11.70 cancelled first, then sold &nbsp;|&nbsp; Final state: position closed, realized <span style="color:#0e7a3d;">+$83.66</span><br>
+<span style="color:#5a6b76;">Reason: DSP and MSTR were the two legacy/no-thesis holdings (lowest rotation tier). Neither was down today, so tie-broken by smaller unrealized gain (DSP +4.5% vs. MSTR +7.8%) — sold DSP to preserve more of the stronger legacy runner, and to fund a freshly-verified score-10 insider signal while the book was fully invested at $0 buying power.</span>
+</td></tr></table>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:12px 14px;font-size:13px;">
+<b>DUOT — buy (rotation entry)</b> (agent action)<br>
+Requested: 207 sh @ $9.45 &nbsp;|&nbsp; Filled: 207 sh @ avg $9.4299 &nbsp;|&nbsp; Total: $1,952.09 &nbsp;|&nbsp; 12:17 PM CT<br>
+Final state: open, protected<br>
+<span style="color:#5a6b76;">Reason: Insider cluster at Duos Technologies — CEO Frank Recker bought $84.5k (brand-new stake, 9/22) and Director James Nixon bought $49.3k (9/18), both independently confirmed via direct SEC Form 4 reads. Score 10 clears the rotation bar (best-held score 7 + required 2-point edge = 9). Rejected last session solely for a 5.07% bid/ask spread — re-checked fresh this run at 0.74%, clearing the last blocker.</span>
+</td></tr></table>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:12px 14px;font-size:13px;">
+<b>DUOT — protective stop placed</b> (agent action)<br>
+Requested: stop-market sell 207 sh, stop $7.54, GTC &nbsp;|&nbsp; Final state: confirmed<br>
+<span style="color:#5a6b76;">Reason: 20% initial stop per config.json. Advanced/OCO bracket orders remain disabled on this account (standing constraint), so protection is a plain stop-market sell.</span>
+</td></tr></table>
+
+</td></tr>
+
+<tr><td style="padding:16px 28px 8px 28px;">
+<div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">Before / after</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;font-size:13px;">
+<tr><td style="padding:4px 0;color:#5a6b76;">Portfolio value</td><td style="padding:4px 0;text-align:right;">$7,526.37 → $7,544.98</td></tr>
+<tr><td style="padding:4px 0;color:#5a6b76;">Cash</td><td style="padding:4px 0;text-align:right;">$0.00 → $15.37</td></tr>
+<tr><td style="padding:4px 0;color:#5a6b76;">Unleveraged buying power</td><td style="padding:4px 0;text-align:right;">$0.00 → $15.37</td></tr>
+<tr><td style="padding:4px 0;color:#5a6b76;">Affected-position allocation</td><td style="padding:4px 0;text-align:right;">DSP $1,967.44 (26.1%) → DUOT $1,952.09 (25.9%)</td></tr>
+</table>
+<div style="color:#8a97a0;font-size:11px;margin-top:6px;">The before/after value difference is not automatically labeled as profit from this action alone — see Realized/Unrealized where applicable.</div>
+</td></tr>
+
+<tr><td style="padding:16px 28px 8px 28px;">
+<div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">DUOT — current / target / stop</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;font-size:13px;">
+<tr><td style="padding:4px 0;">Current: $9.43</td><td style="padding:4px 0;">Target: $20.75 (+120%)</td><td style="padding:4px 0;">Stop: $7.54 (-20%)</td></tr>
+</table>
+</td></tr>
+
+<tr><td style="padding:16px 28px 20px 28px;">
+<div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">Protection coverage</div>
+<div style="color:#1a1a1a;font-size:13px;margin-top:10px;line-height:1.7;">
+MSTR: stop-limit $152.55/$152.25 — confirmed.<br>
+BORR: stop-market $4.11 — confirmed.<br>
+SBLK: stop-market $25.49 — confirmed.<br>
+DUOT: stop-market $7.54 — confirmed (new this run).<br>
+ANGX: unprotected — fractional lot (4.329986 sh), broker rejects stop-triggered orders on fractional quantities; owner-accepted risk, unchanged.<br>
+AAPL: 0.005949 sh dust lot, immaterial, unmanaged (pre-existing documented anomaly).
+</div>
+</td></tr>
+
+<tr><td style="background-color:#f6f9fa;padding:16px 28px;border-top:1px solid #dce3e8;">
+<div style="color:#8a97a0;font-size:11px;line-height:1.6;">
+Data as of 2026-09-24 17:17 UTC (1:17 PM ET / 12:17 PM CT). Account ••••4292 (Robinhood Agentic). Report ID: action-acct4292-2026-09-24T1717Z. Scenarios, not forecasts. Other holdings are held constant. Stops are not guaranteed execution prices; losses can exceed the stop scenario.
+</div>
+</td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>

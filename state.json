@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-25T13:16:00Z",
+  "last_run": "2026-09-25T14:26:00Z",
   "canonical_branch": "claude/trading-state",
   "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
   "peak_account_value": 7954.86462317,
@@ -579,6 +579,10 @@
     {
       "ts": "2026-09-25T13:16:00Z",
       "value": 7620.00158463
+    },
+    {
+      "ts": "2026-09-25T14:26:00Z",
+      "value": 7384.34484744
     }
   ],
   "positions": {
@@ -784,6 +788,38 @@
         "decision": "rejected_universe",
         "signal": "insider_cluster (3 insiders incl. CEO+Chairman)",
         "notes": "Disqualified before scoring: 30-day avg volume 73,584 sh (below 500,000 minimum) and bid/ask spread ~2.6% (above 1.0% max)."
+      }
+    },
+    "2026-09-25T1426Z": {
+      "HHH": {
+        "score": 8,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "insider_cluster (Exec. Chairman Marc Grandisson $1,602,938 buy 9/23 + COO Andrew Davis $64,490 buy 9/23, both filed 9/24, EDGAR Form-4 verified)",
+        "notes": "+3 chair, +3 cluster<=7d, +1 >=5% ΔOwn, +1 filing lag<=5d = 8. Below the 12-point rotation bar (best held DUOT score 10 + rotation_min_score_advantage 2) and no legacy holding is currently down/flat to trigger the alternate rotation path. Politician-confluence and price/RSI penalty checks unavailable (CapitolTrades and price-check source both unreachable this run)."
+      },
+      "DKS": {
+        "score": 8,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "insider_cluster (CFO Navdeep Gupta $999,983 buy 9/22 + Director Larry Fitzgerald Jr. $244,906 buy 9/23, both filed 9/24, EDGAR Form-4 verified for 2 of the ~6 OpenInsider-listed cluster names)",
+        "notes": "+3 CFO, +3 cluster<=7d, +1 >=5% ΔOwn, +1 filing lag<=5d = 8. Below rotation bar."
+      },
+      "NYAX": {
+        "score": 7,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "insider_cluster (CEO/Chairman Yair Nechmad $4,607,723 buy 9/24 + CTO David Ben-Avi ~$67k buy 9/22, EDGAR verified)",
+        "notes": "+3 CEO, +3 cluster<=7d, +1 trade date = filing date = 7. Below rotation bar."
+      },
+      "OXM": {
+        "score": 6,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "insider_cluster (CEO Thomas Chubb $65,375 buy 9/24 + EVP Scott Grassmyer $29,730 buy 9/15, EDGAR verified, 9-day gap so 21-day not 7-day cluster)",
+        "notes": "+3 CEO, +2 cluster<=21d, +1 filing lag<=5d = 6. Below rotation bar."
+      },
+      "PWRL": {
+        "score": 4,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "single insider (CEO Mike Dinsdale $99,999 buy 9/23, filed 9/24, EDGAR verified)",
+        "notes": "+3 CEO, +1 filing lag<=5d = 4. No cluster. Also files like a BDC/continuous-offering vehicle, a weaker fit for this book's thesis even before the score. Below rotation bar."
       }
     }
   },

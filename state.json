@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-25T16:25:00Z",
+  "last_run": "2026-09-25T17:20:00Z",
   "canonical_branch": "claude/trading-state",
   "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
   "peak_account_value": 7954.86462317,
@@ -591,6 +591,10 @@
     {
       "ts": "2026-09-25T16:25:00Z",
       "value": 7394.6953918136
+    },
+    {
+      "ts": "2026-09-25T17:20:00Z",
+      "value": 7372.308256685
     }
   ],
   "positions": {
@@ -604,17 +608,6 @@
       "protective_order_type": "stop_limit",
       "signal": "legacy",
       "thesis": "Rebuilt from live account state; no prior journal/state existed at bootstrap. Two same-day buy fills (12 @ ~150.10 then 11 @ ~150.50) combined into this position, which violates the 'never add to an existing position' rule and predates the state file (see anomaly log). Trailing stop raised 2026-09-21 15:13 ET run to $149.30/$149.00 after a pre-market high of $165.888 crossed the 10% trail trigger; left unchanged at the 15:13 ET run since the trail-off-high recalculation was still below the 1% replace threshold. This run (16:14 ET, at/after the regular close): get_equity_historicals (5minute bars, regular session) showed an intraday high of $169.50, a new high_since_entry (was $167.46) and a 12.87% gain from entry -- above the 10% trail trigger. New trail stop = $169.50 x 0.90 = $152.55, which is 2.18% above the prior $149.30 stop (above the 1% replace threshold), so it was replaced: cancelled order 6ab12e3d-... (confirmed cancelled), then placed+verified new stop-limit sell 23 sh, stop $152.55/limit $152.25, GTC, regular_hours (order 6ab19029-22ac-4b79-9319-06b6f0fc6251). Placed after the 20:00 UTC regular close, so broker state is 'queued' (not yet 'confirmed') pending the next regular-session open -- this is expected for a GTC regular_hours order placed after hours, not a fill/protection gap, since no trading (and therefore no exposure) occurs while queued. Advanced orders (OCO) remain SERVICE_DISABLED on this account, so this stays a plain stop-limit sell rather than a bracket."
-    },
-    "BORR": {
-      "entry_price": 4.4685,
-      "entry_date": "2026-09-21",
-      "qty": 26,
-      "high_since_entry": 4.575,
-      "stop_price": 4.11,
-      "protective_order_id": "6ab13b9c-0bd2-4a33-92e3-34e9d86ccd63",
-      "protective_order_type": "stop_market",
-      "signal": "insider",
-      "thesis": "Insider cluster buy verified via SEC EDGAR Form 4 filing index (3 filings: 2026-09-17, 2026-09-18, 2026-09-21, all confirmed against OpenInsider data). CEO Bruno Morand De Oliveira bought $200,200 on 2026-09-18; Director Tor Olav Troim bought $656,925 (2026-09-17) and $4,299,500/1,000,000sh (2026-09-16). Signal score 7 (CEO/officer open-market buy +3, other director buy +2, 2-insider cluster +2; no \u0394Own>=5% bonus, no politician confluence, no penalties -- chase from $4.40 signal price to $4.47 entry was only +1.6%, RSI(14)=53 mid-range, price above 50-day SMA). Universe screen passed: market cap $1.38B, 30-day avg volume 5.28M shares, bid/ask spread 0.22%, tradable, no earnings within blackout (next report 2026-11-04), financial_status_description clean. Entered 26 sh at $4.4685 avg (marketable limit, regular hours). Advanced orders (OCO) remain SERVICE_DISABLED on this account (standing constraint, see anomalies) -- protected with a plain stop_market sell at $4.11 (8% initial stop) instead of a bracket; verified confirmed same run. Re-verified live against the broker this run (16:14 ET, order still confirmed, unchanged). get_equity_historicals shows a new intraday high of $4.575 (was $4.4685); up 2.38% from entry -- still well below the 10% trail trigger, no stop change due."
     },
     "SBLK": {
       "entry_price": 30.3452,
@@ -710,6 +703,19 @@
       "realized_pnl_usd": -8.2467,
       "day_trade": false,
       "notes": "Protective stop (raised from initial stop via broker-side trigger at $4.28) filled automatically at 2026-09-21T14:08:43Z per get_equity_orders execution records (2 executions, 1 sh + 32 sh, both at $4.28). Position was opened 2026-09-18 and closed 2026-09-21 (3 calendar days held) -- not a same-day round trip, so no day trade recorded. Discovered by this run via Step 1 reconciliation (position present in state.json but absent from live get_equity_positions)."
+    },
+    {
+      "symbol": "BORR",
+      "entry_price": 4.4685,
+      "entry_date": "2026-09-21",
+      "exit_price": 4.11,
+      "exit_date": "2026-09-25",
+      "qty": 26,
+      "exit_reason": "stop_loss",
+      "protective_order_id": "6ab13b9c-0bd2-4a33-92e3-34e9d86ccd63",
+      "realized_pnl_usd": -9.32,
+      "day_trade": false,
+      "notes": "Stop-loss fill confirmed via get_equity_orders: order 6ab13b9c-... (stop_market, stop 4.11) filled 26/26 sh at avg 4.1100, execution 6ab6a4bc-..., timestamp 2026-09-25T16:43:40.031Z. Entry 2026-09-21, exit 2026-09-25 -- 4 calendar days held, not a day trade. Reconciled this run (17:xx UTC) -- position was still open and protected as of the prior run (16:25 UTC); this is a fresh fill discovered this run, not a missed one."
     }
   ],
   "day_trades": [],
@@ -717,6 +723,10 @@
     "UROY": {
       "stopped_out_date": "2026-09-21",
       "cooldown_until": "2026-10-21"
+    },
+    "BORR": {
+      "stopped_out_date": "2026-09-25",
+      "cooldown_until": "2026-09-26"
     }
   },
   "candidates_seen": {
@@ -867,31 +877,31 @@
         "score": 10,
         "decision": "rejected_ties_not_beats_rotation_bar",
         "signal": "insider_cluster (Exec Chairman/CGO transactions: Glavine $1.18M buy 9/3 + So $1.24M buy 9/8, 5-day gap; CEO Halstead $1.35M buy, ownership +146%; all EDGAR Form 4 code P, accessions 0000912282-26-001256/-001261/-001263/-001293)",
-        "notes": "+3 top-tier officer, +3 cluster<=7d, +1 >=5% ΔOwn (Halstead +146%), +1 filing lag<=5d = 10. Ties DUOT (best held, 10) but rotation bar requires >=12. Not price/spread-verified live this run (delegated research ran out of time budget); would need a fresh universe check before any future entry."
+        "notes": "+3 top-tier officer, +3 cluster<=7d, +1 >=5% \u0394Own (Halstead +146%), +1 filing lag<=5d = 10. Ties DUOT (best held, 10) but rotation bar requires >=12. Not price/spread-verified live this run (delegated research ran out of time budget); would need a fresh universe check before any future entry."
       },
       "UBER": {
         "score": 8,
         "decision": "rejected_below_rotation_bar",
         "signal": "insider_cluster (President/COO Macdonald + CEO Khosrowshahi, both code-P buys within 7 days; accessions 0002071761-26-000011, 0001184237-26-000008)",
-        "notes": "+3 CEO/President tier, +3 cluster<=7d, +1 >=5% ΔOwn, +1 filing lag<=5d = 8. Hazelbaker filing correctly excluded (a SALE, code S) and West's filings excluded (option exercise/tax, codes M/F) -- not counted toward the cluster. Below rotation bar."
+        "notes": "+3 CEO/President tier, +3 cluster<=7d, +1 >=5% \u0394Own, +1 filing lag<=5d = 8. Hazelbaker filing correctly excluded (a SALE, code S) and West's filings excluded (option exercise/tax, codes M/F) -- not counted toward the cluster. Below rotation bar."
       },
       "PNFP": {
         "score": 9,
         "decision": "rejected_below_rotation_bar",
         "signal": "insider_cluster (CEO Blair + Director Montana, both code-P buys 9-day gap; accessions 0001680809-26-000007, 0001571561-26-000005)",
-        "notes": "+3 CEO, +2 director, +2 cluster<=21d (not 7d), +1 >=5% ΔOwn, +1 filing lag<=5d = 9. CFO Gregory's filing (0001779272-26-000008) correctly excluded as code G (gift), not a purchase -- same OpenInsider-miscount risk as the CAVA rejection earlier this week. Below rotation bar."
+        "notes": "+3 CEO, +2 director, +2 cluster<=21d (not 7d), +1 >=5% \u0394Own, +1 filing lag<=5d = 9. CFO Gregory's filing (0001779272-26-000008) correctly excluded as code G (gift), not a purchase -- same OpenInsider-miscount risk as the CAVA rejection earlier this week. Below rotation bar."
       },
       "BCBP": {
         "score": 8,
         "decision": "rejected_below_rotation_bar",
         "signal": "insider_cluster (CEO O'Brien $1.24M + CFO Chaudhry $77.5k, both code-P, same trade date 9/18; accessions 0001193125-26-397677/-397672)",
-        "notes": "+3 CEO, +3 same-day cluster, +1 >=5% ΔOwn, +1 filing lag(4d)<=5d = 8. Small community bank; volume/spread not independently confirmed this run since score was already well below the bar. Below rotation bar."
+        "notes": "+3 CEO, +3 same-day cluster, +1 >=5% \u0394Own, +1 filing lag(4d)<=5d = 8. Small community bank; volume/spread not independently confirmed this run since score was already well below the bar. Below rotation bar."
       },
       "DY": {
         "score": 7,
         "decision": "rejected_below_rotation_bar",
         "signal": "insider_cluster (CEO Peyovich + 2 directors, code-P; accessions 0001837347-26-000003, 0001919348-26-000002, 0001349628-26-000004)",
-        "notes": "+3 CEO, +2 cluster<=21d, +1 >=5% ΔOwn, +1 filing lag<=5d = 7. Full 3-name span is 22 days, just outside the 21-day cluster window for the full-cluster bonus. Below rotation bar."
+        "notes": "+3 CEO, +2 cluster<=21d, +1 >=5% \u0394Own, +1 filing lag<=5d = 7. Full 3-name span is 22 days, just outside the 21-day cluster window for the full-cluster bonus. Below rotation bar."
       },
       "GRNT": {
         "score": 6,

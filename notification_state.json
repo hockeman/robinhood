@@ -3,7 +3,7 @@
   "canonical_branch": "claude/trading-state",
   "initialized_at": "2026-09-21T13:35:00Z",
   "baseline_as_of": "2026-09-21T13:32:00Z",
-  "last_successful_reconciliation_at": "2026-09-24T17:17:19Z",
+  "last_successful_reconciliation_at": "2026-09-25T08:04:23Z",
   "reconciled_at": "2026-09-21T13:35:00Z (maintenance session; see RECONCILIATION.md). Confirmed this file existed on no other branch across the whole repository (60+ branches checked) -- nothing to merge in, only to verify.",
   "email_recipient_source": "session userEmail context (account owner identity for this Claude session); config.json.email_recipient was null and no other owner-approved recipient record existed in this repository, so this was used per the standing instruction to reuse the owner's established identity rather than guess or use externally-researched contact info.",
   "email_recipient": "ferrell@chacetech.com",
@@ -292,6 +292,25 @@
       "provider_message_id": "1a0d47472b639658",
       "thread_id": "1a0d47472b639658",
       "notes": "Rotation: sold DSP (161 sh, +$83.66 realized) to fund a fresh DUOT entry (207 sh @ $9.4299, insider-cluster score 10, cleared the rotation bar), protected with a stop_market sell at $7.54. All three actions verified confirmed/filled directly against the broker before this entry was written. Send verified via get_message (labelIds includes SENT, correct recipient, sizeEstimate 12,529 bytes -- not a blank/placeholder body)."
+    },
+    "close-acct4292-2026-09-24-delayed": {
+      "report_id": "close-acct4292-2026-09-24-delayed",
+      "type": "DAILY_CLOSE",
+      "session_date": "2026-09-24",
+      "included_event_ids": [
+        "dsp-rotation-exit-20260924",
+        "duot-entry-20260924"
+      ],
+      "recipient": "ferrell@chacetech.com",
+      "body_hash": null,
+      "status": "verified_sent",
+      "timestamps": {
+        "prepared": "2026-09-25T08:10:00Z",
+        "sent": "2026-09-25T08:08:42Z",
+        "verified": "2026-09-25T08:11:00Z"
+      },
+      "provider_message_id": "1a0d79c0a33d3213",
+      "notes": "Delayed catch-up DAILY_CLOSE: no run executed between 2026-09-24T17:17:19Z and 2026-09-25T08:03:51Z, so the 2026-09-24 session summary was never prepared at the time. Closing value/holdings reconstructed from official 2026-09-24 close prices + the unchanged post-trade cash balance ($15.37), then reconciled live this run with zero discrepancy against the broker."
     }
   },
   "daily_summaries": {
@@ -318,6 +337,12 @@
       "closing_value": 7553.31119424,
       "day_pnl": -261.10736066,
       "report_id": "close-acct4292-2026-09-23"
+    },
+    "close:acct4292:2026-09-24": {
+      "report_id": "close-acct4292-2026-09-24-delayed",
+      "session_date": "2026-09-24",
+      "status": "verified_sent",
+      "provider_message_id": "1a0d79c0a33d3213"
     }
   },
   "close_snapshots": {
@@ -340,6 +365,12 @@
       "reconstruction_basis": "get_portfolio total_value captured 2026-09-23T20:15-20:16Z (15-16 min after the 20:00 UTC regular close), broker-computed marks; not a same-day official settled-close feed. Per-holding table uses last regular-session trade prints (19:59:49-19:59:59 UTC) instead, which sum ~0.41% above this total -- see holdings footnote.",
       "total_value": 7553.31119424,
       "cash": 0.0
+    },
+    "2026-09-24": {
+      "closing_value": 7547.35,
+      "cash": 15.37,
+      "reconstructed": true,
+      "note": "No live run at the 2026-09-24 20:00 UTC close; reconstructed from official close prices + unchanged post-trade cash, reconciled live 2026-09-25T08:04Z with zero discrepancy."
     }
   },
   "last_weekly_statistics_session": null

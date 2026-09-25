@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-25T15:24:00Z",
+  "last_run": "2026-09-25T16:25:00Z",
   "canonical_branch": "claude/trading-state",
   "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
   "peak_account_value": 7954.86462317,
@@ -587,6 +587,10 @@
     {
       "ts": "2026-09-25T15:24:00Z",
       "value": 7450.88390974
+    },
+    {
+      "ts": "2026-09-25T16:25:00Z",
+      "value": 7394.6953918136
     }
   ],
   "positions": {
@@ -856,6 +860,56 @@
         "decision": "rejected_low_conviction",
         "signal": "single insider (CLO Joseph Kadow $49,960 buy 9/16); OpenInsider's claimed 2nd 'insider' (Xenohristos) was verified via EDGAR as a code-G gift transaction, $0/share, not a purchase -- no cluster credit",
         "notes": "+2 officer only = ~3 (no cluster bonus once the gift transaction was excluded). Rejected as too weak."
+      }
+    },
+    "2026-09-25T1625Z": {
+      "CYBN": {
+        "score": 10,
+        "decision": "rejected_ties_not_beats_rotation_bar",
+        "signal": "insider_cluster (Exec Chairman/CGO transactions: Glavine $1.18M buy 9/3 + So $1.24M buy 9/8, 5-day gap; CEO Halstead $1.35M buy, ownership +146%; all EDGAR Form 4 code P, accessions 0000912282-26-001256/-001261/-001263/-001293)",
+        "notes": "+3 top-tier officer, +3 cluster<=7d, +1 >=5% ΔOwn (Halstead +146%), +1 filing lag<=5d = 10. Ties DUOT (best held, 10) but rotation bar requires >=12. Not price/spread-verified live this run (delegated research ran out of time budget); would need a fresh universe check before any future entry."
+      },
+      "UBER": {
+        "score": 8,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "insider_cluster (President/COO Macdonald + CEO Khosrowshahi, both code-P buys within 7 days; accessions 0002071761-26-000011, 0001184237-26-000008)",
+        "notes": "+3 CEO/President tier, +3 cluster<=7d, +1 >=5% ΔOwn, +1 filing lag<=5d = 8. Hazelbaker filing correctly excluded (a SALE, code S) and West's filings excluded (option exercise/tax, codes M/F) -- not counted toward the cluster. Below rotation bar."
+      },
+      "PNFP": {
+        "score": 9,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "insider_cluster (CEO Blair + Director Montana, both code-P buys 9-day gap; accessions 0001680809-26-000007, 0001571561-26-000005)",
+        "notes": "+3 CEO, +2 director, +2 cluster<=21d (not 7d), +1 >=5% ΔOwn, +1 filing lag<=5d = 9. CFO Gregory's filing (0001779272-26-000008) correctly excluded as code G (gift), not a purchase -- same OpenInsider-miscount risk as the CAVA rejection earlier this week. Below rotation bar."
+      },
+      "BCBP": {
+        "score": 8,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "insider_cluster (CEO O'Brien $1.24M + CFO Chaudhry $77.5k, both code-P, same trade date 9/18; accessions 0001193125-26-397677/-397672)",
+        "notes": "+3 CEO, +3 same-day cluster, +1 >=5% ΔOwn, +1 filing lag(4d)<=5d = 8. Small community bank; volume/spread not independently confirmed this run since score was already well below the bar. Below rotation bar."
+      },
+      "DY": {
+        "score": 7,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "insider_cluster (CEO Peyovich + 2 directors, code-P; accessions 0001837347-26-000003, 0001919348-26-000002, 0001349628-26-000004)",
+        "notes": "+3 CEO, +2 cluster<=21d, +1 >=5% ΔOwn, +1 filing lag<=5d = 7. Full 3-name span is 22 days, just outside the 21-day cluster window for the full-cluster bonus. Below rotation bar."
+      },
+      "GRNT": {
+        "score": 6,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "insider_cluster (CFO + 2 directors, modest $25-50k buys, code-P; accessions 0001628280-26-061771/-060001/-060851)",
+        "notes": "~+2 officer/director tier, +2/+3 cluster (borderline 7d window), no ownership-increase bonus (small buys). Below rotation bar."
+      },
+      "GLOO": {
+        "score": null,
+        "decision": "rejected_compliance_flag",
+        "signal": "10%-owner Thrivent Financial (weekly buys since July) + director Pat Gelsinger (ex-Intel CEO) buys 9/11 & 9/14",
+        "notes": "One Thrivent tranche filed 66 days late (traded 7/10, filed 9/14) -- a Section 16 late-filing compliance flag, not a clean recent print; no filing-lag bonus available and pattern reads as routine 10%-owner accumulation rather than a fresh informed signal. Recently-public name with thin trading history, not independently universe-screened given the low likely score."
+      },
+      "ETRA": {
+        "score": null,
+        "decision": "rejected_pipe_suspected",
+        "signal": "two $20M 'purchases' at an identical $15.00 price by a director and a fund (Orbimed) on the same date",
+        "notes": "Round identical price + two simultaneous 'purchases' from a director and an institutional fund is the signature of a private placement/PIPE allocation, not an open-market informed-flow buy -- flagged for a human to confirm before ever scoring it. Not counted."
       }
     }
   },

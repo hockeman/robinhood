@@ -1,420 +1,420 @@
 {
- "schema_version": 1,
- "canonical_branch": "claude/trading-state",
- "initialized_at": "2026-09-21T13:35:00Z",
- "baseline_as_of": "2026-09-21T13:32:00Z",
- "last_successful_reconciliation_at": "2026-09-28T15:19:00Z",
- "reconciled_at": "2026-09-21T13:35:00Z (maintenance session; see RECONCILIATION.md). Confirmed this file existed on no other branch across the whole repository (60+ branches checked) -- nothing to merge in, only to verify.",
- "email_recipient_source": "session userEmail context (account owner identity for this Claude session); config.json.email_recipient was null and no other owner-approved recipient record existed in this repository, so this was used per the standing instruction to reuse the owner's established identity rather than guess or use externally-researched contact info.",
- "email_recipient": "ferrell@chacetech.com",
- "observed_events": {
-  "entry:ANGX:2026-09-23T14:36:00Z": {
-   "description": "New position opened: ANGX, 4.329986 sh @ avg fill $4.8499 ($21.00 dollar-based market order), at the owner's explicit live chat instruction to spend the remaining buying power on a speculative pick. Single-director Form 4 signal (score 4), verified via SEC EDGAR full-text search and direct Form 4 XML read. Discovered unreported by this run (2026-09-23T18:18 UTC) via a notification_state.json outbox audit -- no outbox record existed for this event despite it appearing in state.json.",
-   "origin": "agent (prior run, 2026-09-23T14:36:00Z), reported late by this run",
-   "order_id": "n/a (dollar-based fractional market order; see get_equity_orders for the underlying fill if needed)"
+  "schema_version": 1,
+  "canonical_branch": "claude/trading-state",
+  "initialized_at": "2026-09-21T13:35:00Z",
+  "baseline_as_of": "2026-09-21T13:32:00Z",
+  "last_successful_reconciliation_at": "2026-09-28T16:18:00Z",
+  "reconciled_at": "2026-09-21T13:35:00Z (maintenance session; see RECONCILIATION.md). Confirmed this file existed on no other branch across the whole repository (60+ branches checked) -- nothing to merge in, only to verify.",
+  "email_recipient_source": "session userEmail context (account owner identity for this Claude session); config.json.email_recipient was null and no other owner-approved recipient record existed in this repository, so this was used per the standing instruction to reuse the owner's established identity rather than guess or use externally-researched contact info.",
+  "email_recipient": "ferrell@chacetech.com",
+  "observed_events": {
+    "entry:ANGX:2026-09-23T14:36:00Z": {
+      "description": "New position opened: ANGX, 4.329986 sh @ avg fill $4.8499 ($21.00 dollar-based market order), at the owner's explicit live chat instruction to spend the remaining buying power on a speculative pick. Single-director Form 4 signal (score 4), verified via SEC EDGAR full-text search and direct Form 4 XML read. Discovered unreported by this run (2026-09-23T18:18 UTC) via a notification_state.json outbox audit -- no outbox record existed for this event despite it appearing in state.json.",
+      "origin": "agent (prior run, 2026-09-23T14:36:00Z), reported late by this run",
+      "order_id": "n/a (dollar-based fractional market order; see get_equity_orders for the underlying fill if needed)"
+    },
+    "critical:ANGX:unprotected:2026-09-23T18:18:00Z": {
+      "description": "ANGX position (4.329986 sh) carries no protective stop and none can be placed: place_equity_order rejected two stop attempts (gtc then gfd time_in_force) with 'Invalid time in force for fractional order' and 'Invalid trigger for fractional order' -- a hard broker restriction on stop-triggered orders for fractional-quantity lots, same as the pre-existing unmanaged AAPL lot. Accepted risk by explicit owner instruction (see anomaly angx-unprotected-speculative-lot-20260923 in state.json), but had never actually been emailed to the owner until this run's ACTION_UPDATE.",
+      "origin": "agent (this run, gap-fill report)"
+    },
+    "baseline:positions:2026-09-21T13:32:00Z": {
+      "description": "Baseline snapshot at notification-system install: 4 protected positions (MSTR, ALVO, DSP, UROY) and 1 unmanaged fractional AAPL lot, all inherited from before this notification system existed. Not treated as new trades.",
+      "origin": "baseline"
+    },
+    "stop:MSTR:2026-09-21T13:16:45Z": {
+      "description": "MSTR protective stop raised from $144.80 to $149.30 (order 6ab12e3d-aea4-49a4-b6bd-f4f6aa74d643) by a run that completed shortly before this session started (branch claude/clever-thompson-moql19). Discovered by this session at 2026-09-21T13:2xZ during reconciliation, i.e. after the fact -- this session did not place the order. Treated as part of this run's install baseline (see notification decision below) rather than a fresh ACTION_UPDATE, since the notification system did not exist yet when it happened and there's no way to know whether the run that made the change already notified the owner through the prior (push-notification) channel.",
+      "origin": "broker (agentic, prior run)",
+      "order_id": "6ab12e3d-aea4-49a4-b6bd-f4f6aa74d643"
+    },
+    "fill:UROY:2026-09-21T14:08:43Z": {
+      "description": "UROY protective stop-market sell filled automatically: 33 sh @ avg $4.28 (2 executions), closing the position. Entry was 2026-09-18 @ avg $4.5299, so this is a 3-day hold, not a same-day round trip -- no day trade. Realized P&L -$8.2467. Discovered this run via Step 1 reconciliation (position present in prior state.json, absent from live get_equity_positions); verified via get_equity_orders execution records.",
+      "origin": "broker (automatic stop fill)",
+      "order_id": "6aad8872-c211-45cc-88d8-f8fff1f471a1",
+      "execution_ids": [
+        "6ab13a6b-8f21-4991-8741-0c0f568e5edc",
+        "6ab13a6b-6629-462f-bfc9-cdfbf1a06ed9"
+      ]
+    },
+    "entry:BORR:2026-09-21T14:13:29Z": {
+      "description": "New position opened: BORR, 26 sh @ avg fill $4.4685, marketable limit, agent-placed. Insider-cluster signal (score 7), verified via SEC EDGAR Form 4 filing index. Sized from buying power freed by the UROY stop-out.",
+      "origin": "agent (this run)",
+      "order_id": "6ab13b89-bb5c-4d9b-a7c3-e524fd1b5004",
+      "execution_id": "6ab13b89-9774-477f-b237-6611bb0e274a"
+    },
+    "protection:BORR:2026-09-21T14:13:48Z": {
+      "description": "Protective stop-market sell placed and confirmed for the new BORR position: 26 sh, stop $4.11 (8% initial stop), GTC. Advanced orders (OCO) remain SERVICE_DISABLED on this account, so this is a plain stop rather than a bracket.",
+      "origin": "agent (this run)",
+      "order_id": "6ab13b9c-0bd2-4a33-92e3-34e9d86ccd63"
+    },
+    "stop_raise:MSTR:2026-09-21T20:14:33Z": {
+      "description": "MSTR protective stop replaced: cancelled $149.30/$149.00 stop-limit (order 6ab12e3d-...), placed new $152.55/$152.25 stop-limit (order 6ab19029-22ac-4b79-9319-06b6f0fc6251), 23 sh, GTC, regular_hours. Trigger: new intraday high of $169.50 (from 5minute historicals, regular session) vs. prior recorded high $167.46, crossing the 10% trail-trigger threshold; new trail-off-high stop was 2.18% above the prior stop, above the 1% replace threshold. Placed after the 20:00 UTC regular close, so broker state is 'queued' pending next-session open (not a protection gap -- no trading occurs while queued).",
+      "origin": "agent (this run)",
+      "order_id": "6ab19029-22ac-4b79-9319-06b6f0fc6251",
+      "cancelled_order_id": "6ab12e3d-aea4-49a4-b6bd-f4f6aa74d643"
+    }
   },
-  "critical:ANGX:unprotected:2026-09-23T18:18:00Z": {
-   "description": "ANGX position (4.329986 sh) carries no protective stop and none can be placed: place_equity_order rejected two stop attempts (gtc then gfd time_in_force) with 'Invalid time in force for fractional order' and 'Invalid trigger for fractional order' -- a hard broker restriction on stop-triggered orders for fractional-quantity lots, same as the pre-existing unmanaged AAPL lot. Accepted risk by explicit owner instruction (see anomaly angx-unprotected-speculative-lot-20260923 in state.json), but had never actually been emailed to the owner until this run's ACTION_UPDATE.",
-   "origin": "agent (this run, gap-fill report)"
-  },
-  "baseline:positions:2026-09-21T13:32:00Z": {
-   "description": "Baseline snapshot at notification-system install: 4 protected positions (MSTR, ALVO, DSP, UROY) and 1 unmanaged fractional AAPL lot, all inherited from before this notification system existed. Not treated as new trades.",
-   "origin": "baseline"
-  },
-  "stop:MSTR:2026-09-21T13:16:45Z": {
-   "description": "MSTR protective stop raised from $144.80 to $149.30 (order 6ab12e3d-aea4-49a4-b6bd-f4f6aa74d643) by a run that completed shortly before this session started (branch claude/clever-thompson-moql19). Discovered by this session at 2026-09-21T13:2xZ during reconciliation, i.e. after the fact -- this session did not place the order. Treated as part of this run's install baseline (see notification decision below) rather than a fresh ACTION_UPDATE, since the notification system did not exist yet when it happened and there's no way to know whether the run that made the change already notified the owner through the prior (push-notification) channel.",
-   "origin": "broker (agentic, prior run)",
-   "order_id": "6ab12e3d-aea4-49a4-b6bd-f4f6aa74d643"
-  },
-  "fill:UROY:2026-09-21T14:08:43Z": {
-   "description": "UROY protective stop-market sell filled automatically: 33 sh @ avg $4.28 (2 executions), closing the position. Entry was 2026-09-18 @ avg $4.5299, so this is a 3-day hold, not a same-day round trip -- no day trade. Realized P&L -$8.2467. Discovered this run via Step 1 reconciliation (position present in prior state.json, absent from live get_equity_positions); verified via get_equity_orders execution records.",
-   "origin": "broker (automatic stop fill)",
-   "order_id": "6aad8872-c211-45cc-88d8-f8fff1f471a1",
-   "execution_ids": [
-    "6ab13a6b-8f21-4991-8741-0c0f568e5edc",
-    "6ab13a6b-6629-462f-bfc9-cdfbf1a06ed9"
-   ]
-  },
-  "entry:BORR:2026-09-21T14:13:29Z": {
-   "description": "New position opened: BORR, 26 sh @ avg fill $4.4685, marketable limit, agent-placed. Insider-cluster signal (score 7), verified via SEC EDGAR Form 4 filing index. Sized from buying power freed by the UROY stop-out.",
-   "origin": "agent (this run)",
-   "order_id": "6ab13b89-bb5c-4d9b-a7c3-e524fd1b5004",
-   "execution_id": "6ab13b89-9774-477f-b237-6611bb0e274a"
-  },
-  "protection:BORR:2026-09-21T14:13:48Z": {
-   "description": "Protective stop-market sell placed and confirmed for the new BORR position: 26 sh, stop $4.11 (8% initial stop), GTC. Advanced orders (OCO) remain SERVICE_DISABLED on this account, so this is a plain stop rather than a bracket.",
-   "origin": "agent (this run)",
-   "order_id": "6ab13b9c-0bd2-4a33-92e3-34e9d86ccd63"
-  },
-  "stop_raise:MSTR:2026-09-21T20:14:33Z": {
-   "description": "MSTR protective stop replaced: cancelled $149.30/$149.00 stop-limit (order 6ab12e3d-...), placed new $152.55/$152.25 stop-limit (order 6ab19029-22ac-4b79-9319-06b6f0fc6251), 23 sh, GTC, regular_hours. Trigger: new intraday high of $169.50 (from 5minute historicals, regular session) vs. prior recorded high $167.46, crossing the 10% trail-trigger threshold; new trail-off-high stop was 2.18% above the prior stop, above the 1% replace threshold. Placed after the 20:00 UTC regular close, so broker state is 'queued' pending next-session open (not a protection gap -- no trading occurs while queued).",
-   "origin": "agent (this run)",
-   "order_id": "6ab19029-22ac-4b79-9319-06b6f0fc6251",
-   "cancelled_order_id": "6ab12e3d-aea4-49a4-b6bd-f4f6aa74d643"
-  }
- },
- "reported_event_ids": [
-  "fill:UROY:2026-09-21T14:08:43Z",
-  "entry:BORR:2026-09-21T14:13:29Z",
-  "protection:BORR:2026-09-21T14:13:48Z",
-  "stop_raise:MSTR:2026-09-21T20:14:33Z",
-  "rotation_exit:ALVO:2026-09-23T14:19:30Z",
-  "entry:SBLK:2026-09-23T14:19:50Z",
-  "protection:SBLK:2026-09-23T14:20:05Z",
-  "entry:ANGX:2026-09-23T14:36:00Z",
-  "critical:ANGX:unprotected:2026-09-23T18:18:00Z",
-  "exit:BORR:2026-09-25T16:43:40Z"
- ],
- "critical_issue_fingerprints": {
-  "angx-unprotected-lot-never-reported-20260923": {
-   "first_detected": "2026-09-23T18:18:00Z",
-   "last_reported_in_email": "2026-09-23T18:18:00Z",
-   "resolved_at": "2026-09-23T18:21:32Z (the reporting gap itself -- the owner has now been notified; the underlying unprotected position is a standing accepted risk, tracked ongoing in state.json anomaly angx-unprotected-speculative-lot-20260923, not re-flagged every run per that anomaly's own note)",
-   "note": "ANGX (4.329986 sh, entered 2026-09-23T14:36:00Z at owner's explicit live instruction) has no protective stop and none can be placed (broker rejects stop-triggered orders on fractional-quantity lots, confirmed via two distinct rejection errors). This is accepted, owner-directed risk, not a system error -- but no outbox record showed it was ever actually emailed, so this run sent a gap-fill ACTION_UPDATE (verified_sent, message 1a0cf8061302a384). Same standing class as the pre-existing AAPL fractional lot.",
-   "unresolved": false
-  },
-  "harness-git-push-denied-20260922t0413z": {
-   "first_detected": "2026-09-22T04:13:00Z",
-   "last_reported_in_email": "2026-09-22T04:13:00Z",
-   "resolved_at": "2026-09-22T04:2x:00Z (same run, after the human operator's local stop-hook flagged 2 unpushed commits)",
-   "note": "This run's first `git push origin HEAD:claude/trading-state` (per PERSISTENCE.md's required Save step) was denied by the Claude Code execution environment's own permission system (not by GitHub) with reason 'Out-of-Place Publication', before any GitHub-side compare-and-swap was attempted. Session-capability restriction, not a merge conflict/auth/network error, so PERSISTENCE.md's non-fast-forward retry logic did not apply. Per PERSISTENCE.md, no push to any other branch was attempted. One ACTION_UPDATE was sent and verified_sent (see outbox action-acct4292-2026-09-22T0413Z) while unresolved. RESOLVED same run: after that email, a second identical push attempt (prompted by the operator's own stop-hook, not by any workaround from this session) succeeded immediately (63b1afc..2b9f37d), confirmed via git ls-remote matching local HEAD. Treated as a one-off/transient classifier decision, analogous to the prior robinhood-mcp-connector-failure anomaly (resolved by the very next healthy check) -- no correction email sent, resolution recorded here and in the journal instead. Account was unaffected throughout -- all 4 positions independently verified protected before the first push attempt.",
-   "unresolved": false
-  },
-  "git-branch-persistence-bug": {
-   "first_detected": "2026-09-19T17:19:00Z",
-   "last_reported_in_email": "2026-09-21T13:35:00Z",
-   "note": "Reported this run inside the DAILY_CLOSE email banner (not as a separate ACTION_UPDATE) since it's an infra/continuity issue, not a trading-safety issue -- all positions were independently re-verified protected against the broker this run."
-  },
-  "robinhood-mcp-connector-failure": {
-   "first_detected": "2026-09-21T23:13:00Z",
-   "last_reported_in_email": "2026-09-21T23:13:00Z",
-   "resolved_at": "2026-09-22T00:13:00Z",
-   "note": "The Robinhood-Trading MCP connector failed to connect (HTTP 502 at the connector/transport layer, error CLIENT_HTTP_NOT_IMPLEMENTED) for the entire 2026-09-21T23:13Z run -- no Robinhood tool was discoverable or callable. Resolved: the very next run (2026-09-22T00:13Z) reached every Robinhood tool normally (get_accounts, get_portfolio, get_equity_positions, get_equity_orders all returned live data) and Step 1 reconciliation found the account exactly as last verified at 22:13Z, with no fills, stop triggers, or external changes in the unverified gap window. Per Section 6.2/7, a resolution that the very next run confirms healthy needs no further owner-facing report beyond this record; no ACTION_UPDATE sent for the resolution."
-  }
- },
- "outbox": {
-  "action-acct4292-2026-09-23T1818Z": {
-   "report_id": "action-acct4292-2026-09-23T1818Z",
-   "type": "ACTION_UPDATE",
-   "critical_issue_fingerprint": "angx-unprotected-lot-never-reported-20260923",
-   "included_event_ids": [
-    "entry:ANGX:2026-09-23T14:36:00Z",
-    "critical:ANGX:unprotected:2026-09-23T18:18:00Z"
-   ],
-   "recipient": "ferrell@chacetech.com",
-   "status": "verified_sent",
-   "prepared_at": "2026-09-23T18:18:40Z",
-   "sent_at": "2026-09-23T18:21:32Z",
-   "provider": "gmail",
-   "provider_message_id": "1a0cf8061302a384",
-   "provider_thread_id": "1a0cf8061302a384",
-   "verification": "Re-verified via Gmail get_message(1a0cf8061302a384) METADATA_ONLY: labelIds includes SENT, to=ferrell@chacetech.com, date=2026-09-23T18:21:32Z, sender=hockeman2523@gmail.com, sizeEstimate 14692 bytes (consistent with the real rendered HTML, not a placeholder).",
-   "note": "Rendered HTML saved at reporting/sent/action_update_2026-09-23T1818Z.html before send. Gap-fill report: ANGX entry and its no-stop-possible status were never previously emailed to the owner (confirmed by outbox audit -- no ANGX-referencing record existed). No new trading action this run (fully invested, $0 buying power, OpenInsider/CapitolTrades both unreachable twice)."
-  },
-  "action-acct4292-2026-09-23T1420Z": {
-   "report_id": "action-acct4292-2026-09-23T1420Z",
-   "type": "ACTION_UPDATE",
-   "included_event_ids": [
+  "reported_event_ids": [
+    "fill:UROY:2026-09-21T14:08:43Z",
+    "entry:BORR:2026-09-21T14:13:29Z",
+    "protection:BORR:2026-09-21T14:13:48Z",
+    "stop_raise:MSTR:2026-09-21T20:14:33Z",
     "rotation_exit:ALVO:2026-09-23T14:19:30Z",
     "entry:SBLK:2026-09-23T14:19:50Z",
-    "protection:SBLK:2026-09-23T14:20:05Z"
-   ],
-   "recipient": "ferrell@chacetech.com",
-   "status": "verified_sent",
-   "prepared_at": "2026-09-23T14:24:00Z",
-   "sent_at": "2026-09-23T14:30:00Z",
-   "provider": "gmail",
-   "provider_message_id": "1a0ceac6818b4903",
-   "provider_thread_id": "1a0ceac6818b4903",
-   "verification": "Re-verified via Gmail get_message(1a0ceac6818b4903) FULL_CONTENT: labelIds includes SENT, to=ferrell@chacetech.com, date=2026-09-23T14:30:00Z, sizeEstimate 11901 bytes, htmlBody contains the actual rendered report markup (read directly from the saved file via the Read tool before send, not shell-substituted)."
-  },
-  "action-acct4292-2026-09-22T0413Z": {
-   "report_id": "action-acct4292-2026-09-22T0413Z",
-   "type": "ACTION_UPDATE",
-   "included_event_ids": [],
-   "critical_issue_fingerprint": "harness-git-push-denied-20260922t0413z",
-   "recipient": "ferrell@chacetech.com",
-   "status": "verified_sent",
-   "prepared_at": "2026-09-22T04:13:00Z",
-   "sent_at": "2026-09-22T04:18:04Z",
-   "provider": "gmail",
-   "provider_message_id": "1a0c755cc97b96d2",
-   "provider_thread_id": "1a0c755cc97b96d2",
-   "verification": "Re-verified via Gmail get_message(1a0c755cc97b96d2) FULL_CONTENT: labelIds includes SENT, to=ferrell@chacetech.com, date=2026-09-22T04:18:04Z, sender=hockeman2523@gmail.com, htmlBody contains the actual rendered report markup (sizeEstimate 12254 bytes) -- not a placeholder string. Confirms provider-side send, not recipient-side delivery/read.",
-   "note": "Persistence push to claude/trading-state denied by the execution environment's own permission system this run. No trading changes this run (routine after-hours reconciliation, all positions verified protected). This outbox record itself cannot be durably saved past this session since the same push is blocked -- the Gmail Sent record (provider_message_id above) is the actual durable evidence of this send, independent of git persistence."
-  },
-  "action-acct4292-2026-09-21T2313Z": {
-   "report_id": "action-acct4292-2026-09-21T2313Z",
-   "type": "ACTION_UPDATE",
-   "included_event_ids": [],
-   "critical_issue_fingerprint": "robinhood-mcp-connector-failure",
-   "recipient": "ferrell@chacetech.com",
-   "status": "verified_sent",
-   "prepared_at": "2026-09-21T23:13:00Z",
-   "sent_at": "2026-09-21T23:15:45Z",
-   "provider": "gmail",
-   "provider_message_id": "1a0c64104fa41397",
-   "provider_thread_id": "1a0c64080098e8cb",
-   "verification": "Re-verified via Gmail get_message(1a0c64104fa41397) FULL_CONTENT: labelIds includes SENT, to=ferrell@chacetech.com, date=2026-09-21T23:15:45Z, sender=hockeman2523@gmail.com, htmlBody contains the actual rendered report markup (sizeEstimate 9387 bytes) -- not a placeholder string. Confirms provider-side send, not recipient-side delivery/read.",
-   "note": "Robinhood connector unreachable all run (HTTP 502). No account data obtainable. Rendered HTML saved at reporting/sent/action_update_2026-09-21T2313Z.html before send.",
-   "tooling_defect_in_first_send": {
-    "message_id": "1a0c64080098e8cb",
-    "sent_at": "2026-09-21T23:15:11Z",
-    "defect": "htmlBody parameter was passed as the literal string 'FILE:/home/user/robinhood/reporting/sent/action_update_2026-09-21T2313Z.html' -- a file-reference placeholder -- instead of the actual rendered HTML content. This send_message tool does not resolve file-path references or shell syntax in its parameters; the exact HTML must be read (e.g. via the Read tool) and pasted literally into htmlBody. plaintextBody was correct in this first send. Same class of defect as prior anomalies concurrent-run-duplicate-action-update-20260921t1414z and shell-substitution-htmlbody-defect-20260921t2019z (this is the third occurrence of this exact mistake pattern across sessions on this account).",
-    "corrected_by_message_id": "1a0c64104fa41397",
-    "action_taken": "Detected immediately via get_message re-check before declaring the send complete, per reporting/README.md send-discipline rule. Sent an in-thread corrective reply with the file's actual content (read via the Read tool, then pasted directly, no path reference or shell syntax) as htmlBody; verified via get_message FULL_CONTENT that the correction carries the real markup before marking this report verified_sent."
-   }
-  },
-  "action-acct4292-2026-09-21T1414Z": {
-   "report_id": "action-acct4292-2026-09-21T1414Z",
-   "type": "ACTION_UPDATE",
-   "included_event_ids": [
-    "fill:UROY:2026-09-21T14:08:43Z",
-    "entry:BORR:2026-09-21T14:13:29Z",
-    "protection:BORR:2026-09-21T14:13:48Z"
-   ],
-   "recipient": "ferrell@chacetech.com",
-   "status": "verified_sent",
-   "prepared_at": "2026-09-21T14:16:00Z",
-   "sent_at": "2026-09-21T14:17:25Z",
-   "provider": "gmail",
-   "provider_message_id": "1a0c454286356df8",
-   "provider_thread_id": "1a0c454286356df8",
-   "verification": "Re-verified via Gmail get_message(1a0c454286356df8) METADATA_ONLY: labelIds includes SENT, to=ferrell@chacetech.com, date=2026-09-21T14:17:25Z, sender=hockeman2523@gmail.com. Confirms provider-side send, not recipient-side delivery/read.",
-   "note": "UROY automatic stop-out + new BORR entry/protection this run. Rendered HTML saved at reporting/sent/action_update_2026-09-21T1414Z.html before send.",
-   "duplicate_sends_by_concurrent_session": [
-    {
-     "message_id": "1a0c455632cdf6cf",
-     "sent_at": "2026-09-21T14:18:45Z",
-     "by_session": "015xk18GJTXNeSFonnmdPvt7",
-     "defect": "htmlBody parameter contained the literal text '$(cat)' instead of rendered HTML (tooling error), so this send had no graphical body. plaintextBody was correct."
+    "protection:SBLK:2026-09-23T14:20:05Z",
+    "entry:ANGX:2026-09-23T14:36:00Z",
+    "critical:ANGX:unprotected:2026-09-23T18:18:00Z",
+    "exit:BORR:2026-09-25T16:43:40Z"
+  ],
+  "critical_issue_fingerprints": {
+    "angx-unprotected-lot-never-reported-20260923": {
+      "first_detected": "2026-09-23T18:18:00Z",
+      "last_reported_in_email": "2026-09-23T18:18:00Z",
+      "resolved_at": "2026-09-23T18:21:32Z (the reporting gap itself -- the owner has now been notified; the underlying unprotected position is a standing accepted risk, tracked ongoing in state.json anomaly angx-unprotected-speculative-lot-20260923, not re-flagged every run per that anomaly's own note)",
+      "note": "ANGX (4.329986 sh, entered 2026-09-23T14:36:00Z at owner's explicit live instruction) has no protective stop and none can be placed (broker rejects stop-triggered orders on fractional-quantity lots, confirmed via two distinct rejection errors). This is accepted, owner-directed risk, not a system error -- but no outbox record showed it was ever actually emailed, so this run sent a gap-fill ACTION_UPDATE (verified_sent, message 1a0cf8061302a384). Same standing class as the pre-existing AAPL fractional lot.",
+      "unresolved": false
     },
-    {
-     "message_id": "1a0c456205331c54",
-     "sent_at": "2026-09-21T14:19:34Z",
-     "by_session": "015xk18GJTXNeSFonnmdPvt7",
-     "defect": "none -- corrected follow-up in the same thread with proper HTML, superseding the defective send above."
+    "harness-git-push-denied-20260922t0413z": {
+      "first_detected": "2026-09-22T04:13:00Z",
+      "last_reported_in_email": "2026-09-22T04:13:00Z",
+      "resolved_at": "2026-09-22T04:2x:00Z (same run, after the human operator's local stop-hook flagged 2 unpushed commits)",
+      "note": "This run's first `git push origin HEAD:claude/trading-state` (per PERSISTENCE.md's required Save step) was denied by the Claude Code execution environment's own permission system (not by GitHub) with reason 'Out-of-Place Publication', before any GitHub-side compare-and-swap was attempted. Session-capability restriction, not a merge conflict/auth/network error, so PERSISTENCE.md's non-fast-forward retry logic did not apply. Per PERSISTENCE.md, no push to any other branch was attempted. One ACTION_UPDATE was sent and verified_sent (see outbox action-acct4292-2026-09-22T0413Z) while unresolved. RESOLVED same run: after that email, a second identical push attempt (prompted by the operator's own stop-hook, not by any workaround from this session) succeeded immediately (63b1afc..2b9f37d), confirmed via git ls-remote matching local HEAD. Treated as a one-off/transient classifier decision, analogous to the prior robinhood-mcp-connector-failure anomaly (resolved by the very next healthy check) -- no correction email sent, resolution recorded here and in the journal instead. Account was unaffected throughout -- all 4 positions independently verified protected before the first push attempt.",
+      "unresolved": false
+    },
+    "git-branch-persistence-bug": {
+      "first_detected": "2026-09-19T17:19:00Z",
+      "last_reported_in_email": "2026-09-21T13:35:00Z",
+      "note": "Reported this run inside the DAILY_CLOSE email banner (not as a separate ACTION_UPDATE) since it's an infra/continuity issue, not a trading-safety issue -- all positions were independently re-verified protected against the broker this run."
+    },
+    "robinhood-mcp-connector-failure": {
+      "first_detected": "2026-09-21T23:13:00Z",
+      "last_reported_in_email": "2026-09-21T23:13:00Z",
+      "resolved_at": "2026-09-22T00:13:00Z",
+      "note": "The Robinhood-Trading MCP connector failed to connect (HTTP 502 at the connector/transport layer, error CLIENT_HTTP_NOT_IMPLEMENTED) for the entire 2026-09-21T23:13Z run -- no Robinhood tool was discoverable or callable. Resolved: the very next run (2026-09-22T00:13Z) reached every Robinhood tool normally (get_accounts, get_portfolio, get_equity_positions, get_equity_orders all returned live data) and Step 1 reconciliation found the account exactly as last verified at 22:13Z, with no fills, stop triggers, or external changes in the unverified gap window. Per Section 6.2/7, a resolution that the very next run confirms healthy needs no further owner-facing report beyond this record; no ACTION_UPDATE sent for the resolution."
     }
-   ],
-   "duplicate_note": "A second, separately-scheduled run (session 015xk18GJTXNeSFonnmdPvt7) started concurrently, independently reconciled the same UROY/BORR events before this run's push had reached claude/trading-state, and sent its own 2 messages (1 defective, 1 corrective) reporting the same facts as this report. No incorrect information was sent in any of the 3 messages; see state.json anomaly concurrent-run-duplicate-action-update-20260921t1414z for the full incident. Do not resend or otherwise re-report these event IDs -- already fully (if redundantly) delivered."
   },
-  "close-acct4292-2026-09-18-delayed": {
-   "report_id": "close-acct4292-2026-09-18-delayed",
-   "type": "DAILY_CLOSE",
-   "session_date": "2026-09-18",
-   "included_event_ids": [
-    "baseline:positions:2026-09-21T13:32:00Z",
-    "stop:MSTR:2026-09-21T13:16:45Z"
-   ],
-   "recipient": "ferrell@chacetech.com",
-   "status": "verified_sent",
-   "prepared_at": "2026-09-21T13:34:00Z",
-   "sent_at": "2026-09-21T13:35:00Z",
-   "provider": "gmail",
-   "provider_message_id": "1a0c42c727850f44",
-   "provider_thread_id": "1a0c42c727850f44",
-   "note": "send_message returned a message id, which this account's Gmail integration treats as acceptance by the provider, not confirmed recipient delivery. Delayed summary for the most recent completed session (Fri 2026-09-18); no DAILY_CLOSE had ever been sent for this account before this run. Weekend sessions 9/19-9/20 do not exist and owe no summary. Weekly-recap section (Section 7) omitted: 9/18 was the first tracked day, so no week of prior data exists to summarize.",
-   "verification": "Re-verified read-only in the 2026-09-21T13:35Z maintenance session via Gmail get_message(1a0c42c727850f44): labelIds includes SENT, to=ferrell@chacetech.com, date=2026-09-21T13:34:02Z, sender=hockeman2523@gmail.com. This confirms the message exists in the Sent mailbox (provider-side acceptance and send), not that the recipient has opened or received it into their inbox (no read receipt / bounce data available). Status upgraded from 'accepted' to 'verified_sent' on this evidence. Not resent -- do not resend for the 9/18 session under any circumstance."
+  "outbox": {
+    "action-acct4292-2026-09-23T1818Z": {
+      "report_id": "action-acct4292-2026-09-23T1818Z",
+      "type": "ACTION_UPDATE",
+      "critical_issue_fingerprint": "angx-unprotected-lot-never-reported-20260923",
+      "included_event_ids": [
+        "entry:ANGX:2026-09-23T14:36:00Z",
+        "critical:ANGX:unprotected:2026-09-23T18:18:00Z"
+      ],
+      "recipient": "ferrell@chacetech.com",
+      "status": "verified_sent",
+      "prepared_at": "2026-09-23T18:18:40Z",
+      "sent_at": "2026-09-23T18:21:32Z",
+      "provider": "gmail",
+      "provider_message_id": "1a0cf8061302a384",
+      "provider_thread_id": "1a0cf8061302a384",
+      "verification": "Re-verified via Gmail get_message(1a0cf8061302a384) METADATA_ONLY: labelIds includes SENT, to=ferrell@chacetech.com, date=2026-09-23T18:21:32Z, sender=hockeman2523@gmail.com, sizeEstimate 14692 bytes (consistent with the real rendered HTML, not a placeholder).",
+      "note": "Rendered HTML saved at reporting/sent/action_update_2026-09-23T1818Z.html before send. Gap-fill report: ANGX entry and its no-stop-possible status were never previously emailed to the owner (confirmed by outbox audit -- no ANGX-referencing record existed). No new trading action this run (fully invested, $0 buying power, OpenInsider/CapitolTrades both unreachable twice)."
+    },
+    "action-acct4292-2026-09-23T1420Z": {
+      "report_id": "action-acct4292-2026-09-23T1420Z",
+      "type": "ACTION_UPDATE",
+      "included_event_ids": [
+        "rotation_exit:ALVO:2026-09-23T14:19:30Z",
+        "entry:SBLK:2026-09-23T14:19:50Z",
+        "protection:SBLK:2026-09-23T14:20:05Z"
+      ],
+      "recipient": "ferrell@chacetech.com",
+      "status": "verified_sent",
+      "prepared_at": "2026-09-23T14:24:00Z",
+      "sent_at": "2026-09-23T14:30:00Z",
+      "provider": "gmail",
+      "provider_message_id": "1a0ceac6818b4903",
+      "provider_thread_id": "1a0ceac6818b4903",
+      "verification": "Re-verified via Gmail get_message(1a0ceac6818b4903) FULL_CONTENT: labelIds includes SENT, to=ferrell@chacetech.com, date=2026-09-23T14:30:00Z, sizeEstimate 11901 bytes, htmlBody contains the actual rendered report markup (read directly from the saved file via the Read tool before send, not shell-substituted)."
+    },
+    "action-acct4292-2026-09-22T0413Z": {
+      "report_id": "action-acct4292-2026-09-22T0413Z",
+      "type": "ACTION_UPDATE",
+      "included_event_ids": [],
+      "critical_issue_fingerprint": "harness-git-push-denied-20260922t0413z",
+      "recipient": "ferrell@chacetech.com",
+      "status": "verified_sent",
+      "prepared_at": "2026-09-22T04:13:00Z",
+      "sent_at": "2026-09-22T04:18:04Z",
+      "provider": "gmail",
+      "provider_message_id": "1a0c755cc97b96d2",
+      "provider_thread_id": "1a0c755cc97b96d2",
+      "verification": "Re-verified via Gmail get_message(1a0c755cc97b96d2) FULL_CONTENT: labelIds includes SENT, to=ferrell@chacetech.com, date=2026-09-22T04:18:04Z, sender=hockeman2523@gmail.com, htmlBody contains the actual rendered report markup (sizeEstimate 12254 bytes) -- not a placeholder string. Confirms provider-side send, not recipient-side delivery/read.",
+      "note": "Persistence push to claude/trading-state denied by the execution environment's own permission system this run. No trading changes this run (routine after-hours reconciliation, all positions verified protected). This outbox record itself cannot be durably saved past this session since the same push is blocked -- the Gmail Sent record (provider_message_id above) is the actual durable evidence of this send, independent of git persistence."
+    },
+    "action-acct4292-2026-09-21T2313Z": {
+      "report_id": "action-acct4292-2026-09-21T2313Z",
+      "type": "ACTION_UPDATE",
+      "included_event_ids": [],
+      "critical_issue_fingerprint": "robinhood-mcp-connector-failure",
+      "recipient": "ferrell@chacetech.com",
+      "status": "verified_sent",
+      "prepared_at": "2026-09-21T23:13:00Z",
+      "sent_at": "2026-09-21T23:15:45Z",
+      "provider": "gmail",
+      "provider_message_id": "1a0c64104fa41397",
+      "provider_thread_id": "1a0c64080098e8cb",
+      "verification": "Re-verified via Gmail get_message(1a0c64104fa41397) FULL_CONTENT: labelIds includes SENT, to=ferrell@chacetech.com, date=2026-09-21T23:15:45Z, sender=hockeman2523@gmail.com, htmlBody contains the actual rendered report markup (sizeEstimate 9387 bytes) -- not a placeholder string. Confirms provider-side send, not recipient-side delivery/read.",
+      "note": "Robinhood connector unreachable all run (HTTP 502). No account data obtainable. Rendered HTML saved at reporting/sent/action_update_2026-09-21T2313Z.html before send.",
+      "tooling_defect_in_first_send": {
+        "message_id": "1a0c64080098e8cb",
+        "sent_at": "2026-09-21T23:15:11Z",
+        "defect": "htmlBody parameter was passed as the literal string 'FILE:/home/user/robinhood/reporting/sent/action_update_2026-09-21T2313Z.html' -- a file-reference placeholder -- instead of the actual rendered HTML content. This send_message tool does not resolve file-path references or shell syntax in its parameters; the exact HTML must be read (e.g. via the Read tool) and pasted literally into htmlBody. plaintextBody was correct in this first send. Same class of defect as prior anomalies concurrent-run-duplicate-action-update-20260921t1414z and shell-substitution-htmlbody-defect-20260921t2019z (this is the third occurrence of this exact mistake pattern across sessions on this account).",
+        "corrected_by_message_id": "1a0c64104fa41397",
+        "action_taken": "Detected immediately via get_message re-check before declaring the send complete, per reporting/README.md send-discipline rule. Sent an in-thread corrective reply with the file's actual content (read via the Read tool, then pasted directly, no path reference or shell syntax) as htmlBody; verified via get_message FULL_CONTENT that the correction carries the real markup before marking this report verified_sent."
+      }
+    },
+    "action-acct4292-2026-09-21T1414Z": {
+      "report_id": "action-acct4292-2026-09-21T1414Z",
+      "type": "ACTION_UPDATE",
+      "included_event_ids": [
+        "fill:UROY:2026-09-21T14:08:43Z",
+        "entry:BORR:2026-09-21T14:13:29Z",
+        "protection:BORR:2026-09-21T14:13:48Z"
+      ],
+      "recipient": "ferrell@chacetech.com",
+      "status": "verified_sent",
+      "prepared_at": "2026-09-21T14:16:00Z",
+      "sent_at": "2026-09-21T14:17:25Z",
+      "provider": "gmail",
+      "provider_message_id": "1a0c454286356df8",
+      "provider_thread_id": "1a0c454286356df8",
+      "verification": "Re-verified via Gmail get_message(1a0c454286356df8) METADATA_ONLY: labelIds includes SENT, to=ferrell@chacetech.com, date=2026-09-21T14:17:25Z, sender=hockeman2523@gmail.com. Confirms provider-side send, not recipient-side delivery/read.",
+      "note": "UROY automatic stop-out + new BORR entry/protection this run. Rendered HTML saved at reporting/sent/action_update_2026-09-21T1414Z.html before send.",
+      "duplicate_sends_by_concurrent_session": [
+        {
+          "message_id": "1a0c455632cdf6cf",
+          "sent_at": "2026-09-21T14:18:45Z",
+          "by_session": "015xk18GJTXNeSFonnmdPvt7",
+          "defect": "htmlBody parameter contained the literal text '$(cat)' instead of rendered HTML (tooling error), so this send had no graphical body. plaintextBody was correct."
+        },
+        {
+          "message_id": "1a0c456205331c54",
+          "sent_at": "2026-09-21T14:19:34Z",
+          "by_session": "015xk18GJTXNeSFonnmdPvt7",
+          "defect": "none -- corrected follow-up in the same thread with proper HTML, superseding the defective send above."
+        }
+      ],
+      "duplicate_note": "A second, separately-scheduled run (session 015xk18GJTXNeSFonnmdPvt7) started concurrently, independently reconciled the same UROY/BORR events before this run's push had reached claude/trading-state, and sent its own 2 messages (1 defective, 1 corrective) reporting the same facts as this report. No incorrect information was sent in any of the 3 messages; see state.json anomaly concurrent-run-duplicate-action-update-20260921t1414z for the full incident. Do not resend or otherwise re-report these event IDs -- already fully (if redundantly) delivered."
+    },
+    "close-acct4292-2026-09-18-delayed": {
+      "report_id": "close-acct4292-2026-09-18-delayed",
+      "type": "DAILY_CLOSE",
+      "session_date": "2026-09-18",
+      "included_event_ids": [
+        "baseline:positions:2026-09-21T13:32:00Z",
+        "stop:MSTR:2026-09-21T13:16:45Z"
+      ],
+      "recipient": "ferrell@chacetech.com",
+      "status": "verified_sent",
+      "prepared_at": "2026-09-21T13:34:00Z",
+      "sent_at": "2026-09-21T13:35:00Z",
+      "provider": "gmail",
+      "provider_message_id": "1a0c42c727850f44",
+      "provider_thread_id": "1a0c42c727850f44",
+      "note": "send_message returned a message id, which this account's Gmail integration treats as acceptance by the provider, not confirmed recipient delivery. Delayed summary for the most recent completed session (Fri 2026-09-18); no DAILY_CLOSE had ever been sent for this account before this run. Weekend sessions 9/19-9/20 do not exist and owe no summary. Weekly-recap section (Section 7) omitted: 9/18 was the first tracked day, so no week of prior data exists to summarize.",
+      "verification": "Re-verified read-only in the 2026-09-21T13:35Z maintenance session via Gmail get_message(1a0c42c727850f44): labelIds includes SENT, to=ferrell@chacetech.com, date=2026-09-21T13:34:02Z, sender=hockeman2523@gmail.com. This confirms the message exists in the Sent mailbox (provider-side acceptance and send), not that the recipient has opened or received it into their inbox (no read receipt / bounce data available). Status upgraded from 'accepted' to 'verified_sent' on this evidence. Not resent -- do not resend for the 9/18 session under any circumstance."
+    },
+    "close-acct4292-2026-09-21": {
+      "report_id": "close-acct4292-2026-09-21",
+      "type": "DAILY_CLOSE",
+      "session_date": "2026-09-21",
+      "included_event_ids": [
+        "stop_raise:MSTR:2026-09-21T20:14:33Z",
+        "fill:UROY:2026-09-21T14:08:43Z",
+        "entry:BORR:2026-09-21T14:13:29Z",
+        "protection:BORR:2026-09-21T14:13:48Z"
+      ],
+      "recipient": "ferrell@chacetech.com",
+      "status": "verified_sent",
+      "prepared_at": "2026-09-21T20:18:00Z",
+      "sent_at": "2026-09-21T20:20:54Z",
+      "provider": "gmail",
+      "provider_message_id": "1a0c5a0f254b8164",
+      "provider_thread_id": "1a0c59ff61679c97",
+      "verification": "Re-verified via Gmail get_message(1a0c5a0f254b8164) FULL_CONTENT: labelIds includes SENT, to=ferrell@chacetech.com, date=2026-09-21T20:20:54Z, sender=hockeman2523@gmail.com, htmlBody contains the actual rendered report markup (sizeEstimate 18400 bytes) -- not the defective literal string. Confirms provider-side send, not recipient-side delivery/read.",
+      "note": "First-ever DAILY_CLOSE for a session with real trading activity on this account. Folds in the MSTR stop-raise (new event, not yet reported) plus the already-ACTION_UPDATE-reported UROY stop-out and BORR entry/protection, per Step 8's fold-in instruction -- not resending a separate ACTION_UPDATE for the already-reported events. Rendered HTML saved at reporting/sent/daily_close_2026-09-21.html before send.",
+      "tooling_defect_in_first_send": {
+        "message_id": "1a0c59ff61679c97",
+        "sent_at": "2026-09-21T20:19:50Z",
+        "defect": "htmlBody parameter contained the literal text '$(cat /home/user/robinhood/reporting/sent/daily_close_2026-09-21.html)' instead of rendered HTML -- shell-substitution syntax mistakenly used in a non-shell tool call (send_message does not evaluate shell commands in its parameters). Same class of defect previously documented in state.json anomaly concurrent-run-duplicate-action-update-20260921t1414z, and repeated here despite that prior documentation. plaintextBody was correct in this first send.",
+        "corrected_by_message_id": "1a0c5a0f254b8164",
+        "action_taken": "Detected immediately via get_message re-check before declaring the send complete (per reporting/README.md send-discipline rule: verify by re-reading, not by trusting send_message's return). Sent an in-thread corrective follow-up (1a0c5a0f254b8164) with the HTML pasted directly rather than referenced via shell substitution; verified that one via get_message FULL_CONTENT before marking this report verified_sent. Root cause for future runs: never pass '$(...)' or other shell syntax as a tool-call parameter value -- these MCP tools are not a shell and do not expand it; read the file's content (e.g. via the Read tool) and paste the literal content into the parameter."
+      }
+    },
+    "close-acct4292-2026-09-22": {
+      "report_id": "close-acct4292-2026-09-22",
+      "type": "DAILY_CLOSE",
+      "session_date": "2026-09-22",
+      "included_event_ids": [],
+      "recipient": "ferrell@chacetech.com",
+      "body_hash": null,
+      "status": "verified_sent",
+      "created_at": "2026-09-22T20:16:00Z",
+      "sent_at": "2026-09-22T20:17:49Z",
+      "provider_message_id": "1a0cac47a8def914",
+      "provider_thread_id": "1a0cac47a8def914"
+    },
+    "close-acct4292-2026-09-23": {
+      "report_id": "close-acct4292-2026-09-23",
+      "type": "DAILY_CLOSE",
+      "session_date": "2026-09-23",
+      "included_event_ids": [
+        "close-snapshot-2026-09-23T2016Z"
+      ],
+      "recipient": "ferrell@chacetech.com",
+      "status": "verified_sent",
+      "timestamps": {
+        "prepared": "2026-09-23T20:16:00Z",
+        "sent": "2026-09-23T20:19:48Z",
+        "verified": "2026-09-23T20:20:30Z"
+      },
+      "provider_message_id": "1a0cfeca8664b7b3",
+      "thread_id": "1a0cfebdb1457d4a",
+      "notes": "First send in this thread (1a0cfebdb1457d4a) went out with a literal placeholder string in the htmlBody field due to my own tool-call mistake (typed a placeholder instead of the real HTML, not a shell-substitution artifact this time). Immediately corrected with a threaded reply (1a0cfeca8664b7b3) carrying the real HTML body; verified via get_message (labelIds includes SENT, sizeEstimate 16677 bytes, correct recipient). Plain-text body of the original message was already correct and complete, so no financial/account information was ever wrong -- only the HTML rendering of the first send was blank/placeholder text. Treating 1a0cfeca8664b7b3 as the canonical verified_sent id for this report."
+    },
+    "action-acct4292-2026-09-24T1717Z": {
+      "report_id": "action-acct4292-2026-09-24T1717Z",
+      "type": "ACTION_UPDATE",
+      "session_date": "2026-09-24",
+      "included_event_ids": [
+        "dsp-rotation-exit-2026-09-24T171648Z",
+        "duot-entry-2026-09-24T171707Z",
+        "duot-protective-stop-2026-09-24T171719Z"
+      ],
+      "recipient": "ferrell@chacetech.com",
+      "status": "verified_sent",
+      "timestamps": {
+        "prepared": "2026-09-24T17:18:00Z",
+        "sent": "2026-09-24T17:26:36Z",
+        "verified": "2026-09-24T17:27:00Z"
+      },
+      "provider_message_id": "1a0d47472b639658",
+      "thread_id": "1a0d47472b639658",
+      "notes": "Rotation: sold DSP (161 sh, +$83.66 realized) to fund a fresh DUOT entry (207 sh @ $9.4299, insider-cluster score 10, cleared the rotation bar), protected with a stop_market sell at $7.54. All three actions verified confirmed/filled directly against the broker before this entry was written. Send verified via get_message (labelIds includes SENT, correct recipient, sizeEstimate 12,529 bytes -- not a blank/placeholder body)."
+    },
+    "close-acct4292-2026-09-24-delayed": {
+      "report_id": "close-acct4292-2026-09-24-delayed",
+      "type": "DAILY_CLOSE",
+      "session_date": "2026-09-24",
+      "included_event_ids": [
+        "dsp-rotation-exit-20260924",
+        "duot-entry-20260924"
+      ],
+      "recipient": "ferrell@chacetech.com",
+      "body_hash": null,
+      "status": "verified_sent",
+      "timestamps": {
+        "prepared": "2026-09-25T08:10:00Z",
+        "sent": "2026-09-25T08:08:42Z",
+        "verified": "2026-09-25T08:11:00Z"
+      },
+      "provider_message_id": "1a0d79c0a33d3213",
+      "notes": "Delayed catch-up DAILY_CLOSE: no run executed between 2026-09-24T17:17:19Z and 2026-09-25T08:03:51Z, so the 2026-09-24 session summary was never prepared at the time. Closing value/holdings reconstructed from official 2026-09-24 close prices + the unchanged post-trade cash balance ($15.37), then reconciled live this run with zero discrepancy against the broker."
+    },
+    "action-acct4292-2026-09-25T1720Z": {
+      "report_id": "action-acct4292-2026-09-25T1720Z",
+      "type": "ACTION_UPDATE",
+      "session_date": "2026-09-25",
+      "included_event_ids": [
+        "exit:BORR:2026-09-25T16:43:40Z"
+      ],
+      "recipient": "ferrell@chacetech.com",
+      "body_hash": "04a7f1fad94e9df6ac821c667d388a9544980a0503ffc0861b14f1caa064dd49",
+      "status": "verified_sent",
+      "created_at": "2026-09-25T17:20:00Z",
+      "sent_at": "2026-09-25T17:20:26Z",
+      "provider_message_id": "1a0d99529dc23b81",
+      "provider_thread_id": "1a0d99529dc23b81"
+    },
+    "close-acct4292-2026-09-25-delayed": {
+      "report_id": "close-acct4292-2026-09-25-delayed",
+      "type": "DAILY_CLOSE",
+      "session_date": "2026-09-25",
+      "included_event_ids": [
+        "close:2026-09-25",
+        "exit:BORR:2026-09-25T16:43:40Z"
+      ],
+      "recipient": "ferrell@chacetech.com",
+      "status": "verified_sent",
+      "created_at": "2026-09-28T08:20:00Z",
+      "provider_message_id": "1a0e71c01a717f52",
+      "note": "First send (1a0e71b223bf1018) went out with htmlBody literally containing 'PLACEHOLDER_HTML' due to a tool-call error -- plaintext body was correct. Corrected resend (1a0e71c01a717f52, same thread) carries proper HTML, size 16086 bytes vs 3572 for the broken one, verified via get_message. This corrected message id is of record.",
+      "verified_at": "2026-09-28T08:23:00Z"
+    }
   },
-  "close-acct4292-2026-09-21": {
-   "report_id": "close-acct4292-2026-09-21",
-   "type": "DAILY_CLOSE",
-   "session_date": "2026-09-21",
-   "included_event_ids": [
-    "stop_raise:MSTR:2026-09-21T20:14:33Z",
-    "fill:UROY:2026-09-21T14:08:43Z",
-    "entry:BORR:2026-09-21T14:13:29Z",
-    "protection:BORR:2026-09-21T14:13:48Z"
-   ],
-   "recipient": "ferrell@chacetech.com",
-   "status": "verified_sent",
-   "prepared_at": "2026-09-21T20:18:00Z",
-   "sent_at": "2026-09-21T20:20:54Z",
-   "provider": "gmail",
-   "provider_message_id": "1a0c5a0f254b8164",
-   "provider_thread_id": "1a0c59ff61679c97",
-   "verification": "Re-verified via Gmail get_message(1a0c5a0f254b8164) FULL_CONTENT: labelIds includes SENT, to=ferrell@chacetech.com, date=2026-09-21T20:20:54Z, sender=hockeman2523@gmail.com, htmlBody contains the actual rendered report markup (sizeEstimate 18400 bytes) -- not the defective literal string. Confirms provider-side send, not recipient-side delivery/read.",
-   "note": "First-ever DAILY_CLOSE for a session with real trading activity on this account. Folds in the MSTR stop-raise (new event, not yet reported) plus the already-ACTION_UPDATE-reported UROY stop-out and BORR entry/protection, per Step 8's fold-in instruction -- not resending a separate ACTION_UPDATE for the already-reported events. Rendered HTML saved at reporting/sent/daily_close_2026-09-21.html before send.",
-   "tooling_defect_in_first_send": {
-    "message_id": "1a0c59ff61679c97",
-    "sent_at": "2026-09-21T20:19:50Z",
-    "defect": "htmlBody parameter contained the literal text '$(cat /home/user/robinhood/reporting/sent/daily_close_2026-09-21.html)' instead of rendered HTML -- shell-substitution syntax mistakenly used in a non-shell tool call (send_message does not evaluate shell commands in its parameters). Same class of defect previously documented in state.json anomaly concurrent-run-duplicate-action-update-20260921t1414z, and repeated here despite that prior documentation. plaintextBody was correct in this first send.",
-    "corrected_by_message_id": "1a0c5a0f254b8164",
-    "action_taken": "Detected immediately via get_message re-check before declaring the send complete (per reporting/README.md send-discipline rule: verify by re-reading, not by trusting send_message's return). Sent an in-thread corrective follow-up (1a0c5a0f254b8164) with the HTML pasted directly rather than referenced via shell substitution; verified that one via get_message FULL_CONTENT before marking this report verified_sent. Root cause for future runs: never pass '$(...)' or other shell syntax as a tool-call parameter value -- these MCP tools are not a shell and do not expand it; read the file's content (e.g. via the Read tool) and paste the literal content into the parameter."
-   }
+  "daily_summaries": {
+    "close:acct4292:2026-09-18": {
+      "report_id": "close-acct4292-2026-09-18-delayed",
+      "status": "verified_sent",
+      "sent_at": "2026-09-21T13:35:00Z",
+      "verified_in_mailbox_at": "2026-09-21T13:40:00Z"
+    },
+    "close:acct4292:2026-09-21": {
+      "report_id": "close-acct4292-2026-09-21",
+      "status": "verified_sent",
+      "sent_at": "2026-09-21T20:20:54Z",
+      "verified_in_mailbox_at": "2026-09-21T20:21:30Z"
+    },
+    "close:acct4292:2026-09-22": {
+      "session_date": "2026-09-22",
+      "closing_value": 7814.4185549,
+      "day_pnl": -28.04607394999948,
+      "report_id": "close-acct4292-2026-09-22"
+    },
+    "close:acct4292:2026-09-23": {
+      "session_date": "2026-09-23",
+      "closing_value": 7553.31119424,
+      "day_pnl": -261.10736066,
+      "report_id": "close-acct4292-2026-09-23"
+    },
+    "close:acct4292:2026-09-24": {
+      "report_id": "close-acct4292-2026-09-24-delayed",
+      "session_date": "2026-09-24",
+      "status": "verified_sent",
+      "provider_message_id": "1a0d79c0a33d3213"
+    },
+    "close:acct4292:2026-09-25": {
+      "report_id": "close-acct4292-2026-09-25-delayed",
+      "session_date": "2026-09-25",
+      "status": "verified_sent",
+      "provider_message_id": "1a0e71c01a717f52"
+    }
   },
-  "close-acct4292-2026-09-22": {
-   "report_id": "close-acct4292-2026-09-22",
-   "type": "DAILY_CLOSE",
-   "session_date": "2026-09-22",
-   "included_event_ids": [],
-   "recipient": "ferrell@chacetech.com",
-   "body_hash": null,
-   "status": "verified_sent",
-   "created_at": "2026-09-22T20:16:00Z",
-   "sent_at": "2026-09-22T20:17:49Z",
-   "provider_message_id": "1a0cac47a8def914",
-   "provider_thread_id": "1a0cac47a8def914"
+  "close_snapshots": {
+    "2026-09-18": {
+      "reconstruction_basis": "qty (unchanged since bootstrap) x official close price per get_equity_quotes, plus cash; not a same-day broker snapshot",
+      "total_value": 7366.92,
+      "cash": 0.6
+    },
+    "2026-09-21": {
+      "reconstruction_basis": "get_portfolio total_value captured 2026-09-21T20:12-20:17Z (12-17 min after the 20:00 UTC regular close), broker-computed marks; not a same-day official settled-close feed. Per-holding table uses last regular-session trade prints (19:59:59-20:00:00 UTC) instead, which sum ~0.2% below this total -- see holdings footnote.",
+      "total_value": 7842.46462885,
+      "cash": 25.66
+    },
+    "2026-09-22": {
+      "reconstruction_basis": "get_portfolio total_value captured 2026-09-22T20:14-20:16Z (14-16 min after the 20:00 UTC regular close), broker-computed marks; not a same-day official settled-close feed. Per-holding table uses last regular-session trade prints (19:59:54-19:59:59 UTC) instead, which sum ~0.06% above this total -- see holdings footnote.",
+      "total_value": 7814.4185549,
+      "cash": 25.66
+    },
+    "2026-09-23": {
+      "reconstruction_basis": "get_portfolio total_value captured 2026-09-23T20:15-20:16Z (15-16 min after the 20:00 UTC regular close), broker-computed marks; not a same-day official settled-close feed. Per-holding table uses last regular-session trade prints (19:59:49-19:59:59 UTC) instead, which sum ~0.41% above this total -- see holdings footnote.",
+      "total_value": 7553.31119424,
+      "cash": 0.0
+    },
+    "2026-09-24": {
+      "closing_value": 7547.35,
+      "cash": 15.37,
+      "reconstructed": true,
+      "note": "No live run at the 2026-09-24 20:00 UTC close; reconstructed from official close prices + unchanged post-trade cash, reconciled live 2026-09-25T08:04Z with zero discrepancy."
+    },
+    "2026-09-25": {
+      "closing_value": 7368.83,
+      "cash": 122.23,
+      "reconstructed": true,
+      "note": "No live run at the 2026-09-25 20:00 UTC close (last live run 17:20 UTC); reconstructed from official close prices + unchanged post-trade cash, reconciled live 2026-09-28T08:20Z with zero discrepancy."
+    }
   },
-  "close-acct4292-2026-09-23": {
-   "report_id": "close-acct4292-2026-09-23",
-   "type": "DAILY_CLOSE",
-   "session_date": "2026-09-23",
-   "included_event_ids": [
-    "close-snapshot-2026-09-23T2016Z"
-   ],
-   "recipient": "ferrell@chacetech.com",
-   "status": "verified_sent",
-   "timestamps": {
-    "prepared": "2026-09-23T20:16:00Z",
-    "sent": "2026-09-23T20:19:48Z",
-    "verified": "2026-09-23T20:20:30Z"
-   },
-   "provider_message_id": "1a0cfeca8664b7b3",
-   "thread_id": "1a0cfebdb1457d4a",
-   "notes": "First send in this thread (1a0cfebdb1457d4a) went out with a literal placeholder string in the htmlBody field due to my own tool-call mistake (typed a placeholder instead of the real HTML, not a shell-substitution artifact this time). Immediately corrected with a threaded reply (1a0cfeca8664b7b3) carrying the real HTML body; verified via get_message (labelIds includes SENT, sizeEstimate 16677 bytes, correct recipient). Plain-text body of the original message was already correct and complete, so no financial/account information was ever wrong -- only the HTML rendering of the first send was blank/placeholder text. Treating 1a0cfeca8664b7b3 as the canonical verified_sent id for this report."
-  },
-  "action-acct4292-2026-09-24T1717Z": {
-   "report_id": "action-acct4292-2026-09-24T1717Z",
-   "type": "ACTION_UPDATE",
-   "session_date": "2026-09-24",
-   "included_event_ids": [
-    "dsp-rotation-exit-2026-09-24T171648Z",
-    "duot-entry-2026-09-24T171707Z",
-    "duot-protective-stop-2026-09-24T171719Z"
-   ],
-   "recipient": "ferrell@chacetech.com",
-   "status": "verified_sent",
-   "timestamps": {
-    "prepared": "2026-09-24T17:18:00Z",
-    "sent": "2026-09-24T17:26:36Z",
-    "verified": "2026-09-24T17:27:00Z"
-   },
-   "provider_message_id": "1a0d47472b639658",
-   "thread_id": "1a0d47472b639658",
-   "notes": "Rotation: sold DSP (161 sh, +$83.66 realized) to fund a fresh DUOT entry (207 sh @ $9.4299, insider-cluster score 10, cleared the rotation bar), protected with a stop_market sell at $7.54. All three actions verified confirmed/filled directly against the broker before this entry was written. Send verified via get_message (labelIds includes SENT, correct recipient, sizeEstimate 12,529 bytes -- not a blank/placeholder body)."
-  },
-  "close-acct4292-2026-09-24-delayed": {
-   "report_id": "close-acct4292-2026-09-24-delayed",
-   "type": "DAILY_CLOSE",
-   "session_date": "2026-09-24",
-   "included_event_ids": [
-    "dsp-rotation-exit-20260924",
-    "duot-entry-20260924"
-   ],
-   "recipient": "ferrell@chacetech.com",
-   "body_hash": null,
-   "status": "verified_sent",
-   "timestamps": {
-    "prepared": "2026-09-25T08:10:00Z",
-    "sent": "2026-09-25T08:08:42Z",
-    "verified": "2026-09-25T08:11:00Z"
-   },
-   "provider_message_id": "1a0d79c0a33d3213",
-   "notes": "Delayed catch-up DAILY_CLOSE: no run executed between 2026-09-24T17:17:19Z and 2026-09-25T08:03:51Z, so the 2026-09-24 session summary was never prepared at the time. Closing value/holdings reconstructed from official 2026-09-24 close prices + the unchanged post-trade cash balance ($15.37), then reconciled live this run with zero discrepancy against the broker."
-  },
-  "action-acct4292-2026-09-25T1720Z": {
-   "report_id": "action-acct4292-2026-09-25T1720Z",
-   "type": "ACTION_UPDATE",
-   "session_date": "2026-09-25",
-   "included_event_ids": [
-    "exit:BORR:2026-09-25T16:43:40Z"
-   ],
-   "recipient": "ferrell@chacetech.com",
-   "body_hash": "04a7f1fad94e9df6ac821c667d388a9544980a0503ffc0861b14f1caa064dd49",
-   "status": "verified_sent",
-   "created_at": "2026-09-25T17:20:00Z",
-   "sent_at": "2026-09-25T17:20:26Z",
-   "provider_message_id": "1a0d99529dc23b81",
-   "provider_thread_id": "1a0d99529dc23b81"
-  },
-  "close-acct4292-2026-09-25-delayed": {
-   "report_id": "close-acct4292-2026-09-25-delayed",
-   "type": "DAILY_CLOSE",
-   "session_date": "2026-09-25",
-   "included_event_ids": [
-    "close:2026-09-25",
-    "exit:BORR:2026-09-25T16:43:40Z"
-   ],
-   "recipient": "ferrell@chacetech.com",
-   "status": "verified_sent",
-   "created_at": "2026-09-28T08:20:00Z",
-   "provider_message_id": "1a0e71c01a717f52",
-   "note": "First send (1a0e71b223bf1018) went out with htmlBody literally containing 'PLACEHOLDER_HTML' due to a tool-call error -- plaintext body was correct. Corrected resend (1a0e71c01a717f52, same thread) carries proper HTML, size 16086 bytes vs 3572 for the broken one, verified via get_message. This corrected message id is of record.",
-   "verified_at": "2026-09-28T08:23:00Z"
-  }
- },
- "daily_summaries": {
-  "close:acct4292:2026-09-18": {
-   "report_id": "close-acct4292-2026-09-18-delayed",
-   "status": "verified_sent",
-   "sent_at": "2026-09-21T13:35:00Z",
-   "verified_in_mailbox_at": "2026-09-21T13:40:00Z"
-  },
-  "close:acct4292:2026-09-21": {
-   "report_id": "close-acct4292-2026-09-21",
-   "status": "verified_sent",
-   "sent_at": "2026-09-21T20:20:54Z",
-   "verified_in_mailbox_at": "2026-09-21T20:21:30Z"
-  },
-  "close:acct4292:2026-09-22": {
-   "session_date": "2026-09-22",
-   "closing_value": 7814.4185549,
-   "day_pnl": -28.04607394999948,
-   "report_id": "close-acct4292-2026-09-22"
-  },
-  "close:acct4292:2026-09-23": {
-   "session_date": "2026-09-23",
-   "closing_value": 7553.31119424,
-   "day_pnl": -261.10736066,
-   "report_id": "close-acct4292-2026-09-23"
-  },
-  "close:acct4292:2026-09-24": {
-   "report_id": "close-acct4292-2026-09-24-delayed",
-   "session_date": "2026-09-24",
-   "status": "verified_sent",
-   "provider_message_id": "1a0d79c0a33d3213"
-  },
-  "close:acct4292:2026-09-25": {
-   "report_id": "close-acct4292-2026-09-25-delayed",
-   "session_date": "2026-09-25",
-   "status": "verified_sent",
-   "provider_message_id": "1a0e71c01a717f52"
-  }
- },
- "close_snapshots": {
-  "2026-09-18": {
-   "reconstruction_basis": "qty (unchanged since bootstrap) x official close price per get_equity_quotes, plus cash; not a same-day broker snapshot",
-   "total_value": 7366.92,
-   "cash": 0.6
-  },
-  "2026-09-21": {
-   "reconstruction_basis": "get_portfolio total_value captured 2026-09-21T20:12-20:17Z (12-17 min after the 20:00 UTC regular close), broker-computed marks; not a same-day official settled-close feed. Per-holding table uses last regular-session trade prints (19:59:59-20:00:00 UTC) instead, which sum ~0.2% below this total -- see holdings footnote.",
-   "total_value": 7842.46462885,
-   "cash": 25.66
-  },
-  "2026-09-22": {
-   "reconstruction_basis": "get_portfolio total_value captured 2026-09-22T20:14-20:16Z (14-16 min after the 20:00 UTC regular close), broker-computed marks; not a same-day official settled-close feed. Per-holding table uses last regular-session trade prints (19:59:54-19:59:59 UTC) instead, which sum ~0.06% above this total -- see holdings footnote.",
-   "total_value": 7814.4185549,
-   "cash": 25.66
-  },
-  "2026-09-23": {
-   "reconstruction_basis": "get_portfolio total_value captured 2026-09-23T20:15-20:16Z (15-16 min after the 20:00 UTC regular close), broker-computed marks; not a same-day official settled-close feed. Per-holding table uses last regular-session trade prints (19:59:49-19:59:59 UTC) instead, which sum ~0.41% above this total -- see holdings footnote.",
-   "total_value": 7553.31119424,
-   "cash": 0.0
-  },
-  "2026-09-24": {
-   "closing_value": 7547.35,
-   "cash": 15.37,
-   "reconstructed": true,
-   "note": "No live run at the 2026-09-24 20:00 UTC close; reconstructed from official close prices + unchanged post-trade cash, reconciled live 2026-09-25T08:04Z with zero discrepancy."
-  },
-  "2026-09-25": {
-   "closing_value": 7368.83,
-   "cash": 122.23,
-   "reconstructed": true,
-   "note": "No live run at the 2026-09-25 20:00 UTC close (last live run 17:20 UTC); reconstructed from official close prices + unchanged post-trade cash, reconciled live 2026-09-28T08:20Z with zero discrepancy."
-  }
- },
- "last_weekly_statistics_session": "2026-09-25"
+  "last_weekly_statistics_session": "2026-09-25"
 }

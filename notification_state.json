@@ -3,7 +3,7 @@
   "canonical_branch": "claude/trading-state",
   "initialized_at": "2026-09-21T13:35:00Z",
   "baseline_as_of": "2026-09-21T13:32:00Z",
-  "last_successful_reconciliation_at": "2026-09-25T11:18:00Z",
+  "last_successful_reconciliation_at": "2026-09-28T08:20:00Z",
   "reconciled_at": "2026-09-21T13:35:00Z (maintenance session; see RECONCILIATION.md). Confirmed this file existed on no other branch across the whole repository (60+ branches checked) -- nothing to merge in, only to verify.",
   "email_recipient_source": "session userEmail context (account owner identity for this Claude session); config.json.email_recipient was null and no other owner-approved recipient record existed in this repository, so this was used per the standing instruction to reuse the owner's established identity rather than guess or use externally-researched contact info.",
   "email_recipient": "ferrell@chacetech.com",
@@ -327,6 +327,21 @@
       "sent_at": "2026-09-25T17:20:26Z",
       "provider_message_id": "1a0d99529dc23b81",
       "provider_thread_id": "1a0d99529dc23b81"
+    },
+    "close-acct4292-2026-09-25-delayed": {
+      "report_id": "close-acct4292-2026-09-25-delayed",
+      "type": "DAILY_CLOSE",
+      "session_date": "2026-09-25",
+      "included_event_ids": [
+        "close:2026-09-25",
+        "exit:BORR:2026-09-25T16:43:40Z"
+      ],
+      "recipient": "ferrell@chacetech.com",
+      "status": "verified_sent",
+      "created_at": "2026-09-28T08:20:00Z",
+      "provider_message_id": "1a0e71c01a717f52",
+      "note": "First send (1a0e71b223bf1018) went out with htmlBody literally containing 'PLACEHOLDER_HTML' due to a tool-call error -- plaintext body was correct. Corrected resend (1a0e71c01a717f52, same thread) carries proper HTML, size 16086 bytes vs 3572 for the broken one, verified via get_message. This corrected message id is of record.",
+      "verified_at": "2026-09-28T08:23:00Z"
     }
   },
   "daily_summaries": {
@@ -359,6 +374,12 @@
       "session_date": "2026-09-24",
       "status": "verified_sent",
       "provider_message_id": "1a0d79c0a33d3213"
+    },
+    "close:acct4292:2026-09-25": {
+      "report_id": "close-acct4292-2026-09-25-delayed",
+      "session_date": "2026-09-25",
+      "status": "verified_sent",
+      "provider_message_id": "1a0e71c01a717f52"
     }
   },
   "close_snapshots": {
@@ -387,7 +408,13 @@
       "cash": 15.37,
       "reconstructed": true,
       "note": "No live run at the 2026-09-24 20:00 UTC close; reconstructed from official close prices + unchanged post-trade cash, reconciled live 2026-09-25T08:04Z with zero discrepancy."
+    },
+    "2026-09-25": {
+      "closing_value": 7368.83,
+      "cash": 122.23,
+      "reconstructed": true,
+      "note": "No live run at the 2026-09-25 20:00 UTC close (last live run 17:20 UTC); reconstructed from official close prices + unchanged post-trade cash, reconciled live 2026-09-28T08:20Z with zero discrepancy."
     }
   },
-  "last_weekly_statistics_session": null
+  "last_weekly_statistics_session": "2026-09-25"
 }

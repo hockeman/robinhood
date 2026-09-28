@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"></head>
+<body style="margin:0;padding:0;background-color:#f2f5f7;font-family:Helvetica,Arial,sans-serif;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f2f5f7;padding:24px 0;">
+<tr><td align="center">
+<table role="presentation" width="660" cellpadding="0" cellspacing="0" style="max-width:660px;width:100%;background-color:#ffffff;border-radius:8px;overflow:hidden;border:1px solid #dce3e8;">
+
+<tr><td style="background-color:#0b3350;padding:20px 28px;">
+<div style="color:#ffffff;font-size:20px;font-weight:bold;">Agentic Account — Trade Update</div>
+<div style="color:#a9c6d8;font-size:13px;margin-top:4px;">2026-09-28 1:44 PM (America/Chicago)</div>
+</td></tr>
+
+<tr><td style="padding:20px 28px 4px 28px;"><div style="color:#1a1a1a;font-size:14px;line-height:1.6;"><b>Rotated out of MSTR (+$206 realized) into GME (157 sh @ $23.9676, CEO/insider-cluster score 8), protected by a stop at $19.17.</b><br>Verification: all three orders confirmed via get_equity_orders this run.</div></td></tr>
+<tr><td style="padding:16px 28px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+<td width="33%" style="padding:6px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:14px;"><div style="color:#5a6b76;font-size:11px;text-transform:uppercase;">Current Value</div><div style="color:#0b3350;font-size:20px;font-weight:bold;margin-top:4px;">$7,351.72</div><div style="color:#8a97a0;font-size:10px;margin-top:2px;"></div></td></tr></table></td>
+<td width="33%" style="padding:6px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:14px;"><div style="color:#5a6b76;font-size:11px;text-transform:uppercase;">Value at Target</div><div style="color:#0e7a3d;font-size:20px;font-weight:bold;margin-top:4px;">≈$11,867</div><div style="color:#8a97a0;font-size:10px;margin-top:2px;">scenario, not forecast — if GME alone reaches +120% target</div></td></tr></table></td>
+<td width="33%" style="padding:6px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:14px;"><div style="color:#5a6b76;font-size:11px;text-transform:uppercase;">Value at Stop</div><div style="color:#b02a2a;font-size:20px;font-weight:bold;margin-top:4px;">≈$6,598</div><div style="color:#8a97a0;font-size:10px;margin-top:2px;">scenario, not forecast — if GME alone hits its stop</div></td></tr></table></td>
+</tr></table></td></tr>
+<tr><td style="padding:8px 28px;"><div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">What happened</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:12px 14px;font-size:13px;"><b>MSTR — sell (rotation exit)</b> (agent action)<br>Requested: 23 sh @ $159.15 limit | Filled: 23 sh @ avg $159.1501 | Total: $3,660.45 | 1:43 PM CT<br>Protective stop $152.55 cancelled first, then sold | Final state: closed, realized <span style="color:#0e7a3d;">+$206.5</span><br><span style="color:#5a6b76;">Reason: MSTR was a legacy/scoreless holding (effective score 0), the weakest holding under the new weakest-link rotation rule; GME (8) clears the legacy-replace threshold of 3.</span></td></tr></table>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:12px 14px;font-size:13px;"><b>GME — buy (rotation entry)</b> (agent action)<br>Requested: 157 sh @ $23.98 limit | Filled: 157 sh @ avg $23.9676 | Total: $3,762.9 | 1:43 PM CT<br>Final state: open, protected<br><span style="color:#5a6b76;">Reason: GameStop CEO/Chairman Ryan Cohen open-market buys ($26.39M on 9/21, $20.38M on 9/10) in a multi-filer cluster, plus a printed EPS beat (Q2 $0.27 vs $0.06). Score 8 (durable, 100% fresh). RSI 65, price 113% of 20-day SMA, +10.6% vs $21.67 signal print, next earnings 2026-12-08.</span></td></tr></table>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;background-color:#f6f9fa;border-radius:6px;"><tr><td style="padding:12px 14px;font-size:13px;"><b>GME — protective stop placed</b> (agent action)<br>Stop-market sell 157 sh, stop $19.17, GTC | Final state: confirmed<br><span style="color:#5a6b76;">Reason: 20% initial stop per config.json. OCO brackets remain disabled on this account, so no take-profit order exists.</span></td></tr></table>
+
+</td></tr>
+<tr><td style="padding:16px 28px 8px 28px;"><div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">Before / after</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;font-size:13px;">
+<tr><td style="padding:4px 0;color:#5a6b76;">Portfolio value</td><td style="text-align:right;">$7,354.67 → $7,351.72</td></tr>
+<tr><td style="padding:4px 0;color:#5a6b76;">Cash / buying power</td><td style="text-align:right;">$122.23 → $19.69</td></tr>
+<tr><td style="padding:4px 0;color:#5a6b76;">Affected-position allocation</td><td style="text-align:right;">MSTR $3,660 (49.8%) → GME $3,763 (51.2%)</td></tr></table></td></tr>
+<tr><td style="padding:16px 28px 8px 28px;"><div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">GME — current / target / stop</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;font-size:13px;"><tr><td>Current: $23.97</td><td>Target: n/a (no OCO; trail only)</td><td>Stop: $19.17 (-20%)</td></tr></table></td></tr>
+<tr><td style="padding:16px 28px 20px 28px;"><div style="color:#0b3350;font-size:15px;font-weight:bold;border-bottom:2px solid #0e6e6e;padding-bottom:6px;">Protection coverage</div>
+<div style="color:#1a1a1a;font-size:13px;margin-top:10px;line-height:1.7;">GME: stop-market $19.17 — confirmed (new).<br>DUOT: stop-market $7.54 — confirmed.<br>SBLK: stop-market $25.49 — confirmed.<br>ANGX: unprotected fractional lot (broker rejects stops on fractional quantities); owner-accepted, unchanged.<br>AAPL: 0.005949 sh dust lot, unmanaged, immaterial.</div></td></tr>
+<tr><td style="background-color:#f6f9fa;padding:16px 28px;border-top:1px solid #dce3e8;"><div style="color:#8a97a0;font-size:11px;line-height:1.6;">Data as of 2026-09-28 18:44 UTC. Account ••••4292 (Robinhood Agentic). Report ID: action-acct4292-2026-09-28T1844Z. Scenarios, not forecasts; other holdings held constant. Stops are not guaranteed execution prices.</div></td></tr>
+</table></td></tr></table></body></html>

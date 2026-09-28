@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-28T16:18:00Z",
+  "last_run": "2026-09-28T17:19:00Z",
   "canonical_branch": "claude/trading-state",
   "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
   "peak_account_value": 7954.86462317,
@@ -631,6 +631,10 @@
     {
       "ts": "2026-09-28T16:18:00Z",
       "value": 7326.13001642
+    },
+    {
+      "ts": "2026-09-28T17:19:00Z",
+      "value": 7399.98515673
     }
   ],
   "positions": {
@@ -1030,6 +1034,24 @@
       "KOD": {
         "score": 3,
         "note": "carried forward live-heat name; continued higher intraday to $89.23 (RVOL ~11x per this run's scan vs ~26x last run -- volume moderating, price making a new session high), RSI 37.85. No new insider/politician/13D confluence found (sources down). Still far short of rotation bar (3 vs 12 needed against DUOT=10); no legacy/scoreless holding down/flat to enable the alternate rotation path (MSTR +5.4% since entry, AAPL +1.4%). Cash-blocked independently (12.23 spendable < $100 min for 1 share at ~$89). No entry."
+      }
+    },
+    "2026-09-28T17:19:00Z": {
+      "KOD": {
+        "score": 3,
+        "note": "carried forward; now $89.44 (RVOL 12.4x per scan), RSI 37.85; sources (OpenInsider timeout, CapitolTrades 429) still down; below rotation bar (needs >=12 vs DUOT=10); cash-blocked (112.23 spendable, 1sh=$89.70<$100 min)"
+      },
+      "GME": {
+        "score": 8,
+        "note": "carried forward; sources down; below rotation bar; cash-blocked"
+      },
+      "DKS": {
+        "score": 6,
+        "note": "carried forward; sources down; below rotation bar; cash-blocked"
+      },
+      "ADC": {
+        "score": 6,
+        "note": "carried forward; sources down; below rotation bar; cash-blocked"
       }
     }
   },

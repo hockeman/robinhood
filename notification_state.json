@@ -3,7 +3,7 @@
  "canonical_branch": "claude/trading-state",
  "initialized_at": "2026-09-21T13:35:00Z",
  "baseline_as_of": "2026-09-21T13:32:00Z",
- "last_successful_reconciliation_at": "2026-09-28T18:44:00Z",
+ "last_successful_reconciliation_at": "2026-09-29T13:20:00Z",
  "reconciled_at": "2026-09-21T13:35:00Z (maintenance session; see RECONCILIATION.md). Confirmed this file existed on no other branch across the whole repository (60+ branches checked) -- nothing to merge in, only to verify.",
  "email_recipient_source": "session userEmail context (account owner identity for this Claude session); config.json.email_recipient was null and no other owner-approved recipient record existed in this repository, so this was used per the standing instruction to reuse the owner's established identity rather than guess or use externally-researched contact info.",
  "email_recipient": "ferrell@chacetech.com",
@@ -374,6 +374,19 @@
    "sent_at": "2026-09-28T18:44:00Z",
    "provider_message_id": "1a0e9553efe85f2e",
    "note": "Gmail send_message returned id; delivery not independently verified"
+  },
+  "close-acct4292-2026-09-28-delayed": {
+   "report_id": "close-acct4292-2026-09-28-delayed",
+   "type": "DAILY_CLOSE",
+   "session_date": "2026-09-28",
+   "included_event_ids": [],
+   "recipient": "ferrell@chacetech.com",
+   "body_hash": "c7655f2588387966e966b458259cceec678ac60b90bf3b0916a9df8e3513edba",
+   "status": "accepted",
+   "created_at": "2026-09-29T13:20:00Z",
+   "sent_at": "2026-09-29T13:25:00Z",
+   "provider_message_id": "1a0ed4f14571c8bd",
+   "note": "Gmail send_message returned id; delivery not independently verified. Body sent differs slightly from the archived file (AAPL row color, allocation Other row)."
   }
  },
  "daily_summaries": {
@@ -412,6 +425,12 @@
    "session_date": "2026-09-25",
    "status": "verified_sent",
    "provider_message_id": "1a0e71c01a717f52"
+  },
+  "close:acct4292:2026-09-28": {
+   "report_id": "close-acct4292-2026-09-28-delayed",
+   "session_date": "2026-09-28",
+   "status": "accepted",
+   "provider_message_id": "1a0ed4f14571c8bd"
   }
  },
  "close_snapshots": {
@@ -446,6 +465,12 @@
    "cash": 122.23,
    "reconstructed": true,
    "note": "No live run at the 2026-09-25 20:00 UTC close (last live run 17:20 UTC); reconstructed from official close prices + unchanged post-trade cash, reconciled live 2026-09-28T08:20Z with zero discrepancy."
+  },
+  "2026-09-28": {
+   "closing_value": 7334.24,
+   "cash": 19.69,
+   "reconstructed": true,
+   "note": "computed from official closes + cash; missed at close"
   }
  },
  "last_weekly_statistics_session": "2026-09-25"

@@ -387,6 +387,19 @@
    "sent_at": "2026-09-29T13:25:00Z",
    "provider_message_id": "1a0ed4f14571c8bd",
    "note": "Gmail send_message returned id; delivery not independently verified. Body sent differs slightly from the archived file (AAPL row color, allocation Other row)."
+  },
+  "close-acct4292-2026-09-29-delayed": {
+   "report_id": "close-acct4292-2026-09-29-delayed",
+   "type": "DAILY_CLOSE",
+   "session_date": "2026-09-29",
+   "included_event_ids": [],
+   "recipient": "ferrell@chacetech.com",
+   "body_hash": "bd46843415fdb96fdf01b6840a24dca7817890abb65e7fb1274ca9e6759ad05e",
+   "status": "accepted",
+   "created_at": "2026-09-30T08:20:00Z",
+   "sent_at": "2026-09-30T08:20:00Z",
+   "provider_message_id": "1a0f162671e4c071",
+   "note": "Gmail send_message returned id; delivery not independently verified"
   }
  },
  "daily_summaries": {
@@ -431,6 +444,12 @@
    "session_date": "2026-09-28",
    "status": "accepted",
    "provider_message_id": "1a0ed4f14571c8bd"
+  },
+  "close:acct4292:2026-09-29": {
+   "report_id": "close-acct4292-2026-09-29-delayed",
+   "session_date": "2026-09-29",
+   "status": "accepted",
+   "provider_message_id": "1a0f162671e4c071"
   }
  },
  "close_snapshots": {
@@ -468,6 +487,12 @@
   },
   "2026-09-28": {
    "closing_value": 7334.24,
+   "cash": 19.69,
+   "reconstructed": true,
+   "note": "computed from official closes + cash; missed at close"
+  },
+  "2026-09-29": {
+   "closing_value": 7293.34,
    "cash": 19.69,
    "reconstructed": true,
    "note": "computed from official closes + cash; missed at close"

@@ -3,7 +3,7 @@
  "canonical_branch": "claude/trading-state",
  "initialized_at": "2026-09-21T13:35:00Z",
  "baseline_as_of": "2026-09-21T13:32:00Z",
- "last_successful_reconciliation_at": "2026-10-01T17:15:00Z",
+ "last_successful_reconciliation_at": "2026-10-02T08:20:00Z",
  "reconciled_at": "2026-09-21T13:35:00Z (maintenance session; see RECONCILIATION.md). Confirmed this file existed on no other branch across the whole repository (60+ branches checked) -- nothing to merge in, only to verify.",
  "email_recipient_source": "session userEmail context (account owner identity for this Claude session); config.json.email_recipient was null and no other owner-approved recipient record existed in this repository, so this was used per the standing instruction to reuse the owner's established identity rather than guess or use externally-researched contact info.",
  "email_recipient": "ferrell@chacetech.com",
@@ -413,6 +413,19 @@
    "sent_at": "2026-10-01T08:27:00Z",
    "provider_message_id": "1a0f68ace0a6ee2f",
    "note": "Gmail send_message returned id; delivery not independently verified"
+  },
+  "close-acct4292-2026-10-01-delayed": {
+   "report_id": "close-acct4292-2026-10-01-delayed",
+   "type": "DAILY_CLOSE",
+   "session_date": "2026-10-01",
+   "included_event_ids": [],
+   "recipient": "ferrell@chacetech.com",
+   "body_hash": "6c8b4bc943799028c66df40cff4144f0e846293157b72d4c8807f7eb38e2dcbd",
+   "status": "accepted",
+   "created_at": "2026-10-02T08:20:00Z",
+   "sent_at": "2026-10-02T08:22:00Z",
+   "provider_message_id": "1a0fbaf49fc63f1f",
+   "note": "Gmail send_message returned id; delivery not independently verified"
   }
  },
  "daily_summaries": {
@@ -469,6 +482,12 @@
    "session_date": "2026-09-30",
    "status": "accepted",
    "provider_message_id": "1a0f68ace0a6ee2f"
+  },
+  "close:acct4292:2026-10-01": {
+   "report_id": "close-acct4292-2026-10-01-delayed",
+   "session_date": "2026-10-01",
+   "status": "accepted",
+   "provider_message_id": "1a0fbaf49fc63f1f"
   }
  },
  "close_snapshots": {
@@ -518,6 +537,12 @@
   },
   "2026-09-30": {
    "closing_value": 7415.34,
+   "cash": 19.69,
+   "reconstructed": true,
+   "note": "computed from official closes + cash; missed at close"
+  },
+  "2026-10-01": {
+   "closing_value": 7402.06,
    "cash": 19.69,
    "reconstructed": true,
    "note": "computed from official closes + cash; missed at close"

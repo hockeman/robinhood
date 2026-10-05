@@ -133,6 +133,28 @@ class ScoringV2Tests(unittest.TestCase):
         self.assertFalse(result["eligible"], result)
         self.assertTrue(result["cash_deployment_eligible"], result)
 
+    def test_tactical_cash_can_use_verified_sector_catalyst_plus_live_heat(self):
+        candidate = {
+            "symbol": "SECTOR",
+            "signal_quality_score": 6,
+            "catalyst_magnitude_score": 5,
+            "volume_price_discovery_score": 8,
+            "structure_squeeze_score": 5,
+            "remaining_upside_score": 5,
+            "dilution_risk_score": 1,
+            "exhaustion_risk_score": 2,
+            "primary_source_verified": False,
+            "catalyst_verified": False,
+            "market_catalyst_verified": True,
+            "live_heat_verified": True,
+            "transformational": False,
+            "continuation_confirmed": True,
+            "chase_pct": 15,
+            "disqualifier": False,
+        }
+        result = scoring.opportunity_score(candidate, self.config)
+        self.assertTrue(result["cash_deployment_eligible"], result)
+
     def test_tactical_cash_candidate_still_rejects_unverified_hype(self):
         candidate = {
             "symbol": "HYPE",

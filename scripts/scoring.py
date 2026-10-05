@@ -262,10 +262,18 @@ def opportunity_score(candidate, config):
     tactical_min_opportunity = float(config.get("tactical_cash_min_opportunity_score", 4.5))
     tactical_max_risk_penalty = float(config.get("tactical_cash_max_risk_penalty", 2.0))
 
-    if not candidate.get("primary_source_verified", False):
-        tactical_reasons.append("primary source not verified")
-    if not candidate.get("catalyst_verified", False):
-        tactical_reasons.append("catalyst not verified")
+    company_catalyst_verified = (
+        candidate.get("primary_source_verified", False)
+        and candidate.get("catalyst_verified", False)
+    )
+    market_heat_verified = (
+        candidate.get("market_catalyst_verified", False)
+        and candidate.get("live_heat_verified", False)
+    )
+    if not (company_catalyst_verified or market_heat_verified):
+        tactical_reasons.append(
+            "neither verified company catalyst nor verified market-catalyst + live-heat setup"
+        )
     if signal_quality < tactical_min_signal:
         tactical_reasons.append(
             f"signal_quality_score {signal_quality:.2f} < tactical {tactical_min_signal:.2f}"

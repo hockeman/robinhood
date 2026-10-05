@@ -88,6 +88,8 @@ At minimum:
   "transformational": true/false,
   "continuation_confirmed": true/false,
   "chase_pct": number,
+  "market_catalyst_verified": true/false,
+  "live_heat_verified": true/false,
   "disqualifier": true/false,
   "disqualifier_reason": "..."
 }
@@ -102,6 +104,11 @@ Scoring guidance:
 - dilution_risk_score: shelf/ATM/offering/warrants/convertibles/cash crisis. 10 = imminent/active severe dilution.
 - exhaustion_risk_score: blow-off behavior, failed VWAP, repeated halts with lower highs, widening spread, or
   exhausted volume. Do not punish a stock merely for being up a lot.
+- market_catalyst_verified: true only when a real, current macro/sector event is verified from a reliable public
+  source and clearly explains the group move.
+- live_heat_verified: true only when the individual stock has strong abnormal volume/price discovery (normally
+  >=3x RVOL, healthy spread/liquidity, strong relative performance, and no obvious failed-spike behavior).
+  This pair can satisfy the tactical cash-deployment source requirement even without a company-specific filing.
 
 ACTION GATES
 A candidate is normally actionable only when scripts/scoring.py returns eligible=true. Current config gates are:
@@ -121,8 +128,10 @@ of the account to wait for a perfect standard-gate monster either.
 
 CASH DEPLOYMENT GATE
 When idle-cash escalation is active and no STANDARD candidate is eligible, scripts/scoring.py also returns
-cash_deployment_eligible using the tactical thresholds in config.json. A tactical candidate still requires:
-- verified public catalyst / primary source
+cash_deployment_eligible using the tactical thresholds in config.json. A tactical candidate still requires either:
+- a verified company-specific public catalyst / primary source, OR
+- a verified broad market/sector catalyst PLUS exceptional live heat in the individual stock
+and always:
 - no hard disqualifier
 - acceptable liquidity/spread/tradability
 - minimum signal quality, explosive upside, remaining upside, and opportunity score

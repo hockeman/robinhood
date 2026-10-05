@@ -1,4 +1,4 @@
-OWNER DIRECTIVE 2026-10-05 v3 — EXPLOSIVE CATALYST REVALUATION + ACTIVE CASH DEPLOYMENT MODE
+OWNER DIRECTIVE 2026-10-05 v4 — EXPLOSIVE CATALYST + MANDATORY CASH DEPLOYMENT MODE
 This file is the authoritative standing strategy for the autonomous Robinhood routine.
 It supersedes older strategy text whenever there is a conflict.
 
@@ -11,7 +11,14 @@ pinned near consideration value, and names whose catalyst has already been fully
 
 The account is already aggressive enough on concentration and loss tolerance. Do NOT make it "more aggressive"
 by widening stops, increasing the 100% concentration cap, weakening liquidity gates, removing review-before-place,
-or averaging down. Improve discovery, ranking, rotation, and winner management instead.
+or blindly averaging down. Improve discovery, ranking, rotation, cash deployment, and winner management instead.
+
+CAPITAL DEPLOYMENT POLICY
+During a session in which new entries are allowed, the target is <= idle_cash_target_pct_of_account of total account
+value in deployable cash. Cash >= idle_cash_escalation_pct_of_account is not a neutral NO_ACTION condition; it activates
+mandatory cash-deployment mode. Standard explosive candidates remain first choice, but if none clears the standard
+gate, a verified tactical catalyst candidate may be used under the separate CASH DEPLOYMENT GATE below. The system
+must not leave ~15%-20% of the account idle merely because no perfect 50%-100% candidate appeared in the first scan.
 
 AUTHORITATIVE STARTUP — EVERY RUN
 1. Follow PERSISTENCE.md first. Explicitly fetch and switch to origin/claude/trading-state.
@@ -107,9 +114,23 @@ A candidate is normally actionable only when scripts/scoring.py returns eligible
 - no hard disqualifier
 - all broker/universe/PDT/risk hard rules pass
 
-A candidate can be interesting but non-actionable. Record why. Never lower a quality gate merely because the account is idle.
-However, material idle deployable cash is itself an ACTIONABLE RESEARCH CONDITION: broaden discovery and re-underwrite
-the existing book before accepting NO_ACTION. Do not buy junk just to eliminate cash.
+A candidate can be interesting but non-actionable under the STANDARD gate. Record why.
+Material idle deployable cash is an ACTIONABLE DEPLOYMENT CONDITION: broaden discovery, re-underwrite the book, and
+then apply the separate tactical cash-deployment gate. Do not buy unsupported junk, but do not require every dollar
+of the account to wait for a perfect standard-gate monster either.
+
+CASH DEPLOYMENT GATE
+When idle-cash escalation is active and no STANDARD candidate is eligible, scripts/scoring.py also returns
+cash_deployment_eligible using the tactical thresholds in config.json. A tactical candidate still requires:
+- verified public catalyst / primary source
+- no hard disqualifier
+- acceptable liquidity/spread/tradability
+- minimum signal quality, explosive upside, remaining upside, and opportunity score
+- the same chase/continuation protections
+This is intentionally a lower bar than the standard 50%-100% gate, because its purpose is to put otherwise-idle
+capital to work in a real catalyst/momentum setup rather than hold 15%-20% cash indefinitely.
+If one or more candidates are cash_deployment_eligible, rank by opportunity_score, then explosive_upside_score, then
+remaining_upside_score. With deployable cash available, BUY the best eligible candidate; do not require a rotation.
 
 50% / 100% ASSESSMENT
 The scoring helper returns scenario labels for additional upside FROM THE PROPOSED ENTRY:
@@ -174,8 +195,13 @@ Idle-cash fallback scanner (run only when the IDLE CASH ESCALATION below trigger
 - Agentic Early Catalyst Fallback v3
 
 This fallback deliberately catches earlier/less-developed moves: lower RVOL and price-change thresholds than the four
-primary scans, but the SAME primary-source verification and opportunity-score gates still apply. It broadens SEARCH,
-not the standard for buying.
+primary scans. Standard candidates use the standard gate; during idle-cash escalation, fallback names may also qualify
+under the tactical CASH DEPLOYMENT GATE.
+
+IMPORTANT: do not bulk-dismiss fallback names as "unchanged." On every idle-cash run, current-run verify at least the
+configured minimum number of distinct candidates. Any fallback name with >=8% same-day change, RVOL >=1.75x, market
+cap <=$1B, or a material change since the prior run MUST get a current-run catalyst/news/filing check before rejection.
+A prior-run "no catalyst" note is not sufficient when price/volume has materially changed.
 
 The four jobs:
 A. CATALYST IGNITION
@@ -239,7 +265,15 @@ live.json may include:
   "entry_blocked": false,
   "entry_blocked_reason": "",
   "idle_cash_escalation_completed": false,
-  "known_candidates": {}
+  "independent_catalyst_sweep_complete": false,
+  "independent_catalyst_symbols_reviewed": [],
+  "known_candidates": {
+    "XYZ": {
+      "current_run_deep_reviewed": true,
+      "opportunity_score": 5.2,
+      "cash_deployment_eligible": true
+    }
+  }
 }
 
 IDLE CASH ESCALATION — MANDATORY
@@ -253,10 +287,12 @@ Definitions:
 - idle_cash_pct = deployable_buying_power / total account value * 100.
 
 Trigger:
-- If session_allows_entries=true and idle_cash_pct >= idle_cash_escalation_pct_of_account (currently 10%), fast-check
-  MUST return actionable unless idle_cash_escalation_completed=true for this same run.
-- At idle_cash_pct >= idle_cash_critical_pct_of_account (currently 20%), treat it as CRITICAL SEARCH DEPTH: a routine
-  scanner pass is not enough.
+- If session_allows_entries=true and idle_cash_pct >= idle_cash_escalation_pct_of_account (currently 8%), fast-check
+  MUST return actionable until the required review is genuinely complete.
+- At idle_cash_pct >= idle_cash_critical_pct_of_account (currently 15%), treat it as CRITICAL SEARCH DEPTH.
+- idle_cash_escalation_completed is NOT trusted by itself. scripts/scoring.py validates that enough current-run deep
+  reviews and independent catalyst checks are present. If not, it reports IDLE_CASH_REVIEW_INCOMPLETE.
+- The target after a tactical deployment is <= idle_cash_target_pct_of_account (currently 5%), not "spend a little."
 
 Before NO_ACTION is allowed under an idle-cash trigger, do ALL of the following:
 1. V2 RE-UNDERWRITE THE EXISTING BOOK:
@@ -270,22 +306,39 @@ Before NO_ACTION is allowed under an idle-cash trigger, do ALL of the following:
    Run "Agentic Early Catalyst Fallback v3". Investigate the highest-quality abnormal-volume names rather than
    dismissing the entire scan because some hits are junk.
 4. FRESH-CATALYST SWEEP:
-   Search for fresh same-day 8-K/6-K/company/FDA/regulatory/earnings/contract/licensing/activist developments that
-   may not yet have enough price movement to hit the primary scanners. When idle_cash_pct is critical, use at least
-   one discovery channel independent of Robinhood scanner results.
-5. DEPLOYMENT CHOICES, in order:
-   a. Best new candidate that clears the normal opportunity gates and fits an available strategic slot.
-   b. A qualifying pyramid into an EXISTING WINNER only if the winner is >= pyramid_min_unrealized_pct and its
-      refreshed opportunity_score + remaining_upside_score still clear the normal gates.
-   c. Rotation out of the weakest legally replaceable holding if a stronger candidate clears the rotation rule.
-   Never average down merely to deploy cash.
-6. POSITION CEILING:
-   Up to max_open_positions meaningful strategic positions are allowed (currently 4). Fractional dust below
-   strategic_position_min_usd does not block opening the fourth meaningful position.
-7. IF NOTHING QUALIFIES:
-   Cash may remain idle. Do not lower the opportunity gate or buy a weak name. But journal:
-   IDLE_CASH_REVIEW_COMPLETE | idle_cash_pct=<x> | deployable=<amount> | best_rejected=<symbols/scores> | reason=<why>
-   and set idle_cash_escalation_completed=true for this run. A bare "the first scanner hits failed" is NOT enough.
+   Search primary/company/news sources for material developments from the last 48 hours, including 8-K/6-K,
+   investor-relations releases, FDA/regulatory actions, earnings/guidance, contracts, licensing, activist filings,
+   court decisions, and strategic transactions. A company investor-relations release IS a primary source even if an
+   8-K has not yet appeared. Review at least idle_cash_min_independent_catalyst_checks distinct fresh candidates from
+   a discovery channel independent of the Robinhood scanner list when the cash trigger is active.
+5. DEEP-REVIEW QUOTA:
+   Current-run deep-review at least idle_cash_min_candidates_deep_reviewed distinct candidates. A deep review means
+   current quote/spread + current catalyst check + dilution/supply check when relevant + candidate.json scoring.
+   Do not satisfy this quota by copying forward old rejection notes.
+6. DEPLOYMENT CHOICES, in order:
+   a. Best new candidate that clears the STANDARD opportunity gates.
+   b. If none clears STANDARD and idle cash remains above target, the best candidate with
+      cash_deployment_eligible=true MUST be bought with available cash, subject to hard broker/PDT/risk rules.
+   c. A qualifying pyramid into an EXISTING WINNER may be used only if the winner is >= pyramid_min_unrealized_pct
+      and refreshed opportunity/remaining-upside still clear the applicable gate.
+   d. Rotation out of the weakest legally replaceable holding if a stronger candidate clears the rotation rule.
+   Do not average down merely to deploy cash.
+7. TACTICAL CASH POSITION SIZING:
+   For a cash_deployment_eligible candidate, spend enough to move deployable cash toward
+   idle_cash_target_pct_of_account, capped by tactical_cash_position_max_pct_of_account and buying power. Use
+   tactical_cash_initial_stop_loss_pct for the initial stop if supported by the order workflow. Do not open a token
+   position that leaves most of the cash untouched when a qualifying tactical candidate exists.
+8. POSITION CEILING:
+   Up to max_open_positions meaningful strategic positions are allowed (currently 5). Fractional dust below
+   strategic_position_min_usd does not consume a strategic slot.
+9. IF NOTHING QUALIFIES:
+   Cash may remain idle only after the deep-review quota AND independent catalyst sweep are complete and NO standard
+   or tactical cash-deployment candidate qualifies. Journal:
+   IDLE_CASH_REVIEW_COMPLETE | idle_cash_pct=<x> | deployable=<amount> | deep_reviewed=<n> |
+   independent_catalyst_checks=<n> | best_standard_rejected=<symbols/scores> |
+   best_tactical_rejected=<symbols/scores> | reason=<why>
+   Then set idle_cash_escalation_completed=true for this run. "Only two new names were web-checked" is NOT a valid
+   completed idle-cash review.
 
 V2 POSITION MIGRATION — NO GRANDFATHERED OLD SCORES
 Until every meaningful position has v2 fields, the migration itself is actionable work.
@@ -469,7 +522,9 @@ NO-ACTION SAVE PATH
 NO_ACTION is permitted only if:
 - fast-check returns actionable=false, AND
 - there is no unresolved V2_POSITION_RESCORE_DUE, AND
-- if deployable cash triggered idle-cash escalation this run, the mandatory escalation completed and was journaled.
+- if deployable cash triggered idle-cash escalation, scripts/scoring.py confirms the review-completion quota, AND
+- no known candidate is STANDARD eligible or cash_deployment_eligible, AND
+- no pending qualifying order/fill exists.
 
 If those conditions are met:
 - append the account_value_history point

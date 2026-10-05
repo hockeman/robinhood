@@ -1,6 +1,6 @@
 {
   "max_position_pct_of_account": 100,
-  "max_open_positions": 4,
+  "max_open_positions": 5,
   "max_new_positions_per_run": 3,
   "min_position_usd": 25,
   "min_cash_reserve_usd": 5,
@@ -130,9 +130,19 @@
     }
   },
   "strategic_position_min_usd": 100,
-  "idle_cash_escalation_pct_of_account": 10,
-  "idle_cash_critical_pct_of_account": 20,
+  "idle_cash_escalation_pct_of_account": 8,
+  "idle_cash_critical_pct_of_account": 15,
   "require_v2_rescore_before_no_action": true,
   "v2_rescore_min_position_usd": 100,
-  "idle_cash_fallback_scan_title": "Agentic Early Catalyst Fallback v3"
+  "idle_cash_fallback_scan_title": "Agentic Early Catalyst Fallback v3",
+  "idle_cash_target_pct_of_account": 5,
+  "idle_cash_min_candidates_deep_reviewed": 8,
+  "idle_cash_min_independent_catalyst_checks": 3,
+  "tactical_cash_min_signal_quality_score": 4,
+  "tactical_cash_min_explosive_upside_score": 4.5,
+  "tactical_cash_min_remaining_upside_score": 4,
+  "tactical_cash_min_opportunity_score": 4.5,
+  "tactical_cash_max_risk_penalty": 2,
+  "tactical_cash_position_max_pct_of_account": 25,
+  "tactical_cash_initial_stop_loss_pct": 15
 }

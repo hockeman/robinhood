@@ -23,8 +23,16 @@ class ScoringV2Tests(unittest.TestCase):
             "legacy_default_score": 0,
             "legacy_old_score_cap_for_opportunity": 4.0,
             "min_cash_reserve_usd": 5.0,
-            "idle_cash_escalation_pct_of_account": 10.0,
-            "idle_cash_critical_pct_of_account": 20.0,
+            "idle_cash_escalation_pct_of_account": 8.0,
+            "idle_cash_critical_pct_of_account": 15.0,
+            "idle_cash_target_pct_of_account": 5.0,
+            "idle_cash_min_candidates_deep_reviewed": 2,
+            "idle_cash_min_independent_catalyst_checks": 1,
+            "tactical_cash_min_signal_quality_score": 4.0,
+            "tactical_cash_min_explosive_upside_score": 4.5,
+            "tactical_cash_min_remaining_upside_score": 4.0,
+            "tactical_cash_min_opportunity_score": 4.5,
+            "tactical_cash_max_risk_penalty": 2.0,
             "require_v2_rescore_before_no_action": True,
             "v2_rescore_min_position_usd": 100.0,
         }
@@ -103,6 +111,47 @@ class ScoringV2Tests(unittest.TestCase):
         self.assertFalse(result["eligible"])
         self.assertIn("primary source not verified", result["reasons"])
         self.assertIn("catalyst not verified", result["reasons"])
+
+    def test_tactical_cash_candidate_can_qualify_below_standard_gate(self):
+        candidate = {
+            "symbol": "TACT",
+            "signal_quality_score": 6,
+            "catalyst_magnitude_score": 6,
+            "volume_price_discovery_score": 6,
+            "structure_squeeze_score": 4,
+            "remaining_upside_score": 4.5,
+            "dilution_risk_score": 1,
+            "exhaustion_risk_score": 2,
+            "primary_source_verified": True,
+            "catalyst_verified": True,
+            "transformational": False,
+            "continuation_confirmed": True,
+            "chase_pct": 20,
+            "disqualifier": False,
+        }
+        result = scoring.opportunity_score(candidate, self.config)
+        self.assertFalse(result["eligible"], result)
+        self.assertTrue(result["cash_deployment_eligible"], result)
+
+    def test_tactical_cash_candidate_still_rejects_unverified_hype(self):
+        candidate = {
+            "symbol": "HYPE",
+            "signal_quality_score": 6,
+            "catalyst_magnitude_score": 6,
+            "volume_price_discovery_score": 7,
+            "structure_squeeze_score": 6,
+            "remaining_upside_score": 5,
+            "dilution_risk_score": 0,
+            "exhaustion_risk_score": 1,
+            "primary_source_verified": False,
+            "catalyst_verified": False,
+            "transformational": False,
+            "continuation_confirmed": True,
+            "chase_pct": 10,
+            "disqualifier": False,
+        }
+        result = scoring.opportunity_score(candidate, self.config)
+        self.assertFalse(result["cash_deployment_eligible"], result)
 
     def test_old_score_ten_is_capped_for_v2_rotation(self):
         positions = {
@@ -191,16 +240,57 @@ class ScoringV2Tests(unittest.TestCase):
         self.assertTrue(result["actionable"])
         self.assertTrue(any("IDLE_CASH_ESCALATION" in r for r in result["reasons"]))
 
-    def test_idle_cash_completed_can_finish_without_looping(self):
+    def test_idle_cash_completion_claim_without_quota_stays_actionable(self):
         live = {
             "stop_orders_ok": True,
             "account_value": 7512.55,
             "deployable_buying_power": 1501.41,
             "session_allows_entries": True,
             "idle_cash_escalation_completed": True,
+            "known_candidates": {},
+            "independent_catalyst_sweep_complete": False,
+            "independent_catalyst_symbols_reviewed": [],
+        }
+        result = scoring.fast_check({}, live, "2026-10-05", self.config)
+        self.assertTrue(any("IDLE_CASH_REVIEW_INCOMPLETE" in r for r in result["reasons"]))
+
+    def test_idle_cash_completed_can_finish_after_quota_if_no_tactical_candidate(self):
+        live = {
+            "stop_orders_ok": True,
+            "account_value": 7512.55,
+            "deployable_buying_power": 1501.41,
+            "session_allows_entries": True,
+            "idle_cash_escalation_completed": True,
+            "known_candidates": {
+                "AAA": {"current_run_deep_reviewed": True, "cash_deployment_eligible": False},
+                "BBB": {"current_run_deep_reviewed": True, "cash_deployment_eligible": False},
+            },
+            "independent_catalyst_sweep_complete": True,
+            "independent_catalyst_symbols_reviewed": ["CCC"],
         }
         result = scoring.fast_check({}, live, "2026-10-05", self.config)
         self.assertFalse(any("IDLE_CASH_" in r for r in result["reasons"]))
+
+    def test_tactical_candidate_keeps_run_actionable_until_deployed(self):
+        live = {
+            "stop_orders_ok": True,
+            "account_value": 7512.55,
+            "deployable_buying_power": 1501.41,
+            "session_allows_entries": True,
+            "idle_cash_escalation_completed": True,
+            "known_candidates": {
+                "AAA": {
+                    "current_run_deep_reviewed": True,
+                    "cash_deployment_eligible": True,
+                    "position_opened_this_run": False,
+                },
+                "BBB": {"current_run_deep_reviewed": True, "cash_deployment_eligible": False},
+            },
+            "independent_catalyst_sweep_complete": True,
+            "independent_catalyst_symbols_reviewed": ["CCC"],
+        }
+        result = scoring.fast_check({}, live, "2026-10-05", self.config)
+        self.assertTrue(any("TACTICAL_CASH_DEPLOYMENT_DUE" in r for r in result["reasons"]))
 
     def test_critical_idle_cash_uses_critical_reason(self):
         live = {

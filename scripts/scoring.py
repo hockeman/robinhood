@@ -255,6 +255,54 @@ def opportunity_score(candidate, config):
 
     eligible = not reasons
 
+    tactical_reasons = []
+    tactical_min_signal = float(config.get("tactical_cash_min_signal_quality_score", 4.0))
+    tactical_min_explosive = float(config.get("tactical_cash_min_explosive_upside_score", 4.5))
+    tactical_min_remaining = float(config.get("tactical_cash_min_remaining_upside_score", 4.0))
+    tactical_min_opportunity = float(config.get("tactical_cash_min_opportunity_score", 4.5))
+    tactical_max_risk_penalty = float(config.get("tactical_cash_max_risk_penalty", 2.0))
+
+    if not candidate.get("primary_source_verified", False):
+        tactical_reasons.append("primary source not verified")
+    if not candidate.get("catalyst_verified", False):
+        tactical_reasons.append("catalyst not verified")
+    if signal_quality < tactical_min_signal:
+        tactical_reasons.append(
+            f"signal_quality_score {signal_quality:.2f} < tactical {tactical_min_signal:.2f}"
+        )
+    if explosive < tactical_min_explosive:
+        tactical_reasons.append(
+            f"explosive_upside_score {explosive:.2f} < tactical {tactical_min_explosive:.2f}"
+        )
+    if remaining < tactical_min_remaining:
+        tactical_reasons.append(
+            f"remaining_upside_score {remaining:.2f} < tactical {tactical_min_remaining:.2f}"
+        )
+    if opportunity < tactical_min_opportunity:
+        tactical_reasons.append(
+            f"opportunity_score {opportunity:.2f} < tactical {tactical_min_opportunity:.2f}"
+        )
+    if risk_penalty > tactical_max_risk_penalty:
+        tactical_reasons.append(
+            f"risk_penalty {risk_penalty:.2f} > tactical max {tactical_max_risk_penalty:.2f}"
+        )
+    if disqualifier:
+        tactical_reasons.append(
+            "hard disqualifier"
+            + (f": {candidate.get('disqualifier_reason')}" if candidate.get("disqualifier_reason") else "")
+        )
+    if chase_pct > chase_gate:
+        if not transformational:
+            tactical_reasons.append(
+                f"non-transformational chase {chase_pct:.1f}% > configured {chase_gate:.1f}% gate"
+            )
+        elif not continuation_confirmed:
+            tactical_reasons.append(
+                f"transformational chase {chase_pct:.1f}% requires continuation confirmation"
+            )
+
+    cash_deployment_eligible = not tactical_reasons
+
     high = float(config.get("high_conviction_opportunity_score", 8.0))
     exceptional = float(config.get("exceptional_opportunity_score", 9.0))
     if not eligible:
@@ -277,6 +325,8 @@ def opportunity_score(candidate, config):
         "target_50_assessment": classify_50_upside(explosive, remaining, opportunity),
         "target_100_assessment": classify_100_upside(explosive, remaining, opportunity),
         "opportunity_tier": tier,
+        "cash_deployment_eligible": cash_deployment_eligible,
+        "cash_deployment_reasons": tactical_reasons,
         "transformational": transformational,
         "continuation_confirmed": continuation_confirmed,
         "chase_pct": round(chase_pct, 3),
@@ -450,10 +500,27 @@ def idle_cash_status(live, config):
         }
 
     entry_blocked = bool(live.get("entry_blocked", False))
-    completed = bool(live.get("idle_cash_escalation_completed", False))
+    completed_claimed = bool(live.get("idle_cash_escalation_completed", False))
+    known = live.get("known_candidates") or {}
+    deep_reviewed_symbols = sorted(
+        symbol for symbol, cand in known.items() if cand.get("current_run_deep_reviewed")
+    )
+    independent_symbols = sorted(set(live.get("independent_catalyst_symbols_reviewed") or []))
+    independent_complete = bool(live.get("independent_catalyst_sweep_complete", False))
+
+    min_deep = int(config.get("idle_cash_min_candidates_deep_reviewed", 8))
+    min_independent = int(config.get("idle_cash_min_independent_catalyst_checks", 3))
+    review_requirements_met = (
+        len(deep_reviewed_symbols) >= min_deep
+        and independent_complete
+        and len(independent_symbols) >= min_independent
+    )
+    completed = completed_claimed and review_requirements_met
+
     pct = (deployable / account_value * 100.0) if account_value > 0 else 0.0
-    escalation = float(config.get("idle_cash_escalation_pct_of_account", 10.0))
-    critical = float(config.get("idle_cash_critical_pct_of_account", 20.0))
+    escalation = float(config.get("idle_cash_escalation_pct_of_account", 8.0))
+    critical = float(config.get("idle_cash_critical_pct_of_account", 15.0))
+    target = float(config.get("idle_cash_target_pct_of_account", 5.0))
 
     return {
         "account_value": round(account_value, 2),
@@ -463,6 +530,16 @@ def idle_cash_status(live, config):
         "entry_blocked": entry_blocked,
         "entry_blocked_reason": live.get("entry_blocked_reason") or "",
         "idle_cash_escalation_completed": completed,
+        "idle_cash_escalation_completed_claimed": completed_claimed,
+        "review_requirements_met": review_requirements_met,
+        "deep_reviewed_symbols": deep_reviewed_symbols,
+        "deep_reviewed_count": len(deep_reviewed_symbols),
+        "required_deep_review_count": min_deep,
+        "independent_catalyst_symbols_reviewed": independent_symbols,
+        "independent_catalyst_count": len(independent_symbols),
+        "required_independent_catalyst_count": min_independent,
+        "independent_catalyst_sweep_complete": independent_complete,
+        "target_cash_pct": target,
         "escalation_threshold_pct": escalation,
         "critical_threshold_pct": critical,
         "requires_escalation": (
@@ -511,12 +588,34 @@ def fast_check(positions, live, as_of, config):
             )
 
     cash = idle_cash_status(live, config)
+    if cash["idle_cash_escalation_completed_claimed"] and not cash["review_requirements_met"]:
+        reasons.append(
+            "IDLE_CASH_REVIEW_INCOMPLETE: completion was claimed but only "
+            f"{cash['deep_reviewed_count']}/{cash['required_deep_review_count']} candidates were deep-reviewed "
+            f"and {cash['independent_catalyst_count']}/{cash['required_independent_catalyst_count']} independent "
+            "catalyst candidates were checked"
+        )
+
     if cash["requires_escalation"]:
         label = "IDLE_CASH_CRITICAL" if cash["critical"] else "IDLE_CASH_ESCALATION"
         reasons.append(
             f"{label}: {cash['idle_cash_pct']:.2f}% of account is deployable "
-            f"(USD {cash['deployable_buying_power']:.2f}); complete expanded discovery before NO_ACTION"
+            f"(USD {cash['deployable_buying_power']:.2f}); target <= {cash['target_cash_pct']:.2f}%"
         )
+
+    if cash["idle_cash_pct"] >= cash["escalation_threshold_pct"] and cash["session_allows_entries"] and not cash["entry_blocked"]:
+        tactical_due = sorted(
+            symbol for symbol, cand in (live.get("known_candidates") or {}).items()
+            if cand.get("current_run_deep_reviewed")
+            and cand.get("cash_deployment_eligible") is True
+            and not cand.get("position_opened_this_run", False)
+        )
+        if tactical_due:
+            reasons.append(
+                "TACTICAL_CASH_DEPLOYMENT_DUE: "
+                + ", ".join(tactical_due)
+                + " are cash_deployment_eligible while idle cash remains above target"
+            )
 
     for key, label in [
         ("scanner_new_symbols", "NEW_SCANNER_HIT"),

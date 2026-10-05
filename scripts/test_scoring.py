@@ -170,6 +170,15 @@ class ScoringV2Tests(unittest.TestCase):
         result = scoring.fast_check(positions, live, "2026-10-05", self.config)
         self.assertFalse(any("V2_POSITION_RESCORE_DUE" in r for r in result["reasons"]))
 
+    def test_explicit_deployable_buying_power_is_not_reserve_adjusted_twice(self):
+        live = {
+            "account_value": 7512.55,
+            "deployable_buying_power": 1501.41,
+            "session_allows_entries": True,
+        }
+        status = scoring.idle_cash_status(live, self.config)
+        self.assertEqual(status["deployable_buying_power"], 1501.41)
+
     def test_idle_cash_above_ten_percent_forces_deep_search(self):
         live = {
             "stop_orders_ok": True,

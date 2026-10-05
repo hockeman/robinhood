@@ -433,12 +433,13 @@ def positions_missing_v2(positions, min_value_usd=100.0):
 def idle_cash_status(live, config):
     """Compute whether deployable idle cash requires a deeper search this run."""
     account_value = float(live.get("account_value") or 0.0)
-    raw_bp = live.get("deployable_buying_power")
-    if raw_bp is None:
-        raw_bp = live.get("buying_power")
-    buying_power = float(raw_bp or 0.0)
+    explicit_deployable = live.get("deployable_buying_power")
     reserve = float(config.get("min_cash_reserve_usd", 0.0))
-    deployable = max(0.0, buying_power - reserve)
+    if explicit_deployable is not None:
+        deployable = max(0.0, float(explicit_deployable or 0.0))
+    else:
+        buying_power = float(live.get("buying_power") or 0.0)
+        deployable = max(0.0, buying_power - reserve)
 
     session_allows = live.get("session_allows_entries")
     if session_allows is None:

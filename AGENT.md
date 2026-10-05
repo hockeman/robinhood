@@ -1,3 +1,39 @@
+OWNER DIRECTIVE 2026-10-05 — AGGRESSIVE CATALYST MODE (supersedes anything below that conflicts)
+Source: owner, in direct chat. Objective is FAST, EXPLOSIVE growth of this fun-money account, not slow compounding.
+The agent is self-sufficient: find the hottest setups, buy, and dump on bad news, without asking.
+
+1. Rank candidates by UPSIDE POTENTIAL, not filing-signal strength alone. Prefer small/mid caps ($75M-$6B)
+   with a fresh catalyst and a volume surge. A large, slow, profitable-retailer-type name near its 52-week
+   high (e.g. GME, $12.7B, ~16x PE) is a poor fit; do not park the book in one unless a catalyst justifies it.
+2. A verified primary-source CATALYST may create a trade by itself (relaxes old Step 4d "overlay only"):
+   - Qualifies: 8-K / 6-K / press release (read the actual exhibit, not a headline) for a licensing or
+     partnership deal with large upfront cash vs market cap, positive trial/regulatory data (e.g. FDA approval),
+     major contract/award, buyback, activist 13D, or insider/13D/politician flow.
+   - Does NOT qualify: hype with no filing, merger-arb names pinned to a deal price (e.g. SSTI take-private),
+     IPO names with no price history, sector-wide moves with no company filing, anything with an MNPI smell.
+   - Must still pass the universe gates and earnings blackout.
+3. Every hour, scan the whole market. Preview scan used 2026-10-05: asset type STOCK, market cap 75M-6B,
+   last >= 1.50, 30d avg volume >= 300K, relative volume (1d,30) >= 2.5 (also run a looser >= 1.5 with
+   % change >= 3.5%, and a gap >= 5% variant), % change from close (1d) >= 6%. For every hit, call
+   get_sec_filing_index (8-K / 6-K / Form 4 / 13D), read the filing, then score. No filing and no
+   fundamental reason = reject. Use WebSearch only to find the reason; the filing is the source of record.
+4. Concentration allowed: up to 100% of the book in one name. Fund better ideas by rotating out of the
+   weakest sellable holding. Pyramid winners (>= +4%). Never average down.
+5. Dump on bad news: negative filing or news (offering/dilution, failed trial, deal break, guidance cut,
+   insider-selling cluster, 13D exit) -> SELL (limit at bid, regular hours) rather than wait for the stop,
+   after confirming it is not a same-day lot. Journal the reason.
+6. Day-trade exposure: count every lot bought today as a possible day trade (a stop can fire today). Do not
+   open a new position today if (day trades in last 5 business days + same-day lots held) would exceed
+   day_trade_limit_rolling_5_days + 1. Defer the entry to the next session instead.
+7. UNCHANGED HARD RULES: one Agentic account; equities only; a live stop_market GTC on every position
+   (OCO is SERVICE_DISABLED); review_equity_order before every order and abort on any alert; verify fills
+   by polling; never sell a same-day lot; regular-hours entries; public information only; drawdown breaker;
+   STOP file; honest reporting; PERSISTENCE.md git protocol; email only ACTION_UPDATE / DAILY_CLOSE,
+   max 1 action email per run (unsent events carry to the next run).
+8. OWNER EDIT AUTHORIZATION: when the owner, in an interactive session, explicitly asks the agent to edit
+   AGENT.md, config.json, or other instruction files, the agent may do so on claude/trading-state and must
+   say exactly what changed. Scheduled (unattended) runs must NEVER edit instruction files.
+
 EXPERIMENT MODE — FULL REALLOCATION, WEAKEST-LINK ROTATION, FAST HOURLY PATH
 This account exists to trade. Idle cash while a legal, in-session, in-budget setup exists is a miss.
 Sitting on a stale legacy name while a hotter public setup is available is a miss.

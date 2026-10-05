@@ -89,7 +89,11 @@
   "stop:GME:2026-09-28T18:43:49Z",
   "6ac3ab55-9d6c-4f07-9776-d70c97cd6f0e",
   "6ac3ab63-2a8a-4025-8f2b-3004caeee8f5",
-  "6ac3ab75-ffea-436f-8f95-7a2b642dc363"
+  "6ac3ab75-ffea-436f-8f95-7a2b642dc363",
+  "entry:INTT:2026-10-05T16:07:42Z",
+  "6ac3ac5c-8978-4431-90f9-52bb16709fc1",
+  "6ac3ac68-4c8d-4bef-b3a6-3796b6e163b9",
+  "6ac3ac76-3000-4a69-83c8-8d7c7fb1119a"
  ],
  "critical_issue_fingerprints": {
   "angx-unprotected-lot-never-reported-20260923": {
@@ -465,6 +469,21 @@
    "sent_at": "2026-10-05T13:58:00Z",
    "provider_message_id": "1a10c5656798db57",
    "note": "Gmail send_message returned id; delivery not independently verified"
+  },
+  "action-acct4292-2026-10-05T1610Z": {
+   "report_id": "action-acct4292-2026-10-05T1610Z",
+   "type": "ACTION_UPDATE",
+   "included_event_ids": [
+    "entry:INTT:2026-10-05T16:07:42Z",
+    "6ac3ac5c-8978-4431-90f9-52bb16709fc1",
+    "6ac3ac68-4c8d-4bef-b3a6-3796b6e163b9",
+    "6ac3ac76-3000-4a69-83c8-8d7c7fb1119a"
+   ],
+   "recipient": "ferrell@chacetech.com",
+   "status": "sent",
+   "sent_at": "2026-10-05T16:10:00Z",
+   "provider": "gmail",
+   "provider_message_id": "1a10cd289ddf8812"
   }
  },
  "daily_summaries": {

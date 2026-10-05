@@ -1,5 +1,5 @@
 {
- "last_run": "2026-10-05T14:00:00Z",
+ "last_run": "2026-10-05T14:20:00Z",
  "canonical_branch": "claude/trading-state",
  "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
  "peak_account_value": 7954.86462317,
@@ -831,6 +831,10 @@
   {
    "ts": "2026-10-05T14:00:00Z",
    "value": 7623.97
+  },
+  {
+   "ts": "2026-10-05T14:15:00Z",
+   "value": 7392.84
   }
  ],
  "positions": {
@@ -1326,6 +1330,36 @@
    "ADC": {
     "score": 6,
     "note": "carried; cash exhausted"
+   }
+  },
+  "2026-10-05T1415Z": {
+   "STNE": {
+    "decision": "rejected",
+    "notes": "+25% sector-wide Brazil fintech move (PAGS/INTR same), no company filing"
+   },
+   "PAGS": {
+    "decision": "rejected",
+    "notes": "sector move, no filing"
+   },
+   "INTR": {
+    "decision": "rejected",
+    "notes": "sector move, no filing"
+   },
+   "ACB": {
+    "decision": "rejected",
+    "notes": "+16% cannabis sector move, no filings since 9/28"
+   },
+   "ALVO": {
+    "decision": "rejected",
+    "notes": "+16%, no filings since 9/28; recently rotated out"
+   },
+   "AZUL": {
+    "decision": "rejected",
+    "notes": "thin volume 125k"
+   },
+   "ONEN": {
+    "decision": "rejected",
+    "notes": "unchanged: no filings"
    }
   }
  },

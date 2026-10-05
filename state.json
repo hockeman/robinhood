@@ -1,1713 +1,1737 @@
 {
- "last_run": "2026-10-05T16:10:00Z",
- "canonical_branch": "claude/trading-state",
- "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
- "peak_account_value": 7954.86462317,
- "account_value_history": [
-  {
-   "ts": "2026-09-18T22:16:00Z",
-   "value": 7390.56261755
-  },
-  {
-   "ts": "2026-09-18T23:14:00Z",
-   "value": 7449.72327194
-  },
-  {
-   "ts": "2026-09-19T00:13:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-19T01:15:45Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-19T02:13:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-19T03:14:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-19T04:14:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-19T05:13:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-19T06:15:47Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-19T07:20:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-19T08:12:46Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-19T09:15:20Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-19T10:14:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-19T12:14:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-19T13:20:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-19T14:15:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-19T15:14:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-19T16:14:33Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-19T17:18:00Z",
-   "value": 7435.69
-  },
-  {
-   "ts": "2026-09-19T18:14:35Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-19T19:20:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-19T20:14:15Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-19T21:15:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-19T22:14:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-19T23:14:22Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-20T00:13:48Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-20T02:14:21Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-20T03:14:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-20T04:14:43Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-20T05:14:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-20T06:15:04Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-20T07:16:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-20T08:15:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-20T09:14:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-20T10:14:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-20T11:13:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-20T12:20:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-20T13:20:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-20T14:15:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-20T15:14:19Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-20T16:20:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-20T17:16:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-20T18:15:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-20T19:20:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-20T20:13:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-20T21:14:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-20T22:13:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-20T23:13:00Z",
-   "value": 7435.688271375
-  },
-  {
-   "ts": "2026-09-21T00:20:00Z",
-   "value": 7438.81386684
-  },
-  {
-   "ts": "2026-09-21T01:14:00Z",
-   "value": 7459.74148724
-  },
-  {
-   "ts": "2026-09-21T02:16:00Z",
-   "value": 7414.89023795
-  },
-  {
-   "ts": "2026-09-21T03:14:47Z",
-   "value": 7402.89166571
-  },
-  {
-   "ts": "2026-09-21T05:15:14Z",
-   "value": 7406.10845325
-  },
-  {
-   "ts": "2026-09-21T06:20:00Z",
-   "value": 7439.9235099
-  },
-  {
-   "ts": "2026-09-21T07:18:46Z",
-   "value": 7450.04487817
-  },
-  {
-   "ts": "2026-09-21T08:14:34Z",
-   "value": 7440.9760078851
-  },
-  {
-   "ts": "2026-09-21T09:13:00Z",
-   "value": 7664.072915
-  },
-  {
-   "ts": "2026-09-21T10:14:05Z",
-   "value": 7646.95565154
-  },
-  {
-   "ts": "2026-09-21T11:16:01Z",
-   "value": 7599.3261911143
-  },
-  {
-   "ts": "2026-09-21T12:16:00Z",
-   "value": 7682.69273737
-  },
-  {
-   "ts": "2026-09-21T13:17:00Z",
-   "value": 7727.2372613663
-  },
-  {
-   "ts": "2026-09-21T13:32:00Z",
-   "value": 7634.3731558
-  },
-  {
-   "ts": "2026-09-21T14:14:01Z",
-   "value": 7610.84999147
-  },
-  {
-   "ts": "2026-09-21T14:16:00Z",
-   "value": 7611.770122348
-  },
-  {
-   "ts": "2026-09-21T15:14:00Z",
-   "value": 7726.58630025
-  },
-  {
-   "ts": "2026-09-21T16:14:00Z",
-   "value": 7718.967337065
-  },
-  {
-   "ts": "2026-09-21T17:13:00Z",
-   "value": 7696.182500235
-  },
-  {
-   "ts": "2026-09-21T18:14:00Z",
-   "value": 7691.939839905
-  },
-  {
-   "ts": "2026-09-21T19:13:00Z",
-   "value": 7707.034610435
-  },
-  {
-   "ts": "2026-09-21T20:17:00Z",
-   "value": 7842.46462885
-  },
-  {
-   "ts": "2026-09-21T21:14:00Z",
-   "value": 7804.18740477
-  },
-  {
-   "ts": "2026-09-21T22:13:00Z",
-   "value": 7806.09275661
-  },
-  {
-   "ts": "2026-09-22T00:13:00Z",
-   "value": 7803.03498579
-  },
-  {
-   "ts": "2026-09-22T01:13:00Z",
-   "value": 7706.66456936
-  },
-  {
-   "ts": "2026-09-22T02:14:00Z",
-   "value": 7686.14468834
-  },
-  {
-   "ts": "2026-09-22T03:13:00Z",
-   "value": 7699.71415293
-  },
-  {
-   "ts": "2026-09-22T04:13:00Z",
-   "value": 7696.03564018
-  },
-  {
-   "ts": "2026-09-22T05:13:00Z",
-   "value": 7682.83623508
-  },
-  {
-   "ts": "2026-09-22T06:14:00Z",
-   "value": 7669.95974499
-  },
-  {
-   "ts": "2026-09-22T07:13:00Z",
-   "value": 7693.45045887
-  },
-  {
-   "ts": "2026-09-22T08:13:00Z",
-   "value": 7674.90182714
-  },
-  {
-   "ts": "2026-09-22T09:13:00Z",
-   "value": 7727.0202458958
-  },
-  {
-   "ts": "2026-09-22T10:14:00Z",
-   "value": 7735.6083820741
-  },
-  {
-   "ts": "2026-09-22T11:14:00Z",
-   "value": 7736.43743111
-  },
-  {
-   "ts": "2026-09-22T12:14:00Z",
-   "value": 7785.44516765
-  },
-  {
-   "ts": "2026-09-22T13:11:00Z",
-   "value": 7809.45379031
-  },
-  {
-   "ts": "2026-09-22T13:16:00Z",
-   "value": 7796.88277898
-  },
-  {
-   "ts": "2026-09-22T14:14:00Z",
-   "value": 7825.2298906
-  },
-  {
-   "ts": "2026-09-22T14:28:00Z",
-   "value": 7808.9824117802
-  },
-  {
-   "ts": "2026-09-22T14:41:00Z",
-   "value": 7769.65129173
-  },
-  {
-   "ts": "2026-09-22T15:14:00Z",
-   "value": 7779.26936649
-  },
-  {
-   "ts": "2026-09-22T16:14:00Z",
-   "value": 7783.14017159
-  },
-  {
-   "ts": "2026-09-22T17:13:00Z",
-   "value": 7846.04866565
-  },
-  {
-   "ts": "2026-09-22T18:14:00Z",
-   "value": 7840.65509625
-  },
-  {
-   "ts": "2026-09-22T19:14:00Z",
-   "value": 7845.49426623
-  },
-  {
-   "ts": "2026-09-22T20:14:00Z",
-   "value": 7814.4185549
-  },
-  {
-   "ts": "2026-09-22T21:13:00Z",
-   "value": 7823.13260051
-  },
-  {
-   "ts": "2026-09-22T22:14:00Z",
-   "value": 7815.89485745
-  },
-  {
-   "ts": "2026-09-22T23:14:00Z",
-   "value": 7819.5720651
-  },
-  {
-   "ts": "2026-09-23T00:13:00Z",
-   "value": 7854.18164867
-  },
-  {
-   "ts": "2026-09-23T01:14:00Z",
-   "value": 7892.06170816
-  },
-  {
-   "ts": "2026-09-23T02:14:00Z",
-   "value": 7858.26426623
-  },
-  {
-   "ts": "2026-09-23T03:14:00Z",
-   "value": 7867.92390929
-  },
-  {
-   "ts": "2026-09-23T04:14:00Z",
-   "value": 7908.86551552
-  },
-  {
-   "ts": "2026-09-23T05:14:00Z",
-   "value": 7954.86462317
-  },
-  {
-   "ts": "2026-09-23T06:14:00Z",
-   "value": 7915.53605093
-  },
-  {
-   "ts": "2026-09-23T07:15:00Z",
-   "value": 7900.89587246
-  },
-  {
-   "ts": "2026-09-23T08:14:00Z",
-   "value": 7888.90670532
-  },
-  {
-   "ts": "2026-09-23T09:14:00Z",
-   "value": 7870.8744447
-  },
-  {
-   "ts": "2026-09-23T10:14:00Z",
-   "value": 7827.1438498
-  },
-  {
-   "ts": "2026-09-23T11:14:00Z",
-   "value": 7846.38557501
-  },
-  {
-   "ts": "2026-09-23T12:14:00Z",
-   "value": 7794.22693195
-  },
-  {
-   "ts": "2026-09-23T12:51:00Z",
-   "value": 7800.38732401
-  },
-  {
-   "ts": "2026-09-23T13:10:00Z",
-   "value": 7786.82612853
-  },
-  {
-   "ts": "2026-09-23T13:16:00Z",
-   "value": 7807.064290289
-  },
-  {
-   "ts": "2026-09-23T14:20:00Z",
-   "value": 7596.74511045
-  },
-  {
-   "ts": "2026-09-23T14:36:00Z",
-   "value": 7608.056448975
-  },
-  {
-   "ts": "2026-09-23T15:16:43Z",
-   "value": 7603.093926035
-  },
-  {
-   "ts": "2026-09-23T17:17:00Z",
-   "value": 7572.035840625
-  },
-  {
-   "ts": "2026-09-23T18:18:40Z",
-   "value": 7555.7605626926
-  },
-  {
-   "ts": "2026-09-23T19:16:00Z",
-   "value": 7585.6395473184
-  },
-  {
-   "ts": "2026-09-23T20:16:00Z",
-   "value": 7553.31119424
-  },
-  {
-   "ts": "2026-09-23T21:17:00Z",
-   "value": 7574.0422091484
-  },
-  {
-   "ts": "2026-09-23T22:14:00Z",
-   "value": 7598.56732725
-  },
-  {
-   "ts": "2026-09-23T23:15:00Z",
-   "value": 7590.75929977
-  },
-  {
-   "ts": "2026-09-24T00:13:00Z",
-   "value": 7575.20288787
-  },
-  {
-   "ts": "2026-09-24T05:16:00Z",
-   "value": 7572.94098419
-  },
-  {
-   "ts": "2026-09-24T06:15:00Z",
-   "value": 7552.47068674
-  },
-  {
-   "ts": "2026-09-24T07:14:00Z",
-   "value": 7535.19009184
-  },
-  {
-   "ts": "2026-09-24T09:15:00Z",
-   "value": 7486.02890204
-  },
-  {
-   "ts": "2026-09-24T10:16:00Z",
-   "value": 7513.20742725
-  },
-  {
-   "ts": "2026-09-24T11:15:00Z",
-   "value": 7506.66401818
-  },
-  {
-   "ts": "2026-09-24T12:14:00Z",
-   "value": 7499.699104874
-  },
-  {
-   "ts": "2026-09-24T13:15:00Z",
-   "value": 7527.63409581
-  },
-  {
-   "ts": "2026-09-24T14:18:54Z",
-   "value": 7593.43825672
-  },
-  {
-   "ts": "2026-09-24T15:14:43Z",
-   "value": 7527.384152105
-  },
-  {
-   "ts": "2026-09-24T16:17:34Z",
-   "value": 7558.805288835
-  },
-  {
-   "ts": "2026-09-24T17:17:19Z",
-   "value": 7544.9844572101
-  },
-  {
-   "ts": "2026-09-25T08:04:00Z",
-   "value": 7566.29780106
-  },
-  {
-   "ts": "2026-09-25T09:18:00Z",
-   "value": 7607.87217953
-  },
-  {
-   "ts": "2026-09-25T10:17:00Z",
-   "value": 7575.642358
-  },
-  {
-   "ts": "2026-09-25T11:18:00Z",
-   "value": 7613.87527301
-  },
-  {
-   "ts": "2026-09-25T12:18:00Z",
-   "value": 7571.47449964
-  },
-  {
-   "ts": "2026-09-25T13:16:00Z",
-   "value": 7620.00158463
-  },
-  {
-   "ts": "2026-09-25T14:26:00Z",
-   "value": 7384.34484744
-  },
-  {
-   "ts": "2026-09-25T15:24:00Z",
-   "value": 7450.88390974
-  },
-  {
-   "ts": "2026-09-25T16:25:00Z",
-   "value": 7394.6953918136
-  },
-  {
-   "ts": "2026-09-25T17:20:00Z",
-   "value": 7372.308256685
-  },
-  {
-   "ts": "2026-09-28T08:20:00Z",
-   "value": 7274.81330215
-  },
-  {
-   "ts": "2026-09-28T09:17:00Z",
-   "value": 7257.3331284392
-  },
-  {
-   "ts": "2026-09-28T10:17:00Z",
-   "value": 7258.86223133
-  },
-  {
-   "ts": "2026-09-28T11:17:00Z",
-   "value": 7289.11806703
-  },
-  {
-   "ts": "2026-09-28T12:15:00Z",
-   "value": 7325.6445823244
-  },
-  {
-   "ts": "2026-09-28T13:17:00Z",
-   "value": 7334.5451712754
-  },
-  {
-   "ts": "2026-09-28T14:23:00Z",
-   "value": 7332.97669135
-  },
-  {
-   "ts": "2026-09-28T15:19:00Z",
-   "value": 7263.5185936422
-  },
-  {
-   "ts": "2026-09-28T16:18:00Z",
-   "value": 7326.13001642
-  },
-  {
-   "ts": "2026-09-28T17:19:00Z",
-   "value": 7399.98515673
-  },
-  {
-   "ts": "2026-09-28T18:44:00Z",
-   "value": 7351.72
-  },
-  {
-   "ts": "2026-09-28T18:53:00Z",
-   "value": 7356.4
-  },
-  {
-   "ts": "2026-09-29T08:15:00Z",
-   "value": 7391.5060299
-  },
-  {
-   "ts": "2026-09-29T09:15:00Z",
-   "value": 7401.15916899
-  },
-  {
-   "ts": "2026-09-29T10:15:00Z",
-   "value": 7395.68808047
-  },
-  {
-   "ts": "2026-09-29T11:15:00Z",
-   "value": 7366.20695016
-  },
-  {
-   "ts": "2026-09-29T12:15:00Z",
-   "value": 7346.8923304042
-  },
-  {
-   "ts": "2026-09-29T13:20:00Z",
-   "value": 7342.54
-  },
-  {
-   "ts": "2026-09-29T15:14:00Z",
-   "value": 7289.3188
-  },
-  {
-   "ts": "2026-09-29T16:15:00Z",
-   "value": 7285.020961492
-  },
-  {
-   "ts": "2026-09-29T17:15:00Z",
-   "value": 7261.937943
-  },
-  {
-   "ts": "2026-09-30T08:20:00Z",
-   "value": 7363.54
-  },
-  {
-   "ts": "2026-09-30T09:20:00Z",
-   "value": 7354.10884117
-  },
-  {
-   "ts": "2026-09-30T10:20:00Z",
-   "value": 7366.53798975
-  },
-  {
-   "ts": "2026-09-30T11:15:00Z",
-   "value": 7369.5147178
-  },
-  {
-   "ts": "2026-09-30T12:15:00Z",
-   "value": 7380.55185279
-  },
-  {
-   "ts": "2026-09-30T13:16:00Z",
-   "value": 7385.47524372
-  },
-  {
-   "ts": "2026-09-30T14:15:00Z",
-   "value": 7443.7192957713
-  },
-  {
-   "ts": "2026-09-30T15:15:00Z",
-   "value": 7468.00347446
-  },
-  {
-   "ts": "2026-09-30T16:15:00Z",
-   "value": 7466.0352156
-  },
-  {
-   "ts": "2026-09-30T17:14:00Z",
-   "value": 7469.246271565
-  },
-  {
-   "ts": "2026-10-01T08:25:00Z",
-   "value": 7414.36829073
-  },
-  {
-   "ts": "2026-10-01T09:15:00Z",
-   "value": 7416.36855616
-  },
-  {
-   "ts": "2026-10-01T10:14:00Z",
-   "value": 7460.28358534
-  },
-  {
-   "ts": "2026-10-01T11:16:00Z",
-   "value": 7447.12042798
-  },
-  {
-   "ts": "2026-10-01T12:16:00Z",
-   "value": 7454.16712288
-  },
-  {
-   "ts": "2026-10-01T13:17:00Z",
-   "value": 7385.866803903
-  },
-  {
-   "ts": "2026-10-01T14:17:00Z",
-   "value": 7466.80783192
-  },
-  {
-   "ts": "2026-10-01T15:15:00Z",
-   "value": 7425.27564388
-  },
-  {
-   "ts": "2026-10-01T16:20:00Z",
-   "value": 7453.11369
-  },
-  {
-   "ts": "2026-10-01T17:15:00Z",
-   "value": 7455.343812046
-  },
-  {
-   "ts": "2026-10-02T08:20:00Z",
-   "value": 7424.37
-  },
-  {
-   "ts": "2026-10-02T09:20:00Z",
-   "value": 7433.91905157
-  },
-  {
-   "ts": "2026-10-02T10:15:00Z",
-   "value": 7413.95482778
-  },
-  {
-   "ts": "2026-10-02T11:15:00Z",
-   "value": 7408.2846264438
-  },
-  {
-   "ts": "2026-10-02T12:20:00Z",
-   "value": 7404.36694151
-  },
-  {
-   "ts": "2026-10-02T13:20:00Z",
-   "value": 7417.91845483
-  },
-  {
-   "ts": "2026-10-02T14:15:00Z",
-   "value": 7402.617010035
-  },
-  {
-   "ts": "2026-10-02T15:15:00Z",
-   "value": 7439.183733269
-  },
-  {
-   "ts": "2026-10-02T16:20:00Z",
-   "value": 7479.53597852
-  },
-  {
-   "ts": "2026-10-02T17:15:00Z",
-   "value": 7515.47
-  },
-  {
-   "ts": "2026-10-05T08:15:00Z",
-   "value": 7571.08394104
-  },
-  {
-   "ts": "2026-10-05T09:35:00Z",
-   "value": 7593.06435747
-  },
-  {
-   "ts": "2026-10-05T10:15:00Z",
-   "value": 7579.81269175
-  },
-  {
-   "ts": "2026-10-05T11:15:00Z",
-   "value": 7598.6917549723
-  },
-  {
-   "ts": "2026-10-05T12:15:00Z",
-   "value": 7595.35386299
-  },
-  {
-   "ts": "2026-10-05T13:15:00Z",
-   "value": 7633.8676675414
-  },
-  {
-   "ts": "2026-10-05T13:55:00Z",
-   "value": 7605.56
-  },
-  {
-   "ts": "2026-10-05T14:00:00Z",
-   "value": 7623.97
-  },
-  {
-   "ts": "2026-10-05T14:15:00Z",
-   "value": 7392.84
-  },
-  {
-   "ts": "2026-10-05T14:30:00Z",
-   "value": 7433.24
-  },
-  {
-   "ts": "2026-10-05T15:00:00Z",
-   "value": 7512.54548224
-  },
-  {
-   "ts": "2026-10-05T15:13:00Z",
-   "value": 7556.18798531
-  },
-  {
-   "ts": "2026-10-05T15:20:00Z",
-   "value": 7559.79245469
-  },
-  {
-   "ts": "2026-10-05T15:45:00Z",
-   "value": 7509.85978041
-  },
-  {
-   "ts": "2026-10-05T16:10:00Z",
-   "value": 7455.57
-  }
- ],
- "positions": {
-  "DUOT": {
-   "entry_price": 9.4299,
-   "entry_date": "2026-09-24",
-   "qty": 207,
-   "high_since_entry": 9.58,
-   "stop_price": 7.54,
-   "protective_order_id": "6ab55b1f-2cd5-4cdd-92fd-62acfd2445c9",
-   "protective_order_type": "stop_market",
-   "signal": "insider_cluster (rotation entry)",
-   "score": 10,
-   "sources": [
-    "openinsider_latest_cluster_buys",
-    "sec_edgar_form4_direct_read",
-    "sec_edgar_full_text_search"
-   ],
-   "pyramids_done": 0,
-   "thesis": "Insider cluster at Duos Technologies Group: CEO Frank Douglas Recker bought $84.5k (brand-new stake) on 2026-09-22, filed 2026-09-23; Director James Craig Nixon bought $49.3k on 2026-09-18, filed 2026-09-23 -- both verified via direct Form 4 XML read from sec.gov in the prior run's candidates_seen (2026-09-23T2214Z), not re-derived from OpenInsider's summary alone. Score 10: +3 (CEO open-market buy > $25k), +2 (other-officer/director buy), +3 (two distinct insiders within a 4-day trade-date window, well inside the 7-day cluster bonus), +1 (>=5% ownership increase, brand-new CEO stake), +1 (filing lag <=5 days). No penalties: chase from the $8.91 signal price (most recent qualifying print, 2026-09-22 trade) to this entry's $9.45 marketable-limit ask was +6.06%, well under the 80% cap; RSI(14)=50.7 (neutral, re-checked fresh this run); price 106.9% of the 20-day SMA ($8.83) -- not blow-off (would need RSI>85 AND >125% of SMA). Universe re-verified fresh this run: market cap $296.8M, 30-day avg volume 735,653 sh, financial_status_description empty (no deficiency/delinquency/bankruptcy), tradable, next earnings 2026-11-11 (far outside blackout, not day-of). REJECTED last session (2026-09-23T2214Z) solely for bid/ask spread (5.07%, above the 4.0% max) -- re-checked fresh this run and spread had tightened to ~0.74% ($9.38/$9.45), clearing the one blocker; every other gate was already verified and unchanged. This was a ROTATION entry: buying power was $0.00 (fully invested, 5 open positions already at/above max_open_positions=3) going into this run. Score 10 clears the established rotation bar (best currently-held score was BORR at 7, + rotation_min_score_advantage 2 = 9; 10 >= 9), so per the owner's live full-reallocation authorization (2026-09-23, see anomaly rotation-authorized-live-20260923) this justified rotating out the worst-ranked held position even though neither remaining legacy holding was down today. Ranked MSTR and DSP (both legacy/score-0, i.e. lowest-tier per 'lowest score/legacy, then largest unrealized loss') as the two rotation candidates; sold DSP (smaller unrealized gain, +4.5% from entry, vs MSTR's +7.8%) to preserve more of the stronger-performing legacy runner per the Section 2 'let runners run' preference among ties. Cancelled DSP's protective stop (order 6ab441c7-..., confirmed cancelled) before selling; sold 161 sh via marketable limit at $12.22, filled in full at avg $12.2201 (realized gain +$83.66, not a loss -- entry 2026-09-18, exit 2026-09-24, not a day trade). Proceeds ($1,967.36 buying power, immediately spendable on this limited-margin account) funded this entry: budget = min(100% sizing tier per score>=score_tier_high, 100% max_position_pct, $1,967.36 - $10 min_cash_reserve) = $1,957.36, capped by available cash. Bought 207 sh at $9.45 marketable limit, filled in full at avg $9.4299. Advanced/OCO orders remain SERVICE_DISABLED on this account (standing constraint) -- protected immediately with a plain stop_market sell at $7.54 (20% initial stop per config.json, the currently-authoritative parameter source per the 2026-09-23t2117z anomaly resolution), verified confirmed same run.",
-   "score_signal_class": "durable",
-   "score_date": "2026-09-24",
-   "same_day": false,
-   "value_usd_asof_backfill": 1875.42,
-   "signal_quality_score": 7,
-   "catalyst_magnitude_score": 4,
-   "volume_price_discovery_score": 2,
-   "structure_squeeze_score": 3,
-   "explosive_upside_score": 3.2,
-   "remaining_upside_score": 3.0,
-   "dilution_risk_score": 2,
-   "exhaustion_risk_score": 2,
-   "opportunity_score": 2.89,
-   "opportunity_class": "durable",
-   "opportunity_score_date": "2026-10-05",
-   "target_50_assessment": "implausible",
-   "target_100_assessment": "implausible",
-   "transformational": false,
-   "continuation_confirmed": false
-  },
-  "ANGX": {
-   "entry_price": 4.8499,
-   "entry_date": "2026-09-23",
-   "qty": 4.329986,
-   "high_since_entry": 4.8499,
-   "stop_price": null,
-   "protective_order_id": null,
-   "protective_order_type": "none_fractional_lot_infeasible",
-   "signal": "insider_director (single insider, not a cluster)",
-   "score": 4,
-   "sources": [
-    "openinsider_cluster_buys (claim of 3-insider cluster NOT corroborated)",
-    "sec_edgar_full_text_search",
-    "sec_edgar_form4_direct_read"
-   ],
-   "pyramids_done": 0,
-   "thesis": "Owner explicitly requested a small speculative 'penny stock' buy with the $21.00 remaining buying power, after I twice declined a blind hype-driven buy (crypto is hard-blocked; a pure unverified momentum pick has no basis in this strategy). Compromise: ran the actual verification process on a cheap, high-beta name instead of picking blind. OpenInsider's latest-cluster-buys page listed ANGX (Angel Studios, Inc.) with an 'Ins' count of 3 and +337% \u0394Own. Independently checked via SEC EDGAR full-text search (efts.sec.gov) and by reading the actual Form 4 XML directly from sec.gov -- this did NOT corroborate a 3-distinct-insider cluster: all 3 filings (2026-09-03, 2026-09-11, 2026-09-14) are the same person, Steven I. Sarowitz, a confirmed Director (reportingOwnerRelationship isDirector=1). His 2026-09-11 purchase: 88,647 sh @ $5.3313 (~$472,624), raising his post-transaction stake to 1,329,488 sh (a ~7.1% increase over his prior holding). Scored as a single-insider director buy, not a cluster: +2 (director open-market buy > $25k threshold), +1 (\u0394Own >= 5%), +1 (trade date 2026-09-11 is within 5 days of the 2026-09-14 filing date) = 4, clearing min_signal_score (2). No penalties: current entry price ($4.8499) is actually BELOW all three of the insider's own purchase prices ($5.10-$5.33), so this is not a chase -- if anything a discount to the insider's own cost basis. RSI(14)=55.5 (neutral), price ~99.7% of 20-day SMA (no wreckage, no blow-off). Universe: market cap $904.8M (real small-cap, not a shell/OTC microcap), 30-day avg volume 1.87M shares, tradable, financial_status_description empty, next earnings 2026-11-12 (not same-day, outside blackout). Sized at the user's explicit instruction to use the full $21.00 buying power for this one trade (overriding both min_position_usd=$100 and min_cash_reserve_usd=$10 for this single instance only -- not a standing config change). Bought via dollar-based fractional market order (type=market required for dollar_amount, regular_hours) since $21 does not buy a whole share at ~$4.85. Filled in full: 4.329986 sh @ avg $4.8499. NOT PROTECTED: flagged to the owner before placing that a stop order is not practically placeable on a fractional lot this small, same known limitation as the existing unmanaged AAPL fractional lot -- this position carries real, unmitigated downside risk with no stop, by explicit owner acceptance of that tradeoff for a token-sized speculative position. Re-verified 2026-09-23 17:17 UTC run: attempted stop_market sell (both gtc and gfd time_in_force) via review+place -- review showed no alerts either time, but place_equity_order rejected both attempts (\"Invalid time in force for fractional order\" then \"Invalid trigger for fractional order\"), confirming this is a hard broker restriction on stop-triggered orders for fractional-quantity lots, not a placement error. No order was left in an ambiguous state -- both attempts were clean 400 rejections before order creation, verified via the error response, not assumed. Position remains unprotected by broker order; carrying the same owner-accepted risk as recorded at entry. Cannot be exited today either (bought same-day, PDT same-day-sell rule).",
-   "score_signal_class": "durable",
-   "score_date": "2026-09-23",
-   "same_day": false,
-   "value_usd_asof_backfill": 20.33
-  },
-  "GME": {
-   "entry_price": 25.1799,
-   "entry_date": "2026-10-05",
-   "qty": 70,
-   "high_since_entry": 25.18,
-   "stop_price": 20.14,
-   "protective_order_id": "6ac3ab75-ffea-436f-8f95-7a2b642dc363",
-   "protective_order_type": "stop_market",
-   "signal": "insider_cluster (rotation entry)",
-   "score": 10,
-   "score_signal_class": "durable",
-   "score_date": "2026-09-28",
-   "sources": [
-    "form4_cohen_2026-10-02",
-    "sec_13d_a_cohen_2026-10-02",
-    "earnings_beat",
-    "openinsider_cluster_buys",
-    "sec_edgar_form4"
-   ],
-   "pyramids_done": 0,
-   "same_day": true,
-   "thesis": "CEO/Chairman Ryan Cohen open-market buys ($26.39M 9/21, $20.38M 9/10) in a multi-filer cluster plus Q2 EPS beat ($0.27 vs $0.06). Rotation replaced legacy MSTR (score 0). Pyramided 70sh @25.18 on 2026-10-05: Cohen 13D/A Amdt 20 (10/2, 8.9%, 45.4M sh) + $17.1M open-market buy 10/2 + $10.6M 9/29; RSI 67.6.",
-   "protective_note": "70sh lot bought 2026-10-05 (same-day lot, not sellable today); older 157 sold in ALEC rotation",
-   "signal_quality_score": 7,
-   "catalyst_magnitude_score": 4,
-   "volume_price_discovery_score": 4,
-   "structure_squeeze_score": 4,
-   "explosive_upside_score": 4.0,
-   "remaining_upside_score": 3.0,
-   "dilution_risk_score": 1,
-   "exhaustion_risk_score": 2,
-   "opportunity_score": 3.5,
-   "opportunity_class": "durable",
-   "opportunity_score_date": "2026-10-05",
-   "target_50_assessment": "implausible",
-   "target_100_assessment": "implausible",
-   "transformational": false,
-   "continuation_confirmed": false
-  },
-  "ALEC": {
-   "entry_price": 2.3899,
-   "entry_date": "2026-10-05",
-   "qty": 1030,
-   "high_since_entry": 2.4,
-   "stop_price": 1.91,
-   "protective_order_id": "6ac3ac76-3000-4a69-83c8-8d7c7fb1119a",
-   "protective_order_type": "stop_market",
-   "signal": "8-K catalyst (owner-directed momentum)",
-   "score": 3,
-   "score_signal_class": "momentum",
-   "score_date": "2026-10-05",
-   "sources": [
-    "sec_8k_2026-10-05",
-    "sec_ex99_genentech_license"
-   ],
-   "pyramids_done": 0,
-   "thesis": "Alector 8-K 10/5: exclusive Genentech/Roche license for AL050 (Parkinson's GCase ERT), $100M upfront + up to $1.17B milestones + royalties vs ~$200-265M mkt cap. Stock +31% on 52x volume, faded from 2.72 open. Owner-directed aggressive catalyst entry (8-K alone, no insider print: exception to 4d by owner instruction).",
-   "signal_quality_score": 9,
-   "catalyst_magnitude_score": 8,
-   "volume_price_discovery_score": 9,
-   "structure_squeeze_score": 3,
-   "explosive_upside_score": 7.3,
-   "remaining_upside_score": 4.5,
-   "dilution_risk_score": 3,
-   "exhaustion_risk_score": 4,
-   "opportunity_score": 5.085,
-   "opportunity_class": "transformational",
-   "opportunity_score_date": "2026-10-05",
-   "target_50_assessment": "implausible",
-   "target_100_assessment": "implausible",
-   "transformational": true,
-   "continuation_confirmed": true
-  },
-  "INTT": {
-   "entry_price": 14.75,
-   "entry_date": "2026-10-05",
-   "qty": 75,
-   "high_since_entry": 14.8,
-   "stop_price": 12.54,
-   "protective_order_id": "6ac3cb57-6e78-44ad-a0b0-80712cba9ba6",
-   "protective_order_type": "stop_market",
-   "signal": "8-K/PR Q3 prelim: record orders $48-50M, revenue high end of $33-35M, backlog $58-60M (tactical cash deployment)",
-   "entry_order_id": "6ac3cb4e-5245-41e9-8373-c331186bb8c4",
-   "session": "regular_hours",
-   "signal_quality_score": 8,
-   "catalyst_magnitude_score": 6,
-   "volume_price_discovery_score": 6,
-   "structure_squeeze_score": 3,
-   "explosive_upside_score": 5.4,
-   "remaining_upside_score": 5,
-   "dilution_risk_score": 1,
-   "exhaustion_risk_score": 2,
-   "opportunity_score": 5.08,
-   "opportunity_class": "durable",
-   "opportunity_score_date": "2026-10-05",
-   "target_50_assessment": "possible",
-   "target_100_assessment": "implausible",
-   "transformational": false,
-   "continuation_confirmed": true,
-   "catalyst_tier": "A",
-   "tactical_cash_deployment": true,
-   "primary_sources": [
-    "https://www.stocktitan.net/news/INTT/in-test-expects-record-orders-for-q3-2026-and-revenue-at-high-end-of-zz6vflf9euf6.html"
-   ],
-   "pyramids_done": 0,
-   "thesis": "Preannounced record back-end semi orders (book-to-bill >1.3), AI data-center driven; small cap $139M, up ~20% from 12.30 close, RVOL ~2; full results 11/6. Rotation source: none (idle cash)."
-  }
- },
- "closed": [
-  {
-   "symbol": "DSP",
-   "entry_price": 11.7,
-   "entry_date": "2026-09-18",
-   "exit_price": 12.2201,
-   "exit_date": "2026-09-24",
-   "qty": 161,
-   "exit_reason": "rotation_exit",
-   "protective_order_id": null,
-   "realized_pnl_usd": 83.66,
-   "day_trade": false,
-   "notes": "Deliberate rotation sale under the owner's 2026-09-23 full-reallocation authorization (see anomaly rotation-authorized-live-20260923), not a stop/target fill. Funded a fresh DUOT entry (score 10, insider cluster, cleared the rotation bar of best-held-score+2=9). Ranked worst-tier among held positions (legacy/score-0, tied with MSTR) and selected over MSTR because it had the smaller unrealized gain (+4.5% vs MSTR's +7.8%), preserving more of the stronger-performing legacy runner per the 'let runners run' preference. Cancelled its existing protective stop (6ab441c7-...) first (confirmed cancelled), then sold 161 sh via marketable limit at $12.22, filled in full at avg $12.2201, fee $0.08. Entry 2026-09-18, exit 2026-09-24 -- 6 calendar days held, not a day trade. Realized a gain, not a loss."
-  },
-  {
-   "symbol": "ALVO",
-   "entry_price": 5.94,
-   "entry_date": "2026-09-18",
-   "exit_price": 5.7504,
-   "exit_date": "2026-09-23",
-   "qty": 300,
-   "exit_reason": "rotation_exit",
-   "protective_order_id": null,
-   "realized_pnl_usd": -56.98,
-   "day_trade": false,
-   "notes": "Not a stop/target fill -- a deliberate rotation sale under AGENT.md's 2026-09-23 full-reallocation authorization (owner confirmed live in chat same day). Ranked worst among held legacy positions per the rotation rule (lowest score/legacy, then largest unrealized loss): MSTR and DSP were both up on the day, ALVO was the only legacy holding down (-3.2%) at decision time. Cancelled its existing protective stop-limit (6aad6bf8-...) first (confirmed cancelled), then sold 300 sh via marketable limit at $5.74, filled in full at avg $5.7504, fee $0.10. Proceeds funded the same-run SBLK entry. Entry 2026-09-18, exit 2026-09-23 -- 5 calendar days held, not a day trade."
-  },
-  {
-   "symbol": "UROY",
-   "entry_price": 4.5299,
-   "entry_date": "2026-09-18",
-   "exit_price": 4.28,
-   "exit_date": "2026-09-21",
-   "qty": 33,
-   "exit_reason": "automatic_stop_market_fill",
-   "protective_order_id": "6aad8872-c211-45cc-88d8-f8fff1f471a1",
-   "realized_pnl_usd": -8.2467,
-   "day_trade": false,
-   "notes": "Protective stop (raised from initial stop via broker-side trigger at $4.28) filled automatically at 2026-09-21T14:08:43Z per get_equity_orders execution records (2 executions, 1 sh + 32 sh, both at $4.28). Position was opened 2026-09-18 and closed 2026-09-21 (3 calendar days held) -- not a same-day round trip, so no day trade recorded. Discovered by this run via Step 1 reconciliation (position present in state.json but absent from live get_equity_positions)."
-  },
-  {
-   "symbol": "BORR",
-   "entry_price": 4.4685,
-   "entry_date": "2026-09-21",
-   "exit_price": 4.11,
-   "exit_date": "2026-09-25",
-   "qty": 26,
-   "exit_reason": "stop_loss",
-   "protective_order_id": "6ab13b9c-0bd2-4a33-92e3-34e9d86ccd63",
-   "realized_pnl_usd": -9.32,
-   "day_trade": false,
-   "notes": "Stop-loss fill confirmed via get_equity_orders: order 6ab13b9c-... (stop_market, stop 4.11) filled 26/26 sh at avg 4.1100, execution 6ab6a4bc-..., timestamp 2026-09-25T16:43:40.031Z. Entry 2026-09-21, exit 2026-09-25 -- 4 calendar days held, not a day trade. Reconciled this run (17:xx UTC) -- position was still open and protected as of the prior run (16:25 UTC); this is a fresh fill discovered this run, not a missed one."
-  },
-  {
-   "symbol": "MSTR",
-   "entry_price": 150.17,
-   "entry_date": "2026-09-18",
-   "exit_price": 159.1501,
-   "exit_date": "2026-09-28",
-   "qty": 23,
-   "exit_reason": "rotation_exit",
-   "order_id": "6abab552-b9e2-49e4-83c1-67d72ec628d0",
-   "execution_id": "6abab553-4b80-4abb-9533-5afbbd3cd41e",
-   "realized_pnl_usd": 206.46,
-   "day_trade": false,
-   "notes": "Legacy/score-0 weakest holding rotated into GME per scoring.py rotation (threshold 3, candidate 8). Stop 6ab19029 cancelled first."
-  },
-  {
-   "symbol": "SBLK",
-   "entry_price": 30.3452,
-   "entry_date": "2026-09-23",
-   "qty": 57,
-   "exit_price": 30.7501,
-   "exit_date": "2026-10-05",
-   "exit_reason": "rotation_exit",
-   "order_id": "6ac3ab55-7431-4733-9dc9-66b97ace4edd",
-   "realized_pnl_usd": 23.08,
-   "day_trade": false
-  },
-  {
-   "symbol": "GME",
-   "lot": "157sh from 2026-09-28",
-   "entry_price": 23.9676,
-   "qty": 157,
-   "exit_price": 25.1801,
-   "exit_date": "2026-10-05",
-   "exit_reason": "rotation_exit",
-   "order_id": "6ac3ac5c-f99e-4744-af4b-5cff3872754e",
-   "realized_pnl_usd": 190.36,
-   "day_trade": false
-  }
- ],
- "day_trades": [],
- "stopped_out_recently": {
-  "UROY": {
-   "stopped_out_date": "2026-09-21",
-   "cooldown_until": "2026-10-21"
-  },
-  "BORR": {
-   "stopped_out_date": "2026-09-25",
-   "cooldown_until": "2026-09-26"
-  }
- },
- "candidates_seen": {
-  "2026-09-24T1717Z": {
-   "DUOT": {
-    "score": 10,
-    "decision": "entered_rotation",
-    "signal": "insider_cluster (CEO Recker Frank Douglas $84.5k 2026-09-22 + Director Nixon James Craig $49.3k 2026-09-18, both re-verified against the 2026-09-23T2214Z Form-4-XML-verified record)",
-    "notes": "Re-surfaced via OpenInsider latest-cluster-buys (fetched via curl with a browser User-Agent after WebFetch hit the same recurring 503 outage). Only prior blocker (bid/ask spread 5.07%) had resolved to ~0.74% this hour; every other gate (market cap, volume, financial status, earnings blackout, RSI 50.7, price 106.9% of 20-day SMA, chase +6.06%) re-verified fresh and unchanged. Cleared the rotation bar (best-held score 7 + rotation_min_score_advantage 2 = 9; 10>=9) despite $0 buying power and 5 open positions already at/above max_open_positions -- funded by rotating out DSP. See the DUOT position thesis and DSP closed-position notes for full mechanics.",
-    "score_breakdown": "+3 CEO open-market buy >$25k, +2 other officer/director buy, +3 cluster within 7 days, +1 >=5% ownership increase (brand-new CEO stake), +1 filing lag <=5 days = 10; no penalties"
-   },
-   "GME": {
-    "score": null,
-    "decision": "not_scored_deprioritized",
-    "signal": "insider cluster per OpenInsider (4 filers, $48.4M aggregate, filings 2026-09-08 through 2026-09-21)",
-    "notes": "Surfaced same OpenInsider fetch. Not pursued this run: DUOT already cleared the rotation bar and consumed this run's one new-entry action; GME is a widely-covered large-cap name where a Section-16 cluster is less likely to reflect a special informed edge, and verifying it (confirming filer roles via direct Form 4 XML read, per this book's practice) would not have changed the outcome this hour. Worth a full look in a future run if capacity/cash allows."
-   },
-   "BBD": {
-    "score": null,
-    "decision": "rejected_low_conviction",
-    "signal": "21 'insiders' per OpenInsider, $29M aggregate, Banco Bradesco (BBD), a Brazilian bank ADR",
-    "notes": "Foreign private issuers are generally exempt from US Section 16 Form 3/4/5 reporting, so OpenInsider's classification of these as standard US insider Form 4 purchases is questionable and was not independently verified via EDGAR. Even at face value, a large slow-moving foreign bank ADR is a poor fit for this book's informed-flow thesis. Not pursued."
-   },
-   "GAM": {
-    "score": null,
-    "decision": "rejected_not_operating_company",
-    "signal": "5 insiders per OpenInsider, General American Investors Co (closed-end fund)",
-    "notes": "Closed-end fund; insider buying of fund shares (management/directors buying at a discount to NAV) is a different phenomenon from operating-company informed flow and is not the kind of signal this strategy is built to chase. Not pursued."
-   }
-  },
-  "2026-09-23T2214Z": {
-   "ALP": {
-    "score": 10,
-    "decision": "rejected_universe",
-    "signal": "insider_cluster (CEO Kaiser + CFO Levitt + Director/Officer Villani, 3 distinct filers verified via direct Form 4 XML read; all three bought on 2026-09-09, Villani continued buying through 2026-09-22)",
-    "notes": "Would have scored 10 (C-suite +3, other insider +2, 7-day cluster +3, >=5% ownership increase +1, <=5-day filing lag +1) -- well above the rotation bar (best-held BORR score 7 + rotation_min_score_advantage 2 = 9). Disqualified anyway: financial_status_description='Noncompliant' (listing deficiency) and market cap only $7.0M, far below min_market_cap_usd ($25M). Company describes itself as pivoting to a 'Telegram super app' / digital-asset treasury strategy after collapsing from a $690 52-week high to $4.52 -- classic microcap shell pattern the universe filter exists to catch. Hard disqualification, not a score question."
-   },
-   "DUOT": {
-    "score": 10,
-    "decision": "rejected_spread_this_session",
-    "signal": "insider_cluster (CEO Recker Frank Douglas, brand-new stake, $84.5k on 2026-09-22 + Director Nixon James Craig, $49.3k on 2026-09-18, both verified via direct Form 4 XML read)",
-    "notes": "Score 10 (CEO +3, other director +2, cluster within 7 days +3, >=5% ownership increase +1, <=5-day filing lag +1) -- clears the rotation bar. Passed financials (status blank), market cap $282.8M, volume, RSI 53.6 (neutral), price ~101% of 20-day SMA (no wreckage), no earnings blackout (next report 2026-11-11), chase only +3.9% from signal price. Recent Q2 2026 earnings beat (actual $1.37 vs est $0.52) as supporting context. REJECTED FOR THIS SESSION ONLY per AGENT.md's extended-hours rule: live bid/ask spread was 9.03/9.50 = 5.07%, above max_bid_ask_spread_pct (4.0%) -- 'If spread > max_bid_ask_spread_pct, skip that name this session.' Not a permanent disqualification; worth re-checking at the next regular-session open when spreads should tighten, if the signal is still fresh (filing lag would then be 1-2 days, still within the 7-day cluster window)."
-   },
-   "SKIL": {
-    "score": null,
-    "decision": "rejected_universe",
-    "signal": "insider_cluster (2 insiders per OpenInsider, not independently verified further once disqualified)",
-    "notes": "Disqualified before full scoring: financial_status_description='Noncompliant'."
-   },
-   "ADC": {
-    "score": null,
-    "decision": "rejected_low_conviction",
-    "signal": "insider_cluster (3 insiders, $4.1M aggregate) at Agree Realty Corp, an $8.3B net-lease REIT paying a monthly dividend",
-    "notes": "Passed financials/market cap/spread (1.4%) but not independently scored in full -- routine director buying at a slow-moving, high-yield blue-chip REIT is a poor fit for this book's high-variance informed-flow thesis and was very unlikely to reach the rotation bar (best case estimate ~5: other-insider +2, cluster +2 non-7-day, freshness +1) even before considering it is not the kind of setup this experiment is meant to chase. Not fully verified insider-by-insider since it could not plausibly clear score 9 regardless."
-   },
-   "RWAY": {
-    "score": null,
-    "decision": "rejected_spread_this_session",
-    "signal": "insider_cluster (3 insiders, $169k aggregate) at Runway Growth Finance Corp, a BDC",
-    "notes": "Live bid/ask spread 6.70/7.12 = 6.08%, above max_bid_ask_spread_pct (4.0%) -- skipped this session per AGENT.md's extended-hours rule before full insider-by-insider verification, since the wide spread alone is disqualifying right now regardless of score."
-   }
-  },
-  "2026-09-21": {
-   "BORR": {
-    "score": 7,
-    "decision": "entered",
-    "signal": "insider_cluster (CEO + Director)"
-   },
-   "SBLK": {
-    "score": 6,
-    "decision": "rejected_position_sizing",
-    "signal": "insider_cluster (5 insiders incl. co-CFO)",
-    "notes": "Passed universe/technical screens and scoring (>= min_signal_score) but at $32.39 ask, the $116.84 available budget only buys 3 whole shares ($97.17), below min_position_usd ($100). Only one new position allowed per run; BORR took the slot."
-   },
-   "BWMX": {
-    "score": null,
-    "decision": "rejected_universe",
-    "signal": "insider_cluster (3 insiders incl. CEO+Chairman)",
-    "notes": "Disqualified before scoring: 30-day avg volume 73,584 sh (below 500,000 minimum) and bid/ask spread ~2.6% (above 1.0% max)."
-   }
-  },
-  "2026-09-25T1426Z": {
-   "HHH": {
-    "score": 8,
-    "decision": "rejected_below_rotation_bar",
-    "signal": "insider_cluster (Exec. Chairman Marc Grandisson $1,602,938 buy 9/23 + COO Andrew Davis $64,490 buy 9/23, both filed 9/24, EDGAR Form-4 verified)",
-    "notes": "+3 chair, +3 cluster<=7d, +1 >=5% \u0394Own, +1 filing lag<=5d = 8. Below the 12-point rotation bar (best held DUOT score 10 + rotation_min_score_advantage 2) and no legacy holding is currently down/flat to trigger the alternate rotation path. Politician-confluence and price/RSI penalty checks unavailable (CapitolTrades and price-check source both unreachable this run)."
-   },
-   "DKS": {
-    "score": 8,
-    "decision": "rejected_below_rotation_bar",
-    "signal": "insider_cluster (CFO Navdeep Gupta $999,983 buy 9/22 + Director Larry Fitzgerald Jr. $244,906 buy 9/23, both filed 9/24, EDGAR Form-4 verified for 2 of the ~6 OpenInsider-listed cluster names)",
-    "notes": "+3 CFO, +3 cluster<=7d, +1 >=5% \u0394Own, +1 filing lag<=5d = 8. Below rotation bar."
-   },
-   "NYAX": {
-    "score": 7,
-    "decision": "rejected_below_rotation_bar",
-    "signal": "insider_cluster (CEO/Chairman Yair Nechmad $4,607,723 buy 9/24 + CTO David Ben-Avi ~$67k buy 9/22, EDGAR verified)",
-    "notes": "+3 CEO, +3 cluster<=7d, +1 trade date = filing date = 7. Below rotation bar."
-   },
-   "OXM": {
-    "score": 6,
-    "decision": "rejected_below_rotation_bar",
-    "signal": "insider_cluster (CEO Thomas Chubb $65,375 buy 9/24 + EVP Scott Grassmyer $29,730 buy 9/15, EDGAR verified, 9-day gap so 21-day not 7-day cluster)",
-    "notes": "+3 CEO, +2 cluster<=21d, +1 filing lag<=5d = 6. Below rotation bar."
-   },
-   "PWRL": {
-    "score": 4,
-    "decision": "rejected_below_rotation_bar",
-    "signal": "single insider (CEO Mike Dinsdale $99,999 buy 9/23, filed 9/24, EDGAR verified)",
-    "notes": "+3 CEO, +1 filing lag<=5d = 4. No cluster. Also files like a BDC/continuous-offering vehicle, a weaker fit for this book's thesis even before the score. Below rotation bar."
-   }
-  },
-  "2026-09-25T1524Z": {
-   "RWT": {
-    "score": 10,
-    "decision": "rejected_ties_not_beats_rotation_bar",
-    "signal": "insider_cluster (CEO Christopher Abate $383,900 buy 9/15 + 5 more distinct insiders Kubicek/Robinson/Macomber/Stone/Carillo, all trade dates 9/15-9/21, all EDGAR Form-4 verified via accession numbers)",
-    "notes": "+3 CEO, +2 other officers/directors, +3 cluster<=7d, +1 >=5% \u0394Own (Abate holdings +17.3%), +1 filing lag<=5d = 10. No penalties: RSI 32.2, price 4.8% BELOW signal price (no chase), mkt cap $459M, no earnings blackout. Ties DUOT (weakest held, score 10) but rotation requires score >= best_held+rotation_min_score_advantage (10+2=12) -- 10 does not clear 12. Not entered. Caveat noted by researching subagent: mortgage REIT, negative P/E (-68.4), worth a going-concern gut-check before any future entry, not confirmed either way."
-   },
-   "ADC": {
-    "score": 9,
-    "decision": "rejected_below_rotation_bar",
-    "signal": "insider_cluster (CEO Joey Agree $500,922 buy 9/16-17 + Chief Growth Officer Craig Erlich $67,550 buy 9/21-23 + Director John Rakolta Jr twice 9/2 & 9/17, EDGAR verified)",
-    "notes": "+3 CEO, +2 other officer, +3 cluster<=7d (Agree-Erlich 5 days), +1 trade<=5d before filing (Erlich) = 9. RSI 15.9 (oversold, no penalty), price below signal (no chase), mkt cap $8.3B REIT. Below rotation bar (needs >=12)."
-   },
-   "GME": {
-    "score": 7,
-    "decision": "rejected_below_rotation_bar_overbought",
-    "signal": "insider_cluster (CEO/Chairman Ryan Cohen $26.39M buy 9/21 + $20.4M buy 9/10 + 3 more distinct directors Attal/Grube/Cheng, EDGAR verified)",
-    "notes": "+3 CEO, +2 other directors, +3 cluster<=7d, +1 filing lag<=5d = 9, but RSI(14)=84.0 triggers -2 penalty = 7. Largest single-name dollar conviction buy in the market currently but technically overbought (price +16% since 9/10 buy). Watch for a pullback in a future run."
-   },
-   "CELH": {
-    "score": 9,
-    "decision": "rejected_below_rotation_bar",
-    "signal": "insider_cluster (CEO John Fieldly $493,843 buy 9/10 + Damon DeSantis 9/15 + Hal Kravitz 9/16, EDGAR verified)",
-    "notes": "+3 CEO, +2 other insiders, +3 cluster<=7d, +1 filing lag<=5d = 9. RSI 45 neutral, price only +2% above signal, mkt cap $7.1B. Below rotation bar."
-   },
-   "CAVA": {
-    "score": 3,
-    "decision": "rejected_low_conviction",
-    "signal": "single insider (CLO Joseph Kadow $49,960 buy 9/16); OpenInsider's claimed 2nd 'insider' (Xenohristos) was verified via EDGAR as a code-G gift transaction, $0/share, not a purchase -- no cluster credit",
-    "notes": "+2 officer only = ~3 (no cluster bonus once the gift transaction was excluded). Rejected as too weak."
-   }
-  },
-  "2026-09-25T1625Z": {
-   "CYBN": {
-    "score": 10,
-    "decision": "rejected_ties_not_beats_rotation_bar",
-    "signal": "insider_cluster (Exec Chairman/CGO transactions: Glavine $1.18M buy 9/3 + So $1.24M buy 9/8, 5-day gap; CEO Halstead $1.35M buy, ownership +146%; all EDGAR Form 4 code P, accessions 0000912282-26-001256/-001261/-001263/-001293)",
-    "notes": "+3 top-tier officer, +3 cluster<=7d, +1 >=5% \u0394Own (Halstead +146%), +1 filing lag<=5d = 10. Ties DUOT (best held, 10) but rotation bar requires >=12. Not price/spread-verified live this run (delegated research ran out of time budget); would need a fresh universe check before any future entry."
-   },
-   "UBER": {
-    "score": 8,
-    "decision": "rejected_below_rotation_bar",
-    "signal": "insider_cluster (President/COO Macdonald + CEO Khosrowshahi, both code-P buys within 7 days; accessions 0002071761-26-000011, 0001184237-26-000008)",
-    "notes": "+3 CEO/President tier, +3 cluster<=7d, +1 >=5% \u0394Own, +1 filing lag<=5d = 8. Hazelbaker filing correctly excluded (a SALE, code S) and West's filings excluded (option exercise/tax, codes M/F) -- not counted toward the cluster. Below rotation bar."
-   },
-   "PNFP": {
-    "score": 9,
-    "decision": "rejected_below_rotation_bar",
-    "signal": "insider_cluster (CEO Blair + Director Montana, both code-P buys 9-day gap; accessions 0001680809-26-000007, 0001571561-26-000005)",
-    "notes": "+3 CEO, +2 director, +2 cluster<=21d (not 7d), +1 >=5% \u0394Own, +1 filing lag<=5d = 9. CFO Gregory's filing (0001779272-26-000008) correctly excluded as code G (gift), not a purchase -- same OpenInsider-miscount risk as the CAVA rejection earlier this week. Below rotation bar."
-   },
-   "BCBP": {
-    "score": 8,
-    "decision": "rejected_below_rotation_bar",
-    "signal": "insider_cluster (CEO O'Brien $1.24M + CFO Chaudhry $77.5k, both code-P, same trade date 9/18; accessions 0001193125-26-397677/-397672)",
-    "notes": "+3 CEO, +3 same-day cluster, +1 >=5% \u0394Own, +1 filing lag(4d)<=5d = 8. Small community bank; volume/spread not independently confirmed this run since score was already well below the bar. Below rotation bar."
-   },
-   "DY": {
-    "score": 7,
-    "decision": "rejected_below_rotation_bar",
-    "signal": "insider_cluster (CEO Peyovich + 2 directors, code-P; accessions 0001837347-26-000003, 0001919348-26-000002, 0001349628-26-000004)",
-    "notes": "+3 CEO, +2 cluster<=21d, +1 >=5% \u0394Own, +1 filing lag<=5d = 7. Full 3-name span is 22 days, just outside the 21-day cluster window for the full-cluster bonus. Below rotation bar."
-   },
-   "GRNT": {
-    "score": 6,
-    "decision": "rejected_below_rotation_bar",
-    "signal": "insider_cluster (CFO + 2 directors, modest $25-50k buys, code-P; accessions 0001628280-26-061771/-060001/-060851)",
-    "notes": "~+2 officer/director tier, +2/+3 cluster (borderline 7d window), no ownership-increase bonus (small buys). Below rotation bar."
-   },
-   "GLOO": {
-    "score": null,
-    "decision": "rejected_compliance_flag",
-    "signal": "10%-owner Thrivent Financial (weekly buys since July) + director Pat Gelsinger (ex-Intel CEO) buys 9/11 & 9/14",
-    "notes": "One Thrivent tranche filed 66 days late (traded 7/10, filed 9/14) -- a Section 16 late-filing compliance flag, not a clean recent print; no filing-lag bonus available and pattern reads as routine 10%-owner accumulation rather than a fresh informed signal. Recently-public name with thin trading history, not independently universe-screened given the low likely score."
-   },
-   "ETRA": {
-    "score": null,
-    "decision": "rejected_pipe_suspected",
-    "signal": "two $20M 'purchases' at an identical $15.00 price by a director and a fund (Orbimed) on the same date",
-    "notes": "Round identical price + two simultaneous 'purchases' from a director and an institutional fund is the signature of a private placement/PIPE allocation, not an open-market informed-flow buy -- flagged for a human to confirm before ever scoring it. Not counted."
-   }
-  },
-  "2026-09-28T1423Z": {
-   "GME": {
-    "score": 8,
-    "decision": "rejected_below_rotation_bar",
-    "signal": "insider_cluster (CEO/Chairman Ryan Cohen $26.39M buy 9/21 + $20.38M buy 9/10, cluster of 4 filers per OpenInsider, EDGAR Form 4 sec.gov link present)",
-    "notes": "+3 CEO, +3 cluster<=7d = 6, +2 earnings beat already printed (Q2 FY26 actual $0.27 vs est $0.06, reported 2026-09-08) = 8. RSI(14) 65.1 (not overbought this run), price 113% of 20-SMA, chase +4.0% vs $22.94 signal (within limits), mkt cap $12.0B, avg vol 9.3M/day, no earnings blackout (next 2026-12-08). Below rotation bar (best held DUOT score 10 + rotation_min_score_advantage 2 = 12)."
-   },
-   "DKS": {
-    "score": 6,
-    "decision": "rejected_below_rotation_bar",
-    "signal": "insider_cluster (CFO Navdeep Gupta $999,983 buy 9/22, cluster of 6 filers per OpenInsider, EDGAR Form 4 verified by direct sec.gov fetch this run)",
-    "notes": "+3 CFO, +3 cluster<=7d = 6. RSI(14) 43.1 neutral, price 101.7% of 20-SMA, chase ~+3.2% vs $130.05 signal, mkt cap $11.9B, no earnings blackout (next 2026-11-24). Below rotation bar."
-   },
-   "ADC": {
-    "score": 6,
-    "decision": "rejected_below_rotation_bar",
-    "signal": "insider_cluster (CEO Joey Agree $500,922 buy 9/16-17 + Chief Growth Officer Craig Erlich $67,550 buy 9/21-23, cluster of 3, sec.gov Form 4 links present)",
-    "notes": "+3 CEO, +3 cluster<=7d = 6. RSI(14) 20.1 (oversold) but price 96.1% of 20-SMA -- does not meet the double condition (price<85% AND RSI<25) for technical veto. No chase (price at/below signal). mkt cap $8.4B REIT. Below rotation bar."
-   },
-   "DY": {
-    "score": null,
-    "decision": "not_scored_deprioritized",
-    "signal": "insider_cluster (3 filers per OpenInsider, $551,307 aggregate at $290.16, filed 9/24, trade 9/23)",
-    "notes": "Individual insider name/title not captured on page 1 of officer/all-purchases lists so C-suite status unverified this run; RSI 29.7, price 95.4% of 20-SMA (no technical veto), no chase (price below signal). Deprioritized vs. three already-verified, higher/equal-confidence candidates (GME/DKS/ADC) rather than spend remaining run time on EDGAR verification for a name that could not plausibly clear the rotation bar even at full score."
-   },
-   "BBD": {
-    "score": null,
-    "decision": "rejected_data_quality_and_fit",
-    "signal": "21 officer-level Form 4 purchases per OpenInsider, Banco Bradesco (BBD) ADR, all trade date 9/18",
-    "notes": "OpenInsider-listed per-share price ($17.98) is inconsistent with BBD's actual USD trading range (~$3.36); most likely a BRL-denominated figure carried through without currency conversion (17.98/5.35 ~= 3.36). Foreign private issuer, so standard US Section 16 Form 4 applicability is itself questionable (consistent with this book's 2026-09-24 rejection of the same name). Not pursued -- data quality + poor fit for this book's US-informed-flow thesis, not independently verified further."
-   },
-   "GAM": {
-    "score": null,
-    "decision": "rejected_universe",
-    "signal": "5 officer-level purchases per OpenInsider (VPs + CEO), General American Investors Co, closed-end fund",
-    "notes": "30-day avg volume 16,741 sh, below min_avg_volume_30d_shares (100,000) -- hard universe disqualification. Also a closed-end fund, not an operating company (consistent with prior rejection)."
-   }
-  },
-  "2026-09-28T15:19:00Z": {
-   "GME": {
-    "score": 8,
-    "note": "carried forward from 14:23Z run (CEO cluster + earnings-beat confluence); no new politician/insider data this run; below rotation bar (needs >=12 vs DUOT=10); cash-blocked ($112.23 spendable < $100 min for 1 share)"
-   },
-   "DKS": {
-    "score": 6,
-    "note": "carried forward; below rotation bar; cash-blocked"
-   },
-   "ADC": {
-    "score": 6,
-    "note": "carried forward; politician check this run found only a stale May-2026 SELL disclosure (Rep. Gottheimer), no new buy confluence; below rotation bar; cash-blocked"
-   },
-   "KOD": {
-    "score": 3,
-    "note": "NEW this run via live-heat scan (Agentic Exceptional Momentum): +139% intraday (open $62.00 to high $87.83 to last ~$77.29), RVOL ~26x (21.2M vs 815k 30d avg), verified same-day public catalyst: Phase 3 DAYBREAK topline results (Zenkuda + KSI-501 met primary vision endpoints, non-inferior to aflibercept) announced 8:30am ET, confirmed via SEC 8-K filed 2026-09-28 and multiple independent news sources (StockTitan, GuruFocus, StocksToTrade; UBS Buy $80 PT, Goldman Neutral $36 PT). Score: +3 (RVOL>=3x + verified headline) only, no insider/politician/13D confluence found for KOD. Technical veto does not apply (same-day catalyst present). Does not clear rotation bar (3 vs 12 needed against DUOT=10); no legacy/scoreless holding is down/flat (MSTR legacy but +4.0% since entry; AAPL legacy but +1.3%) so the alternate legacy-rotation path also does not apply. Also independently cash-blocked ($112.23 spendable, 1 share at ~$77 = $77.29 below $100 min_position_usd). No entry."
-   }
-  },
-  "2026-09-28T16:18:00Z": {
-   "GME": {
-    "score": 8,
-    "note": "carried forward; OpenInsider (503) and CapitolTrades (403) both down again this run (retried once each, per Section 7); no new data; below rotation bar (needs >=12 vs DUOT=10); cash-blocked (12.23 spendable < 00 min for 1 share at current price)"
-   },
-   "DKS": {
-    "score": 6,
-    "note": "carried forward; sources down; below rotation bar; cash-blocked"
-   },
-   "ADC": {
-    "score": 6,
-    "note": "carried forward; sources down (no fresh politician check possible this run); below rotation bar; cash-blocked"
-   },
-   "KOD": {
-    "score": 3,
-    "note": "carried forward live-heat name; continued higher intraday to $89.23 (RVOL ~11x per this run's scan vs ~26x last run -- volume moderating, price making a new session high), RSI 37.85. No new insider/politician/13D confluence found (sources down). Still far short of rotation bar (3 vs 12 needed against DUOT=10); no legacy/scoreless holding down/flat to enable the alternate rotation path (MSTR +5.4% since entry, AAPL +1.4%). Cash-blocked independently (12.23 spendable < $100 min for 1 share at ~$89). No entry."
-   }
-  },
-  "2026-09-28T17:19:00Z": {
-   "KOD": {
-    "score": 3,
-    "note": "carried forward; now $89.44 (RVOL 12.4x per scan), RSI 37.85; sources (OpenInsider timeout, CapitolTrades 429) still down; below rotation bar (needs >=12 vs DUOT=10); cash-blocked (112.23 spendable, 1sh=$89.70<$100 min)"
-   },
-   "GME": {
-    "score": 8,
-    "note": "carried forward; sources down; below rotation bar; cash-blocked"
-   },
-   "DKS": {
-    "score": 6,
-    "note": "carried forward; sources down; below rotation bar; cash-blocked"
-   },
-   "ADC": {
-    "score": 6,
-    "note": "carried forward; sources down; below rotation bar; cash-blocked"
-   }
-  },
-  "2026-09-28T1844Z": {
-   "GME": {
-    "score": 8,
-    "decision": "entered_via_rotation"
-   },
-   "KOD": {
-    "score": 0,
-    "note": "momentum score decayed/expired (live-heat 2+ days old); price $91.98 (+184% on day); not re-scored"
-   },
-   "DKS": {
-    "score": 6,
-    "note": "carried; not chosen, cash exhausted"
-   },
-   "ADC": {
-    "score": 6,
-    "note": "carried; cash exhausted"
-   }
-  },
-  "2026-10-05T1415Z": {
-   "STNE": {
-    "decision": "rejected",
-    "notes": "+25% sector-wide Brazil fintech move (PAGS/INTR same), no company filing"
-   },
-   "PAGS": {
-    "decision": "rejected",
-    "notes": "sector move, no filing"
-   },
-   "INTR": {
-    "decision": "rejected",
-    "notes": "sector move, no filing"
-   },
-   "ACB": {
-    "decision": "rejected",
-    "notes": "+16% cannabis sector move, no filings since 9/28"
-   },
-   "ALVO": {
-    "decision": "rejected",
-    "notes": "+16%, no filings since 9/28; recently rotated out"
-   },
-   "AZUL": {
-    "decision": "rejected",
-    "notes": "thin volume 125k"
-   },
-   "ONEN": {
-    "decision": "rejected",
-    "notes": "unchanged: no filings"
-   }
-  },
-  "2026-10-05T1500Z": {
-   "SAIQ": {
-    "decision": "rejected",
-    "opportunity_score": 0.475,
-    "notes": "de-SPAC listing (Columbus Acq. close 10/1, Nasdaq 10/2), +259%, no catalyst; scoring eligible=false"
-   },
-   "ONEN": {
-    "decision": "rejected",
-    "opportunity_score": 1.175,
-    "notes": "de-SPAC, fell from ~$11; no catalyst; eligible=false"
-   },
-   "AFYA": {
-    "decision": "rejected",
-    "notes": "+7% Brazil sector move, no filing, not explosive"
-   },
-   "ALEC": {
-    "decision": "held",
-    "notes": "63x RVOL +23%, -6.5% vs 2.39 entry, same-day lot, stop 1.91 live"
-   },
-   "JZXN": {
-    "decision": "rejected",
-    "notes": "down on volume, micro-cap"
-   }
-  },
-  "2026-10-05T1513Z": {
-   "RXO": {
-    "decision": "rejected",
-    "notes": "C.H. Robinson cash+stock $30.25 deal; pinned to consideration"
-   },
-   "INTT": {
-    "decision": "rejected",
-    "opportunity_score": 2.875,
-    "notes": "8-K record Q3 orders/guidance high end; +18%, RVOL 1.8; eligible=false"
-   },
-   "STNE/PAGS/INTR/ALVO/AFYA": {
-    "decision": "rejected",
-    "notes": "Brazil election macro rally, no company catalyst"
-   },
-   "ACB": {
-    "decision": "rejected",
-    "notes": "+14%, no verified catalyst"
-   },
-   "IDLE_CASH_REVIEW": {
-    "v2_rescored": {
-     "DUOT": 2.89,
-     "GME": 3.5,
-     "ALEC": 5.085
+  "last_run": "2026-10-05T16:25:00Z",
+  "canonical_branch": "claude/trading-state",
+  "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
+  "peak_account_value": 7954.86462317,
+  "account_value_history": [
+    {
+      "ts": "2026-09-18T22:16:00Z",
+      "value": 7390.56261755
+    },
+    {
+      "ts": "2026-09-18T23:14:00Z",
+      "value": 7449.72327194
+    },
+    {
+      "ts": "2026-09-19T00:13:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T01:15:45Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T02:13:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T03:14:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T04:14:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T05:13:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T06:15:47Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T07:20:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T08:12:46Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T09:15:20Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T10:14:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T12:14:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T13:20:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T14:15:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T15:14:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T16:14:33Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T17:18:00Z",
+      "value": 7435.69
+    },
+    {
+      "ts": "2026-09-19T18:14:35Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T19:20:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T20:14:15Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T21:15:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T22:14:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-19T23:14:22Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T00:13:48Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T02:14:21Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T03:14:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T04:14:43Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T05:14:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T06:15:04Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T07:16:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T08:15:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T09:14:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T10:14:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T11:13:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T12:20:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T13:20:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T14:15:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T15:14:19Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T16:20:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T17:16:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T18:15:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T19:20:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T20:13:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T21:14:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T22:13:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-20T23:13:00Z",
+      "value": 7435.688271375
+    },
+    {
+      "ts": "2026-09-21T00:20:00Z",
+      "value": 7438.81386684
+    },
+    {
+      "ts": "2026-09-21T01:14:00Z",
+      "value": 7459.74148724
+    },
+    {
+      "ts": "2026-09-21T02:16:00Z",
+      "value": 7414.89023795
+    },
+    {
+      "ts": "2026-09-21T03:14:47Z",
+      "value": 7402.89166571
+    },
+    {
+      "ts": "2026-09-21T05:15:14Z",
+      "value": 7406.10845325
+    },
+    {
+      "ts": "2026-09-21T06:20:00Z",
+      "value": 7439.9235099
+    },
+    {
+      "ts": "2026-09-21T07:18:46Z",
+      "value": 7450.04487817
+    },
+    {
+      "ts": "2026-09-21T08:14:34Z",
+      "value": 7440.9760078851
+    },
+    {
+      "ts": "2026-09-21T09:13:00Z",
+      "value": 7664.072915
+    },
+    {
+      "ts": "2026-09-21T10:14:05Z",
+      "value": 7646.95565154
+    },
+    {
+      "ts": "2026-09-21T11:16:01Z",
+      "value": 7599.3261911143
+    },
+    {
+      "ts": "2026-09-21T12:16:00Z",
+      "value": 7682.69273737
+    },
+    {
+      "ts": "2026-09-21T13:17:00Z",
+      "value": 7727.2372613663
+    },
+    {
+      "ts": "2026-09-21T13:32:00Z",
+      "value": 7634.3731558
+    },
+    {
+      "ts": "2026-09-21T14:14:01Z",
+      "value": 7610.84999147
+    },
+    {
+      "ts": "2026-09-21T14:16:00Z",
+      "value": 7611.770122348
+    },
+    {
+      "ts": "2026-09-21T15:14:00Z",
+      "value": 7726.58630025
+    },
+    {
+      "ts": "2026-09-21T16:14:00Z",
+      "value": 7718.967337065
+    },
+    {
+      "ts": "2026-09-21T17:13:00Z",
+      "value": 7696.182500235
+    },
+    {
+      "ts": "2026-09-21T18:14:00Z",
+      "value": 7691.939839905
+    },
+    {
+      "ts": "2026-09-21T19:13:00Z",
+      "value": 7707.034610435
+    },
+    {
+      "ts": "2026-09-21T20:17:00Z",
+      "value": 7842.46462885
+    },
+    {
+      "ts": "2026-09-21T21:14:00Z",
+      "value": 7804.18740477
+    },
+    {
+      "ts": "2026-09-21T22:13:00Z",
+      "value": 7806.09275661
+    },
+    {
+      "ts": "2026-09-22T00:13:00Z",
+      "value": 7803.03498579
+    },
+    {
+      "ts": "2026-09-22T01:13:00Z",
+      "value": 7706.66456936
+    },
+    {
+      "ts": "2026-09-22T02:14:00Z",
+      "value": 7686.14468834
+    },
+    {
+      "ts": "2026-09-22T03:13:00Z",
+      "value": 7699.71415293
+    },
+    {
+      "ts": "2026-09-22T04:13:00Z",
+      "value": 7696.03564018
+    },
+    {
+      "ts": "2026-09-22T05:13:00Z",
+      "value": 7682.83623508
+    },
+    {
+      "ts": "2026-09-22T06:14:00Z",
+      "value": 7669.95974499
+    },
+    {
+      "ts": "2026-09-22T07:13:00Z",
+      "value": 7693.45045887
+    },
+    {
+      "ts": "2026-09-22T08:13:00Z",
+      "value": 7674.90182714
+    },
+    {
+      "ts": "2026-09-22T09:13:00Z",
+      "value": 7727.0202458958
+    },
+    {
+      "ts": "2026-09-22T10:14:00Z",
+      "value": 7735.6083820741
+    },
+    {
+      "ts": "2026-09-22T11:14:00Z",
+      "value": 7736.43743111
+    },
+    {
+      "ts": "2026-09-22T12:14:00Z",
+      "value": 7785.44516765
+    },
+    {
+      "ts": "2026-09-22T13:11:00Z",
+      "value": 7809.45379031
+    },
+    {
+      "ts": "2026-09-22T13:16:00Z",
+      "value": 7796.88277898
+    },
+    {
+      "ts": "2026-09-22T14:14:00Z",
+      "value": 7825.2298906
+    },
+    {
+      "ts": "2026-09-22T14:28:00Z",
+      "value": 7808.9824117802
+    },
+    {
+      "ts": "2026-09-22T14:41:00Z",
+      "value": 7769.65129173
+    },
+    {
+      "ts": "2026-09-22T15:14:00Z",
+      "value": 7779.26936649
+    },
+    {
+      "ts": "2026-09-22T16:14:00Z",
+      "value": 7783.14017159
+    },
+    {
+      "ts": "2026-09-22T17:13:00Z",
+      "value": 7846.04866565
+    },
+    {
+      "ts": "2026-09-22T18:14:00Z",
+      "value": 7840.65509625
+    },
+    {
+      "ts": "2026-09-22T19:14:00Z",
+      "value": 7845.49426623
+    },
+    {
+      "ts": "2026-09-22T20:14:00Z",
+      "value": 7814.4185549
+    },
+    {
+      "ts": "2026-09-22T21:13:00Z",
+      "value": 7823.13260051
+    },
+    {
+      "ts": "2026-09-22T22:14:00Z",
+      "value": 7815.89485745
+    },
+    {
+      "ts": "2026-09-22T23:14:00Z",
+      "value": 7819.5720651
+    },
+    {
+      "ts": "2026-09-23T00:13:00Z",
+      "value": 7854.18164867
+    },
+    {
+      "ts": "2026-09-23T01:14:00Z",
+      "value": 7892.06170816
+    },
+    {
+      "ts": "2026-09-23T02:14:00Z",
+      "value": 7858.26426623
+    },
+    {
+      "ts": "2026-09-23T03:14:00Z",
+      "value": 7867.92390929
+    },
+    {
+      "ts": "2026-09-23T04:14:00Z",
+      "value": 7908.86551552
+    },
+    {
+      "ts": "2026-09-23T05:14:00Z",
+      "value": 7954.86462317
+    },
+    {
+      "ts": "2026-09-23T06:14:00Z",
+      "value": 7915.53605093
+    },
+    {
+      "ts": "2026-09-23T07:15:00Z",
+      "value": 7900.89587246
+    },
+    {
+      "ts": "2026-09-23T08:14:00Z",
+      "value": 7888.90670532
+    },
+    {
+      "ts": "2026-09-23T09:14:00Z",
+      "value": 7870.8744447
+    },
+    {
+      "ts": "2026-09-23T10:14:00Z",
+      "value": 7827.1438498
+    },
+    {
+      "ts": "2026-09-23T11:14:00Z",
+      "value": 7846.38557501
+    },
+    {
+      "ts": "2026-09-23T12:14:00Z",
+      "value": 7794.22693195
+    },
+    {
+      "ts": "2026-09-23T12:51:00Z",
+      "value": 7800.38732401
+    },
+    {
+      "ts": "2026-09-23T13:10:00Z",
+      "value": 7786.82612853
+    },
+    {
+      "ts": "2026-09-23T13:16:00Z",
+      "value": 7807.064290289
+    },
+    {
+      "ts": "2026-09-23T14:20:00Z",
+      "value": 7596.74511045
+    },
+    {
+      "ts": "2026-09-23T14:36:00Z",
+      "value": 7608.056448975
+    },
+    {
+      "ts": "2026-09-23T15:16:43Z",
+      "value": 7603.093926035
+    },
+    {
+      "ts": "2026-09-23T17:17:00Z",
+      "value": 7572.035840625
+    },
+    {
+      "ts": "2026-09-23T18:18:40Z",
+      "value": 7555.7605626926
+    },
+    {
+      "ts": "2026-09-23T19:16:00Z",
+      "value": 7585.6395473184
+    },
+    {
+      "ts": "2026-09-23T20:16:00Z",
+      "value": 7553.31119424
+    },
+    {
+      "ts": "2026-09-23T21:17:00Z",
+      "value": 7574.0422091484
+    },
+    {
+      "ts": "2026-09-23T22:14:00Z",
+      "value": 7598.56732725
+    },
+    {
+      "ts": "2026-09-23T23:15:00Z",
+      "value": 7590.75929977
+    },
+    {
+      "ts": "2026-09-24T00:13:00Z",
+      "value": 7575.20288787
+    },
+    {
+      "ts": "2026-09-24T05:16:00Z",
+      "value": 7572.94098419
+    },
+    {
+      "ts": "2026-09-24T06:15:00Z",
+      "value": 7552.47068674
+    },
+    {
+      "ts": "2026-09-24T07:14:00Z",
+      "value": 7535.19009184
+    },
+    {
+      "ts": "2026-09-24T09:15:00Z",
+      "value": 7486.02890204
+    },
+    {
+      "ts": "2026-09-24T10:16:00Z",
+      "value": 7513.20742725
+    },
+    {
+      "ts": "2026-09-24T11:15:00Z",
+      "value": 7506.66401818
+    },
+    {
+      "ts": "2026-09-24T12:14:00Z",
+      "value": 7499.699104874
+    },
+    {
+      "ts": "2026-09-24T13:15:00Z",
+      "value": 7527.63409581
+    },
+    {
+      "ts": "2026-09-24T14:18:54Z",
+      "value": 7593.43825672
+    },
+    {
+      "ts": "2026-09-24T15:14:43Z",
+      "value": 7527.384152105
+    },
+    {
+      "ts": "2026-09-24T16:17:34Z",
+      "value": 7558.805288835
+    },
+    {
+      "ts": "2026-09-24T17:17:19Z",
+      "value": 7544.9844572101
+    },
+    {
+      "ts": "2026-09-25T08:04:00Z",
+      "value": 7566.29780106
+    },
+    {
+      "ts": "2026-09-25T09:18:00Z",
+      "value": 7607.87217953
+    },
+    {
+      "ts": "2026-09-25T10:17:00Z",
+      "value": 7575.642358
+    },
+    {
+      "ts": "2026-09-25T11:18:00Z",
+      "value": 7613.87527301
+    },
+    {
+      "ts": "2026-09-25T12:18:00Z",
+      "value": 7571.47449964
+    },
+    {
+      "ts": "2026-09-25T13:16:00Z",
+      "value": 7620.00158463
+    },
+    {
+      "ts": "2026-09-25T14:26:00Z",
+      "value": 7384.34484744
+    },
+    {
+      "ts": "2026-09-25T15:24:00Z",
+      "value": 7450.88390974
+    },
+    {
+      "ts": "2026-09-25T16:25:00Z",
+      "value": 7394.6953918136
+    },
+    {
+      "ts": "2026-09-25T17:20:00Z",
+      "value": 7372.308256685
+    },
+    {
+      "ts": "2026-09-28T08:20:00Z",
+      "value": 7274.81330215
+    },
+    {
+      "ts": "2026-09-28T09:17:00Z",
+      "value": 7257.3331284392
+    },
+    {
+      "ts": "2026-09-28T10:17:00Z",
+      "value": 7258.86223133
+    },
+    {
+      "ts": "2026-09-28T11:17:00Z",
+      "value": 7289.11806703
+    },
+    {
+      "ts": "2026-09-28T12:15:00Z",
+      "value": 7325.6445823244
+    },
+    {
+      "ts": "2026-09-28T13:17:00Z",
+      "value": 7334.5451712754
+    },
+    {
+      "ts": "2026-09-28T14:23:00Z",
+      "value": 7332.97669135
+    },
+    {
+      "ts": "2026-09-28T15:19:00Z",
+      "value": 7263.5185936422
+    },
+    {
+      "ts": "2026-09-28T16:18:00Z",
+      "value": 7326.13001642
+    },
+    {
+      "ts": "2026-09-28T17:19:00Z",
+      "value": 7399.98515673
+    },
+    {
+      "ts": "2026-09-28T18:44:00Z",
+      "value": 7351.72
+    },
+    {
+      "ts": "2026-09-28T18:53:00Z",
+      "value": 7356.4
+    },
+    {
+      "ts": "2026-09-29T08:15:00Z",
+      "value": 7391.5060299
+    },
+    {
+      "ts": "2026-09-29T09:15:00Z",
+      "value": 7401.15916899
+    },
+    {
+      "ts": "2026-09-29T10:15:00Z",
+      "value": 7395.68808047
+    },
+    {
+      "ts": "2026-09-29T11:15:00Z",
+      "value": 7366.20695016
+    },
+    {
+      "ts": "2026-09-29T12:15:00Z",
+      "value": 7346.8923304042
+    },
+    {
+      "ts": "2026-09-29T13:20:00Z",
+      "value": 7342.54
+    },
+    {
+      "ts": "2026-09-29T15:14:00Z",
+      "value": 7289.3188
+    },
+    {
+      "ts": "2026-09-29T16:15:00Z",
+      "value": 7285.020961492
+    },
+    {
+      "ts": "2026-09-29T17:15:00Z",
+      "value": 7261.937943
+    },
+    {
+      "ts": "2026-09-30T08:20:00Z",
+      "value": 7363.54
+    },
+    {
+      "ts": "2026-09-30T09:20:00Z",
+      "value": 7354.10884117
+    },
+    {
+      "ts": "2026-09-30T10:20:00Z",
+      "value": 7366.53798975
+    },
+    {
+      "ts": "2026-09-30T11:15:00Z",
+      "value": 7369.5147178
+    },
+    {
+      "ts": "2026-09-30T12:15:00Z",
+      "value": 7380.55185279
+    },
+    {
+      "ts": "2026-09-30T13:16:00Z",
+      "value": 7385.47524372
+    },
+    {
+      "ts": "2026-09-30T14:15:00Z",
+      "value": 7443.7192957713
+    },
+    {
+      "ts": "2026-09-30T15:15:00Z",
+      "value": 7468.00347446
+    },
+    {
+      "ts": "2026-09-30T16:15:00Z",
+      "value": 7466.0352156
+    },
+    {
+      "ts": "2026-09-30T17:14:00Z",
+      "value": 7469.246271565
+    },
+    {
+      "ts": "2026-10-01T08:25:00Z",
+      "value": 7414.36829073
+    },
+    {
+      "ts": "2026-10-01T09:15:00Z",
+      "value": 7416.36855616
+    },
+    {
+      "ts": "2026-10-01T10:14:00Z",
+      "value": 7460.28358534
+    },
+    {
+      "ts": "2026-10-01T11:16:00Z",
+      "value": 7447.12042798
+    },
+    {
+      "ts": "2026-10-01T12:16:00Z",
+      "value": 7454.16712288
+    },
+    {
+      "ts": "2026-10-01T13:17:00Z",
+      "value": 7385.866803903
+    },
+    {
+      "ts": "2026-10-01T14:17:00Z",
+      "value": 7466.80783192
+    },
+    {
+      "ts": "2026-10-01T15:15:00Z",
+      "value": 7425.27564388
+    },
+    {
+      "ts": "2026-10-01T16:20:00Z",
+      "value": 7453.11369
+    },
+    {
+      "ts": "2026-10-01T17:15:00Z",
+      "value": 7455.343812046
+    },
+    {
+      "ts": "2026-10-02T08:20:00Z",
+      "value": 7424.37
+    },
+    {
+      "ts": "2026-10-02T09:20:00Z",
+      "value": 7433.91905157
+    },
+    {
+      "ts": "2026-10-02T10:15:00Z",
+      "value": 7413.95482778
+    },
+    {
+      "ts": "2026-10-02T11:15:00Z",
+      "value": 7408.2846264438
+    },
+    {
+      "ts": "2026-10-02T12:20:00Z",
+      "value": 7404.36694151
+    },
+    {
+      "ts": "2026-10-02T13:20:00Z",
+      "value": 7417.91845483
+    },
+    {
+      "ts": "2026-10-02T14:15:00Z",
+      "value": 7402.617010035
+    },
+    {
+      "ts": "2026-10-02T15:15:00Z",
+      "value": 7439.183733269
+    },
+    {
+      "ts": "2026-10-02T16:20:00Z",
+      "value": 7479.53597852
+    },
+    {
+      "ts": "2026-10-02T17:15:00Z",
+      "value": 7515.47
+    },
+    {
+      "ts": "2026-10-05T08:15:00Z",
+      "value": 7571.08394104
+    },
+    {
+      "ts": "2026-10-05T09:35:00Z",
+      "value": 7593.06435747
+    },
+    {
+      "ts": "2026-10-05T10:15:00Z",
+      "value": 7579.81269175
+    },
+    {
+      "ts": "2026-10-05T11:15:00Z",
+      "value": 7598.6917549723
+    },
+    {
+      "ts": "2026-10-05T12:15:00Z",
+      "value": 7595.35386299
+    },
+    {
+      "ts": "2026-10-05T13:15:00Z",
+      "value": 7633.8676675414
+    },
+    {
+      "ts": "2026-10-05T13:55:00Z",
+      "value": 7605.56
+    },
+    {
+      "ts": "2026-10-05T14:00:00Z",
+      "value": 7623.97
+    },
+    {
+      "ts": "2026-10-05T14:15:00Z",
+      "value": 7392.84
+    },
+    {
+      "ts": "2026-10-05T14:30:00Z",
+      "value": 7433.24
+    },
+    {
+      "ts": "2026-10-05T15:00:00Z",
+      "value": 7512.54548224
+    },
+    {
+      "ts": "2026-10-05T15:13:00Z",
+      "value": 7556.18798531
+    },
+    {
+      "ts": "2026-10-05T15:20:00Z",
+      "value": 7559.79245469
+    },
+    {
+      "ts": "2026-10-05T15:45:00Z",
+      "value": 7509.85978041
+    },
+    {
+      "ts": "2026-10-05T16:10:00Z",
+      "value": 7455.57
+    },
+    {
+      "ts": "2026-10-05T16:25:00Z",
+      "value": 7485.9
     }
-   }
-  },
-  "2026-10-05T1520Z": {
-   "SAIQ": {
-    "decision": "rejected",
-    "notes": "de-SPAC debut (Columbus Acq / WISeSat.Space), +265%, mcap ~$55M, premarket spike to ~$18 then faded; no primary-source economic catalyst, SPAC warrant/dilution + exhaustion risk; not scored eligible"
-   },
-   "ACB": {
-    "decision": "rejected",
-    "notes": "+14%, RVOL 3, no verified catalyst found"
-   },
-   "AFYA/STNE/PAGS/INTR/ALVO/SID/AZUL": {
-    "decision": "rejected",
-    "notes": "Brazil macro rally, no company catalyst"
-   },
-   "RXO": {
-    "decision": "rejected",
-    "notes": "merger-arb pinned"
-   },
-   "INTT/TJGC/EVO/HYFT/JZXN": {
-    "decision": "rejected",
-    "notes": "no qualifying catalyst / unchanged from prior run"
-   },
-   "IDLE_CASH_REVIEW": {
-    "v2_scores_unchanged": {
-     "DUOT": 2.89,
-     "GME": 3.5,
-     "ALEC": 5.085
+  ],
+  "positions": {
+    "DUOT": {
+      "entry_price": 9.4299,
+      "entry_date": "2026-09-24",
+      "qty": 207,
+      "high_since_entry": 9.58,
+      "stop_price": 7.54,
+      "protective_order_id": "6ab55b1f-2cd5-4cdd-92fd-62acfd2445c9",
+      "protective_order_type": "stop_market",
+      "signal": "insider_cluster (rotation entry)",
+      "score": 10,
+      "sources": [
+        "openinsider_latest_cluster_buys",
+        "sec_edgar_form4_direct_read",
+        "sec_edgar_full_text_search"
+      ],
+      "pyramids_done": 0,
+      "thesis": "Insider cluster at Duos Technologies Group: CEO Frank Douglas Recker bought $84.5k (brand-new stake) on 2026-09-22, filed 2026-09-23; Director James Craig Nixon bought $49.3k on 2026-09-18, filed 2026-09-23 -- both verified via direct Form 4 XML read from sec.gov in the prior run's candidates_seen (2026-09-23T2214Z), not re-derived from OpenInsider's summary alone. Score 10: +3 (CEO open-market buy > $25k), +2 (other-officer/director buy), +3 (two distinct insiders within a 4-day trade-date window, well inside the 7-day cluster bonus), +1 (>=5% ownership increase, brand-new CEO stake), +1 (filing lag <=5 days). No penalties: chase from the $8.91 signal price (most recent qualifying print, 2026-09-22 trade) to this entry's $9.45 marketable-limit ask was +6.06%, well under the 80% cap; RSI(14)=50.7 (neutral, re-checked fresh this run); price 106.9% of the 20-day SMA ($8.83) -- not blow-off (would need RSI>85 AND >125% of SMA). Universe re-verified fresh this run: market cap $296.8M, 30-day avg volume 735,653 sh, financial_status_description empty (no deficiency/delinquency/bankruptcy), tradable, next earnings 2026-11-11 (far outside blackout, not day-of). REJECTED last session (2026-09-23T2214Z) solely for bid/ask spread (5.07%, above the 4.0% max) -- re-checked fresh this run and spread had tightened to ~0.74% ($9.38/$9.45), clearing the one blocker; every other gate was already verified and unchanged. This was a ROTATION entry: buying power was $0.00 (fully invested, 5 open positions already at/above max_open_positions=3) going into this run. Score 10 clears the established rotation bar (best currently-held score was BORR at 7, + rotation_min_score_advantage 2 = 9; 10 >= 9), so per the owner's live full-reallocation authorization (2026-09-23, see anomaly rotation-authorized-live-20260923) this justified rotating out the worst-ranked held position even though neither remaining legacy holding was down today. Ranked MSTR and DSP (both legacy/score-0, i.e. lowest-tier per 'lowest score/legacy, then largest unrealized loss') as the two rotation candidates; sold DSP (smaller unrealized gain, +4.5% from entry, vs MSTR's +7.8%) to preserve more of the stronger-performing legacy runner per the Section 2 'let runners run' preference among ties. Cancelled DSP's protective stop (order 6ab441c7-..., confirmed cancelled) before selling; sold 161 sh via marketable limit at $12.22, filled in full at avg $12.2201 (realized gain +$83.66, not a loss -- entry 2026-09-18, exit 2026-09-24, not a day trade). Proceeds ($1,967.36 buying power, immediately spendable on this limited-margin account) funded this entry: budget = min(100% sizing tier per score>=score_tier_high, 100% max_position_pct, $1,967.36 - $10 min_cash_reserve) = $1,957.36, capped by available cash. Bought 207 sh at $9.45 marketable limit, filled in full at avg $9.4299. Advanced/OCO orders remain SERVICE_DISABLED on this account (standing constraint) -- protected immediately with a plain stop_market sell at $7.54 (20% initial stop per config.json, the currently-authoritative parameter source per the 2026-09-23t2117z anomaly resolution), verified confirmed same run.",
+      "score_signal_class": "durable",
+      "score_date": "2026-09-24",
+      "same_day": false,
+      "value_usd_asof_backfill": 1875.42,
+      "signal_quality_score": 7,
+      "catalyst_magnitude_score": 4,
+      "volume_price_discovery_score": 2,
+      "structure_squeeze_score": 3,
+      "explosive_upside_score": 3.2,
+      "remaining_upside_score": 3.0,
+      "dilution_risk_score": 2,
+      "exhaustion_risk_score": 2,
+      "opportunity_score": 2.89,
+      "opportunity_class": "durable",
+      "opportunity_score_date": "2026-10-05",
+      "target_50_assessment": "implausible",
+      "target_100_assessment": "implausible",
+      "transformational": false,
+      "continuation_confirmed": false
+    },
+    "ANGX": {
+      "entry_price": 4.8499,
+      "entry_date": "2026-09-23",
+      "qty": 4.329986,
+      "high_since_entry": 4.8499,
+      "stop_price": null,
+      "protective_order_id": null,
+      "protective_order_type": "none_fractional_lot_infeasible",
+      "signal": "insider_director (single insider, not a cluster)",
+      "score": 4,
+      "sources": [
+        "openinsider_cluster_buys (claim of 3-insider cluster NOT corroborated)",
+        "sec_edgar_full_text_search",
+        "sec_edgar_form4_direct_read"
+      ],
+      "pyramids_done": 0,
+      "thesis": "Owner explicitly requested a small speculative 'penny stock' buy with the $21.00 remaining buying power, after I twice declined a blind hype-driven buy (crypto is hard-blocked; a pure unverified momentum pick has no basis in this strategy). Compromise: ran the actual verification process on a cheap, high-beta name instead of picking blind. OpenInsider's latest-cluster-buys page listed ANGX (Angel Studios, Inc.) with an 'Ins' count of 3 and +337% \u0394Own. Independently checked via SEC EDGAR full-text search (efts.sec.gov) and by reading the actual Form 4 XML directly from sec.gov -- this did NOT corroborate a 3-distinct-insider cluster: all 3 filings (2026-09-03, 2026-09-11, 2026-09-14) are the same person, Steven I. Sarowitz, a confirmed Director (reportingOwnerRelationship isDirector=1). His 2026-09-11 purchase: 88,647 sh @ $5.3313 (~$472,624), raising his post-transaction stake to 1,329,488 sh (a ~7.1% increase over his prior holding). Scored as a single-insider director buy, not a cluster: +2 (director open-market buy > $25k threshold), +1 (\u0394Own >= 5%), +1 (trade date 2026-09-11 is within 5 days of the 2026-09-14 filing date) = 4, clearing min_signal_score (2). No penalties: current entry price ($4.8499) is actually BELOW all three of the insider's own purchase prices ($5.10-$5.33), so this is not a chase -- if anything a discount to the insider's own cost basis. RSI(14)=55.5 (neutral), price ~99.7% of 20-day SMA (no wreckage, no blow-off). Universe: market cap $904.8M (real small-cap, not a shell/OTC microcap), 30-day avg volume 1.87M shares, tradable, financial_status_description empty, next earnings 2026-11-12 (not same-day, outside blackout). Sized at the user's explicit instruction to use the full $21.00 buying power for this one trade (overriding both min_position_usd=$100 and min_cash_reserve_usd=$10 for this single instance only -- not a standing config change). Bought via dollar-based fractional market order (type=market required for dollar_amount, regular_hours) since $21 does not buy a whole share at ~$4.85. Filled in full: 4.329986 sh @ avg $4.8499. NOT PROTECTED: flagged to the owner before placing that a stop order is not practically placeable on a fractional lot this small, same known limitation as the existing unmanaged AAPL fractional lot -- this position carries real, unmitigated downside risk with no stop, by explicit owner acceptance of that tradeoff for a token-sized speculative position. Re-verified 2026-09-23 17:17 UTC run: attempted stop_market sell (both gtc and gfd time_in_force) via review+place -- review showed no alerts either time, but place_equity_order rejected both attempts (\"Invalid time in force for fractional order\" then \"Invalid trigger for fractional order\"), confirming this is a hard broker restriction on stop-triggered orders for fractional-quantity lots, not a placement error. No order was left in an ambiguous state -- both attempts were clean 400 rejections before order creation, verified via the error response, not assumed. Position remains unprotected by broker order; carrying the same owner-accepted risk as recorded at entry. Cannot be exited today either (bought same-day, PDT same-day-sell rule).",
+      "score_signal_class": "durable",
+      "score_date": "2026-09-23",
+      "same_day": false,
+      "value_usd_asof_backfill": 20.33
+    },
+    "GME": {
+      "entry_price": 25.1799,
+      "entry_date": "2026-10-05",
+      "qty": 70,
+      "high_since_entry": 25.18,
+      "stop_price": 20.14,
+      "protective_order_id": "6ac3ab75-ffea-436f-8f95-7a2b642dc363",
+      "protective_order_type": "stop_market",
+      "signal": "insider_cluster (rotation entry)",
+      "score": 10,
+      "score_signal_class": "durable",
+      "score_date": "2026-09-28",
+      "sources": [
+        "form4_cohen_2026-10-02",
+        "sec_13d_a_cohen_2026-10-02",
+        "earnings_beat",
+        "openinsider_cluster_buys",
+        "sec_edgar_form4"
+      ],
+      "pyramids_done": 0,
+      "same_day": true,
+      "thesis": "CEO/Chairman Ryan Cohen open-market buys ($26.39M 9/21, $20.38M 9/10) in a multi-filer cluster plus Q2 EPS beat ($0.27 vs $0.06). Rotation replaced legacy MSTR (score 0). Pyramided 70sh @25.18 on 2026-10-05: Cohen 13D/A Amdt 20 (10/2, 8.9%, 45.4M sh) + $17.1M open-market buy 10/2 + $10.6M 9/29; RSI 67.6.",
+      "protective_note": "70sh lot bought 2026-10-05 (same-day lot, not sellable today); older 157 sold in ALEC rotation",
+      "signal_quality_score": 7,
+      "catalyst_magnitude_score": 4,
+      "volume_price_discovery_score": 4,
+      "structure_squeeze_score": 4,
+      "explosive_upside_score": 4.0,
+      "remaining_upside_score": 3.0,
+      "dilution_risk_score": 1,
+      "exhaustion_risk_score": 2,
+      "opportunity_score": 3.5,
+      "opportunity_class": "durable",
+      "opportunity_score_date": "2026-10-05",
+      "target_50_assessment": "implausible",
+      "target_100_assessment": "implausible",
+      "transformational": false,
+      "continuation_confirmed": false
+    },
+    "ALEC": {
+      "entry_price": 2.3899,
+      "entry_date": "2026-10-05",
+      "qty": 1030,
+      "high_since_entry": 2.4,
+      "stop_price": 1.91,
+      "protective_order_id": "6ac3ac76-3000-4a69-83c8-8d7c7fb1119a",
+      "protective_order_type": "stop_market",
+      "signal": "8-K catalyst (owner-directed momentum)",
+      "score": 3,
+      "score_signal_class": "momentum",
+      "score_date": "2026-10-05",
+      "sources": [
+        "sec_8k_2026-10-05",
+        "sec_ex99_genentech_license"
+      ],
+      "pyramids_done": 0,
+      "thesis": "Alector 8-K 10/5: exclusive Genentech/Roche license for AL050 (Parkinson's GCase ERT), $100M upfront + up to $1.17B milestones + royalties vs ~$200-265M mkt cap. Stock +31% on 52x volume, faded from 2.72 open. Owner-directed aggressive catalyst entry (8-K alone, no insider print: exception to 4d by owner instruction).",
+      "signal_quality_score": 9,
+      "catalyst_magnitude_score": 8,
+      "volume_price_discovery_score": 9,
+      "structure_squeeze_score": 3,
+      "explosive_upside_score": 7.3,
+      "remaining_upside_score": 4.5,
+      "dilution_risk_score": 3,
+      "exhaustion_risk_score": 4,
+      "opportunity_score": 5.085,
+      "opportunity_class": "transformational",
+      "opportunity_score_date": "2026-10-05",
+      "target_50_assessment": "implausible",
+      "target_100_assessment": "implausible",
+      "transformational": true,
+      "continuation_confirmed": true
+    },
+    "INTT": {
+      "entry_price": 14.75,
+      "entry_date": "2026-10-05",
+      "qty": 75,
+      "high_since_entry": 14.8,
+      "stop_price": 12.54,
+      "protective_order_id": "6ac3cb57-6e78-44ad-a0b0-80712cba9ba6",
+      "protective_order_type": "stop_market",
+      "signal": "8-K/PR Q3 prelim: record orders $48-50M, revenue high end of $33-35M, backlog $58-60M (tactical cash deployment)",
+      "entry_order_id": "6ac3cb4e-5245-41e9-8373-c331186bb8c4",
+      "session": "regular_hours",
+      "signal_quality_score": 8,
+      "catalyst_magnitude_score": 6,
+      "volume_price_discovery_score": 6,
+      "structure_squeeze_score": 3,
+      "explosive_upside_score": 5.4,
+      "remaining_upside_score": 5,
+      "dilution_risk_score": 1,
+      "exhaustion_risk_score": 2,
+      "opportunity_score": 5.08,
+      "opportunity_class": "durable",
+      "opportunity_score_date": "2026-10-05",
+      "target_50_assessment": "possible",
+      "target_100_assessment": "implausible",
+      "transformational": false,
+      "continuation_confirmed": true,
+      "catalyst_tier": "A",
+      "tactical_cash_deployment": true,
+      "primary_sources": [
+        "https://www.stocktitan.net/news/INTT/in-test-expects-record-orders-for-q3-2026-and-revenue-at-high-end-of-zz6vflf9euf6.html"
+      ],
+      "pyramids_done": 0,
+      "thesis": "Preannounced record back-end semi orders (book-to-bill >1.3), AI data-center driven; small cap $139M, up ~20% from 12.30 close, RVOL ~2; full results 11/6. Rotation source: none (idle cash)."
     }
-   }
   },
-  "2026-10-05T1545Z": {
-   "PDSB": {
-    "decision": "rejected",
-    "notes": "+36% sub-$1.02, mcap ~$54M; Sept PIPE up to $22.55M (Nant Capital) = dilution/Nasdaq min-bid risk; no primary-source economic catalyst today"
-   },
-   "ONEN": {
-    "decision": "rejected",
-    "notes": "de-SPAC (closed 2026-09-23) collapsed from ~$11 to <$2; +2.7%, no new catalyst; SPAC supply/dilution + exhaustion"
-   },
-   "AFYA/STNE/PAGS/INTR/ALVO/SID/AZUL/ACB/RXO/INTT/TJGC/EVO/HYFT/JZXN/SAIQ": {
-    "decision": "rejected",
-    "notes": "unchanged from 15:20 run (Brazil macro rally, merger-arb pinned, no catalyst)"
-   },
-   "IDLE_CASH_REVIEW": {
-    "v2_scores_unchanged": {
-     "DUOT": 2.89,
-     "GME": 3.5,
-     "ALEC": 5.085
+  "closed": [
+    {
+      "symbol": "DSP",
+      "entry_price": 11.7,
+      "entry_date": "2026-09-18",
+      "exit_price": 12.2201,
+      "exit_date": "2026-09-24",
+      "qty": 161,
+      "exit_reason": "rotation_exit",
+      "protective_order_id": null,
+      "realized_pnl_usd": 83.66,
+      "day_trade": false,
+      "notes": "Deliberate rotation sale under the owner's 2026-09-23 full-reallocation authorization (see anomaly rotation-authorized-live-20260923), not a stop/target fill. Funded a fresh DUOT entry (score 10, insider cluster, cleared the rotation bar of best-held-score+2=9). Ranked worst-tier among held positions (legacy/score-0, tied with MSTR) and selected over MSTR because it had the smaller unrealized gain (+4.5% vs MSTR's +7.8%), preserving more of the stronger-performing legacy runner per the 'let runners run' preference. Cancelled its existing protective stop (6ab441c7-...) first (confirmed cancelled), then sold 161 sh via marketable limit at $12.22, filled in full at avg $12.2201, fee $0.08. Entry 2026-09-18, exit 2026-09-24 -- 6 calendar days held, not a day trade. Realized a gain, not a loss."
+    },
+    {
+      "symbol": "ALVO",
+      "entry_price": 5.94,
+      "entry_date": "2026-09-18",
+      "exit_price": 5.7504,
+      "exit_date": "2026-09-23",
+      "qty": 300,
+      "exit_reason": "rotation_exit",
+      "protective_order_id": null,
+      "realized_pnl_usd": -56.98,
+      "day_trade": false,
+      "notes": "Not a stop/target fill -- a deliberate rotation sale under AGENT.md's 2026-09-23 full-reallocation authorization (owner confirmed live in chat same day). Ranked worst among held legacy positions per the rotation rule (lowest score/legacy, then largest unrealized loss): MSTR and DSP were both up on the day, ALVO was the only legacy holding down (-3.2%) at decision time. Cancelled its existing protective stop-limit (6aad6bf8-...) first (confirmed cancelled), then sold 300 sh via marketable limit at $5.74, filled in full at avg $5.7504, fee $0.10. Proceeds funded the same-run SBLK entry. Entry 2026-09-18, exit 2026-09-23 -- 5 calendar days held, not a day trade."
+    },
+    {
+      "symbol": "UROY",
+      "entry_price": 4.5299,
+      "entry_date": "2026-09-18",
+      "exit_price": 4.28,
+      "exit_date": "2026-09-21",
+      "qty": 33,
+      "exit_reason": "automatic_stop_market_fill",
+      "protective_order_id": "6aad8872-c211-45cc-88d8-f8fff1f471a1",
+      "realized_pnl_usd": -8.2467,
+      "day_trade": false,
+      "notes": "Protective stop (raised from initial stop via broker-side trigger at $4.28) filled automatically at 2026-09-21T14:08:43Z per get_equity_orders execution records (2 executions, 1 sh + 32 sh, both at $4.28). Position was opened 2026-09-18 and closed 2026-09-21 (3 calendar days held) -- not a same-day round trip, so no day trade recorded. Discovered by this run via Step 1 reconciliation (position present in state.json but absent from live get_equity_positions)."
+    },
+    {
+      "symbol": "BORR",
+      "entry_price": 4.4685,
+      "entry_date": "2026-09-21",
+      "exit_price": 4.11,
+      "exit_date": "2026-09-25",
+      "qty": 26,
+      "exit_reason": "stop_loss",
+      "protective_order_id": "6ab13b9c-0bd2-4a33-92e3-34e9d86ccd63",
+      "realized_pnl_usd": -9.32,
+      "day_trade": false,
+      "notes": "Stop-loss fill confirmed via get_equity_orders: order 6ab13b9c-... (stop_market, stop 4.11) filled 26/26 sh at avg 4.1100, execution 6ab6a4bc-..., timestamp 2026-09-25T16:43:40.031Z. Entry 2026-09-21, exit 2026-09-25 -- 4 calendar days held, not a day trade. Reconciled this run (17:xx UTC) -- position was still open and protected as of the prior run (16:25 UTC); this is a fresh fill discovered this run, not a missed one."
+    },
+    {
+      "symbol": "MSTR",
+      "entry_price": 150.17,
+      "entry_date": "2026-09-18",
+      "exit_price": 159.1501,
+      "exit_date": "2026-09-28",
+      "qty": 23,
+      "exit_reason": "rotation_exit",
+      "order_id": "6abab552-b9e2-49e4-83c1-67d72ec628d0",
+      "execution_id": "6abab553-4b80-4abb-9533-5afbbd3cd41e",
+      "realized_pnl_usd": 206.46,
+      "day_trade": false,
+      "notes": "Legacy/score-0 weakest holding rotated into GME per scoring.py rotation (threshold 3, candidate 8). Stop 6ab19029 cancelled first."
+    },
+    {
+      "symbol": "SBLK",
+      "entry_price": 30.3452,
+      "entry_date": "2026-09-23",
+      "qty": 57,
+      "exit_price": 30.7501,
+      "exit_date": "2026-10-05",
+      "exit_reason": "rotation_exit",
+      "order_id": "6ac3ab55-7431-4733-9dc9-66b97ace4edd",
+      "realized_pnl_usd": 23.08,
+      "day_trade": false
+    },
+    {
+      "symbol": "GME",
+      "lot": "157sh from 2026-09-28",
+      "entry_price": 23.9676,
+      "qty": 157,
+      "exit_price": 25.1801,
+      "exit_date": "2026-10-05",
+      "exit_reason": "rotation_exit",
+      "order_id": "6ac3ac5c-f99e-4744-af4b-5cff3872754e",
+      "realized_pnl_usd": 190.36,
+      "day_trade": false
     }
-   }
+  ],
+  "day_trades": [],
+  "stopped_out_recently": {
+    "UROY": {
+      "stopped_out_date": "2026-09-21",
+      "cooldown_until": "2026-10-21"
+    },
+    "BORR": {
+      "stopped_out_date": "2026-09-25",
+      "cooldown_until": "2026-09-26"
+    }
   },
-  "2026-10-05T1610Z": {
-   "INTT": {
-    "decision": "BOUGHT",
-    "opportunity_score": 5.08,
-    "cash_deployment_eligible": true
-   },
-   "INTR/STNE": {
-    "decision": "rejected",
-    "opportunity_score": 4.215,
-    "notes": "Brazil election macro (Bolsonaro 1st-round lead; runoff risk), below tactical 4.5"
-   },
-   "PAGS": {
-    "decision": "rejected",
-    "opportunity_score": 4.08
-   },
-   "ACB": {
-    "decision": "rejected",
-    "opportunity_score": 3.39,
-    "notes": "Curaleaf raised bid to ~$5 (0.4013 CURA + $1); limited upside"
-   },
-   "RXO": {
-    "decision": "rejected",
-    "notes": "C.H. Robinson $30.25 deal, merger-arb pinned"
-   },
-   "SAIQ": {
-    "decision": "rejected",
-    "notes": "de-SPAC debut +259%, dilution/exhaustion"
-   },
-   "DNA": {
-    "decision": "rejected",
-    "opportunity_score": 1.57
-   },
-   "PICS": {
-    "decision": "rejected",
-    "opportunity_score": 2.47
-   },
-   "independent_sweep": [
-    "ARXS (no verified catalyst)",
-    "ESTA (FDA sizes, minor)",
-    "SYNA/VAXC (large-cap/deal-pinned)"
-   ]
-  }
- },
- "anomalies": [
-  {
-   "id": "aapl-fractional-lot",
-   "detected": "2026-09-18T22:16:00Z",
-   "description": "AAPL position of 0.005949 shares (~$2) bought via a market order at 2026-09-18T19:30:36Z, placed_agent=agentic. Does not fit the strategy: no AAPL signal, no config in place, size far below min_position_usd, and order type (market, dollar-based) is not the marketable-limit entry the rules specify. No protective order exists or is feasible for a fractional position this small.",
-   "action_taken": "Reported only from 2026-09-18 through 2026-09-21; reconfirmed unchanged and unresolved on at least 10 separate runs across that window (see journal/ for individual confirmations). A run on branch claude/clever-thompson-moql19 (2026-09-21T13:17Z) recorded that the owner acknowledged this in a live conversation and asked not to keep re-flagging it. That claim has not been independently verified by any session beyond the fact that it is consistently recorded. Carried forward as reported; not re-flagged in routine runs going forward unless the position or its status changes. Unchanged this run (still 0.005949 sh, still unprotected, still unmanaged).",
-   "status": "acknowledged_by_owner (unverified, per moql19 2026-09-21)",
-   "still_unmanaged": true
+  "candidates_seen": {
+    "2026-09-24T1717Z": {
+      "DUOT": {
+        "score": 10,
+        "decision": "entered_rotation",
+        "signal": "insider_cluster (CEO Recker Frank Douglas $84.5k 2026-09-22 + Director Nixon James Craig $49.3k 2026-09-18, both re-verified against the 2026-09-23T2214Z Form-4-XML-verified record)",
+        "notes": "Re-surfaced via OpenInsider latest-cluster-buys (fetched via curl with a browser User-Agent after WebFetch hit the same recurring 503 outage). Only prior blocker (bid/ask spread 5.07%) had resolved to ~0.74% this hour; every other gate (market cap, volume, financial status, earnings blackout, RSI 50.7, price 106.9% of 20-day SMA, chase +6.06%) re-verified fresh and unchanged. Cleared the rotation bar (best-held score 7 + rotation_min_score_advantage 2 = 9; 10>=9) despite $0 buying power and 5 open positions already at/above max_open_positions -- funded by rotating out DSP. See the DUOT position thesis and DSP closed-position notes for full mechanics.",
+        "score_breakdown": "+3 CEO open-market buy >$25k, +2 other officer/director buy, +3 cluster within 7 days, +1 >=5% ownership increase (brand-new CEO stake), +1 filing lag <=5 days = 10; no penalties"
+      },
+      "GME": {
+        "score": null,
+        "decision": "not_scored_deprioritized",
+        "signal": "insider cluster per OpenInsider (4 filers, $48.4M aggregate, filings 2026-09-08 through 2026-09-21)",
+        "notes": "Surfaced same OpenInsider fetch. Not pursued this run: DUOT already cleared the rotation bar and consumed this run's one new-entry action; GME is a widely-covered large-cap name where a Section-16 cluster is less likely to reflect a special informed edge, and verifying it (confirming filer roles via direct Form 4 XML read, per this book's practice) would not have changed the outcome this hour. Worth a full look in a future run if capacity/cash allows."
+      },
+      "BBD": {
+        "score": null,
+        "decision": "rejected_low_conviction",
+        "signal": "21 'insiders' per OpenInsider, $29M aggregate, Banco Bradesco (BBD), a Brazilian bank ADR",
+        "notes": "Foreign private issuers are generally exempt from US Section 16 Form 3/4/5 reporting, so OpenInsider's classification of these as standard US insider Form 4 purchases is questionable and was not independently verified via EDGAR. Even at face value, a large slow-moving foreign bank ADR is a poor fit for this book's informed-flow thesis. Not pursued."
+      },
+      "GAM": {
+        "score": null,
+        "decision": "rejected_not_operating_company",
+        "signal": "5 insiders per OpenInsider, General American Investors Co (closed-end fund)",
+        "notes": "Closed-end fund; insider buying of fund shares (management/directors buying at a discount to NAV) is a different phenomenon from operating-company informed flow and is not the kind of signal this strategy is built to chase. Not pursued."
+      }
+    },
+    "2026-09-23T2214Z": {
+      "ALP": {
+        "score": 10,
+        "decision": "rejected_universe",
+        "signal": "insider_cluster (CEO Kaiser + CFO Levitt + Director/Officer Villani, 3 distinct filers verified via direct Form 4 XML read; all three bought on 2026-09-09, Villani continued buying through 2026-09-22)",
+        "notes": "Would have scored 10 (C-suite +3, other insider +2, 7-day cluster +3, >=5% ownership increase +1, <=5-day filing lag +1) -- well above the rotation bar (best-held BORR score 7 + rotation_min_score_advantage 2 = 9). Disqualified anyway: financial_status_description='Noncompliant' (listing deficiency) and market cap only $7.0M, far below min_market_cap_usd ($25M). Company describes itself as pivoting to a 'Telegram super app' / digital-asset treasury strategy after collapsing from a $690 52-week high to $4.52 -- classic microcap shell pattern the universe filter exists to catch. Hard disqualification, not a score question."
+      },
+      "DUOT": {
+        "score": 10,
+        "decision": "rejected_spread_this_session",
+        "signal": "insider_cluster (CEO Recker Frank Douglas, brand-new stake, $84.5k on 2026-09-22 + Director Nixon James Craig, $49.3k on 2026-09-18, both verified via direct Form 4 XML read)",
+        "notes": "Score 10 (CEO +3, other director +2, cluster within 7 days +3, >=5% ownership increase +1, <=5-day filing lag +1) -- clears the rotation bar. Passed financials (status blank), market cap $282.8M, volume, RSI 53.6 (neutral), price ~101% of 20-day SMA (no wreckage), no earnings blackout (next report 2026-11-11), chase only +3.9% from signal price. Recent Q2 2026 earnings beat (actual $1.37 vs est $0.52) as supporting context. REJECTED FOR THIS SESSION ONLY per AGENT.md's extended-hours rule: live bid/ask spread was 9.03/9.50 = 5.07%, above max_bid_ask_spread_pct (4.0%) -- 'If spread > max_bid_ask_spread_pct, skip that name this session.' Not a permanent disqualification; worth re-checking at the next regular-session open when spreads should tighten, if the signal is still fresh (filing lag would then be 1-2 days, still within the 7-day cluster window)."
+      },
+      "SKIL": {
+        "score": null,
+        "decision": "rejected_universe",
+        "signal": "insider_cluster (2 insiders per OpenInsider, not independently verified further once disqualified)",
+        "notes": "Disqualified before full scoring: financial_status_description='Noncompliant'."
+      },
+      "ADC": {
+        "score": null,
+        "decision": "rejected_low_conviction",
+        "signal": "insider_cluster (3 insiders, $4.1M aggregate) at Agree Realty Corp, an $8.3B net-lease REIT paying a monthly dividend",
+        "notes": "Passed financials/market cap/spread (1.4%) but not independently scored in full -- routine director buying at a slow-moving, high-yield blue-chip REIT is a poor fit for this book's high-variance informed-flow thesis and was very unlikely to reach the rotation bar (best case estimate ~5: other-insider +2, cluster +2 non-7-day, freshness +1) even before considering it is not the kind of setup this experiment is meant to chase. Not fully verified insider-by-insider since it could not plausibly clear score 9 regardless."
+      },
+      "RWAY": {
+        "score": null,
+        "decision": "rejected_spread_this_session",
+        "signal": "insider_cluster (3 insiders, $169k aggregate) at Runway Growth Finance Corp, a BDC",
+        "notes": "Live bid/ask spread 6.70/7.12 = 6.08%, above max_bid_ask_spread_pct (4.0%) -- skipped this session per AGENT.md's extended-hours rule before full insider-by-insider verification, since the wide spread alone is disqualifying right now regardless of score."
+      }
+    },
+    "2026-09-21": {
+      "BORR": {
+        "score": 7,
+        "decision": "entered",
+        "signal": "insider_cluster (CEO + Director)"
+      },
+      "SBLK": {
+        "score": 6,
+        "decision": "rejected_position_sizing",
+        "signal": "insider_cluster (5 insiders incl. co-CFO)",
+        "notes": "Passed universe/technical screens and scoring (>= min_signal_score) but at $32.39 ask, the $116.84 available budget only buys 3 whole shares ($97.17), below min_position_usd ($100). Only one new position allowed per run; BORR took the slot."
+      },
+      "BWMX": {
+        "score": null,
+        "decision": "rejected_universe",
+        "signal": "insider_cluster (3 insiders incl. CEO+Chairman)",
+        "notes": "Disqualified before scoring: 30-day avg volume 73,584 sh (below 500,000 minimum) and bid/ask spread ~2.6% (above 1.0% max)."
+      }
+    },
+    "2026-09-25T1426Z": {
+      "HHH": {
+        "score": 8,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "insider_cluster (Exec. Chairman Marc Grandisson $1,602,938 buy 9/23 + COO Andrew Davis $64,490 buy 9/23, both filed 9/24, EDGAR Form-4 verified)",
+        "notes": "+3 chair, +3 cluster<=7d, +1 >=5% \u0394Own, +1 filing lag<=5d = 8. Below the 12-point rotation bar (best held DUOT score 10 + rotation_min_score_advantage 2) and no legacy holding is currently down/flat to trigger the alternate rotation path. Politician-confluence and price/RSI penalty checks unavailable (CapitolTrades and price-check source both unreachable this run)."
+      },
+      "DKS": {
+        "score": 8,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "insider_cluster (CFO Navdeep Gupta $999,983 buy 9/22 + Director Larry Fitzgerald Jr. $244,906 buy 9/23, both filed 9/24, EDGAR Form-4 verified for 2 of the ~6 OpenInsider-listed cluster names)",
+        "notes": "+3 CFO, +3 cluster<=7d, +1 >=5% \u0394Own, +1 filing lag<=5d = 8. Below rotation bar."
+      },
+      "NYAX": {
+        "score": 7,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "insider_cluster (CEO/Chairman Yair Nechmad $4,607,723 buy 9/24 + CTO David Ben-Avi ~$67k buy 9/22, EDGAR verified)",
+        "notes": "+3 CEO, +3 cluster<=7d, +1 trade date = filing date = 7. Below rotation bar."
+      },
+      "OXM": {
+        "score": 6,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "insider_cluster (CEO Thomas Chubb $65,375 buy 9/24 + EVP Scott Grassmyer $29,730 buy 9/15, EDGAR verified, 9-day gap so 21-day not 7-day cluster)",
+        "notes": "+3 CEO, +2 cluster<=21d, +1 filing lag<=5d = 6. Below rotation bar."
+      },
+      "PWRL": {
+        "score": 4,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "single insider (CEO Mike Dinsdale $99,999 buy 9/23, filed 9/24, EDGAR verified)",
+        "notes": "+3 CEO, +1 filing lag<=5d = 4. No cluster. Also files like a BDC/continuous-offering vehicle, a weaker fit for this book's thesis even before the score. Below rotation bar."
+      }
+    },
+    "2026-09-25T1524Z": {
+      "RWT": {
+        "score": 10,
+        "decision": "rejected_ties_not_beats_rotation_bar",
+        "signal": "insider_cluster (CEO Christopher Abate $383,900 buy 9/15 + 5 more distinct insiders Kubicek/Robinson/Macomber/Stone/Carillo, all trade dates 9/15-9/21, all EDGAR Form-4 verified via accession numbers)",
+        "notes": "+3 CEO, +2 other officers/directors, +3 cluster<=7d, +1 >=5% \u0394Own (Abate holdings +17.3%), +1 filing lag<=5d = 10. No penalties: RSI 32.2, price 4.8% BELOW signal price (no chase), mkt cap $459M, no earnings blackout. Ties DUOT (weakest held, score 10) but rotation requires score >= best_held+rotation_min_score_advantage (10+2=12) -- 10 does not clear 12. Not entered. Caveat noted by researching subagent: mortgage REIT, negative P/E (-68.4), worth a going-concern gut-check before any future entry, not confirmed either way."
+      },
+      "ADC": {
+        "score": 9,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "insider_cluster (CEO Joey Agree $500,922 buy 9/16-17 + Chief Growth Officer Craig Erlich $67,550 buy 9/21-23 + Director John Rakolta Jr twice 9/2 & 9/17, EDGAR verified)",
+        "notes": "+3 CEO, +2 other officer, +3 cluster<=7d (Agree-Erlich 5 days), +1 trade<=5d before filing (Erlich) = 9. RSI 15.9 (oversold, no penalty), price below signal (no chase), mkt cap $8.3B REIT. Below rotation bar (needs >=12)."
+      },
+      "GME": {
+        "score": 7,
+        "decision": "rejected_below_rotation_bar_overbought",
+        "signal": "insider_cluster (CEO/Chairman Ryan Cohen $26.39M buy 9/21 + $20.4M buy 9/10 + 3 more distinct directors Attal/Grube/Cheng, EDGAR verified)",
+        "notes": "+3 CEO, +2 other directors, +3 cluster<=7d, +1 filing lag<=5d = 9, but RSI(14)=84.0 triggers -2 penalty = 7. Largest single-name dollar conviction buy in the market currently but technically overbought (price +16% since 9/10 buy). Watch for a pullback in a future run."
+      },
+      "CELH": {
+        "score": 9,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "insider_cluster (CEO John Fieldly $493,843 buy 9/10 + Damon DeSantis 9/15 + Hal Kravitz 9/16, EDGAR verified)",
+        "notes": "+3 CEO, +2 other insiders, +3 cluster<=7d, +1 filing lag<=5d = 9. RSI 45 neutral, price only +2% above signal, mkt cap $7.1B. Below rotation bar."
+      },
+      "CAVA": {
+        "score": 3,
+        "decision": "rejected_low_conviction",
+        "signal": "single insider (CLO Joseph Kadow $49,960 buy 9/16); OpenInsider's claimed 2nd 'insider' (Xenohristos) was verified via EDGAR as a code-G gift transaction, $0/share, not a purchase -- no cluster credit",
+        "notes": "+2 officer only = ~3 (no cluster bonus once the gift transaction was excluded). Rejected as too weak."
+      }
+    },
+    "2026-09-25T1625Z": {
+      "CYBN": {
+        "score": 10,
+        "decision": "rejected_ties_not_beats_rotation_bar",
+        "signal": "insider_cluster (Exec Chairman/CGO transactions: Glavine $1.18M buy 9/3 + So $1.24M buy 9/8, 5-day gap; CEO Halstead $1.35M buy, ownership +146%; all EDGAR Form 4 code P, accessions 0000912282-26-001256/-001261/-001263/-001293)",
+        "notes": "+3 top-tier officer, +3 cluster<=7d, +1 >=5% \u0394Own (Halstead +146%), +1 filing lag<=5d = 10. Ties DUOT (best held, 10) but rotation bar requires >=12. Not price/spread-verified live this run (delegated research ran out of time budget); would need a fresh universe check before any future entry."
+      },
+      "UBER": {
+        "score": 8,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "insider_cluster (President/COO Macdonald + CEO Khosrowshahi, both code-P buys within 7 days; accessions 0002071761-26-000011, 0001184237-26-000008)",
+        "notes": "+3 CEO/President tier, +3 cluster<=7d, +1 >=5% \u0394Own, +1 filing lag<=5d = 8. Hazelbaker filing correctly excluded (a SALE, code S) and West's filings excluded (option exercise/tax, codes M/F) -- not counted toward the cluster. Below rotation bar."
+      },
+      "PNFP": {
+        "score": 9,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "insider_cluster (CEO Blair + Director Montana, both code-P buys 9-day gap; accessions 0001680809-26-000007, 0001571561-26-000005)",
+        "notes": "+3 CEO, +2 director, +2 cluster<=21d (not 7d), +1 >=5% \u0394Own, +1 filing lag<=5d = 9. CFO Gregory's filing (0001779272-26-000008) correctly excluded as code G (gift), not a purchase -- same OpenInsider-miscount risk as the CAVA rejection earlier this week. Below rotation bar."
+      },
+      "BCBP": {
+        "score": 8,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "insider_cluster (CEO O'Brien $1.24M + CFO Chaudhry $77.5k, both code-P, same trade date 9/18; accessions 0001193125-26-397677/-397672)",
+        "notes": "+3 CEO, +3 same-day cluster, +1 >=5% \u0394Own, +1 filing lag(4d)<=5d = 8. Small community bank; volume/spread not independently confirmed this run since score was already well below the bar. Below rotation bar."
+      },
+      "DY": {
+        "score": 7,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "insider_cluster (CEO Peyovich + 2 directors, code-P; accessions 0001837347-26-000003, 0001919348-26-000002, 0001349628-26-000004)",
+        "notes": "+3 CEO, +2 cluster<=21d, +1 >=5% \u0394Own, +1 filing lag<=5d = 7. Full 3-name span is 22 days, just outside the 21-day cluster window for the full-cluster bonus. Below rotation bar."
+      },
+      "GRNT": {
+        "score": 6,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "insider_cluster (CFO + 2 directors, modest $25-50k buys, code-P; accessions 0001628280-26-061771/-060001/-060851)",
+        "notes": "~+2 officer/director tier, +2/+3 cluster (borderline 7d window), no ownership-increase bonus (small buys). Below rotation bar."
+      },
+      "GLOO": {
+        "score": null,
+        "decision": "rejected_compliance_flag",
+        "signal": "10%-owner Thrivent Financial (weekly buys since July) + director Pat Gelsinger (ex-Intel CEO) buys 9/11 & 9/14",
+        "notes": "One Thrivent tranche filed 66 days late (traded 7/10, filed 9/14) -- a Section 16 late-filing compliance flag, not a clean recent print; no filing-lag bonus available and pattern reads as routine 10%-owner accumulation rather than a fresh informed signal. Recently-public name with thin trading history, not independently universe-screened given the low likely score."
+      },
+      "ETRA": {
+        "score": null,
+        "decision": "rejected_pipe_suspected",
+        "signal": "two $20M 'purchases' at an identical $15.00 price by a director and a fund (Orbimed) on the same date",
+        "notes": "Round identical price + two simultaneous 'purchases' from a director and an institutional fund is the signature of a private placement/PIPE allocation, not an open-market informed-flow buy -- flagged for a human to confirm before ever scoring it. Not counted."
+      }
+    },
+    "2026-09-28T1423Z": {
+      "GME": {
+        "score": 8,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "insider_cluster (CEO/Chairman Ryan Cohen $26.39M buy 9/21 + $20.38M buy 9/10, cluster of 4 filers per OpenInsider, EDGAR Form 4 sec.gov link present)",
+        "notes": "+3 CEO, +3 cluster<=7d = 6, +2 earnings beat already printed (Q2 FY26 actual $0.27 vs est $0.06, reported 2026-09-08) = 8. RSI(14) 65.1 (not overbought this run), price 113% of 20-SMA, chase +4.0% vs $22.94 signal (within limits), mkt cap $12.0B, avg vol 9.3M/day, no earnings blackout (next 2026-12-08). Below rotation bar (best held DUOT score 10 + rotation_min_score_advantage 2 = 12)."
+      },
+      "DKS": {
+        "score": 6,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "insider_cluster (CFO Navdeep Gupta $999,983 buy 9/22, cluster of 6 filers per OpenInsider, EDGAR Form 4 verified by direct sec.gov fetch this run)",
+        "notes": "+3 CFO, +3 cluster<=7d = 6. RSI(14) 43.1 neutral, price 101.7% of 20-SMA, chase ~+3.2% vs $130.05 signal, mkt cap $11.9B, no earnings blackout (next 2026-11-24). Below rotation bar."
+      },
+      "ADC": {
+        "score": 6,
+        "decision": "rejected_below_rotation_bar",
+        "signal": "insider_cluster (CEO Joey Agree $500,922 buy 9/16-17 + Chief Growth Officer Craig Erlich $67,550 buy 9/21-23, cluster of 3, sec.gov Form 4 links present)",
+        "notes": "+3 CEO, +3 cluster<=7d = 6. RSI(14) 20.1 (oversold) but price 96.1% of 20-SMA -- does not meet the double condition (price<85% AND RSI<25) for technical veto. No chase (price at/below signal). mkt cap $8.4B REIT. Below rotation bar."
+      },
+      "DY": {
+        "score": null,
+        "decision": "not_scored_deprioritized",
+        "signal": "insider_cluster (3 filers per OpenInsider, $551,307 aggregate at $290.16, filed 9/24, trade 9/23)",
+        "notes": "Individual insider name/title not captured on page 1 of officer/all-purchases lists so C-suite status unverified this run; RSI 29.7, price 95.4% of 20-SMA (no technical veto), no chase (price below signal). Deprioritized vs. three already-verified, higher/equal-confidence candidates (GME/DKS/ADC) rather than spend remaining run time on EDGAR verification for a name that could not plausibly clear the rotation bar even at full score."
+      },
+      "BBD": {
+        "score": null,
+        "decision": "rejected_data_quality_and_fit",
+        "signal": "21 officer-level Form 4 purchases per OpenInsider, Banco Bradesco (BBD) ADR, all trade date 9/18",
+        "notes": "OpenInsider-listed per-share price ($17.98) is inconsistent with BBD's actual USD trading range (~$3.36); most likely a BRL-denominated figure carried through without currency conversion (17.98/5.35 ~= 3.36). Foreign private issuer, so standard US Section 16 Form 4 applicability is itself questionable (consistent with this book's 2026-09-24 rejection of the same name). Not pursued -- data quality + poor fit for this book's US-informed-flow thesis, not independently verified further."
+      },
+      "GAM": {
+        "score": null,
+        "decision": "rejected_universe",
+        "signal": "5 officer-level purchases per OpenInsider (VPs + CEO), General American Investors Co, closed-end fund",
+        "notes": "30-day avg volume 16,741 sh, below min_avg_volume_30d_shares (100,000) -- hard universe disqualification. Also a closed-end fund, not an operating company (consistent with prior rejection)."
+      }
+    },
+    "2026-09-28T15:19:00Z": {
+      "GME": {
+        "score": 8,
+        "note": "carried forward from 14:23Z run (CEO cluster + earnings-beat confluence); no new politician/insider data this run; below rotation bar (needs >=12 vs DUOT=10); cash-blocked ($112.23 spendable < $100 min for 1 share)"
+      },
+      "DKS": {
+        "score": 6,
+        "note": "carried forward; below rotation bar; cash-blocked"
+      },
+      "ADC": {
+        "score": 6,
+        "note": "carried forward; politician check this run found only a stale May-2026 SELL disclosure (Rep. Gottheimer), no new buy confluence; below rotation bar; cash-blocked"
+      },
+      "KOD": {
+        "score": 3,
+        "note": "NEW this run via live-heat scan (Agentic Exceptional Momentum): +139% intraday (open $62.00 to high $87.83 to last ~$77.29), RVOL ~26x (21.2M vs 815k 30d avg), verified same-day public catalyst: Phase 3 DAYBREAK topline results (Zenkuda + KSI-501 met primary vision endpoints, non-inferior to aflibercept) announced 8:30am ET, confirmed via SEC 8-K filed 2026-09-28 and multiple independent news sources (StockTitan, GuruFocus, StocksToTrade; UBS Buy $80 PT, Goldman Neutral $36 PT). Score: +3 (RVOL>=3x + verified headline) only, no insider/politician/13D confluence found for KOD. Technical veto does not apply (same-day catalyst present). Does not clear rotation bar (3 vs 12 needed against DUOT=10); no legacy/scoreless holding is down/flat (MSTR legacy but +4.0% since entry; AAPL legacy but +1.3%) so the alternate legacy-rotation path also does not apply. Also independently cash-blocked ($112.23 spendable, 1 share at ~$77 = $77.29 below $100 min_position_usd). No entry."
+      }
+    },
+    "2026-09-28T16:18:00Z": {
+      "GME": {
+        "score": 8,
+        "note": "carried forward; OpenInsider (503) and CapitolTrades (403) both down again this run (retried once each, per Section 7); no new data; below rotation bar (needs >=12 vs DUOT=10); cash-blocked (12.23 spendable < 00 min for 1 share at current price)"
+      },
+      "DKS": {
+        "score": 6,
+        "note": "carried forward; sources down; below rotation bar; cash-blocked"
+      },
+      "ADC": {
+        "score": 6,
+        "note": "carried forward; sources down (no fresh politician check possible this run); below rotation bar; cash-blocked"
+      },
+      "KOD": {
+        "score": 3,
+        "note": "carried forward live-heat name; continued higher intraday to $89.23 (RVOL ~11x per this run's scan vs ~26x last run -- volume moderating, price making a new session high), RSI 37.85. No new insider/politician/13D confluence found (sources down). Still far short of rotation bar (3 vs 12 needed against DUOT=10); no legacy/scoreless holding down/flat to enable the alternate rotation path (MSTR +5.4% since entry, AAPL +1.4%). Cash-blocked independently (12.23 spendable < $100 min for 1 share at ~$89). No entry."
+      }
+    },
+    "2026-09-28T17:19:00Z": {
+      "KOD": {
+        "score": 3,
+        "note": "carried forward; now $89.44 (RVOL 12.4x per scan), RSI 37.85; sources (OpenInsider timeout, CapitolTrades 429) still down; below rotation bar (needs >=12 vs DUOT=10); cash-blocked (112.23 spendable, 1sh=$89.70<$100 min)"
+      },
+      "GME": {
+        "score": 8,
+        "note": "carried forward; sources down; below rotation bar; cash-blocked"
+      },
+      "DKS": {
+        "score": 6,
+        "note": "carried forward; sources down; below rotation bar; cash-blocked"
+      },
+      "ADC": {
+        "score": 6,
+        "note": "carried forward; sources down; below rotation bar; cash-blocked"
+      }
+    },
+    "2026-09-28T1844Z": {
+      "GME": {
+        "score": 8,
+        "decision": "entered_via_rotation"
+      },
+      "KOD": {
+        "score": 0,
+        "note": "momentum score decayed/expired (live-heat 2+ days old); price $91.98 (+184% on day); not re-scored"
+      },
+      "DKS": {
+        "score": 6,
+        "note": "carried; not chosen, cash exhausted"
+      },
+      "ADC": {
+        "score": 6,
+        "note": "carried; cash exhausted"
+      }
+    },
+    "2026-10-05T1415Z": {
+      "STNE": {
+        "decision": "rejected",
+        "notes": "+25% sector-wide Brazil fintech move (PAGS/INTR same), no company filing"
+      },
+      "PAGS": {
+        "decision": "rejected",
+        "notes": "sector move, no filing"
+      },
+      "INTR": {
+        "decision": "rejected",
+        "notes": "sector move, no filing"
+      },
+      "ACB": {
+        "decision": "rejected",
+        "notes": "+16% cannabis sector move, no filings since 9/28"
+      },
+      "ALVO": {
+        "decision": "rejected",
+        "notes": "+16%, no filings since 9/28; recently rotated out"
+      },
+      "AZUL": {
+        "decision": "rejected",
+        "notes": "thin volume 125k"
+      },
+      "ONEN": {
+        "decision": "rejected",
+        "notes": "unchanged: no filings"
+      }
+    },
+    "2026-10-05T1500Z": {
+      "SAIQ": {
+        "decision": "rejected",
+        "opportunity_score": 0.475,
+        "notes": "de-SPAC listing (Columbus Acq. close 10/1, Nasdaq 10/2), +259%, no catalyst; scoring eligible=false"
+      },
+      "ONEN": {
+        "decision": "rejected",
+        "opportunity_score": 1.175,
+        "notes": "de-SPAC, fell from ~$11; no catalyst; eligible=false"
+      },
+      "AFYA": {
+        "decision": "rejected",
+        "notes": "+7% Brazil sector move, no filing, not explosive"
+      },
+      "ALEC": {
+        "decision": "held",
+        "notes": "63x RVOL +23%, -6.5% vs 2.39 entry, same-day lot, stop 1.91 live"
+      },
+      "JZXN": {
+        "decision": "rejected",
+        "notes": "down on volume, micro-cap"
+      }
+    },
+    "2026-10-05T1513Z": {
+      "RXO": {
+        "decision": "rejected",
+        "notes": "C.H. Robinson cash+stock $30.25 deal; pinned to consideration"
+      },
+      "INTT": {
+        "decision": "rejected",
+        "opportunity_score": 2.875,
+        "notes": "8-K record Q3 orders/guidance high end; +18%, RVOL 1.8; eligible=false"
+      },
+      "STNE/PAGS/INTR/ALVO/AFYA": {
+        "decision": "rejected",
+        "notes": "Brazil election macro rally, no company catalyst"
+      },
+      "ACB": {
+        "decision": "rejected",
+        "notes": "+14%, no verified catalyst"
+      },
+      "IDLE_CASH_REVIEW": {
+        "v2_rescored": {
+          "DUOT": 2.89,
+          "GME": 3.5,
+          "ALEC": 5.085
+        }
+      }
+    },
+    "2026-10-05T1520Z": {
+      "SAIQ": {
+        "decision": "rejected",
+        "notes": "de-SPAC debut (Columbus Acq / WISeSat.Space), +265%, mcap ~$55M, premarket spike to ~$18 then faded; no primary-source economic catalyst, SPAC warrant/dilution + exhaustion risk; not scored eligible"
+      },
+      "ACB": {
+        "decision": "rejected",
+        "notes": "+14%, RVOL 3, no verified catalyst found"
+      },
+      "AFYA/STNE/PAGS/INTR/ALVO/SID/AZUL": {
+        "decision": "rejected",
+        "notes": "Brazil macro rally, no company catalyst"
+      },
+      "RXO": {
+        "decision": "rejected",
+        "notes": "merger-arb pinned"
+      },
+      "INTT/TJGC/EVO/HYFT/JZXN": {
+        "decision": "rejected",
+        "notes": "no qualifying catalyst / unchanged from prior run"
+      },
+      "IDLE_CASH_REVIEW": {
+        "v2_scores_unchanged": {
+          "DUOT": 2.89,
+          "GME": 3.5,
+          "ALEC": 5.085
+        }
+      }
+    },
+    "2026-10-05T1545Z": {
+      "PDSB": {
+        "decision": "rejected",
+        "notes": "+36% sub-$1.02, mcap ~$54M; Sept PIPE up to $22.55M (Nant Capital) = dilution/Nasdaq min-bid risk; no primary-source economic catalyst today"
+      },
+      "ONEN": {
+        "decision": "rejected",
+        "notes": "de-SPAC (closed 2026-09-23) collapsed from ~$11 to <$2; +2.7%, no new catalyst; SPAC supply/dilution + exhaustion"
+      },
+      "AFYA/STNE/PAGS/INTR/ALVO/SID/AZUL/ACB/RXO/INTT/TJGC/EVO/HYFT/JZXN/SAIQ": {
+        "decision": "rejected",
+        "notes": "unchanged from 15:20 run (Brazil macro rally, merger-arb pinned, no catalyst)"
+      },
+      "IDLE_CASH_REVIEW": {
+        "v2_scores_unchanged": {
+          "DUOT": 2.89,
+          "GME": 3.5,
+          "ALEC": 5.085
+        }
+      }
+    },
+    "2026-10-05T1610Z": {
+      "INTT": {
+        "decision": "BOUGHT",
+        "opportunity_score": 5.08,
+        "cash_deployment_eligible": true
+      },
+      "INTR/STNE": {
+        "decision": "rejected",
+        "opportunity_score": 4.215,
+        "notes": "Brazil election macro (Bolsonaro 1st-round lead; runoff risk), below tactical 4.5"
+      },
+      "PAGS": {
+        "decision": "rejected",
+        "opportunity_score": 4.08
+      },
+      "ACB": {
+        "decision": "rejected",
+        "opportunity_score": 3.39,
+        "notes": "Curaleaf raised bid to ~$5 (0.4013 CURA + $1); limited upside"
+      },
+      "RXO": {
+        "decision": "rejected",
+        "notes": "C.H. Robinson $30.25 deal, merger-arb pinned"
+      },
+      "SAIQ": {
+        "decision": "rejected",
+        "notes": "de-SPAC debut +259%, dilution/exhaustion"
+      },
+      "DNA": {
+        "decision": "rejected",
+        "opportunity_score": 1.57
+      },
+      "PICS": {
+        "decision": "rejected",
+        "opportunity_score": 2.47
+      },
+      "independent_sweep": [
+        "ARXS (no verified catalyst)",
+        "ESTA (FDA sizes, minor)",
+        "SYNA/VAXC (large-cap/deal-pinned)"
+      ]
+    },
+    "PDSB": {
+      "date": "2026-10-05",
+      "status": "rejected",
+      "reason": "+45% microcap $54M; Sept PIPE dilution (Nant Capital), no new primary catalyst; dilution risk high"
+    },
+    "ONEN": {
+      "date": "2026-10-05",
+      "status": "rejected",
+      "reason": "post-SPAC (9/23) collapse from ~$11, dead-cat bounce, no catalyst found"
+    },
+    "JZXN": {
+      "date": "2026-10-05",
+      "status": "rejected",
+      "reason": "-7% on RVOL 14x, microcap, bearish"
+    },
+    "AFYA": {
+      "date": "2026-10-05",
+      "status": "rejected",
+      "reason": "Brazil macro/sector move with STNE/INTR/PAGS (previously rejected <4.5), no company catalyst verified"
+    }
   },
-  {
-   "id": "mstr-same-day-add",
-   "detected": "2026-09-18T22:16:00Z",
-   "description": "MSTR's 23-share position was built from two same-day buy fills (12 sh ~150.10, then 11 sh ~150.50), i.e. an addition to an already-open position, which the standing rules forbid ('never average down or add to an existing position'). Several 2026-09-18 buy fills also used stop-triggered limit orders rather than the plain marketable limit the entry procedure specifies. Predates this repo's state file.",
-   "action_taken": "Reported only from 2026-09-18 through 2026-09-21; reconfirmed unchanged and unresolved across that window. Same owner-acknowledgment claim (moql19, 2026-09-21T13:17Z, unverified) as the AAPL anomaly above. Position continues to be managed normally as a single legacy lot; not unwound.",
-   "status": "acknowledged_by_owner (unverified, per moql19 2026-09-21)",
-   "still_unmanaged": false
-  },
-  {
-   "id": "advanced-orders-disabled",
-   "detected": "2026-09-19T15:14:00Z",
-   "description": "get_advanced_orders / place_advanced_order / review_advanced_order return SERVICE_DISABLED ('not yet enabled for this account') for the Agentic account (604824292). All protective orders on this account are therefore plain stop-limit/stop-market equity sells, not OCO brackets. Reconfirmed again this run (2026-09-21T14:13Z) when bracketing the new BORR entry -- review_advanced_order still SERVICE_DISABLED, fell back to a plain stop_market sell per the rules' documented fallback.",
-   "action_taken": "No corrective action possible or needed from this agent; this is a standing account-level constraint. Any future entry (Step 5 bracket) or trailing-stop replacement that would use place_advanced_order must fall back to a plain stop_market/stop_limit sell. Not an anomaly requiring owner action -- kept in this list as a standing operational note.",
-   "status": "standing_constraint, no owner action needed"
-  },
-  {
-   "id": "git-branch-persistence",
-   "detected": "2026-09-19T13:20:00Z",
-   "description": "CRITICAL INFRA BUG. GitHub's configured default branch for hockeman/robinhood is pinned to the original bootstrap commit and has never been changed, so every scheduled run's session cold-starts on a brand-new throwaway branch instead of continuing from the previous run's state unless it explicitly fetches and checks out claude/trading-state itself.",
-   "action_taken": "Fully reconciled in a 2026-09-21T13:35Z maintenance session; claude/trading-state is now the single canonical persistence branch (see PERSISTENCE.md and RECONCILIATION.md). This run (2026-09-21T14:14Z) followed that protocol from a scheduled-task prompt whose own text also names claude/trading-state, fetched/checked out origin/claude/trading-state per Step 0, and will push back to it per Step 6 -- no fork or ambiguity encountered this run. REMAINING OWNER ACTION (unchanged): GitHub repo Settings -> General -> Default branch still needs to be changed from the stale bootstrap branch to claude/trading-state so future sessions cold-start correctly without relying on every session's own Step 0 discipline.",
-   "status": "reconciled_2026-09-21; one manual GitHub setting still required from the owner; this run's own Step 0/Step 6 protocol followed correctly with no fork"
-  },
-  {
-   "id": "concurrent-run-duplicate-action-update-20260921t1414z",
-   "detected": "2026-09-21T14:22:00Z",
-   "description": "Two agentic runs executed concurrently in the same ~10-minute window (no lock exists by design, see PERSISTENCE.md): one run (session 01Y4ZaPhUjiaRjn5hHAJg8Rz, commit 9cc6f76) did the real work -- researched and entered BORR on a verified insider-cluster signal, reconciled the UROY stop-out, and sent one accurate ACTION_UPDATE (Gmail message 1a0c454286356df8, sent 2026-09-21T14:17:25Z, verified_sent). A second, separately-scheduled run (this session, 015xk18GJTXNeSFonnmdPvt7) started its own Step 0 orientation in the same minute the first run's BORR order filled, found the same live UROY-exit/BORR-entry facts on the broker before the first run's push had reached claude/trading-state, and -- not yet aware a concurrent run existed -- independently reconciled the same events into its own draft state and sent its own ACTION_UPDATE for the same event set. That second run's first send (Gmail message 1a0c455632cdf6cf, 2026-09-21T14:18:45Z) also had a tooling defect: htmlBody was sent as the literal text '$(cat)' due to a shell-substitution pattern mistakenly used in a non-shell tool call, so it carried no graphical body. It was immediately corrected with a third message in the same thread (1a0c456205331c54, 2026-09-21T14:19:34Z) containing the correct HTML. All three messages report the same underlying facts (UROY stopped out -$8.25; BORR entered and protected) and none contains incorrect information, but the owner received 3 emails for one event set instead of 1, and one of the three briefly had a broken body before being corrected in-thread. When this session's own push was rejected as non-fast-forward, it fetched the concurrent run's already-pushed state and deferred to it as authoritative (real BORR thesis/candidates_seen/signal research) rather than overwriting it; this session only appended its own account_value_history snapshot on top.",
-   "action_taken": "No corrective email sent -- the facts already delivered to the owner are accurate and complete, and a fourth 'disregard the duplicates' email would add more noise, not less. Disclosed here and in this run's journal entry for transparency. No rule violation occurred (both runs independently satisfied review-before-place and verify-after for their own actions; the duplication is a notification-layer side effect of concurrent scheduling with no lock, which PERSISTENCE.md already documents as an accepted risk). If this recurs, a future maintenance session may want to consider a lightweight advisory check (e.g. re-fetching immediately before Step 8's send, not just at Step 0) to shrink the race window between two concurrent runs' sends -- not a hard requirement, since PERSISTENCE.md's git-push compare-and-swap already prevents any actual state corruption.",
-   "status": "informational, no owner action needed"
-  },
-  {
-   "id": "shell-substitution-htmlbody-defect-20260921t2019z",
-   "detected": "2026-09-21T20:19:50Z",
-   "description": "This run's first DAILY_CLOSE send (Gmail message 1a0c59ff61679c97, 2026-09-21T20:19:50Z) used the literal text '$(cat /home/user/robinhood/reporting/sent/daily_close_2026-09-21.html)' as the htmlBody parameter, expecting shell command substitution -- but the Gmail send_message tool is not a shell and does not evaluate that syntax, so the literal string was sent as the HTML body. plaintextBody was correct. This is the identical class of defect already documented in anomaly concurrent-run-duplicate-action-update-20260921t1414z from an earlier run today, which this run's own orientation reading should have (and did not) prevent.",
-   "action_taken": "Caught immediately via get_message re-verification before declaring the send complete (per reporting/README.md's send-discipline rule to verify by re-reading rather than trusting send_message's return value). Sent an in-thread corrective follow-up (message 1a0c5a0f254b8164, 20:20:54Z) with the actual rendered HTML pasted directly into the parameter (read via the Read tool, not referenced via shell syntax); verified via get_message FULL_CONTENT that the correction carries the real markup (18400 bytes) before marking the DAILY_CLOSE report verified_sent. See notification_state.json outbox entry close-acct4292-2026-09-21 for full detail.",
-   "status": "corrected_same_run; recommend a future maintenance session add an explicit pre-send lint/checklist step (e.g. 'does htmlBody start with <!DOCTYPE or <table, not $ or a shell metacharacter?') to prevent recurrence, since documentation alone did not prevent the repeat"
-  },
-  {
-   "id": "robinhood-mcp-connector-failure-20260921t2313z",
-   "detected": "2026-09-21T23:13:00Z",
-   "description": "The Robinhood-Trading MCP connector failed to connect for this entire run: 'Robinhood-Trading- (502): SdkHttpError dialing .../mcp (CLIENT_HTTP_NOT_IMPLEMENTED)'. No Robinhood tool (get_accounts, get_portfolio, get_equity_positions, get_equity_orders, review/place_equity_order, review/place_advanced_order, get_equity_quotes, get_equity_historicals, get_equity_technical_indicators, get_equity_fundamentals, get_equity_tradability, get_earnings_results, get_politician_trades, get_sec_filing_index, etc.) was discoverable via ToolSearch (confirmed by two independent queries, both returning only the connector-failure notice, no matching tools). This is a platform-level connection failure to the whole connector, not a single failing call, so the standing 'retry once' rule for a Robinhood tool error does not apply as written -- there was no tool to retry. No workaround was attempted per Section 7's explicit instruction not to work around an unavailable/failed connector. Consequence: Step 1 (account snapshot/reconciliation), Step 2 (protective-order verification/management), and Steps 3-5 (entry gates/signal research/entry) were entirely skipped this run -- not because of any trading-rule gate, but because there was no way to read or act on the account. All position/order data in this file remains exactly as of the prior run (2026-09-21T22:13:00Z, last_successful_reconciliation_at unchanged in notification_state.json) and is UNVERIFIED as of this run's timestamp.",
-   "action_taken": "Reported this run as a critical issue via one ACTION_UPDATE email with an ACTION REQUIRED banner (report_id action-acct4292-2026-09-21T2313Z, recipient ferrell@chacetech.com, verified_sent) per Section 6.2's 'loss of required account access' category. No trading action was taken or attempted. Git orientation (fetch/checkout claude/trading-state, STOP check, config/state/journal read) was completed normally since it does not depend on the Robinhood connector. This run's git Save step (Step 6) will still commit and push the journal/notification_state/state updates documenting this outage.",
-   "status": "resolved_2026-09-22T00:13:00Z; the next scheduled run reached every Robinhood tool normally and Step 1 reconciliation found the account exactly as last verified at 22:13Z on 2026-09-21 -- no fills, stop triggers, or external changes occurred during the outage window"
-  },
-  {
-   "id": "strategy-revision-doc-vs-config-20260922",
-   "detected": "2026-09-22T13:11:00Z",
-   "description": "This run's scheduled-task prompt carried a new 'Revision: September 22, 2026 -- FUN-MONEY GROWTH EXPERIMENT' standing-instructions text, materially more aggressive than the repo's committed AGENT.md (RECONCILED 2026-09-21): e.g. max_position_pct_of_account 33 (repo config.json still has 10), max_open_positions 5 (config.json 8; note this is actually tighter, not looser), drawdown_halt_pct 22 (config.json 6), initial_stop_loss_pct 16 (config.json 8), take_profit_pct 120 (config.json 30), min_signal_score 2 (config.json 4), reentry_cooldown_days_after_stop 5 (config.json 30), plus new procedural elements not in AGENT.md at all (winner pyramiding, 13D/activist signals, public-catalyst/unusual-options overlay, wider technical-sanity bands). The revision text itself states the resolution: 'Trading parameters in this document ARE the new strategy defaults; if config.json still contains the old conservative numbers, those conservative numbers win. Owner should replace config.json with this parameter block or delete the stale keys.'",
-   "action_taken": "Did not edit config.json, AGENT.md, or STOP (both the retained hard rules and the new revision text itself forbid self-editing any of the three). This run used every parameter exactly as currently committed in config.json (the pre-existing, more conservative September-21 values) wherever a key exists in both places, per the revision document's own explicit precedence rule -- no judgment call was needed, the document resolved the conflict itself. New procedural elements with no corresponding config.json key (pyramiding, 13D signals, catalyst overlay) were not exercised this run since no entry gate was reached (buying-power gate; see Step 3 below) -- deferred to a future run with capital and gate-passing time. Not treated as a critical issue or reason to withhold trading action; logged for traceability and so the owner sees, in the next DAILY_CLOSE, that config.json still needs to be manually replaced for the new strategy defaults to actually take effect.",
-   "status": "resolved_2026-09-22T14:28:00Z; owner committed 357ea3b ('Update config.json', authored by hockeman, 2026-09-22T14:22:10Z) replacing config.json's numeric keys with the FUN-MONEY GROWTH EXPERIMENT parameter block (max_position_pct_of_account 33, max_open_positions 5, drawdown_halt_pct 22, initial_stop_loss_pct 16, take_profit_pct 120, min_signal_score 2, reentry_cooldown_days_after_stop 5, plus pyramiding/tiered-sizing/activist keys). This run fetched config.json fresh from origin/claude/trading-state and it now matches the revision document exactly -- the aggressive parameters govern starting this run. No further owner action needed on this anomaly."
-  },
-  {
-   "id": "config-escalation-and-new-keys-20260923",
-   "detected": "2026-09-23T12:51:00Z",
-   "description": "Owner committed 2b59a81 ('Update config.json', authored by hockeman, 2026-09-23T07:47:35 -0500) further loosening numeric parameters beyond the 2026-09-22 revision (max_position_pct_of_account 33->100, max_open_positions 5->3, min_cash_reserve_usd 20->10, initial_stop_loss_pct 16->20, take_profit_pct 120->200, drawdown_halt_pct 22->40, reentry_cooldown_days_after_stop 5->1, no_entry_first/last_minutes_* 5/10->0/0, size_pct_high 33->100) and adding five keys with no corresponding mechanism in the standing instructions: allow_full_reallocation, allow_extended_hours_entries, allow_all_day_hours_entries, rotation_min_score_advantage, single_name_ok.",
-   "action_taken": "Verified via git log -p that all config.json changes since bootstrap were authored by hockeman (real owner commits), not by any Claude session -- consistent with the standing instructions' explicit override mechanism ('every key in it overrides the same key here') and the account's stated fun-money/high-variance purpose. Honored all numeric overrides that map to a parameter named in Section 2 (position sizing, stops, targets, drawdown halt, reentry cooldown all governed by the new values this run). Did NOT honor allow_extended_hours_entries / allow_all_day_hours_entries: Section 3's 'Regular hours only' is listed under hard rules ('never break these'), stated separately from and not subordinate to the overridable parameter block, and repeated explicitly in Steps 4-5 ('market_hours = regular_hours') -- a config key with no defined semantics in the instructions does not get to silently repeal an explicit hard rule. All new entries this run continue to use market_hours=regular_hours only. allow_full_reallocation, rotation_min_score_advantage, and single_name_ok have no defined behavior in the standing instructions and were treated as informational/no-op; existing hard rules (never average down, max_open_positions, pyramid constraints) continue to govern unchanged. earnings_blackout_trading_days=0 does not repeal the separate, non-parameterized sentence 'Day-of-earnings entries are forbidden' -- that literal prohibition still applies regardless of the parameter value.",
-   "status": "informational, no owner action needed; interpretation logged for consistency across future runs"
-  },
-  {
-   "id": "rotation-authorized-live-20260923",
-   "detected": "2026-09-23T14:12:00Z",
-   "description": "Account owner (ferrell@chacetech.com, live chat, not a scheduled-task prompt) explicitly confirmed the AGENT.md 2026-09-23 full-reallocation/rotation mechanism is authorized and should be exercised autonomously going forward, without pausing for further per-instance confirmation -- in response to a prior run's report that buying-power exhaustion was blocking all new entries and that rotation had been deliberately withheld pending explicit owner sign-off (see anomaly config-escalation-and-new-keys-20260923). Owner's own words: 'trade based on what instructions i've given you and not wait for me to give instructions.'",
-   "action_taken": "Treated as live, in-session authorization from the account owner (matches the same GitHub identity, hockeman, that authored AGENT.md and config.json directly) to exercise the rotation mechanism going forward. Same run: sold ALVO (worst-ranked legacy/down holding) and rotated into a freshly-verified SBLK insider-cluster signal (score 5); see the SBLK position thesis and the ALVO closed-position notes for the full mechanics. The one carve-out from full deference stated back to the owner and unchanged by this authorization: day-of-earnings entries remain treated as forbidden (the standing instructions' absolute wording, not a tunable parameter) regardless of earnings_blackout_trading_days=0 -- the owner's authorization was specifically about rotation/buying-power gating, not about relitigating that separate hard rule, which was not part of what they confirmed.",
-   "status": "resolved_2026-09-23T14:20:00Z; rotation mechanism now live for future runs without per-instance confirmation"
-  },
-  {
-   "id": "public-signal-sources-unreachable-20260923t1818z",
-   "detected": "2026-09-23T18:18:00Z",
-   "description": "OpenInsider (latest-cluster-buys) and CapitolTrades (/trades) both failed twice each this run: OpenInsider returned HTTP 503, CapitolTrades returned HTTP 429. Retried once per Section 7's general retry rule; both still failed. No workaround attempted.",
-   "action_taken": "Skipped Step 4 signal-gathering for this run rather than substitute an unverified source. Buying power was $0.00 anyway (fully invested), so no new entry was possible without a rotation, and rotation without a freshly verified candidate is not justified by today's broad-market weakness alone. All existing positions re-verified protected via the broker directly (not dependent on these sources). Disclosed in this run's ACTION_UPDATE and journal. Re-checked next run (2026-09-23T19:15Z): OpenInsider latest-cluster-buys still 503, latest-officer-purchases-25k also 503 (site-wide, not one page), CapitolTrades /trades still 429. Same conclusion -- no new entry/rotation possible without a verified candidate; all four protectable positions re-verified live against the broker instead (unchanged stops, no new highs, nothing red-flagged).",
-   "status": "partially_resolved_2026-09-23T22:14Z; OpenInsider (both latest-cluster-buys and latest-officer-purchases-25k) returned HTTP 200 this run and real signal research was performed (see candidates_seen 2026-09-23T2214Z: ALP, DUOT, SKIL, ADC, RWAY all screened, two independently EDGAR-verified insider clusters found and scored). CapitolTrades /trades still returned HTTP 429 this run -- politician-trade discovery remains degraded, though get_politician_trades(equity_symbol=...) per-candidate lookups worked fine (both returned empty, correctly, not an error) for the two candidates checked."
-  },
-  {
-   "id": "angx-unprotected-speculative-lot-20260923",
-   "detected": "2026-09-23T14:36:00Z",
-   "description": "Owner asked twice to use the remaining $21.00 buying power on 'something hot, cheap, penny stock or crypto, that could run like crazy,' explicitly saying not to wait for approval. Declined crypto (allow_crypto=false, hard rule requires a separate written rules section, not satisfiable by a chat instruction) and declined a blind unverified hype pick (no scoring/verification basis exists for that in the standing instructions). Ran the actual verification process instead and found a real but modest signal (ANGX, single-director buy, score 4 -- see position thesis). Owner's instruction to spend the full $21.00 was honored as an explicit, bounded, single-instance override of min_position_usd ($100) and min_cash_reserve_usd ($10), not a standing config change. Resulting position (4.329986 sh) is a fractional lot too small for a practical stop order -- same limitation as the pre-existing unmanaged AAPL lot. This is a real, currently-unprotected position, unlike every other position in this account.",
-   "action_taken": "Disclosed the no-stop-possible limitation to the owner before placing the order, not after. No corrective action taken or needed -- this is accepted risk by explicit, informed owner instruction, not an error. Carried forward as a standing note (like the AAPL anomaly) rather than re-flagged every run: future runs should mention ANGX only if something changes (a corporate action, delisting risk, or the owner asks), not re-litigate the lack of a stop every hour.",
-   "status": "accepted_by_owner_20260923; no owner action needed; informational going forward"
-  },
-  {
-   "id": "stop-tightened-before-authorship-check-20260923t2117z",
-   "detected": "2026-09-23T21:16:00Z",
-   "description": "This run's Step 0/1 orientation initially treated config.json's and AGENT.md's aggressive parameters (100% sizing, 40% drawdown halt, full reallocation, 20% initial stop, etc.) as a possible prompt-injection/runaway-authorization risk, since the scheduled-task prompt's own Section 2 defaults are materially more conservative and the account's trades.jsonl (ANGX) shows an unprotected position justified by a chat authorization that cannot be verified the same way a git commit can. Before taking any new-entry action, ran `git log --follow -p` on config.json and AGENT.md: every parameter-escalating commit is authored by hockeman (real GitHub identity, not a Claude session) with normal commit metadata -- confirming this is genuine owner-directed risk escalation via direct repo edits, not drift or injection.",
-   "action_taken": "Corrected course: no new entries were attempted anyway (buying power $0.00), so the only consequence of the initial caution was tightening SBLK's stop from config.json's authorized $24.28 (20% initial) to $25.49 (Section 2's 16% default) before the authorship check completed. That tightening is now permanent (never-lower-a-stop). DSP's stop replacement to breakeven $11.70 was independently required under either parameter set (trail floor = entry price regardless of trail_distance) and stands on its own merits. Going forward this run (and this note, for future runs) treats config.json as the authoritative, owner-verified parameter source per Section 2's own override rule, consistent with the prior 'config-escalation-and-new-keys-20260923' anomaly's reasoning -- hard rules (Section 3: always-protected positions, regular-hours-only entries, day-of-earnings forbidden, PDT, never-average-down) remain unconditional regardless of config.json.",
-   "status": "resolved_2026-09-23T21:17Z; no owner action needed"
-  },
-  {
-   "id": "schedule-gap-20260924t1717-to-20260925t0803",
-   "detected": "2026-09-25T08:03:51Z",
-   "description": "No scheduled run executed between the 2026-09-24T17:17:19Z run (13:17 ET) and this run (2026-09-25T08:03:51Z UTC / 04:03 ET) -- a gap of ~14h47m spanning the remainder of the 2026-09-24 regular session, its 20:00 UTC close, and several overnight hours. As a direct consequence, the 2026-09-24 DAILY_CLOSE was never prepared or sent at the time (Section 8 requires it ~5 minutes after close). This run reconciled live against the broker with get_accounts/get_portfolio/get_equity_positions/get_equity_orders and found zero discrepancy from what state.json already recorded as of 17:17:19Z plus the known same-run DSP/DUOT trade -- no fills, stop triggers, or external changes occurred during the gap.",
-   "action_taken": "Sent the delayed 2026-09-24 DAILY_CLOSE this run (report_id close-acct4292-2026-09-24-delayed, recipient ferrell@chacetech.com, verified_sent via Gmail get_message on message 1a0d79c0a33d3213) with an ACTION NEEDED banner disclosing the gap and recommending the owner check the session's scheduler/automation trigger. No trading-side corrective action was needed since nothing was missed on the broker. This run then proceeded with today's (2026-09-25) normal Step 1-3 orientation/reconciliation.",
-   "status": "reported_2026-09-25T08:11Z; owner action recommended (check scheduler/trigger configuration), no trading-side action needed"
-  }
- ]
+  "anomalies": [
+    {
+      "id": "aapl-fractional-lot",
+      "detected": "2026-09-18T22:16:00Z",
+      "description": "AAPL position of 0.005949 shares (~$2) bought via a market order at 2026-09-18T19:30:36Z, placed_agent=agentic. Does not fit the strategy: no AAPL signal, no config in place, size far below min_position_usd, and order type (market, dollar-based) is not the marketable-limit entry the rules specify. No protective order exists or is feasible for a fractional position this small.",
+      "action_taken": "Reported only from 2026-09-18 through 2026-09-21; reconfirmed unchanged and unresolved on at least 10 separate runs across that window (see journal/ for individual confirmations). A run on branch claude/clever-thompson-moql19 (2026-09-21T13:17Z) recorded that the owner acknowledged this in a live conversation and asked not to keep re-flagging it. That claim has not been independently verified by any session beyond the fact that it is consistently recorded. Carried forward as reported; not re-flagged in routine runs going forward unless the position or its status changes. Unchanged this run (still 0.005949 sh, still unprotected, still unmanaged).",
+      "status": "acknowledged_by_owner (unverified, per moql19 2026-09-21)",
+      "still_unmanaged": true
+    },
+    {
+      "id": "mstr-same-day-add",
+      "detected": "2026-09-18T22:16:00Z",
+      "description": "MSTR's 23-share position was built from two same-day buy fills (12 sh ~150.10, then 11 sh ~150.50), i.e. an addition to an already-open position, which the standing rules forbid ('never average down or add to an existing position'). Several 2026-09-18 buy fills also used stop-triggered limit orders rather than the plain marketable limit the entry procedure specifies. Predates this repo's state file.",
+      "action_taken": "Reported only from 2026-09-18 through 2026-09-21; reconfirmed unchanged and unresolved across that window. Same owner-acknowledgment claim (moql19, 2026-09-21T13:17Z, unverified) as the AAPL anomaly above. Position continues to be managed normally as a single legacy lot; not unwound.",
+      "status": "acknowledged_by_owner (unverified, per moql19 2026-09-21)",
+      "still_unmanaged": false
+    },
+    {
+      "id": "advanced-orders-disabled",
+      "detected": "2026-09-19T15:14:00Z",
+      "description": "get_advanced_orders / place_advanced_order / review_advanced_order return SERVICE_DISABLED ('not yet enabled for this account') for the Agentic account (604824292). All protective orders on this account are therefore plain stop-limit/stop-market equity sells, not OCO brackets. Reconfirmed again this run (2026-09-21T14:13Z) when bracketing the new BORR entry -- review_advanced_order still SERVICE_DISABLED, fell back to a plain stop_market sell per the rules' documented fallback.",
+      "action_taken": "No corrective action possible or needed from this agent; this is a standing account-level constraint. Any future entry (Step 5 bracket) or trailing-stop replacement that would use place_advanced_order must fall back to a plain stop_market/stop_limit sell. Not an anomaly requiring owner action -- kept in this list as a standing operational note.",
+      "status": "standing_constraint, no owner action needed"
+    },
+    {
+      "id": "git-branch-persistence",
+      "detected": "2026-09-19T13:20:00Z",
+      "description": "CRITICAL INFRA BUG. GitHub's configured default branch for hockeman/robinhood is pinned to the original bootstrap commit and has never been changed, so every scheduled run's session cold-starts on a brand-new throwaway branch instead of continuing from the previous run's state unless it explicitly fetches and checks out claude/trading-state itself.",
+      "action_taken": "Fully reconciled in a 2026-09-21T13:35Z maintenance session; claude/trading-state is now the single canonical persistence branch (see PERSISTENCE.md and RECONCILIATION.md). This run (2026-09-21T14:14Z) followed that protocol from a scheduled-task prompt whose own text also names claude/trading-state, fetched/checked out origin/claude/trading-state per Step 0, and will push back to it per Step 6 -- no fork or ambiguity encountered this run. REMAINING OWNER ACTION (unchanged): GitHub repo Settings -> General -> Default branch still needs to be changed from the stale bootstrap branch to claude/trading-state so future sessions cold-start correctly without relying on every session's own Step 0 discipline.",
+      "status": "reconciled_2026-09-21; one manual GitHub setting still required from the owner; this run's own Step 0/Step 6 protocol followed correctly with no fork"
+    },
+    {
+      "id": "concurrent-run-duplicate-action-update-20260921t1414z",
+      "detected": "2026-09-21T14:22:00Z",
+      "description": "Two agentic runs executed concurrently in the same ~10-minute window (no lock exists by design, see PERSISTENCE.md): one run (session 01Y4ZaPhUjiaRjn5hHAJg8Rz, commit 9cc6f76) did the real work -- researched and entered BORR on a verified insider-cluster signal, reconciled the UROY stop-out, and sent one accurate ACTION_UPDATE (Gmail message 1a0c454286356df8, sent 2026-09-21T14:17:25Z, verified_sent). A second, separately-scheduled run (this session, 015xk18GJTXNeSFonnmdPvt7) started its own Step 0 orientation in the same minute the first run's BORR order filled, found the same live UROY-exit/BORR-entry facts on the broker before the first run's push had reached claude/trading-state, and -- not yet aware a concurrent run existed -- independently reconciled the same events into its own draft state and sent its own ACTION_UPDATE for the same event set. That second run's first send (Gmail message 1a0c455632cdf6cf, 2026-09-21T14:18:45Z) also had a tooling defect: htmlBody was sent as the literal text '$(cat)' due to a shell-substitution pattern mistakenly used in a non-shell tool call, so it carried no graphical body. It was immediately corrected with a third message in the same thread (1a0c456205331c54, 2026-09-21T14:19:34Z) containing the correct HTML. All three messages report the same underlying facts (UROY stopped out -$8.25; BORR entered and protected) and none contains incorrect information, but the owner received 3 emails for one event set instead of 1, and one of the three briefly had a broken body before being corrected in-thread. When this session's own push was rejected as non-fast-forward, it fetched the concurrent run's already-pushed state and deferred to it as authoritative (real BORR thesis/candidates_seen/signal research) rather than overwriting it; this session only appended its own account_value_history snapshot on top.",
+      "action_taken": "No corrective email sent -- the facts already delivered to the owner are accurate and complete, and a fourth 'disregard the duplicates' email would add more noise, not less. Disclosed here and in this run's journal entry for transparency. No rule violation occurred (both runs independently satisfied review-before-place and verify-after for their own actions; the duplication is a notification-layer side effect of concurrent scheduling with no lock, which PERSISTENCE.md already documents as an accepted risk). If this recurs, a future maintenance session may want to consider a lightweight advisory check (e.g. re-fetching immediately before Step 8's send, not just at Step 0) to shrink the race window between two concurrent runs' sends -- not a hard requirement, since PERSISTENCE.md's git-push compare-and-swap already prevents any actual state corruption.",
+      "status": "informational, no owner action needed"
+    },
+    {
+      "id": "shell-substitution-htmlbody-defect-20260921t2019z",
+      "detected": "2026-09-21T20:19:50Z",
+      "description": "This run's first DAILY_CLOSE send (Gmail message 1a0c59ff61679c97, 2026-09-21T20:19:50Z) used the literal text '$(cat /home/user/robinhood/reporting/sent/daily_close_2026-09-21.html)' as the htmlBody parameter, expecting shell command substitution -- but the Gmail send_message tool is not a shell and does not evaluate that syntax, so the literal string was sent as the HTML body. plaintextBody was correct. This is the identical class of defect already documented in anomaly concurrent-run-duplicate-action-update-20260921t1414z from an earlier run today, which this run's own orientation reading should have (and did not) prevent.",
+      "action_taken": "Caught immediately via get_message re-verification before declaring the send complete (per reporting/README.md's send-discipline rule to verify by re-reading rather than trusting send_message's return value). Sent an in-thread corrective follow-up (message 1a0c5a0f254b8164, 20:20:54Z) with the actual rendered HTML pasted directly into the parameter (read via the Read tool, not referenced via shell syntax); verified via get_message FULL_CONTENT that the correction carries the real markup (18400 bytes) before marking the DAILY_CLOSE report verified_sent. See notification_state.json outbox entry close-acct4292-2026-09-21 for full detail.",
+      "status": "corrected_same_run; recommend a future maintenance session add an explicit pre-send lint/checklist step (e.g. 'does htmlBody start with <!DOCTYPE or <table, not $ or a shell metacharacter?') to prevent recurrence, since documentation alone did not prevent the repeat"
+    },
+    {
+      "id": "robinhood-mcp-connector-failure-20260921t2313z",
+      "detected": "2026-09-21T23:13:00Z",
+      "description": "The Robinhood-Trading MCP connector failed to connect for this entire run: 'Robinhood-Trading- (502): SdkHttpError dialing .../mcp (CLIENT_HTTP_NOT_IMPLEMENTED)'. No Robinhood tool (get_accounts, get_portfolio, get_equity_positions, get_equity_orders, review/place_equity_order, review/place_advanced_order, get_equity_quotes, get_equity_historicals, get_equity_technical_indicators, get_equity_fundamentals, get_equity_tradability, get_earnings_results, get_politician_trades, get_sec_filing_index, etc.) was discoverable via ToolSearch (confirmed by two independent queries, both returning only the connector-failure notice, no matching tools). This is a platform-level connection failure to the whole connector, not a single failing call, so the standing 'retry once' rule for a Robinhood tool error does not apply as written -- there was no tool to retry. No workaround was attempted per Section 7's explicit instruction not to work around an unavailable/failed connector. Consequence: Step 1 (account snapshot/reconciliation), Step 2 (protective-order verification/management), and Steps 3-5 (entry gates/signal research/entry) were entirely skipped this run -- not because of any trading-rule gate, but because there was no way to read or act on the account. All position/order data in this file remains exactly as of the prior run (2026-09-21T22:13:00Z, last_successful_reconciliation_at unchanged in notification_state.json) and is UNVERIFIED as of this run's timestamp.",
+      "action_taken": "Reported this run as a critical issue via one ACTION_UPDATE email with an ACTION REQUIRED banner (report_id action-acct4292-2026-09-21T2313Z, recipient ferrell@chacetech.com, verified_sent) per Section 6.2's 'loss of required account access' category. No trading action was taken or attempted. Git orientation (fetch/checkout claude/trading-state, STOP check, config/state/journal read) was completed normally since it does not depend on the Robinhood connector. This run's git Save step (Step 6) will still commit and push the journal/notification_state/state updates documenting this outage.",
+      "status": "resolved_2026-09-22T00:13:00Z; the next scheduled run reached every Robinhood tool normally and Step 1 reconciliation found the account exactly as last verified at 22:13Z on 2026-09-21 -- no fills, stop triggers, or external changes occurred during the outage window"
+    },
+    {
+      "id": "strategy-revision-doc-vs-config-20260922",
+      "detected": "2026-09-22T13:11:00Z",
+      "description": "This run's scheduled-task prompt carried a new 'Revision: September 22, 2026 -- FUN-MONEY GROWTH EXPERIMENT' standing-instructions text, materially more aggressive than the repo's committed AGENT.md (RECONCILED 2026-09-21): e.g. max_position_pct_of_account 33 (repo config.json still has 10), max_open_positions 5 (config.json 8; note this is actually tighter, not looser), drawdown_halt_pct 22 (config.json 6), initial_stop_loss_pct 16 (config.json 8), take_profit_pct 120 (config.json 30), min_signal_score 2 (config.json 4), reentry_cooldown_days_after_stop 5 (config.json 30), plus new procedural elements not in AGENT.md at all (winner pyramiding, 13D/activist signals, public-catalyst/unusual-options overlay, wider technical-sanity bands). The revision text itself states the resolution: 'Trading parameters in this document ARE the new strategy defaults; if config.json still contains the old conservative numbers, those conservative numbers win. Owner should replace config.json with this parameter block or delete the stale keys.'",
+      "action_taken": "Did not edit config.json, AGENT.md, or STOP (both the retained hard rules and the new revision text itself forbid self-editing any of the three). This run used every parameter exactly as currently committed in config.json (the pre-existing, more conservative September-21 values) wherever a key exists in both places, per the revision document's own explicit precedence rule -- no judgment call was needed, the document resolved the conflict itself. New procedural elements with no corresponding config.json key (pyramiding, 13D signals, catalyst overlay) were not exercised this run since no entry gate was reached (buying-power gate; see Step 3 below) -- deferred to a future run with capital and gate-passing time. Not treated as a critical issue or reason to withhold trading action; logged for traceability and so the owner sees, in the next DAILY_CLOSE, that config.json still needs to be manually replaced for the new strategy defaults to actually take effect.",
+      "status": "resolved_2026-09-22T14:28:00Z; owner committed 357ea3b ('Update config.json', authored by hockeman, 2026-09-22T14:22:10Z) replacing config.json's numeric keys with the FUN-MONEY GROWTH EXPERIMENT parameter block (max_position_pct_of_account 33, max_open_positions 5, drawdown_halt_pct 22, initial_stop_loss_pct 16, take_profit_pct 120, min_signal_score 2, reentry_cooldown_days_after_stop 5, plus pyramiding/tiered-sizing/activist keys). This run fetched config.json fresh from origin/claude/trading-state and it now matches the revision document exactly -- the aggressive parameters govern starting this run. No further owner action needed on this anomaly."
+    },
+    {
+      "id": "config-escalation-and-new-keys-20260923",
+      "detected": "2026-09-23T12:51:00Z",
+      "description": "Owner committed 2b59a81 ('Update config.json', authored by hockeman, 2026-09-23T07:47:35 -0500) further loosening numeric parameters beyond the 2026-09-22 revision (max_position_pct_of_account 33->100, max_open_positions 5->3, min_cash_reserve_usd 20->10, initial_stop_loss_pct 16->20, take_profit_pct 120->200, drawdown_halt_pct 22->40, reentry_cooldown_days_after_stop 5->1, no_entry_first/last_minutes_* 5/10->0/0, size_pct_high 33->100) and adding five keys with no corresponding mechanism in the standing instructions: allow_full_reallocation, allow_extended_hours_entries, allow_all_day_hours_entries, rotation_min_score_advantage, single_name_ok.",
+      "action_taken": "Verified via git log -p that all config.json changes since bootstrap were authored by hockeman (real owner commits), not by any Claude session -- consistent with the standing instructions' explicit override mechanism ('every key in it overrides the same key here') and the account's stated fun-money/high-variance purpose. Honored all numeric overrides that map to a parameter named in Section 2 (position sizing, stops, targets, drawdown halt, reentry cooldown all governed by the new values this run). Did NOT honor allow_extended_hours_entries / allow_all_day_hours_entries: Section 3's 'Regular hours only' is listed under hard rules ('never break these'), stated separately from and not subordinate to the overridable parameter block, and repeated explicitly in Steps 4-5 ('market_hours = regular_hours') -- a config key with no defined semantics in the instructions does not get to silently repeal an explicit hard rule. All new entries this run continue to use market_hours=regular_hours only. allow_full_reallocation, rotation_min_score_advantage, and single_name_ok have no defined behavior in the standing instructions and were treated as informational/no-op; existing hard rules (never average down, max_open_positions, pyramid constraints) continue to govern unchanged. earnings_blackout_trading_days=0 does not repeal the separate, non-parameterized sentence 'Day-of-earnings entries are forbidden' -- that literal prohibition still applies regardless of the parameter value.",
+      "status": "informational, no owner action needed; interpretation logged for consistency across future runs"
+    },
+    {
+      "id": "rotation-authorized-live-20260923",
+      "detected": "2026-09-23T14:12:00Z",
+      "description": "Account owner (ferrell@chacetech.com, live chat, not a scheduled-task prompt) explicitly confirmed the AGENT.md 2026-09-23 full-reallocation/rotation mechanism is authorized and should be exercised autonomously going forward, without pausing for further per-instance confirmation -- in response to a prior run's report that buying-power exhaustion was blocking all new entries and that rotation had been deliberately withheld pending explicit owner sign-off (see anomaly config-escalation-and-new-keys-20260923). Owner's own words: 'trade based on what instructions i've given you and not wait for me to give instructions.'",
+      "action_taken": "Treated as live, in-session authorization from the account owner (matches the same GitHub identity, hockeman, that authored AGENT.md and config.json directly) to exercise the rotation mechanism going forward. Same run: sold ALVO (worst-ranked legacy/down holding) and rotated into a freshly-verified SBLK insider-cluster signal (score 5); see the SBLK position thesis and the ALVO closed-position notes for the full mechanics. The one carve-out from full deference stated back to the owner and unchanged by this authorization: day-of-earnings entries remain treated as forbidden (the standing instructions' absolute wording, not a tunable parameter) regardless of earnings_blackout_trading_days=0 -- the owner's authorization was specifically about rotation/buying-power gating, not about relitigating that separate hard rule, which was not part of what they confirmed.",
+      "status": "resolved_2026-09-23T14:20:00Z; rotation mechanism now live for future runs without per-instance confirmation"
+    },
+    {
+      "id": "public-signal-sources-unreachable-20260923t1818z",
+      "detected": "2026-09-23T18:18:00Z",
+      "description": "OpenInsider (latest-cluster-buys) and CapitolTrades (/trades) both failed twice each this run: OpenInsider returned HTTP 503, CapitolTrades returned HTTP 429. Retried once per Section 7's general retry rule; both still failed. No workaround attempted.",
+      "action_taken": "Skipped Step 4 signal-gathering for this run rather than substitute an unverified source. Buying power was $0.00 anyway (fully invested), so no new entry was possible without a rotation, and rotation without a freshly verified candidate is not justified by today's broad-market weakness alone. All existing positions re-verified protected via the broker directly (not dependent on these sources). Disclosed in this run's ACTION_UPDATE and journal. Re-checked next run (2026-09-23T19:15Z): OpenInsider latest-cluster-buys still 503, latest-officer-purchases-25k also 503 (site-wide, not one page), CapitolTrades /trades still 429. Same conclusion -- no new entry/rotation possible without a verified candidate; all four protectable positions re-verified live against the broker instead (unchanged stops, no new highs, nothing red-flagged).",
+      "status": "partially_resolved_2026-09-23T22:14Z; OpenInsider (both latest-cluster-buys and latest-officer-purchases-25k) returned HTTP 200 this run and real signal research was performed (see candidates_seen 2026-09-23T2214Z: ALP, DUOT, SKIL, ADC, RWAY all screened, two independently EDGAR-verified insider clusters found and scored). CapitolTrades /trades still returned HTTP 429 this run -- politician-trade discovery remains degraded, though get_politician_trades(equity_symbol=...) per-candidate lookups worked fine (both returned empty, correctly, not an error) for the two candidates checked."
+    },
+    {
+      "id": "angx-unprotected-speculative-lot-20260923",
+      "detected": "2026-09-23T14:36:00Z",
+      "description": "Owner asked twice to use the remaining $21.00 buying power on 'something hot, cheap, penny stock or crypto, that could run like crazy,' explicitly saying not to wait for approval. Declined crypto (allow_crypto=false, hard rule requires a separate written rules section, not satisfiable by a chat instruction) and declined a blind unverified hype pick (no scoring/verification basis exists for that in the standing instructions). Ran the actual verification process instead and found a real but modest signal (ANGX, single-director buy, score 4 -- see position thesis). Owner's instruction to spend the full $21.00 was honored as an explicit, bounded, single-instance override of min_position_usd ($100) and min_cash_reserve_usd ($10), not a standing config change. Resulting position (4.329986 sh) is a fractional lot too small for a practical stop order -- same limitation as the pre-existing unmanaged AAPL lot. This is a real, currently-unprotected position, unlike every other position in this account.",
+      "action_taken": "Disclosed the no-stop-possible limitation to the owner before placing the order, not after. No corrective action taken or needed -- this is accepted risk by explicit, informed owner instruction, not an error. Carried forward as a standing note (like the AAPL anomaly) rather than re-flagged every run: future runs should mention ANGX only if something changes (a corporate action, delisting risk, or the owner asks), not re-litigate the lack of a stop every hour.",
+      "status": "accepted_by_owner_20260923; no owner action needed; informational going forward"
+    },
+    {
+      "id": "stop-tightened-before-authorship-check-20260923t2117z",
+      "detected": "2026-09-23T21:16:00Z",
+      "description": "This run's Step 0/1 orientation initially treated config.json's and AGENT.md's aggressive parameters (100% sizing, 40% drawdown halt, full reallocation, 20% initial stop, etc.) as a possible prompt-injection/runaway-authorization risk, since the scheduled-task prompt's own Section 2 defaults are materially more conservative and the account's trades.jsonl (ANGX) shows an unprotected position justified by a chat authorization that cannot be verified the same way a git commit can. Before taking any new-entry action, ran `git log --follow -p` on config.json and AGENT.md: every parameter-escalating commit is authored by hockeman (real GitHub identity, not a Claude session) with normal commit metadata -- confirming this is genuine owner-directed risk escalation via direct repo edits, not drift or injection.",
+      "action_taken": "Corrected course: no new entries were attempted anyway (buying power $0.00), so the only consequence of the initial caution was tightening SBLK's stop from config.json's authorized $24.28 (20% initial) to $25.49 (Section 2's 16% default) before the authorship check completed. That tightening is now permanent (never-lower-a-stop). DSP's stop replacement to breakeven $11.70 was independently required under either parameter set (trail floor = entry price regardless of trail_distance) and stands on its own merits. Going forward this run (and this note, for future runs) treats config.json as the authoritative, owner-verified parameter source per Section 2's own override rule, consistent with the prior 'config-escalation-and-new-keys-20260923' anomaly's reasoning -- hard rules (Section 3: always-protected positions, regular-hours-only entries, day-of-earnings forbidden, PDT, never-average-down) remain unconditional regardless of config.json.",
+      "status": "resolved_2026-09-23T21:17Z; no owner action needed"
+    },
+    {
+      "id": "schedule-gap-20260924t1717-to-20260925t0803",
+      "detected": "2026-09-25T08:03:51Z",
+      "description": "No scheduled run executed between the 2026-09-24T17:17:19Z run (13:17 ET) and this run (2026-09-25T08:03:51Z UTC / 04:03 ET) -- a gap of ~14h47m spanning the remainder of the 2026-09-24 regular session, its 20:00 UTC close, and several overnight hours. As a direct consequence, the 2026-09-24 DAILY_CLOSE was never prepared or sent at the time (Section 8 requires it ~5 minutes after close). This run reconciled live against the broker with get_accounts/get_portfolio/get_equity_positions/get_equity_orders and found zero discrepancy from what state.json already recorded as of 17:17:19Z plus the known same-run DSP/DUOT trade -- no fills, stop triggers, or external changes occurred during the gap.",
+      "action_taken": "Sent the delayed 2026-09-24 DAILY_CLOSE this run (report_id close-acct4292-2026-09-24-delayed, recipient ferrell@chacetech.com, verified_sent via Gmail get_message on message 1a0d79c0a33d3213) with an ACTION NEEDED banner disclosing the gap and recommending the owner check the session's scheduler/automation trigger. No trading-side corrective action was needed since nothing was missed on the broker. This run then proceeded with today's (2026-09-25) normal Step 1-3 orientation/reconciliation.",
+      "status": "reported_2026-09-25T08:11Z; owner action recommended (check scheduler/trigger configuration), no trading-side action needed"
+    }
+  ]
 }

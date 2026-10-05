@@ -22,6 +22,11 @@ class ScoringV2Tests(unittest.TestCase):
             "rotation_min_opportunity_advantage": 0.75,
             "legacy_default_score": 0,
             "legacy_old_score_cap_for_opportunity": 4.0,
+            "min_cash_reserve_usd": 5.0,
+            "idle_cash_escalation_pct_of_account": 10.0,
+            "idle_cash_critical_pct_of_account": 20.0,
+            "require_v2_rescore_before_no_action": True,
+            "v2_rescore_min_position_usd": 100.0,
         }
 
     def test_kod_like_transformational_runner_not_rejected_only_for_chase(self):
@@ -127,6 +132,76 @@ class ScoringV2Tests(unittest.TestCase):
         self.assertGreater(t, d)
         self.assertEqual(t, 0.60)
         self.assertEqual(d, 0.25)
+
+    def test_meaningful_old_position_forces_v2_rescore(self):
+        positions = {
+            "OLD": {
+                "score": 10,
+                "value_usd": 1800,
+                "entry_date": "2026-09-24",
+                "same_day": False,
+            }
+        }
+        live = {
+            "stop_orders_ok": True,
+            "account_value": 7500,
+            "deployable_buying_power": 50,
+            "session_allows_entries": True,
+        }
+        result = scoring.fast_check(positions, live, "2026-10-05", self.config)
+        self.assertTrue(result["actionable"])
+        self.assertTrue(any("V2_POSITION_RESCORE_DUE" in r for r in result["reasons"]))
+
+    def test_fractional_dust_does_not_force_v2_rescore(self):
+        positions = {
+            "DUST": {
+                "score": 4,
+                "value_usd": 21,
+                "entry_date": "2026-09-23",
+                "same_day": False,
+            }
+        }
+        live = {
+            "stop_orders_ok": True,
+            "account_value": 7500,
+            "deployable_buying_power": 50,
+            "session_allows_entries": True,
+        }
+        result = scoring.fast_check(positions, live, "2026-10-05", self.config)
+        self.assertFalse(any("V2_POSITION_RESCORE_DUE" in r for r in result["reasons"]))
+
+    def test_idle_cash_above_ten_percent_forces_deep_search(self):
+        live = {
+            "stop_orders_ok": True,
+            "account_value": 7512.55,
+            "deployable_buying_power": 1501.41,
+            "session_allows_entries": True,
+            "idle_cash_escalation_completed": False,
+        }
+        result = scoring.fast_check({}, live, "2026-10-05", self.config)
+        self.assertTrue(result["actionable"])
+        self.assertTrue(any("IDLE_CASH_ESCALATION" in r for r in result["reasons"]))
+
+    def test_idle_cash_completed_can_finish_without_looping(self):
+        live = {
+            "stop_orders_ok": True,
+            "account_value": 7512.55,
+            "deployable_buying_power": 1501.41,
+            "session_allows_entries": True,
+            "idle_cash_escalation_completed": True,
+        }
+        result = scoring.fast_check({}, live, "2026-10-05", self.config)
+        self.assertFalse(any("IDLE_CASH_" in r for r in result["reasons"]))
+
+    def test_critical_idle_cash_uses_critical_reason(self):
+        live = {
+            "stop_orders_ok": True,
+            "account_value": 7500,
+            "deployable_buying_power": 2000,
+            "session_allows_entries": True,
+        }
+        result = scoring.fast_check({}, live, "2026-10-05", self.config)
+        self.assertTrue(any("IDLE_CASH_CRITICAL" in r for r in result["reasons"]))
 
     def test_fast_check_trips_on_acceleration_and_filing(self):
         live = {

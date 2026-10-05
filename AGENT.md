@@ -1,4 +1,4 @@
-OWNER DIRECTIVE 2026-10-05 v2 — EXPLOSIVE CATALYST REVALUATION MODE
+OWNER DIRECTIVE 2026-10-05 v3 — EXPLOSIVE CATALYST REVALUATION + ACTIVE CASH DEPLOYMENT MODE
 This file is the authoritative standing strategy for the autonomous Robinhood routine.
 It supersedes older strategy text whenever there is a conflict.
 
@@ -107,7 +107,9 @@ A candidate is normally actionable only when scripts/scoring.py returns eligible
 - no hard disqualifier
 - all broker/universe/PDT/risk hard rules pass
 
-A candidate can be interesting but non-actionable. Record why. Never lower a gate merely because the account is idle.
+A candidate can be interesting but non-actionable. Record why. Never lower a quality gate merely because the account is idle.
+However, material idle deployable cash is itself an ACTIONABLE RESEARCH CONDITION: broaden discovery and re-underwrite
+the existing book before accepting NO_ACTION. Do not buy junk just to eliminate cash.
 
 50% / 100% ASSESSMENT
 The scoring helper returns scenario labels for additional upside FROM THE PROPOSED ENTRY:
@@ -168,6 +170,13 @@ Their canonical parameters are in config.json -> scanner_profiles. If one is mis
 is available, create it from config before continuing. Do not silently substitute the older "Cheap Momentum" or
 "Exceptional Momentum" rules as the primary discovery engine. Older scans may still be run as supplemental coverage.
 
+Idle-cash fallback scanner (run only when the IDLE CASH ESCALATION below triggers):
+- Agentic Early Catalyst Fallback v3
+
+This fallback deliberately catches earlier/less-developed moves: lower RVOL and price-change thresholds than the four
+primary scans, but the SAME primary-source verification and opportunity-score gates still apply. It broadens SEARCH,
+not the standard for buying.
+
 The four jobs:
 A. CATALYST IGNITION
    Find abnormal activity before the giant move whenever possible. Moderate price gain is enough if RVOL is strong.
@@ -206,7 +215,10 @@ is genuinely unchanged.
 5. Build positions.json and live.json, then run:
    python3 scripts/scoring.py fast-check --positions positions.json --live live.json --config config.json --as-of <date>
 6. If actionable=false, use the one-line NO_ACTION journal path and persist.
-7. If actionable=true, research only the tripped symbols/reasons deeply.
+7. If actionable=true, research the tripped symbols/reasons deeply. If the reason includes IDLE_CASH_ESCALATION,
+   V2_POSITION_RESCORE_DUE, or IDLE_CASH_CRITICAL, follow the mandatory escalation section below before NO_ACTION.
+8. After completing an idle-cash escalation with no eligible deployment, set idle_cash_escalation_completed=true in
+   live.json for the final fast-check/reconciliation so the same run may finish honestly without looping forever.
 
 live.json may include:
 {
@@ -220,8 +232,67 @@ live.json may include:
   "candidate_score_inputs_changed": [],
   "drawdown_state_changed": false,
   "day_trade_count_changed": false,
+  "account_value": 7500.0,
+  "deployable_buying_power": 1500.0,
+  "market_session": "regular_hours",
+  "session_allows_entries": true,
+  "entry_blocked": false,
+  "entry_blocked_reason": "",
+  "idle_cash_escalation_completed": false,
   "known_candidates": {}
 }
+
+IDLE CASH ESCALATION — MANDATORY
+The objective is not to sit on a large cash balance while the market is open. It is also not to force a bad trade.
+
+Definitions:
+- deployable_buying_power = unleveraged buying power actually usable for a new equity order now, minus
+  min_cash_reserve_usd. Never count margin borrowing or unsettled/restricted funds as deployable.
+- meaningful/strategic position = current market value >= strategic_position_min_usd. Fractional dust below that
+  threshold remains tracked but does not consume one of max_open_positions strategic slots.
+- idle_cash_pct = deployable_buying_power / total account value * 100.
+
+Trigger:
+- If session_allows_entries=true and idle_cash_pct >= idle_cash_escalation_pct_of_account (currently 10%), fast-check
+  MUST return actionable unless idle_cash_escalation_completed=true for this same run.
+- At idle_cash_pct >= idle_cash_critical_pct_of_account (currently 20%), treat it as CRITICAL SEARCH DEPTH: a routine
+  scanner pass is not enough.
+
+Before NO_ACTION is allowed under an idle-cash trigger, do ALL of the following:
+1. V2 RE-UNDERWRITE THE EXISTING BOOK:
+   Every meaningful open position lacking opportunity_score must be re-researched and assigned the v2 fields. This
+   includes current quote/technicals, original thesis/catalyst verification, current dilution/bad-news check,
+   remaining-upside assessment, and opportunity_score. Persist the v2 fields in state.json. Same-day holdings are
+   still scored even though they cannot be sold.
+2. PRIMARY SCANS:
+   Run all four v2 scanners and fully evaluate every genuinely new/materially changed hit.
+3. FALLBACK SCAN:
+   Run "Agentic Early Catalyst Fallback v3". Investigate the highest-quality abnormal-volume names rather than
+   dismissing the entire scan because some hits are junk.
+4. FRESH-CATALYST SWEEP:
+   Search for fresh same-day 8-K/6-K/company/FDA/regulatory/earnings/contract/licensing/activist developments that
+   may not yet have enough price movement to hit the primary scanners. When idle_cash_pct is critical, use at least
+   one discovery channel independent of Robinhood scanner results.
+5. DEPLOYMENT CHOICES, in order:
+   a. Best new candidate that clears the normal opportunity gates and fits an available strategic slot.
+   b. A qualifying pyramid into an EXISTING WINNER only if the winner is >= pyramid_min_unrealized_pct and its
+      refreshed opportunity_score + remaining_upside_score still clear the normal gates.
+   c. Rotation out of the weakest legally replaceable holding if a stronger candidate clears the rotation rule.
+   Never average down merely to deploy cash.
+6. POSITION CEILING:
+   Up to max_open_positions meaningful strategic positions are allowed (currently 4). Fractional dust below
+   strategic_position_min_usd does not block opening the fourth meaningful position.
+7. IF NOTHING QUALIFIES:
+   Cash may remain idle. Do not lower the opportunity gate or buy a weak name. But journal:
+   IDLE_CASH_REVIEW_COMPLETE | idle_cash_pct=<x> | deployable=<amount> | best_rejected=<symbols/scores> | reason=<why>
+   and set idle_cash_escalation_completed=true for this run. A bare "the first scanner hits failed" is NOT enough.
+
+V2 POSITION MIGRATION — NO GRANDFATHERED OLD SCORES
+Until every meaningful position has v2 fields, the migration itself is actionable work.
+- A meaningful position missing opportunity_score causes V2_POSITION_RESCORE_DUE in fast-check.
+- Re-score it under the same framework used for new candidates, based on CURRENT remaining upside.
+- Preserve historical old score fields for audit history but do not let them substitute for v2 fields.
+- Fractional dust below strategic_position_min_usd is exempt from forced v2 migration unless it becomes material.
 
 CHASE / "ALREADY UP A LOT" RULE
 Do not use price appreciation alone as an automatic veto.
@@ -300,8 +371,13 @@ Budget remains capped by:
 - spendable unleveraged buying power minus min_cash_reserve_usd
 - broker restrictions
 
+Up to max_open_positions meaningful strategic positions may be held. A position below strategic_position_min_usd is
+fractional dust for slot-counting purposes, not a reason to block a new strategic position. It remains visible in
+risk/state reporting.
+
 100% single-name concentration remains allowed for an exceptional setup. Do not increase the cap beyond 100%.
-Do not create tiny positions just to appear active.
+Do not create tiny positions just to appear active. Conversely, if deployable cash is above the idle-cash threshold,
+do not finish via the ordinary fast path until the mandatory escalation work is complete.
 
 PYRAMIDING
 Allowed only when:
@@ -390,7 +466,12 @@ Keep old score, score_signal_class, and score_date fields when present for histo
 no longer the primary ranking fields.
 
 NO-ACTION SAVE PATH
-If fast-check returns actionable=false:
+NO_ACTION is permitted only if:
+- fast-check returns actionable=false, AND
+- there is no unresolved V2_POSITION_RESCORE_DUE, AND
+- if deployable cash triggered idle-cash escalation this run, the mandatory escalation completed and was journaled.
+
+If those conditions are met:
 - append the account_value_history point
 - update last_run
 - write a one-line journal entry:

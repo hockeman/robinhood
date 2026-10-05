@@ -418,6 +418,67 @@ def rotation_eligible(
     }
 
 
+def positions_missing_v2(positions, min_value_usd=100.0):
+    """Return meaningful positions that still lack v2 opportunity fields."""
+    missing = []
+    for symbol, pos in positions.items():
+        value = float(pos.get("value_usd") or 0.0)
+        if value < float(min_value_usd):
+            continue
+        if pos.get("opportunity_score") is None:
+            missing.append(symbol)
+    return sorted(missing)
+
+
+def idle_cash_status(live, config):
+    """Compute whether deployable idle cash requires a deeper search this run."""
+    account_value = float(live.get("account_value") or 0.0)
+    raw_bp = live.get("deployable_buying_power")
+    if raw_bp is None:
+        raw_bp = live.get("buying_power")
+    buying_power = float(raw_bp or 0.0)
+    reserve = float(config.get("min_cash_reserve_usd", 0.0))
+    deployable = max(0.0, buying_power - reserve)
+
+    session_allows = live.get("session_allows_entries")
+    if session_allows is None:
+        session_allows = live.get("market_session") in {
+            "regular_hours",
+            "extended_hours",
+            "all_day_hours",
+        }
+
+    entry_blocked = bool(live.get("entry_blocked", False))
+    completed = bool(live.get("idle_cash_escalation_completed", False))
+    pct = (deployable / account_value * 100.0) if account_value > 0 else 0.0
+    escalation = float(config.get("idle_cash_escalation_pct_of_account", 10.0))
+    critical = float(config.get("idle_cash_critical_pct_of_account", 20.0))
+
+    return {
+        "account_value": round(account_value, 2),
+        "deployable_buying_power": round(deployable, 2),
+        "idle_cash_pct": round(pct, 3),
+        "session_allows_entries": bool(session_allows),
+        "entry_blocked": entry_blocked,
+        "entry_blocked_reason": live.get("entry_blocked_reason") or "",
+        "idle_cash_escalation_completed": completed,
+        "escalation_threshold_pct": escalation,
+        "critical_threshold_pct": critical,
+        "requires_escalation": (
+            bool(session_allows)
+            and not entry_blocked
+            and not completed
+            and pct >= escalation
+        ),
+        "critical": (
+            bool(session_allows)
+            and not entry_blocked
+            and not completed
+            and pct >= critical
+        ),
+    }
+
+
 def fast_check(positions, live, as_of, config):
     """Decide whether an hourly run needs deep research."""
     reasons = []
@@ -432,6 +493,29 @@ def fast_check(positions, live, as_of, config):
         reasons.append("DRAWDOWN_STATE_CHANGED: halt/resume threshold crossed")
     if live.get("day_trade_count_changed"):
         reasons.append("DAY_TRADE_COUNT_CHANGED: PDT counter moved")
+
+    if config.get("require_v2_rescore_before_no_action", True):
+        missing_v2 = positions_missing_v2(
+            positions,
+            min_value_usd=config.get(
+                "v2_rescore_min_position_usd",
+                config.get("strategic_position_min_usd", 100.0),
+            ),
+        )
+        if missing_v2:
+            reasons.append(
+                "V2_POSITION_RESCORE_DUE: "
+                + ", ".join(missing_v2)
+                + " are meaningful holdings without opportunity_score"
+            )
+
+    cash = idle_cash_status(live, config)
+    if cash["requires_escalation"]:
+        label = "IDLE_CASH_CRITICAL" if cash["critical"] else "IDLE_CASH_ESCALATION"
+        reasons.append(
+            f"{label}: {cash['idle_cash_pct']:.2f}% of account is deployable "
+            f"(USD {cash['deployable_buying_power']:.2f}); complete expanded discovery before NO_ACTION"
+        )
 
     for key, label in [
         ("scanner_new_symbols", "NEW_SCANNER_HIT"),
@@ -488,7 +572,12 @@ def fast_check(positions, live, as_of, config):
             DEFAULT_LEGACY_OLD_SCORE_CAP_FOR_OPPORTUNITY,
         ),
     )
-    return {"actionable": bool(reasons), "reasons": reasons, "current_ranking": ranking}
+    return {
+        "actionable": bool(reasons),
+        "reasons": reasons,
+        "current_ranking": ranking,
+        "idle_cash": cash,
+    }
 
 
 def _load(path):

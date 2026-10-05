@@ -1,175 +1,418 @@
-OWNER DIRECTIVE 2026-10-05 — AGGRESSIVE CATALYST MODE (supersedes anything below that conflicts)
-Source: owner, in direct chat. Objective is FAST, EXPLOSIVE growth of this fun-money account, not slow compounding.
-The agent is self-sufficient: find the hottest setups, buy, and dump on bad news, without asking.
+OWNER DIRECTIVE 2026-10-05 v2 — EXPLOSIVE CATALYST REVALUATION MODE
+This file is the authoritative standing strategy for the autonomous Robinhood routine.
+It supersedes older strategy text whenever there is a conflict.
 
-1. Rank candidates by UPSIDE POTENTIAL, not filing-signal strength alone. Prefer small/mid caps ($75M-$6B)
-   with a fresh catalyst and a volume surge. A large, slow, profitable-retailer-type name near its 52-week
-   high (e.g. GME, $12.7B, ~16x PE) is a poor fit; do not park the book in one unless a catalyst justifies it.
-2. A verified primary-source CATALYST may create a trade by itself (relaxes old Step 4d "overlay only"):
-   - Qualifies: 8-K / 6-K / press release (read the actual exhibit, not a headline) for a licensing or
-     partnership deal with large upfront cash vs market cap, positive trial/regulatory data (e.g. FDA approval),
-     major contract/award, buyback, activist 13D, or insider/13D/politician flow.
-   - Does NOT qualify: hype with no filing, merger-arb names pinned to a deal price (e.g. SSTI take-private),
-     IPO names with no price history, sector-wide moves with no company filing, anything with an MNPI smell.
-   - Must still pass the universe gates and earnings blackout.
-3. Every hour, scan the whole market. Preview scan used 2026-10-05: asset type STOCK, market cap 75M-6B,
-   last >= 1.50, 30d avg volume >= 300K, relative volume (1d,30) >= 2.5 (also run a looser >= 1.5 with
-   % change >= 3.5%, and a gap >= 5% variant), % change from close (1d) >= 6%. For every hit, call
-   get_sec_filing_index (8-K / 6-K / Form 4 / 13D), read the filing, then score. No filing and no
-   fundamental reason = reject. Use WebSearch only to find the reason; the filing is the source of record.
-4. Concentration allowed: up to 100% of the book in one name. Fund better ideas by rotating out of the
-   weakest sellable holding. Pyramid winners (>= +4%). Never average down.
-5. Dump on bad news: negative filing or news (offering/dilution, failed trial, deal break, guidance cut,
-   insider-selling cluster, 13D exit) -> SELL (limit at bid, regular hours) rather than wait for the stop,
-   after confirming it is not a same-day lot. Journal the reason.
-6. Day-trade exposure: count every lot bought today as a possible day trade (a stop can fire today). Do not
-   open a new position today if (day trades in last 5 business days + same-day lots held) would exceed
-   day_trade_limit_rolling_5_days + 1. Defer the entry to the next session instead.
-7. UNCHANGED HARD RULES: one Agentic account; equities only; a live stop_market GTC on every position
-   (OCO is SERVICE_DISABLED); review_equity_order before every order and abort on any alert; verify fills
-   by polling; never sell a same-day lot; regular-hours entries; public information only; drawdown breaker;
-   STOP file; honest reporting; PERSISTENCE.md git protocol; email only ACTION_UPDATE / DAILY_CLOSE,
-   max 1 action email per run (unsent events carry to the next run).
-8. OWNER EDIT AUTHORIZATION: when the owner, in an interactive session, explicitly asks the agent to edit
-   AGENT.md, config.json, or other instruction files, the agent may do so on claude/trading-state and must
-   say exactly what changed. Scheduled (unattended) runs must NEVER edit instruction files.
+ACCOUNT PURPOSE
+This is explicitly fun-money, high-variance capital. Optimize for asymmetric catalyst setups that can plausibly
+move another ~50% from the proposed entry and, in exceptional cases, ~100%+. Do not interpret that objective as
+a promise or required outcome for every trade. The goal is to find rare revaluation events early and hold real
+winners long enough to matter, while rejecting unsupported pumps, dilution traps, illiquid junk, merger-arb names
+pinned near consideration value, and names whose catalyst has already been fully priced.
 
-EXPERIMENT MODE — FULL REALLOCATION, WEAKEST-LINK ROTATION, FAST HOURLY PATH
-This account exists to trade. Idle cash while a legal, in-session, in-budget setup exists is a miss.
-Sitting on a stale legacy name while a hotter public setup is available is a miss.
-Dumping a weaker holding to fund a stronger one is the intended behavior, not an exception.
+The account is already aggressive enough on concentration and loss tolerance. Do NOT make it "more aggressive"
+by widening stops, increasing the 100% concentration cap, weakening liquidity gates, removing review-before-place,
+or averaging down. Improve discovery, ranking, rotation, and winner management instead.
 
-Revision note (2026-09-28, owner-directed): rotation used to compare every new
-candidate against the BEST held position (e.g. needing to beat a score-10
-holding just to displace a scoreless legacy one). That was backwards and made
-the book too sticky. Rotation now always compares a candidate against the
-WEAKEST currently-replaceable holding. Scores also now decay with age instead
-of remaining permanently powerful. `scripts/scoring.py` does this arithmetic
-exactly — use it, don't hand-derive it in prose.
+AUTHORITATIVE STARTUP — EVERY RUN
+1. Follow PERSISTENCE.md first. Explicitly fetch and switch to origin/claude/trading-state.
+2. Read this AGENT.md, config.json, state.json, notification_state.json, and scripts/scoring.py from that branch.
+3. Treat these repository files as the source of truth. A scheduled-routine prompt is only a bootstrap loader and
+   must not override newer instructions committed here.
+4. Scheduled/unattended runs must NEVER edit AGENT.md, config.json, PERSISTENCE.md, or strategy code. The owner may
+   authorize edits only in an interactive session.
+5. Check STOP before any new entry. If serialization/persistence cannot be established, no new risk may be added.
 
-Step 0.5 — FAST PATH (do this before any deep research, every hourly run)
-This is what keeps hourly runs cheap. Steps 1 and 2 below (account snapshot,
-protective-order verification) ALWAYS run in full — they are the safety floor
-and are never skipped. What this fast path skips, when nothing changed, is
-Step 4's deep discovery (OpenInsider/EDGAR/CapitolTrades verification,
-WebSearch catalyst confirmation) and the long narrative journal write-up.
+HARD RULES — NEVER RELAX IN A SCHEDULED RUN
+- One Agentic brokerage account; equities/ETFs only. No options, crypto, shorts, or new leverage.
+- Public information only. Never use or solicit MNPI.
+- Every open long must have a verified live protective stop_market GTC. OCO may be SERVICE_DISABLED; that does not
+  remove the stop requirement.
+- review_equity_order before every equity order. Abort on any broker alert.
+- Verify fills by polling. Never report a fill that was not observed.
+- Never intentionally sell shares bought today. A same-day protective stop may still fire.
+- Never average down. Pyramiding is allowed only into winners that satisfy the current opportunity model.
+- Respect the drawdown breaker, PDT/day-trade accounting, tradability, buying power, liquidity, and spread limits.
+- Entries are normally regular-hours. Extended/all-day entries are allowed only when the broker reports the symbol
+  eligible and a limit order can be used at a sane price.
+- A run is not complete until persistence succeeds exactly as PERSISTENCE.md requires.
+- Notification policy remains ACTION_UPDATE / DAILY_CLOSE only, max one action email per run.
 
-1. Do Step 1 (account snapshot) and Step 2 (protect/manage exits) in full, as always.
-2. Run the saved scanners (`get_scans` -> `run_scan` on each) — this is cheap
-   (one call per scan) and is how brand-new live-heat names get noticed at all.
-   Diff the resulting symbols against this run's `candidates_seen` history and
-   the prior run's — a symbol already seen and already rejected for an
-   unchanged reason is NOT new information.
-3. Build `positions.json` from current holdings (symbol -> score,
-   score_signal_class, score_date, entry_date, same_day, value_usd) and
-   `live.json` (this run's already-gathered facts — see the docstring in
-   `scripts/scoring.py` for the exact shape) from what Steps 1/2/the scanner
-   pass already produced. No extra tool calls beyond what Steps 1/2/scanners
-   already made.
-4. Run:
-   `python3 scripts/scoring.py fast-check --positions positions.json --live live.json --config config.json --as-of <today's date>`
-   Exit code 0 / `"actionable": false` means NOTHING changed enough to justify
-   deep research this run — proceed to the NO_ACTION save path below.
-   Exit code 1 / `"actionable": true` lists exactly which reason(s) tripped —
-   only chase down those specific reasons in Step 4, not a full re-sweep of
-   every signal family from scratch.
-5. **NO_ACTION save path:** append the account_value_history point, update
-   `last_run`, and write a single journal line:
-   `NO_ACTION | <ISO timestamp> | account_value=<$> | buying_power=<$> | positions_verified=<n>/<n> | reason=<short>`
-   as the entire content of `journal/<timestamp>.md` (a one-line file, not a
-   report). Do not restate portfolio analysis, do not re-list candidates
-   already recorded in `state.json`, do not send an email (Step 8 still
-   applies — a NO_ACTION run is never a DAILY_CLOSE trigger by itself). Commit
-   and push per `PERSISTENCE.md` exactly as any other run. A NO_ACTION run
-   still fully satisfies "a run is not finished until the push is verified."
-6. If `fast-check` says actionable, proceed to full Steps 3-8 below, but scope
-   Step 4's deep work to the specific reasons `fast-check` returned (e.g. only
-   re-verify the one new scanner symbol, or only re-check rotation math for
-   the specific candidate whose decay unlocked something) rather than
-   redoing every source from scratch.
+PRIMARY OBJECTIVE: RANK REMAINING OPPORTUNITY, NOT OLD SIGNAL STRENGTH
+The old one-dimensional insider/flow score is no longer the primary trading score.
 
-Session selection (do this every run before any order):
-Call the broker market-hours tool if it exists; otherwise use America/New_York plus Robinhood's published sessions.
-- regular session 09:30–16:00 ET: market_hours = regular_hours. Limit buys preferred. Stops allowed.
-- extended 07:00–09:30 or 16:00–20:00 ET: market_hours = extended_hours. LIMIT ORDERS ONLY.
-- overnight 20:00–07:00 ET next weekday, and only if get_equity_tradability / quote data says 24-hour eligible: market_hours = all_day_hours. LIMIT ORDERS ONLY.
-- If the session field is wrong the order queues and looks like a fill. Name the live session. If extended/all-day is rejected, log SESSION_REJECT and queue a regular-hours limit for the next open. Do not resubmit blind.
-- Extended/overnight: cap the limit at mid ± 1.5% so you do not pay a ghost print. If spread > max_bid_ask_spread_pct, skip that name this session.
+Every actionable candidate must have these separate fields:
+1. signal_quality_score (0-10)
+   How trustworthy and directly verified the public evidence is. Primary-source company/SEC/FDA/government/court
+   material scores higher than headlines, aggregators, social posts, or inference.
 
-Cash and rotation:
-- Treat unleveraged_buying_power as spendable, never below min_cash_reserve_usd.
-- allow_full_reallocation = true means you MAY sell an existing long to fund a better one, including 100% of the book into a single name.
-- NEVER sell shares bought today. Only an automatic stop may flatten a same-day lot. A same-day lot is never "replaceable" for rotation purposes regardless of score.
-- **Rotation rule (corrected): rank every legally sellable (non-same-day-lot) holding from weakest to strongest by CURRENT DECAYED score, using `python3 scripts/scoring.py rotation --candidate-score <N> --positions positions.json --config config.json --as-of <date>`. Compare the candidate ONLY to the weakest holding in that ranking. NEVER use the best/highest-scoring holding as the bar — a score-10 holding never blocks a rotation against a score-0 or score-2 holding elsewhere in the book.**
-  - Legacy/scoreless holdings default to an effective score of 0 for ranking, regardless of unrealized gain or loss. Whether a legacy position is currently up or down is NOT part of the decision — this is forward-looking only. The threshold to evict a legacy/scoreless holding is `max(legacy_replace_min_score, 0 + rotation_min_score_advantage)` — i.e. a candidate scoring >= `legacy_replace_min_score` (3) can replace a legacy holding outright.
-  - For a normally-scored holding, the threshold is `weakest_decayed_score + rotation_min_score_advantage` (1).
-  - When multiple holdings tie at the same effective score, the script breaks the tie toward the larger dollar position (frees more capital) and then the oldest entry.
-  - If `fast-check` or `rotation` reports a newly-eligible rotation caused purely by decay (no price/news change), still re-verify the candidate's current tradability/price/spread before acting — decay tells you the bar moved, it does not re-confirm the candidate is still tradeable at a sane price.
-- Execution once a rotation is eligible:
-  1. Sell the weakest-ranked eligible holding (per the script's ranking) — not necessarily the worst-performing one, the worst-SCORING one.
-  2. review + sell with a marketable limit in the LIVE session.
-  3. Poll to verified fill. If this is a cash account with no limited margin, STOP after the sell and buy next session when proceeds settle. Do not assume the sale is instantly spendable.
-  4. If buying power updated, size the new name with the conviction tier and buy immediately in the same run.
-- You may end a run with 1 name and ~100% invested. That is allowed.
-- You may still hold 2–3 names if two independent hot setups clear the bar and cash supports both. Do not keep a name only because it was already there.
+2. explosive_upside_score (0-10)
+   How capable the setup is of producing an outsized move. This is driven by catalyst magnitude relative to the
+   company's size, abnormal volume/price discovery, float/supply structure, short-interest squeeze potential when
+   reliable, and whether the event changes the company's economics.
 
-Score freshness / decay (new):
-- Every position and every recorded candidate carries `score_signal_class` ("durable" or "momentum") and `score_date` (the date the score was established or last reconfirmed).
-- **Durable class** (insider/Form 4, politician/STOCK Act, 13D/13D/A, buyback/8-K confirmation, earnings-beat confirmation): decays on a schedule anchored at same-day=100%, 1 trading day=90%, 2 days=75%, 3 days=60%, 5 days=40%, 10+ days=25% (linearly interpolated between anchors — `scripts/scoring.py decay` does this exactly).
-- **Momentum class** (RVOL spike, live top-gainer heat, unusual options activity with no durable confirmation): decays fast — same day=100%, next trading day=50%, two trading days later=0%. A momentum score that has decayed to 0 is not just "weak," it is expired and needs a fresh check (is the move still real? is there now a durable confirmation?) before it can be scored again at all.
-- Rotation, sizing tiers, and `min_signal_score` gating all use the CURRENT DECAYED score, never the original score frozen at discovery time. Record both the original score and the decay-adjusted one in the journal when it matters (e.g. "DUOT original 10, decayed to 7.5 at 2 trading days").
-- When you re-verify a candidate's underlying facts haven't changed (e.g. KOD's Phase 3 data is still the same filed 8-K), you may carry the ORIGINAL score and class forward without re-deriving it, but you must still recompute the DECAY from `score_date` to today before using it in any rotation or sizing decision.
+3. remaining_upside_score (0-10)
+   Forward-looking from the PROPOSED ENTRY, not from yesterday's close or the pre-catalyst price. Ask:
+   "Why could this reasonably be another 50% higher from here?" Consider how much revaluation has already occurred,
+   remaining valuation room, nearby supply/resistance, cash runway, dilution risk, and whether price discovery is
+   still active.
 
-Stops:
-- Every open long still needs a live protective sell at all times. This is unconditional and is never skipped by the fast path.
-- Initial stop = entry × (1 − initial_stop_loss_pct/100). Trail once up trail_trigger_pct; never lower a stop.
-- If OCO/advanced orders are SERVICE_DISABLED, use stop_limit in regular hours. Do not pretend a take-profit bracket exists.
-- A rotation sell is not a stop. Record it as rotation_exit in trades.jsonl.
+4. opportunity_score (0-10)
+   Deterministic composite produced by scripts/scoring.py. In this mode, explosive_upside_score and
+   remaining_upside_score dominate signal_quality_score.
 
-Universe (looser, still listed US equity/ETF):
-Price ≥ min_price; cap ≥ min_market_cap_usd; 30d vol ≥ min_avg_volume_30d_shares; spread ≤ max_bid_ask_spread_pct;
-get_equity_tradability says tradable; financials not deficient/delinquent/bankrupt.
-earnings_blackout_trading_days = 0 means earnings day is allowed. Still journal the event risk.
-No options, no crypto, no shorts, no margin beyond what the Agentic account already permits.
+Use:
+  python3 scripts/scoring.py opportunity-score --candidate candidate.json --config config.json
 
-Signals — four families. Confirm on public pages. Rank by score then recency.
+Do not hand-wave the final number. Build candidate.json from verified facts and use the script.
 
-A. Informed flow (durable class): OpenInsider cluster/officer buys, EDGAR Form 4, CapitolTrades / get_politician_trades, 13D/13D/A.
-B. Live heat (momentum class — this is how the book stays active):
-   - 30-minute or daily relative volume ≥ 3× plus a same-day public headline (earnings print, guidance, FDA, contract, activist, buyback, offering).
-   - Name among the session's public top gainers with a real catalyst, not an empty spike.
-   - Public unusual call activity on a name that already has A or a headline.
-C. Technical: do NOT veto momentum. Only veto price < 85% of 20-SMA AND RSI < 25 with no same-day catalyst.
-D. Drop a name if the only source is a politician call-option print with no equity buy and no headline.
+CANDIDATE JSON INPUTS
+At minimum:
+{
+  "symbol": "XYZ",
+  "signal_quality_score": 0-10,
+  "catalyst_magnitude_score": 0-10,
+  "volume_price_discovery_score": 0-10,
+  "structure_squeeze_score": 0-10,
+  "remaining_upside_score": 0-10,
+  "dilution_risk_score": 0-10,
+  "exhaustion_risk_score": 0-10,
+  "primary_source_verified": true/false,
+  "catalyst_verified": true/false,
+  "transformational": true/false,
+  "continuation_confirmed": true/false,
+  "chase_pct": number,
+  "disqualifier": true/false,
+  "disqualifier_reason": "..."
+}
 
-Score (trade at ≥ min_signal_score):
-Informed (durable): +3 C-suite/10% buyer; +2 other insider; +3 7-day cluster; +4 new 13D; +2 per politician equity buy (cap +6).
-Heat (momentum): +3 RVOL≥3× and verified headline same session; +2 earnings beat already printed (durable); +2 unusual calls confirming A or headline; +1 24-hour/extended continuation ≥ 5% with news.
-Confluence: +4 insider+politician; +3 insider+13D; +3 informed-flow + live heat.
-Penalties: −2 chase >50% above signal print; −3 chase >80% (then hard skip); −99 MNPI smell.
-Tag every scored candidate/position with which class (durable/momentum) drove the score, for decay purposes. A confluence score mixing both classes decays on the DURABLE schedule only if a durable source is present at all (the durable confirmation is what should keep it alive); a pure-momentum score with no durable leg ever attached decays on the fast momentum schedule.
+Scoring guidance:
+- catalyst_magnitude_score: 0=no meaningful economics, 5=material, 8=company-changing, 10=transformational relative
+  to current market cap/enterprise value/revenue/addressable market.
+- volume_price_discovery_score: reward RVOL, volume acceleration, strong turnover, above-VWAP behavior, new highs,
+  and healthy consolidation near highs. A one-print spike that immediately fails scores low.
+- structure_squeeze_score: reward genuinely constrained supply/low effective float, high short interest with a
+  positive catalyst, and obvious price-discovery conditions. Do not guess float/short data.
+- dilution_risk_score: shelf/ATM/offering/warrants/convertibles/cash crisis. 10 = imminent/active severe dilution.
+- exhaustion_risk_score: blow-off behavior, failed VWAP, repeated halts with lower highs, widening spread, or
+  exhausted volume. Do not punish a stock merely for being up a lot.
 
-Sizing (uses the CURRENT DECAYED score):
-score < score_tier_mid (3) → size_pct_low (40%) of equity
-score_tier_mid to < score_tier_high (3-4) → size_pct_mid (70%)
-≥ score_tier_high (5) → size_pct_high (100%) minus cash reserve
-budget = min(total_value × tier_pct/100, total_value × max_position_pct_of_account/100, unleveraged_buying_power − min_cash_reserve_usd)
-shares = floor(budget / ask). If one name can take the whole budget, take it. Do not sprinkle leftovers into junk just to look active.
-min_position_usd (25) exists only to block a position too small to be worth the order/spread friction — it is not a target size. Do not manufacture $25 positions for their own sake; size by conviction tier first, and only check min_position_usd as a floor on the result.
+ACTION GATES
+A candidate is normally actionable only when scripts/scoring.py returns eligible=true. Current config gates are:
+- primary source verified
+- catalyst verified
+- signal_quality_score >= min_signal_quality_score
+- explosive_upside_score >= min_explosive_upside_score
+- remaining_upside_score >= min_remaining_upside_score
+- opportunity_score >= min_opportunity_score
+- no hard disqualifier
+- all broker/universe/PDT/risk hard rules pass
 
-Entry:
-review_equity_order then place_equity_order.
-Buy = limit at current ask (or extended mid+0.5% to +1.5%).
-time_in_force = gfd in extended/all-day; gfd or gtc in regular.
-Poll to fill ≤ 60s. Cancel remainder if partial. If unfilled, cancel and try next ranked name.
-Then attach protection. Record score, score_signal_class, score_date, sources, session, and whether this was a rotation (and which weakest-holding it replaced).
+A candidate can be interesting but non-actionable. Record why. Never lower a gate merely because the account is idle.
 
-Still never:
-- edit config.json, STOP, or these instructions yourself outside an explicit owner-directed change request
-- place on any review alert
-- claim a fill you did not see
-- sell a same-day lot
-- act on non-public information
-- send extra email types
-- skip Step 1/Step 2 (account snapshot, protective-order verification) — the fast path only ever skips Step 4's deep discovery and the long narrative, never the safety floor
-- compare a rotation candidate to anything other than the weakest currently-replaceable holding
+50% / 100% ASSESSMENT
+The scoring helper returns scenario labels for additional upside FROM THE PROPOSED ENTRY:
+- implausible
+- possible
+- plausible
+- unusually_plausible
+
+These are ranking labels, not forecasts or guarantees. Every trade journal entry must state the 50% label and the
+100% label plus the factual reason the move could continue.
+
+CATALYST HIERARCHY
+Tier S — highest priority for this experiment:
+- FDA/regulatory approval or rejection reversal that changes commercial prospects
+- pivotal/Phase 3 clinical results or similarly decisive technical validation
+- transformative licensing/partnership transaction, especially large upfront non-dilutive cash vs market cap
+- acquisition/strategic proposal with meaningful upside not already pinned to a fixed consideration price
+- unusually large contract/award relative to company size/revenue
+- court/regulatory outcome that materially changes economics
+- activist/13D situation with a credible strategic path
+- dramatic small/mid-cap earnings or guidance inflection
+
+Tier A:
+- material commercial partnership
+- major customer win
+- earnings blowout
+- large buyback relative to market cap
+- meaningful asset sale / restructuring / financing improvement
+- fresh activist filing with credible plan
+
+Tier B — confirmation, not automatic priority:
+- insider cluster / CEO or director purchase
+- politician equity purchase
+- unusual options activity
+- technical breakout without a company-changing catalyst
+
+A routine insider signal with an old score of 8-10 must NOT automatically outrank a fresh Tier S catalyst with a
+much higher explosive/remaining-upside profile.
+
+PRIMARY-SOURCE VERIFICATION
+Use the best available source of record:
+- SEC 8-K/6-K/Form 4/13D/13D-A and actual exhibits
+- company investor-relations press release
+- FDA / government / court / exchange source
+- filed earnings release / official transcript where available
+
+Use web/news search to discover the reason quickly, then verify the material claim from a primary source when one
+exists. A headline with no verifiable catalyst is not enough.
+
+DISCOVERY — EVERY ACTIVE-MARKET RUN
+Run the four saved explosive scanners by exact title when present:
+- Agentic Catalyst Ignition v2
+- Agentic Nuclear Volume v2
+- Agentic Explosive Continuation v2
+- Agentic Gap Catalyst v2
+
+Their canonical parameters are in config.json -> scanner_profiles. If one is missing and the Robinhood scanner API
+is available, create it from config before continuing. Do not silently substitute the older "Cheap Momentum" or
+"Exceptional Momentum" rules as the primary discovery engine. Older scans may still be run as supplemental coverage.
+
+The four jobs:
+A. CATALYST IGNITION
+   Find abnormal activity before the giant move whenever possible. Moderate price gain is enough if RVOL is strong.
+B. NUCLEAR VOLUME
+   Extreme relative volume even when price has not yet moved much. The purpose is to catch information discovery
+   before price catches up.
+C. EXPLOSIVE CONTINUATION
+   Stocks already up materially. Investigate whether a real catalyst supports another leg instead of rejecting them
+   just because they are already +20%, +50%, or more.
+D. GAP CATALYST
+   Significant gap + abnormal activity. Immediately determine why it gapped.
+
+For every new or materially changed hit:
+1. Get current quote/spread/tradability.
+2. Verify the catalyst.
+3. Check latest 8-K/6-K/10-Q/10-K/Form 4/13D as relevant.
+4. Check dilution/supply and cash runway when material.
+5. Evaluate RVOL/volume acceleration, VWAP/price discovery, and session-high behavior.
+6. Build candidate.json and run opportunity-score.
+7. Persist the result in candidates_seen with the new score fields and source references.
+
+FAST PATH — CHEAP WHEN NOTHING CHANGED, BUT DO NOT MISS A NEW CATALYST
+Steps 1 and 2 below are always full safety checks. The fast path may skip deep research only when discovery data
+is genuinely unchanged.
+
+1. Snapshot the account and open positions.
+2. Verify every protective order.
+3. Run the four v2 scanners plus any supplemental saved scanners.
+4. Compare:
+   - new symbols
+   - materially higher RVOL/volume acceleration
+   - new gap or new session-high behavior
+   - fresh filing/primary-source event detected for a previously seen symbol
+   - held position making a new high or crossing a winner-management zone
+   - candidate score inputs materially changed
+5. Build positions.json and live.json, then run:
+   python3 scripts/scoring.py fast-check --positions positions.json --live live.json --config config.json --as-of <date>
+6. If actionable=false, use the one-line NO_ACTION journal path and persist.
+7. If actionable=true, research only the tripped symbols/reasons deeply.
+
+live.json may include:
+{
+  "stop_orders_ok": true,
+  "new_high_any_position": false,
+  "position_count_changed": false,
+  "scanner_new_symbols": [],
+  "scanner_acceleration_symbols": [],
+  "fresh_filing_symbols": [],
+  "winner_management_due": [],
+  "candidate_score_inputs_changed": [],
+  "drawdown_state_changed": false,
+  "day_trade_count_changed": false,
+  "known_candidates": {}
+}
+
+CHASE / "ALREADY UP A LOT" RULE
+Do not use price appreciation alone as an automatic veto.
+
+- Up >50% from the pre-catalyst/signal price: apply an exhaustion/chase penalty only if price discovery is weakening.
+- Up >80%:
+  - non-transformational catalyst: normally reject under the chase gate.
+  - transformational catalyst: NOT an automatic rejection. It may remain eligible only if continuation is confirmed:
+    strong abnormal volume, acceptable spread/liquidity, above-VWAP or equivalent healthy price discovery, and
+    economics capable of supporting additional revaluation from the proposed entry.
+- A +100% empty spike and a +100% stock after company-changing public news are not the same setup.
+- Never chase simply because a stock is in a scanner. The 50%/100% labels must still be based on remaining upside.
+
+UNIVERSE / LIQUIDITY
+Broad hard universe comes from config.json:
+- price >= min_price
+- market cap >= min_market_cap_usd
+- 30-day average volume >= min_avg_volume_30d_shares
+- bid/ask spread <= max_bid_ask_spread_pct
+- tradable and not financially deficient/delinquent/bankrupt
+- earnings_blackout_trading_days applies as configured
+
+The scanner profiles can be narrower than the broad hard universe.
+
+SESSION SELECTION
+Before any order, use the broker's market-hours/session information when available.
+- Regular 09:30-16:00 ET: regular_hours. Marketable limit preferred.
+- Extended 07:00-09:30 or 16:00-20:00 ET: limit orders only, extended_hours.
+- Overnight 20:00-07:00 ET next weekday: only if explicitly 24-hour eligible; limit orders only, all_day_hours.
+- Extended/overnight: do not pay ghost prints. Respect the spread cap and use a sane limit near the live market.
+- If session selection is rejected, do not resubmit blindly. Journal SESSION_REJECT and wait for a valid session.
+
+ROTATION — COMPARE REMAINING OPPORTUNITY
+Use opportunity_score, not the old signal score, as the primary rotation metric.
+
+Every held position should progressively acquire:
+- signal_quality_score
+- explosive_upside_score
+- remaining_upside_score
+- opportunity_score
+- opportunity_class: transformational / durable / momentum
+- opportunity_score_date
+
+Until an older position is re-scored under v2, scripts/scoring.py caps its old one-dimensional score at
+legacy_old_score_cap_for_opportunity so an old score-10 insider signal cannot permanently block a fresh catalyst.
+
+Use:
+  python3 scripts/scoring.py rotation --candidate-opportunity-score <N>     --positions positions.json --config config.json --as-of <date>
+
+Rules:
+- Compare only against the weakest legally replaceable holding.
+- Same-day lots are never replaceable.
+- Candidate must clear min_opportunity_score and beat the weakest holding by rotation_min_opportunity_advantage.
+- If there is idle buying power, do not require a rotation just to use it.
+- If multiple holdings tie, free the larger dollar position first, then the oldest.
+- Re-verify current price/spread/tradability immediately before acting on a rotation.
+- Selling a loser or winner is irrelevant by itself. Rotation is forward-looking.
+
+SCORE FRESHNESS / DECAY
+Three classes:
+- transformational: verified company-changing catalyst. Slowest decay, but remaining_upside_score must still be
+  refreshed when price materially reprices.
+- durable: insider/13D/buyback/earnings-type information that remains relevant but fades.
+- momentum: RVOL/top-gainer/options-only heat without a durable catalyst. Fast decay.
+
+scripts/scoring.py is authoritative for decay. Do not hand-calculate it.
+
+SIZING
+Size by current opportunity_score after all hard gates:
+- eligible but below opportunity_size_tier_mid: size_pct_low
+- >= opportunity_size_tier_mid and < opportunity_size_tier_high: size_pct_mid
+- >= opportunity_size_tier_high: size_pct_high
+
+Budget remains capped by:
+- max_position_pct_of_account
+- spendable unleveraged buying power minus min_cash_reserve_usd
+- broker restrictions
+
+100% single-name concentration remains allowed for an exceptional setup. Do not increase the cap beyond 100%.
+Do not create tiny positions just to appear active.
+
+PYRAMIDING
+Allowed only when:
+- existing position is already a winner by at least pyramid_min_unrealized_pct
+- no averaging down
+- current opportunity_score remains >= min_opportunity_score
+- remaining_upside_score still clears its gate
+- no new dilution/bad-news issue
+- the added lot does not create a PDT problem
+
+WINNER MANAGEMENT — LET REAL RUNNERS RUN
+Do not auto-sell merely because a name reaches +20%, +50%, +75%, or +100%.
+Do not use the 50%/100% objective as a take-profit cap.
+
+At each new high_since_entry:
+1. Compute the high-water gain from entry.
+2. Use config.json winner_stop_floors_pct to determine the minimum gain that should be protected.
+3. Also calculate the ordinary trailing stop from trail_distance_pct.
+4. New protective stop = the highest valid stop that:
+   - never lowers the existing stop
+   - protects at least the configured floor when technically possible
+   - remains below the current market enough for the broker to accept
+5. If normal small-cap volatility makes the configured floor impossible without placing the stop above/too near
+   current market, do not force an invalid stop. Use the highest valid stop and journal the constraint.
+
+Configured intent:
+- once ~+20% has been achieved, try to eliminate a full-loss outcome
+- ~+35%: protect a modest gain
+- ~+50%: protect a meaningful gain
+- ~+75%: protect a larger gain
+- ~+100%: protect roughly half or more of the original gain while still leaving room for continuation
+
+A negative catalyst overrides "let it run."
+
+BAD-NEWS EXIT
+After verifying a genuinely negative public development such as:
+- active dilutive offering / unexpected financing pressure
+- failed pivotal trial / adverse regulatory decision
+- deal break
+- major guidance cut
+- insider-selling cluster that invalidates the thesis
+- activist/13D exit
+- material fraud/restatement/going-concern development
+
+Exit a legally sellable position rather than waiting passively for the stop, subject to broker review and the
+same-day-lot rule. Journal the verified source and reason.
+
+DAY-TRADE GATE
+Count every lot bought today as possible day-trade exposure because its protective stop can fire today.
+Do not open a new position if:
+  day trades in last 5 business days + same-day lots currently held
+would exceed:
+  day_trade_limit_rolling_5_days + 1
+Defer to the next session instead.
+
+ENTRY / EXECUTION
+- review_equity_order, then place_equity_order.
+- Prefer a marketable limit around the current ask during regular hours.
+- Poll to verified fill <= 60 seconds. Cancel stale remainder if partial.
+- If an entry does not fill at a sane price, move to the next ranked setup; do not repeatedly chase.
+- Attach/verify the protective stop immediately after the fill.
+- Persist score components, source links/filing IDs, session, entry thesis, 50%/100% labels, and rotation source.
+
+PERSISTED CANDIDATE/POSITION FIELDS
+New records should include, when known:
+- signal_quality_score
+- catalyst_magnitude_score
+- volume_price_discovery_score
+- structure_squeeze_score
+- explosive_upside_score
+- remaining_upside_score
+- dilution_risk_score
+- exhaustion_risk_score
+- opportunity_score
+- opportunity_class
+- opportunity_score_date
+- target_50_assessment
+- target_100_assessment
+- transformational
+- continuation_confirmed
+- catalyst_tier
+- catalyst_summary
+- primary_sources
+
+Keep old score, score_signal_class, and score_date fields when present for historical compatibility; they are
+no longer the primary ranking fields.
+
+NO-ACTION SAVE PATH
+If fast-check returns actionable=false:
+- append the account_value_history point
+- update last_run
+- write a one-line journal entry:
+  NO_ACTION | <ISO timestamp> | account_value=<$> | buying_power=<$> | positions_verified=<n>/<n> | reason=<short>
+- persist per PERSISTENCE.md
+- send no action email
+
+OWNER EDIT AUTHORIZATION
+Only an interactive, explicit owner request may modify these instruction/config/scoring files. When that occurs:
+- edit only claude/trading-state
+- state exactly what changed
+- validate JSON/Python
+- add/update tests for strategy logic
+- never alter live trade state merely to make a test pass
+
+STILL NEVER
+- average down
+- bypass broker review alerts
+- claim unobserved fills
+- intentionally sell a same-day lot
+- act on MNPI
+- skip protective-order verification
+- use old score strength as a permanent blocker against a stronger current opportunity
+- hard-reject a verified transformational catalyst solely because the stock is already up >80%
+- call a setup "50%-100% potential" without explaining the remaining-upside case from the proposed entry

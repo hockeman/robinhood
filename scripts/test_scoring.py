@@ -1,0 +1,144 @@
+#!/usr/bin/env python3
+import importlib.util
+import pathlib
+import unittest
+
+HERE = pathlib.Path(__file__).resolve().parent
+SPEC = importlib.util.spec_from_file_location("scoring", HERE / "scoring.py")
+scoring = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(scoring)
+
+
+class ScoringV2Tests(unittest.TestCase):
+    def setUp(self):
+        self.config = {
+            "min_signal_quality_score": 4.0,
+            "min_explosive_upside_score": 6.0,
+            "min_remaining_upside_score": 5.0,
+            "min_opportunity_score": 6.0,
+            "high_conviction_opportunity_score": 8.0,
+            "exceptional_opportunity_score": 9.0,
+            "max_chase_pct_above_signal_price": 80,
+            "rotation_min_opportunity_advantage": 0.75,
+            "legacy_default_score": 0,
+            "legacy_old_score_cap_for_opportunity": 4.0,
+        }
+
+    def test_kod_like_transformational_runner_not_rejected_only_for_chase(self):
+        candidate = {
+            "symbol": "KODLIKE",
+            "signal_quality_score": 9,
+            "catalyst_magnitude_score": 10,
+            "volume_price_discovery_score": 10,
+            "structure_squeeze_score": 6,
+            "remaining_upside_score": 8,
+            "dilution_risk_score": 0,
+            "exhaustion_risk_score": 0,
+            "primary_source_verified": True,
+            "catalyst_verified": True,
+            "transformational": True,
+            "continuation_confirmed": True,
+            "chase_pct": 139,
+            "disqualifier": False,
+        }
+        result = scoring.opportunity_score(candidate, self.config)
+        self.assertTrue(result["eligible"], result)
+        self.assertGreaterEqual(result["opportunity_score"], 8.5)
+        self.assertEqual(result["target_50_assessment"], "plausible")
+        self.assertIn(result["target_100_assessment"], {"possible", "plausible", "unusually_plausible"})
+
+    def test_transformational_chase_requires_continuation(self):
+        candidate = {
+            "signal_quality_score": 9,
+            "catalyst_magnitude_score": 10,
+            "volume_price_discovery_score": 9,
+            "structure_squeeze_score": 7,
+            "remaining_upside_score": 8,
+            "primary_source_verified": True,
+            "catalyst_verified": True,
+            "transformational": True,
+            "continuation_confirmed": False,
+            "chase_pct": 110,
+        }
+        result = scoring.opportunity_score(candidate, self.config)
+        self.assertFalse(result["eligible"])
+        self.assertTrue(any("continuation" in r for r in result["reasons"]))
+
+    def test_non_transformational_large_chase_is_rejected(self):
+        candidate = {
+            "signal_quality_score": 8,
+            "catalyst_magnitude_score": 8,
+            "volume_price_discovery_score": 9,
+            "structure_squeeze_score": 8,
+            "remaining_upside_score": 8,
+            "primary_source_verified": True,
+            "catalyst_verified": True,
+            "transformational": False,
+            "continuation_confirmed": True,
+            "chase_pct": 100,
+        }
+        result = scoring.opportunity_score(candidate, self.config)
+        self.assertFalse(result["eligible"])
+        self.assertTrue(any("non-transformational chase" in r for r in result["reasons"]))
+
+    def test_unsupported_pump_rejected_even_with_volume(self):
+        candidate = {
+            "signal_quality_score": 2,
+            "catalyst_magnitude_score": 1,
+            "volume_price_discovery_score": 10,
+            "structure_squeeze_score": 9,
+            "remaining_upside_score": 4,
+            "primary_source_verified": False,
+            "catalyst_verified": False,
+            "transformational": False,
+            "continuation_confirmed": False,
+            "chase_pct": 20,
+        }
+        result = scoring.opportunity_score(candidate, self.config)
+        self.assertFalse(result["eligible"])
+        self.assertIn("primary source not verified", result["reasons"])
+        self.assertIn("catalyst not verified", result["reasons"])
+
+    def test_old_score_ten_is_capped_for_v2_rotation(self):
+        positions = {
+            "OLD": {
+                "score": 10,
+                "score_signal_class": "durable",
+                "score_date": "2026-10-05",
+                "entry_date": "2026-10-01",
+                "same_day": False,
+                "value_usd": 3000,
+            }
+        }
+        result = scoring.rotation_eligible(
+            7.0,
+            positions,
+            "2026-10-05",
+            rotation_min_opportunity_advantage=0.75,
+            min_opportunity_score=6.0,
+            legacy_old_score_cap=4.0,
+        )
+        self.assertTrue(result["eligible"], result)
+        self.assertEqual(result["weakest_effective_opportunity_score"], 4.0)
+
+    def test_transformational_decay_is_slower_than_durable(self):
+        t = scoring.decay_multiplier("transformational", 10)
+        d = scoring.decay_multiplier("durable", 10)
+        self.assertGreater(t, d)
+        self.assertEqual(t, 0.60)
+        self.assertEqual(d, 0.25)
+
+    def test_fast_check_trips_on_acceleration_and_filing(self):
+        live = {
+            "stop_orders_ok": True,
+            "scanner_acceleration_symbols": ["AAA"],
+            "fresh_filing_symbols": ["BBB"],
+        }
+        result = scoring.fast_check({}, live, "2026-10-05", self.config)
+        self.assertTrue(result["actionable"])
+        self.assertTrue(any("SCANNER_ACCELERATION" in r for r in result["reasons"]))
+        self.assertTrue(any("FRESH_PRIMARY_SOURCE" in r for r in result["reasons"]))
+
+
+if __name__ == "__main__":
+    unittest.main()

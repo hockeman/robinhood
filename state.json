@@ -1,5 +1,5 @@
 {
- "last_run": "2026-10-05T13:15:00Z",
+ "last_run": "2026-10-05T13:55:00Z",
  "canonical_branch": "claude/trading-state",
  "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
  "peak_account_value": 7954.86462317,
@@ -823,31 +823,13 @@
   {
    "ts": "2026-10-05T13:15:00Z",
    "value": 7633.8676675414
+  },
+  {
+   "ts": "2026-10-05T13:55:00Z",
+   "value": 7605.56
   }
  ],
  "positions": {
-  "SBLK": {
-   "entry_price": 30.3452,
-   "entry_date": "2026-09-23",
-   "qty": 57,
-   "high_since_entry": 30.6,
-   "stop_price": 25.49,
-   "protective_order_id": "6ab441d6-a7ae-435a-8c1b-9f64f9993956",
-   "protective_order_type": "stop_market",
-   "signal": "insider_cluster (rotation entry)",
-   "score": 5,
-   "sources": [
-    "openinsider_cluster_buys",
-    "sec_edgar_form4_index",
-    "sec_edgar_full_text_search"
-   ],
-   "pyramids_done": 0,
-   "thesis": "Insider director cluster verified independently via both get_sec_filing_index (10 Form 4 filings for Star Bulk Carriers Corp, 2026-09-16 through 2026-09-22) and a direct SEC EDGAR full-text search (efts.sec.gov, 10 hits, same accession numbers) after OpenInsider's latest-cluster-buys page flagged an 8-insider cluster. Fetched and read the actual Form 4 XML (primary_doc.xml) for 5 of the filers directly from sec.gov to confirm relationship codes rather than trusting OpenInsider's summary: Zagari Raffaele (Director, 10,000sh+50,000sh @ $28.27), Karellis Nikolaos (Director), Balakrishnan Mahesh (Director, 10,000sh @ $32.34), Vrettou Eleni (Director, 3,500sh @ $32.12), Pappas Alexandros (Other/related party, 74,400sh @ $28.27, shares surname with CEO Petros Alexandros Pappas but relationship not confirmed as officer). No confirmed C-suite personal buy -- scored as director-level cluster, not the higher CEO/CFO tier. Score 5: +2 (confirmed director open-market buys, each well above the $25k threshold), +3 (5+ distinct insiders within a 7-day trade-date window, 2026-09-15 to 2026-09-22, filings through 2026-09-22). No penalties: chase from $28.27 signal price to $30.35 entry ask was +7.4% (well under the 80% cap), RSI(14)=51.9 (mid-range), price 97.3% of 20-day SMA (not blow-off), spread 0.07%, financial_status_description empty (no going-concern language). Universe passed: market cap $3.39B, 30-day avg volume 1.74M shares, tradable, next earnings 2026-11-17 (far outside blackout, not same-day). This was a ROTATION entry, not a fresh-cash entry: buying power was $15.66 (below $100 min_position_usd) going into this run; per AGENT.md's 2026-09-23 full-reallocation authorization (explicitly confirmed live by the account owner in chat the same day), sold the worst-ranked held position (ALVO -- legacy/scoreless and down -3.2% intraday, the only legacy holding not up on the day) to fund this entry rather than sitting in cash on a qualifying signal. Sized at score_tier_high (score 5 >= score_tier_high 5) but the actual budget was cash-constrained to the $1,740.68 freed by the ALVO sale (spendable buying power after settlement), not the nominal 100% tier -- limited-margin account showed the ALVO sale proceeds as spendable buying power immediately (get_portfolio re-checked post-fill), so no cash-account settlement delay applied. Bought 57 sh at $30.35 marketable limit, filled in full at avg $30.3452. Advanced/OCO orders remain SERVICE_DISABLED on this account (standing constraint) -- protected immediately with a plain stop_market sell at $24.28 (20% initial stop per current config), verified confirmed same run. UPDATED 2026-09-23 21:17 UTC: before verifying config.json's authorship this run, this stop was cancelled and replaced at $25.49 (the scheduled-task Section 2 default 16% initial-stop, tighter than config.json's owner-authorized 20%). Authorship of config.json's looser value was subsequently verified via git log as a genuine hockeman commit, so the tighter replacement was not actually required -- but per the hard 'never lower a stop' rule it cannot be reverted now that it is raised. Net effect: SBLK now carries a stricter stop than config.json calls for; harmless (less risk, not more) but noted so future runs use config.json's parameters directly rather than re-deriving from Section 2 defaults without checking for an owner override first.",
-   "score_signal_class": "durable",
-   "score_date": "2026-09-23",
-   "same_day": false,
-   "value_usd_asof_backfill": 1672.38
-  },
   "DUOT": {
    "entry_price": 9.4299,
    "entry_date": "2026-09-24",
@@ -893,25 +875,29 @@
    "value_usd_asof_backfill": 20.33
   },
   "GME": {
-   "entry_price": 23.9676,
+   "entry_price": 24.3414,
    "entry_date": "2026-09-28",
-   "qty": 157,
-   "high_since_entry": 23.97,
+   "qty": 227,
+   "high_since_entry": 25.18,
    "stop_price": 19.17,
    "protective_order_id": "6abab565-5a42-4fbb-a55d-3d187b29423a",
    "protective_order_type": "stop_market",
    "signal": "insider_cluster (rotation entry)",
-   "score": 8,
+   "score": 10,
    "score_signal_class": "durable",
    "score_date": "2026-09-28",
    "sources": [
+    "form4_cohen_2026-10-02",
+    "sec_13d_a_cohen_2026-10-02",
+    "earnings_beat",
     "openinsider_cluster_buys",
-    "sec_edgar_form4",
-    "earnings_beat"
+    "sec_edgar_form4"
    ],
-   "pyramids_done": 0,
+   "pyramids_done": 1,
    "same_day": true,
-   "thesis": "CEO/Chairman Ryan Cohen open-market buys ($26.39M 9/21, $20.38M 9/10) in a multi-filer cluster plus Q2 EPS beat ($0.27 vs $0.06). Rotation replaced legacy MSTR (score 0)."
+   "thesis": "CEO/Chairman Ryan Cohen open-market buys ($26.39M 9/21, $20.38M 9/10) in a multi-filer cluster plus Q2 EPS beat ($0.27 vs $0.06). Rotation replaced legacy MSTR (score 0). Pyramided 70sh @25.18 on 2026-10-05: Cohen 13D/A Amdt 20 (10/2, 8.9%, 45.4M sh) + $17.1M open-market buy 10/2 + $10.6M 9/29; RSI 67.6.",
+   "protective_order_id_2": "6ac3ab75-ffea-436f-8f95-7a2b642dc363",
+   "protective_note": "157sh stop 19.17 (id1) + 70sh pyramid lot stop 20.14 (id2); OCO disabled on account"
   }
  },
  "closed": [
@@ -980,6 +966,18 @@
    "realized_pnl_usd": 206.46,
    "day_trade": false,
    "notes": "Legacy/score-0 weakest holding rotated into GME per scoring.py rotation (threshold 3, candidate 8). Stop 6ab19029 cancelled first."
+  },
+  {
+   "symbol": "SBLK",
+   "entry_price": 30.3452,
+   "entry_date": "2026-09-23",
+   "qty": 57,
+   "exit_price": 30.7501,
+   "exit_date": "2026-10-05",
+   "exit_reason": "rotation_exit",
+   "order_id": "6ac3ab55-7431-4733-9dc9-66b97ace4edd",
+   "realized_pnl_usd": 23.08,
+   "day_trade": false
   }
  ],
  "day_trades": [],

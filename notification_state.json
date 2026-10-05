@@ -63,6 +63,14 @@
   "stop:GME:2026-09-28T18:43:49Z": {
    "description": "GME stop-market 19.17 confirmed (6abab565-...)",
    "origin": "agent"
+  },
+  "pending_unreported_2026-10-05T1400": {
+   "events": [
+    "6ac3ac5c-8978-4431-90f9-52bb16709fc1",
+    "6ac3ac68-4c8d-4bef-b3a6-3796b6e163b9",
+    "6ac3ac76-3000-4a69-83c8-8d7c7fb1119a"
+   ],
+   "note": "GME 157 sold, ALEC 1030 bought+stop; not yet emailed (1 action email/run cap) - include in next ACTION_UPDATE or DAILY_CLOSE"
   }
  },
  "reported_event_ids": [

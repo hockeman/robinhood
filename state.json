@@ -1,5 +1,5 @@
 {
- "last_run": "2026-10-06T14:15:00Z",
+ "last_run": "2026-10-06T15:20:00Z",
  "canonical_branch": "claude/trading-state",
  "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
  "peak_account_value": 7954.86462317,
@@ -895,6 +895,10 @@
   {
    "ts": "2026-10-06T14:15:00Z",
    "value": 7191.1287534953
+  },
+  {
+   "ts": "2026-10-06T15:20:00Z",
+   "value": 7248.68
   }
  ],
  "positions": {
@@ -1702,6 +1706,89 @@
     "notes": "+17%, 8-K 10/6 content unverified, state unlisted",
     "cash_deployment_eligible": false,
     "current_run_deep_reviewed": true
+   }
+  },
+  "2026-10-06T1520Z": {
+   "APOG": {
+    "opportunity_score": 3.75,
+    "decision": "rejected",
+    "notes": "Q2 FY27 8-K beat/raise (sec.gov a82926fy27q2results) +16%, faded from open high 42.74; remaining upside small vs 52wk high 50.88; tactical thresholds missed",
+    "cash_deployment_eligible": false,
+    "current_run_deep_reviewed": true
+   },
+   "AIFA": {
+    "opportunity_score": 0,
+    "decision": "rejected",
+    "notes": "+31% RVOL5.4 mcap $50M float 3.3M, no catalyst/filing found, reverse-split shell-like",
+    "cash_deployment_eligible": false,
+    "current_run_deep_reviewed": true
+   },
+   "MWYN": {
+    "opportunity_score": 0,
+    "decision": "rejected",
+    "notes": "+17% $1.47 <$... no catalyst, 2 employees, serial PR pumps",
+    "cash_deployment_eligible": false,
+    "current_run_deep_reviewed": true
+   },
+   "DLXY": {
+    "opportunity_score": 0,
+    "decision": "rejected",
+    "notes": "mcap $7M, noncompliant CC4, no filings",
+    "cash_deployment_eligible": false,
+    "current_run_deep_reviewed": true
+   },
+   "HUHU": {
+    "opportunity_score": 0,
+    "decision": "rejected",
+    "notes": "-5% on RVOL, no catalyst",
+    "cash_deployment_eligible": false,
+    "current_run_deep_reviewed": true
+   },
+   "FRSH": {
+    "opportunity_score": 1.5,
+    "decision": "rejected",
+    "notes": "+7.7% Gartner MQ leader/pricing; no company-changing catalyst",
+    "cash_deployment_eligible": false,
+    "current_run_deep_reviewed": true
+   },
+   "OSTX": {
+    "opportunity_score": 1.3,
+    "decision": "rejected",
+    "notes": "unchanged from 14:15Z review; no catalyst, shelf dilution",
+    "cash_deployment_eligible": false,
+    "current_run_deep_reviewed": true
+   },
+   "XHG": {
+    "opportunity_score": 0,
+    "decision": "rejected",
+    "notes": "shell pump, unchanged",
+    "cash_deployment_eligible": false,
+    "current_run_deep_reviewed": true
+   },
+   "AIIO": {
+    "opportunity_score": 0,
+    "decision": "rejected",
+    "notes": "unchanged, no catalyst",
+    "cash_deployment_eligible": false,
+    "current_run_deep_reviewed": true
+   },
+   "AVBP": {
+    "opportunity_score": 2.24,
+    "decision": "rejected",
+    "notes": "-53% collapse",
+    "cash_deployment_eligible": false,
+    "current_run_deep_reviewed": true
+   },
+   "OPCH": {
+    "opportunity_score": 1.21,
+    "decision": "rejected",
+    "notes": "merger-arb pinned $32.05",
+    "cash_deployment_eligible": false,
+    "current_run_deep_reviewed": true
+   },
+   "BEAT/MOBX/PRSO": {
+    "decision": "rejected",
+    "notes": "independent sweep: all <$1 (BEAT .60, MOBX .87, PRSO .45), below min price; BEAT/PRSO noncompliant"
    }
   }
  },

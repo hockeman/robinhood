@@ -213,10 +213,10 @@ def opportunity_score(candidate, config):
         - risk_penalty
     )
 
-    min_signal_quality = float(config.get("min_signal_quality_score", 4.0))
-    min_explosive = float(config.get("min_explosive_upside_score", 6.0))
-    min_remaining = float(config.get("min_remaining_upside_score", 5.0))
-    min_opportunity = float(config.get("min_opportunity_score", 6.0))
+    min_signal_quality = float(config.get("min_signal_quality_score", 3.0))
+    min_explosive = float(config.get("min_explosive_upside_score", 5.0))
+    min_remaining = float(config.get("min_remaining_upside_score", 4.0))
+    min_opportunity = float(config.get("min_opportunity_score", 5.0))
     chase_gate = float(config.get("max_chase_pct_above_signal_price", 80))
 
     reasons = []
@@ -256,11 +256,11 @@ def opportunity_score(candidate, config):
     eligible = not reasons
 
     tactical_reasons = []
-    tactical_min_signal = float(config.get("tactical_cash_min_signal_quality_score", 4.0))
-    tactical_min_explosive = float(config.get("tactical_cash_min_explosive_upside_score", 4.5))
-    tactical_min_remaining = float(config.get("tactical_cash_min_remaining_upside_score", 4.0))
-    tactical_min_opportunity = float(config.get("tactical_cash_min_opportunity_score", 4.5))
-    tactical_max_risk_penalty = float(config.get("tactical_cash_max_risk_penalty", 2.0))
+    tactical_min_signal = float(config.get("tactical_cash_min_signal_quality_score", 3.0))
+    tactical_min_explosive = float(config.get("tactical_cash_min_explosive_upside_score", 3.5))
+    tactical_min_remaining = float(config.get("tactical_cash_min_remaining_upside_score", 3.0))
+    tactical_min_opportunity = float(config.get("tactical_cash_min_opportunity_score", 3.5))
+    tactical_max_risk_penalty = float(config.get("tactical_cash_max_risk_penalty", 3.0))
 
     company_catalyst_verified = (
         candidate.get("primary_source_verified", False)
@@ -311,6 +311,49 @@ def opportunity_score(candidate, config):
 
     cash_deployment_eligible = not tactical_reasons
 
+    # BEST-AVAILABLE tier (owner directive v5, zero idle cash): used only when
+    # idle cash is above target and neither the standard nor the tactical gate
+    # produced a buy. Hard safety (disqualifier, chase, risk-penalty cap) still
+    # applies; the bar for "a reason to own it" is a verified company catalyst,
+    # a verified market catalyst + heat, OR verified momentum (abnormal volume +
+    # positive price discovery, not a failed spike).
+    best_reasons = []
+    ba_min_signal = float(config.get("best_available_min_signal_quality_score", 2.0))
+    ba_min_explosive = float(config.get("best_available_min_explosive_upside_score", 2.5))
+    ba_min_remaining = float(config.get("best_available_min_remaining_upside_score", 2.5))
+    ba_min_opportunity = float(config.get("best_available_min_opportunity_score", 2.5))
+    ba_max_risk_penalty = float(config.get("best_available_max_risk_penalty", 4.5))
+    momentum_verified = bool(candidate.get("momentum_verified", False))
+    if not (company_catalyst_verified or market_heat_verified or momentum_verified):
+        best_reasons.append(
+            "no verified company catalyst, market-catalyst + heat, or verified momentum"
+        )
+    if signal_quality < ba_min_signal:
+        best_reasons.append(f"signal_quality_score {signal_quality:.2f} < best-available {ba_min_signal:.2f}")
+    if explosive < ba_min_explosive:
+        best_reasons.append(f"explosive_upside_score {explosive:.2f} < best-available {ba_min_explosive:.2f}")
+    if remaining < ba_min_remaining:
+        best_reasons.append(f"remaining_upside_score {remaining:.2f} < best-available {ba_min_remaining:.2f}")
+    if opportunity < ba_min_opportunity:
+        best_reasons.append(f"opportunity_score {opportunity:.2f} < best-available {ba_min_opportunity:.2f}")
+    if risk_penalty > ba_max_risk_penalty:
+        best_reasons.append(f"risk_penalty {risk_penalty:.2f} > best-available max {ba_max_risk_penalty:.2f}")
+    if disqualifier:
+        best_reasons.append(
+            "hard disqualifier"
+            + (f": {candidate.get('disqualifier_reason')}" if candidate.get("disqualifier_reason") else "")
+        )
+    if chase_pct > chase_gate:
+        if not transformational:
+            best_reasons.append(
+                f"non-transformational chase {chase_pct:.1f}% > configured {chase_gate:.1f}% gate"
+            )
+        elif not continuation_confirmed:
+            best_reasons.append(
+                f"transformational chase {chase_pct:.1f}% requires continuation confirmation"
+            )
+    best_available_eligible = not best_reasons
+
     high = float(config.get("high_conviction_opportunity_score", 8.0))
     exceptional = float(config.get("exceptional_opportunity_score", 9.0))
     if not eligible:
@@ -335,6 +378,14 @@ def opportunity_score(candidate, config):
         "opportunity_tier": tier,
         "cash_deployment_eligible": cash_deployment_eligible,
         "cash_deployment_reasons": tactical_reasons,
+        "best_available_eligible": best_available_eligible,
+        "best_available_reasons": best_reasons,
+        "deployment_tier": (
+            "standard" if eligible
+            else "tactical" if cash_deployment_eligible
+            else "best_available" if best_available_eligible
+            else "reject"
+        ),
         "transformational": transformational,
         "continuation_confirmed": continuation_confirmed,
         "chase_pct": round(chase_pct, 3),
@@ -516,19 +567,31 @@ def idle_cash_status(live, config):
     independent_symbols = sorted(set(live.get("independent_catalyst_symbols_reviewed") or []))
     independent_complete = bool(live.get("independent_catalyst_sweep_complete", False))
 
-    min_deep = int(config.get("idle_cash_min_candidates_deep_reviewed", 8))
-    min_independent = int(config.get("idle_cash_min_independent_catalyst_checks", 3))
+    min_deep = int(config.get("idle_cash_min_candidates_deep_reviewed", 5))
+    min_independent = int(config.get("idle_cash_min_independent_catalyst_checks", 2))
     review_requirements_met = (
         len(deep_reviewed_symbols) >= min_deep
         and independent_complete
         and len(independent_symbols) >= min_independent
     )
-    completed = completed_claimed and review_requirements_met
+    # A deep-reviewed candidate that clears ANY deployment tier makes "completed"
+    # meaningless: the money must be spent, not logged as reviewed.
+    deployable_symbols = sorted(
+        symbol for symbol, cand in known.items()
+        if cand.get("current_run_deep_reviewed")
+        and not cand.get("position_opened_this_run", False)
+        and (
+            cand.get("eligible") is True
+            or cand.get("cash_deployment_eligible") is True
+            or cand.get("best_available_eligible") is True
+        )
+    )
+    completed = completed_claimed and review_requirements_met and not deployable_symbols
 
     pct = (deployable / account_value * 100.0) if account_value > 0 else 0.0
-    escalation = float(config.get("idle_cash_escalation_pct_of_account", 8.0))
-    critical = float(config.get("idle_cash_critical_pct_of_account", 15.0))
-    target = float(config.get("idle_cash_target_pct_of_account", 5.0))
+    escalation = float(config.get("idle_cash_escalation_pct_of_account", 2.5))
+    critical = float(config.get("idle_cash_critical_pct_of_account", 6.0))
+    target = float(config.get("idle_cash_target_pct_of_account", 1.5))
 
     return {
         "account_value": round(account_value, 2),
@@ -547,6 +610,13 @@ def idle_cash_status(live, config):
         "independent_catalyst_count": len(independent_symbols),
         "required_independent_catalyst_count": min_independent,
         "independent_catalyst_sweep_complete": independent_complete,
+        "deployable_candidate_symbols": deployable_symbols,
+        "must_deploy": (
+            bool(session_allows)
+            and not entry_blocked
+            and pct >= escalation
+            and not completed
+        ),
         "target_cash_pct": target,
         "escalation_threshold_pct": escalation,
         "critical_threshold_pct": critical,
@@ -612,17 +682,12 @@ def fast_check(positions, live, as_of, config):
         )
 
     if cash["idle_cash_pct"] >= cash["escalation_threshold_pct"] and cash["session_allows_entries"] and not cash["entry_blocked"]:
-        tactical_due = sorted(
-            symbol for symbol, cand in (live.get("known_candidates") or {}).items()
-            if cand.get("current_run_deep_reviewed")
-            and cand.get("cash_deployment_eligible") is True
-            and not cand.get("position_opened_this_run", False)
-        )
-        if tactical_due:
+        if cash["deployable_candidate_symbols"]:
             reasons.append(
-                "TACTICAL_CASH_DEPLOYMENT_DUE: "
-                + ", ".join(tactical_due)
-                + " are cash_deployment_eligible while idle cash remains above target"
+                "CASH_DEPLOYMENT_DUE: "
+                + ", ".join(cash["deployable_candidate_symbols"])
+                + " clear a deployment tier (standard/tactical/best_available) while idle cash "
+                + "remains above target - BUY NOW, NO_ACTION IS NOT ALLOWED"
             )
 
     for key, label in [
@@ -657,7 +722,7 @@ def fast_check(positions, live, as_of, config):
                 "rotation_min_opportunity_advantage",
                 config.get("rotation_min_score_advantage", 0.75),
             ),
-            min_opportunity_score=config.get("min_opportunity_score", 6.0),
+            min_opportunity_score=config.get("min_opportunity_score", 5.0),
             legacy_default_score=config.get("legacy_default_score", DEFAULT_LEGACY_DEFAULT_SCORE),
             legacy_old_score_cap=config.get(
                 "legacy_old_score_cap_for_opportunity",
@@ -686,6 +751,77 @@ def fast_check(positions, live, as_of, config):
         "current_ranking": ranking,
         "idle_cash": cash,
     }
+
+
+def deploy_plan(results, live, config):
+    """
+    Rank reviewed candidates across ALL deployment tiers and size the buy.
+
+    results: list of opportunity_score() outputs (current-run deep reviews).
+    Ranking: tier (standard > tactical > best_available), then opportunity,
+    explosive, remaining. Sizing drives idle cash down to the target pct.
+    """
+    cash = idle_cash_status(live, config)
+    account = cash["account_value"]
+    deployable = cash["deployable_buying_power"]
+    target_cash = account * cash["target_cash_pct"] / 100.0
+    tier_rank = {"standard": 0, "tactical": 1, "best_available": 2}
+    ranked = sorted(
+        (r for r in results if r.get("deployment_tier") in tier_rank),
+        key=lambda r: (
+            tier_rank[r["deployment_tier"]],
+            -float(r.get("opportunity_score", 0.0)),
+            -float(r.get("explosive_upside_score", 0.0)),
+            -float(r.get("remaining_upside_score", 0.0)),
+        ),
+    )
+    plan = {
+        "must_deploy": cash["must_deploy"],
+        "idle_cash_pct": cash["idle_cash_pct"],
+        "deployable_buying_power": deployable,
+        "target_cash_usd": round(target_cash, 2),
+        "ranked": [
+            {k: r.get(k) for k in ("symbol", "deployment_tier", "opportunity_score",
+                                   "explosive_upside_score", "remaining_upside_score")}
+            for r in ranked
+        ],
+        "pick": None,
+    }
+    if not ranked or deployable <= 0:
+        plan["note"] = (
+            "NO candidate clears any tier: review more names (fallback + supplemental "
+            "momentum scans); cash may stay idle only per AGENT.md ZERO-IDLE-CASH rule 6"
+        )
+        return plan
+    best = ranked[0]
+    tier = best["deployment_tier"]
+    max_pos_pct = float(config.get("max_position_pct_of_account", 100))
+    if tier == "standard":
+        opp = float(best.get("opportunity_score", 0.0))
+        mid = float(config.get("opportunity_size_tier_mid", 7.25))
+        high_t = float(config.get("opportunity_size_tier_high", 8.5))
+        tier_pct = (
+            float(config.get("size_pct_high", 100)) if opp >= high_t
+            else float(config.get("size_pct_mid", 70)) if opp >= mid
+            else float(config.get("size_pct_low", 40))
+        )
+        cap_pct = max_pos_pct
+        want = max(account * tier_pct / 100.0, deployable - target_cash)
+        stop_pct = float(config.get("initial_stop_loss_pct", 20))
+    else:
+        cap_pct = float(config.get("tactical_cash_position_max_pct_of_account", 50))
+        want = deployable - target_cash
+        stop_pct = float(config.get("tactical_cash_initial_stop_loss_pct", 15))
+    spend = max(0.0, min(want, deployable, account * min(cap_pct, max_pos_pct) / 100.0))
+    plan["pick"] = {
+        "symbol": best["symbol"],
+        "tier": tier,
+        "spend_usd": round(spend, 2),
+        "initial_stop_loss_pct": stop_pct,
+        "cap_pct_of_account": cap_pct,
+        "leftover_cash_usd": round(deployable - spend, 2),
+    }
+    return plan
 
 
 def _load(path):
@@ -728,6 +864,11 @@ def main():
     fc.add_argument("--config", required=True)
     fc.add_argument("--as-of", required=True)
 
+    dp = sub.add_parser("deploy-plan", help="Rank all reviewed candidates across tiers and size the buy")
+    dp.add_argument("--results", required=True, help="json list of opportunity-score outputs")
+    dp.add_argument("--live", required=True)
+    dp.add_argument("--config", required=True)
+
     args = p.parse_args()
 
     if args.cmd == "opportunity-score":
@@ -762,7 +903,7 @@ def main():
                 "rotation_min_opportunity_advantage",
                 config.get("rotation_min_score_advantage", 0.75),
             ),
-            min_opportunity_score=config.get("min_opportunity_score", 6.0),
+            min_opportunity_score=config.get("min_opportunity_score", 5.0),
             legacy_default_score=config.get("legacy_default_score", DEFAULT_LEGACY_DEFAULT_SCORE),
             legacy_old_score_cap=config.get(
                 "legacy_old_score_cap_for_opportunity",
@@ -770,6 +911,10 @@ def main():
             ),
         )
         print(json.dumps(verdict, indent=2))
+        return
+
+    if args.cmd == "deploy-plan":
+        print(json.dumps(deploy_plan(_load(args.results), _load(args.live), _load(args.config)), indent=2))
         return
 
     if args.cmd == "fast-check":

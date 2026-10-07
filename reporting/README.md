@@ -57,6 +57,18 @@ must mark email setup incomplete rather than guess.
   constant. Stops are not guaranteed execution prices; losses can exceed
   the stop scenario."*
 
+## Claude cost line (every email)
+
+Both templates carry `{{CLAUDE_COST_LINE}}` in the footer: a running ESTIMATE of
+what Claude costs to run this routine. Before composing any email run
+`python3 scripts/cost_estimate.py update --kind <light|full|trade> --run-id <ISO ts>`
+(light = quick check, full = idle-cash escalation/deep review, trade = placed an
+order) and paste the `line` it prints. It persists `state.json -> claude_cost`
+(cumulative, per-day, idempotent per run-id) and is priced from the assumed
+rates/token profiles in `config.json -> claude_cost_estimate`. It is an
+estimate, not a bill; calibrate those numbers against the real usage page.
+Run it on EVERY run (including NO_ACTION) so the cumulative total stays complete.
+
 ## Send discipline
 
 - Persist an outbox record in `notification_state.json` **before** calling

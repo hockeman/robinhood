@@ -23,16 +23,18 @@ class ScoringV2Tests(unittest.TestCase):
             "legacy_default_score": 0,
             "legacy_old_score_cap_for_opportunity": 4.0,
             "min_cash_reserve_usd": 5.0,
-            "idle_cash_escalation_pct_of_account": 8.0,
-            "idle_cash_critical_pct_of_account": 15.0,
-            "idle_cash_target_pct_of_account": 5.0,
+            "idle_cash_escalation_pct_of_account": 2.5,
+            "idle_cash_critical_pct_of_account": 6.0,
+            "idle_cash_target_pct_of_account": 1.5,
             "idle_cash_min_candidates_deep_reviewed": 2,
             "idle_cash_min_independent_catalyst_checks": 1,
-            "tactical_cash_min_signal_quality_score": 4.0,
-            "tactical_cash_min_explosive_upside_score": 4.5,
-            "tactical_cash_min_remaining_upside_score": 4.0,
-            "tactical_cash_min_opportunity_score": 4.5,
-            "tactical_cash_max_risk_penalty": 2.0,
+            "tactical_cash_min_signal_quality_score": 3.0,
+            "tactical_cash_min_explosive_upside_score": 3.5,
+            "tactical_cash_min_remaining_upside_score": 3.0,
+            "tactical_cash_min_opportunity_score": 3.5,
+            "tactical_cash_max_risk_penalty": 3.0,
+            "tactical_cash_position_max_pct_of_account": 50,
+            "tactical_cash_initial_stop_loss_pct": 15,
             "require_v2_rescore_before_no_action": True,
             "v2_rescore_min_position_usd": 100.0,
         }
@@ -260,7 +262,7 @@ class ScoringV2Tests(unittest.TestCase):
         }
         result = scoring.fast_check({}, live, "2026-10-05", self.config)
         self.assertTrue(result["actionable"])
-        self.assertTrue(any("IDLE_CASH_ESCALATION" in r for r in result["reasons"]))
+        self.assertTrue(any("IDLE_CASH_" in r for r in result["reasons"]))
 
     def test_idle_cash_completion_claim_without_quota_stays_actionable(self):
         live = {
@@ -312,7 +314,7 @@ class ScoringV2Tests(unittest.TestCase):
             "independent_catalyst_symbols_reviewed": ["CCC"],
         }
         result = scoring.fast_check({}, live, "2026-10-05", self.config)
-        self.assertTrue(any("TACTICAL_CASH_DEPLOYMENT_DUE" in r for r in result["reasons"]))
+        self.assertTrue(any("CASH_DEPLOYMENT_DUE" in r for r in result["reasons"]))
 
     def test_critical_idle_cash_uses_critical_reason(self):
         live = {
@@ -334,6 +336,69 @@ class ScoringV2Tests(unittest.TestCase):
         self.assertTrue(result["actionable"])
         self.assertTrue(any("SCANNER_ACCELERATION" in r for r in result["reasons"]))
         self.assertTrue(any("FRESH_PRIMARY_SOURCE" in r for r in result["reasons"]))
+
+    def test_oct6_apog_near_miss_now_deploys(self):
+        """Regression: 2026-10-06 APOG (verified 8-K beat/raise) was rejected by 0.25
+        against the old 4.5 tactical bar while $2.3k sat idle all session."""
+        cand = {
+            "symbol": "APOG", "signal_quality_score": 9, "catalyst_magnitude_score": 4.5,
+            "volume_price_discovery_score": 5, "structure_squeeze_score": 3,
+            "remaining_upside_score": 3.5, "dilution_risk_score": 1, "exhaustion_risk_score": 3,
+            "primary_source_verified": True, "catalyst_verified": True,
+        }
+        r = scoring.opportunity_score(cand, self.config)
+        self.assertTrue(r["cash_deployment_eligible"], r["cash_deployment_reasons"])
+        self.assertIn(r["deployment_tier"], ("standard", "tactical"))
+
+    def test_best_available_needs_some_reason_and_no_disqualifier(self):
+        base = {
+            "symbol": "MOM", "signal_quality_score": 3, "catalyst_magnitude_score": 3,
+            "volume_price_discovery_score": 6, "structure_squeeze_score": 2,
+            "remaining_upside_score": 4, "dilution_risk_score": 1, "exhaustion_risk_score": 2,
+            "primary_source_verified": False, "catalyst_verified": False,
+        }
+        self.assertFalse(scoring.opportunity_score(base, self.config)["best_available_eligible"])
+        base["momentum_verified"] = True
+        r = scoring.opportunity_score(base, self.config)
+        self.assertTrue(r["best_available_eligible"], r["best_available_reasons"])
+        base["disqualifier"] = True
+        self.assertFalse(scoring.opportunity_score(base, self.config)["best_available_eligible"])
+
+    def test_completion_claim_cannot_override_deployable_candidate(self):
+        live = {
+            "stop_orders_ok": True, "account_value": 7100, "deployable_buying_power": 2357,
+            "session_allows_entries": True, "idle_cash_escalation_completed": True,
+            "known_candidates": {
+                "AAA": {"current_run_deep_reviewed": True, "best_available_eligible": True},
+                "BBB": {"current_run_deep_reviewed": True}, "CCC": {"current_run_deep_reviewed": True},
+                "DDD": {"current_run_deep_reviewed": True}, "EEE": {"current_run_deep_reviewed": True},
+            },
+            "independent_catalyst_sweep_complete": True,
+            "independent_catalyst_symbols_reviewed": ["X", "Y"],
+        }
+        result = scoring.fast_check({}, live, "2026-10-07", self.config)
+        self.assertTrue(any("CASH_DEPLOYMENT_DUE" in r for r in result["reasons"]))
+
+    def test_small_idle_cash_is_actionable(self):
+        live = {"stop_orders_ok": True, "account_value": 7000, "deployable_buying_power": 200,
+                "session_allows_entries": True}
+        result = scoring.fast_check({}, live, "2026-10-07", self.config)
+        self.assertTrue(any("IDLE_CASH_" in r for r in result["reasons"]))
+
+    def test_deploy_plan_ranks_tiers_and_sizes_to_target(self):
+        live = {"account_value": 7117, "deployable_buying_power": 2357, "session_allows_entries": True}
+        results = [
+            {"symbol": "BEST", "deployment_tier": "best_available", "opportunity_score": 3.9,
+             "explosive_upside_score": 4, "remaining_upside_score": 4},
+            {"symbol": "TACT", "deployment_tier": "tactical", "opportunity_score": 3.6,
+             "explosive_upside_score": 4, "remaining_upside_score": 3.5},
+            {"symbol": "JUNK", "deployment_tier": "reject", "opportunity_score": 9,
+             "explosive_upside_score": 9, "remaining_upside_score": 9},
+        ]
+        plan = scoring.deploy_plan(results, live, self.config)
+        self.assertEqual(plan["pick"]["symbol"], "TACT")
+        self.assertAlmostEqual(plan["pick"]["spend_usd"], 2357 - 7117 * 0.015, places=1)
+        self.assertIsNone(scoring.deploy_plan([results[2]], live, self.config)["pick"])
 
 
 if __name__ == "__main__":

@@ -1,3 +1,41 @@
+OWNER DIRECTIVE 2026-10-07 v5 — ZERO IDLE CASH, AGGRESSIVE DEPLOYMENT (supersedes v4 where they conflict)
+This is the owner's explicit fun-money growth experiment. IDLE CASH IS THE FAILURE MODE. On 2026-10-06 $2.36k sat
+idle through four full regular-hours runs because the best candidate (APOG, verified 8-K beat/raise) scored 4.25
+against a 4.5 bar. That must never happen again.
+
+ZERO-IDLE-CASH RULES (mandatory, override anything below that says otherwise)
+1. REGULAR HOURS (09:30-16:00 ET) with deployable cash >= idle_cash_escalation_pct_of_account (2.5%): the run MUST
+   place a buy. Finish only by (a) a verified fill + protective stop, or (b) a documented HARD BLOCK: PDT/day-trade
+   gate, broker/tradability/halt rejection, persistence/serialization failure, drawdown halt, or ZERO reviewed
+   names clearing even the best_available tier after the full review (journal each name + reason).
+2. Candidate tiers, in order: standard > tactical > best_available (see scripts/scoring.py; all thresholds in
+   config.json). Run `python3 scripts/scoring.py opportunity-score` on every deep-reviewed name, put the outputs in
+   a list, and run `python3 scripts/scoring.py deploy-plan --results r.json --live live.json --config config.json`.
+   BUY the plan's pick for the plan's spend_usd. Do not substitute your own sizing or veto it on "feels weak".
+3. best_available means: no hard disqualifier, sane spread/liquidity, and SOME verified reason to own it (company
+   catalyst, market catalyst + heat, or verified momentum: RVOL >= 1.5x, up on the day, holding above VWAP, not a
+   failed spike). Set "momentum_verified": true in candidate.json only when that is factually true.
+4. Near-miss rule: a candidate with a verified primary-source catalyst within 1.0 of a gate counts as deployable.
+5. Discovery MUST include the supplemental scans in config.json -> deploy_supplemental_scans (Cheap Momentum,
+   Exceptional Momentum, Catalyst Momentum) in addition to the four v2 scans and the fallback v3 scan.
+6. NO_ACTION with idle cash above target in regular hours is a FAILED RUN unless rule 1(b) applies. A completion
+   claim never overrides a candidate that clears any tier (scoring.py raises CASH_DEPLOYMENT_DUE).
+7. Size to the target: spend down to idle_cash_target_pct_of_account (1.5%). Tactical/best_available positions are
+   capped at tactical_cash_position_max_pct_of_account (50%); standard at max_position_pct_of_account.
+8. PRE-MARKET / OVERNIGHT runs cannot usually trade (wide spreads). They must still do the research: build a
+   ranked `deployment_queue` in state.json (symbol, tier, opportunity_score, catalyst, source links, intended
+   limit logic). The first run at/after 09:30 ET re-checks quotes and BUYS from the queue immediately, then
+   continues down the queue/scans until idle cash is at target or max_new_positions_per_run is hit.
+   Extended-hours entries are allowed up to max_bid_ask_spread_pct_extended (6%) with a marketable limit.
+9. Hard safety that stays: protective stop_market GTC on every position, review_equity_order before every order,
+   verified fills, no averaging down, no same-day sells, universe/liquidity floors, no active-offering/dilution,
+   no merger-arb names pinned to a deal price, no fraud/bankruptcy/going-concern. Everything else is aggressive.
+
+EMAIL COST LINE: every run (including NO_ACTION) runs `python3 scripts/cost_estimate.py update --kind
+light|full|trade --run-id <ISO ts>`; every ACTION_UPDATE / DAILY_CLOSE email must include its printed `line`
+(running estimate of Claude spend) via {{CLAUDE_COST_LINE}}. See reporting/README.md.
+
+--- v4 text below; where it conflicts with the v5 rules above, v5 wins ---
 OWNER DIRECTIVE 2026-10-05 v4 — EXPLOSIVE CATALYST + MANDATORY CASH DEPLOYMENT MODE
 This file is the authoritative standing strategy for the autonomous Robinhood routine.
 It supersedes older strategy text whenever there is a conflict.
@@ -15,10 +53,10 @@ or blindly averaging down. Improve discovery, ranking, rotation, cash deployment
 
 CAPITAL DEPLOYMENT POLICY
 During a session in which new entries are allowed, the target is <= idle_cash_target_pct_of_account of total account
-value in deployable cash. Cash >= idle_cash_escalation_pct_of_account is not a neutral NO_ACTION condition; it activates
+value in deployable cash. Cash >= idle_cash_escalation_pct_of_account (2.5%) is not a neutral NO_ACTION condition; it activates
 mandatory cash-deployment mode. Standard explosive candidates remain first choice, but if none clears the standard
 gate, a verified tactical catalyst candidate may be used under the separate CASH DEPLOYMENT GATE below. The system
-must not leave ~15%-20% of the account idle merely because no perfect 50%-100% candidate appeared in the first scan.
+must not leave ANY meaningful cash idle merely because no perfect 50%-100% candidate appeared in the first scan.
 
 AUTHORITATIVE STARTUP — EVERY RUN
 1. Follow PERSISTENCE.md first. Explicitly fetch and switch to origin/claude/trading-state.
@@ -296,12 +334,12 @@ Definitions:
 - idle_cash_pct = deployable_buying_power / total account value * 100.
 
 Trigger:
-- If session_allows_entries=true and idle_cash_pct >= idle_cash_escalation_pct_of_account (currently 8%), fast-check
+- If session_allows_entries=true and idle_cash_pct >= idle_cash_escalation_pct_of_account (currently 2.5%), fast-check
   MUST return actionable until the required review is genuinely complete.
-- At idle_cash_pct >= idle_cash_critical_pct_of_account (currently 15%), treat it as CRITICAL SEARCH DEPTH.
+- At idle_cash_pct >= idle_cash_critical_pct_of_account (currently 6%), treat it as CRITICAL SEARCH DEPTH.
 - idle_cash_escalation_completed is NOT trusted by itself. scripts/scoring.py validates that enough current-run deep
   reviews and independent catalyst checks are present. If not, it reports IDLE_CASH_REVIEW_INCOMPLETE.
-- The target after a tactical deployment is <= idle_cash_target_pct_of_account (currently 5%), not "spend a little."
+- The target after a tactical deployment is <= idle_cash_target_pct_of_account (currently 1.5%), not "spend a little."
 
 Before NO_ACTION is allowed under an idle-cash trigger, do ALL of the following:
 1. V2 RE-UNDERWRITE THE EXISTING BOOK:
@@ -346,7 +384,7 @@ Before NO_ACTION is allowed under an idle-cash trigger, do ALL of the following:
    IDLE_CASH_REVIEW_COMPLETE | idle_cash_pct=<x> | deployable=<amount> | deep_reviewed=<n> |
    independent_catalyst_checks=<n> | best_standard_rejected=<symbols/scores> |
    best_tactical_rejected=<symbols/scores> | reason=<why>
-   Then set idle_cash_escalation_completed=true for this run. "Only two new names were web-checked" is NOT a valid
+   (Valid ONLY under ZERO-IDLE-CASH rule 1(b).) Then set idle_cash_escalation_completed=true for this run. "Only two new names were web-checked" is NOT a valid
    completed idle-cash review.
 
 NEAR-MISS WATCHLIST + INTER-RUN RECHECKS (owner directive 2026-10-07)
@@ -554,8 +592,8 @@ NO-ACTION SAVE PATH
 NO_ACTION is permitted only if:
 - fast-check returns actionable=false, AND
 - there is no unresolved V2_POSITION_RESCORE_DUE, AND
-- if deployable cash triggered idle-cash escalation, scripts/scoring.py confirms the review-completion quota, AND
-- no known candidate is STANDARD eligible or cash_deployment_eligible, AND
+- if deployable cash triggered idle-cash escalation, ZERO-IDLE-CASH rule 1(b) applies (hard block or no name clears best_available), AND
+- no known candidate is standard, tactical or best_available eligible, AND
 - no pending qualifying order/fill exists.
 
 If those conditions are met:

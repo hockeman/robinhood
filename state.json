@@ -1,5 +1,5 @@
 {
- "last_run": "2026-10-06T17:20:00Z",
+ "last_run": "2026-10-07T12:20:00Z",
  "canonical_branch": "claude/trading-state",
  "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
  "peak_account_value": 7954.86462317,
@@ -907,6 +907,26 @@
   {
    "ts": "2026-10-06T17:20:00Z",
    "value": 7126.37
+  },
+  {
+   "ts": "2026-10-07T08:16:00Z",
+   "value": 7136.9331080017
+  },
+  {
+   "ts": "2026-10-07T09:15:00Z",
+   "value": 7132.9169408886
+  },
+  {
+   "ts": "2026-10-07T10:15:00Z",
+   "value": 7116.8761901786
+  },
+  {
+   "ts": "2026-10-07T11:25:00Z",
+   "value": 7117.08
+  },
+  {
+   "ts": "2026-10-07T12:20:00Z",
+   "value": 7116.8
   }
  ],
  "positions": {
@@ -1907,6 +1927,22 @@
    "sources": [
     "sec.gov APOG 8-K FY27 Q2 results 2026-10-06"
    ]
+  },
+  "2026-10-07T1125Z": {
+   "NLST": {
+    "opportunity_score": null,
+    "decision": "rejected",
+    "notes": "Micron $600M/5yr patent license + $ equity purchase (8-K 10/5-6) is primary-source real, but broker state=unlisted, quote 6.00x7.00 (~15% spread); not tradable/liquid for this account",
+    "cash_deployment_eligible": false,
+    "current_run_deep_reviewed": true
+   },
+   "OPCH": {
+    "opportunity_score": null,
+    "decision": "rejected",
+    "notes": "McKesson/CD&R >$5B buyout talks (press report only, merger-arb, large cap)",
+    "cash_deployment_eligible": false,
+    "current_run_deep_reviewed": false
+   }
   }
  },
  "anomalies": [

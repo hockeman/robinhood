@@ -349,6 +349,29 @@ Before NO_ACTION is allowed under an idle-cash trigger, do ALL of the following:
    Then set idle_cash_escalation_completed=true for this run. "Only two new names were web-checked" is NOT a valid
    completed idle-cash review.
 
+NEAR-MISS WATCHLIST + INTER-RUN RECHECKS (owner directive 2026-10-07)
+Hourly snapshots miss moves that start and fade between runs. To cover the gaps:
+1. WATCHLIST. At the end of any run where idle-cash escalation was active, persist every candidate that was a near miss
+   (opportunity_score >= tactical_cash_min_opportunity_score - 1.0, no hard disqualifier, verified catalyst) in
+   state.json -> watchlist as {symbol, score, catalyst, ref_price, added_ts, trigger}. Trigger = the condition that would
+   change the verdict (e.g. holds above a price with spread <= max_bid_ask_spread_pct and volume still accelerating).
+   Drop entries after 3 trading days or on negative news.
+2. FIRST STEP OF EVERY RUN. Before the scanners, re-quote every watchlist symbol and re-score it with
+   scripts/scoring.py using current price/volume. A watchlist hit that is eligible (standard or cash_deployment_eligible)
+   goes through the normal entry workflow. Re-scoring must use real current evidence, not a bumped input.
+3. SERVER-SIDE ALERTS. When adding a watchlist entry, create a Robinhood price alert (create_alert) at its trigger price
+   if the tool is available, and read get_alerts / get_alert_log at the start of the next run. Alerts are a hint only;
+   every entry still needs the full quote/spread/catalyst/scoring check.
+4. IN-SESSION RECHECKS. If idle_cash_pct >= idle_cash_escalation_pct_of_account, the market is in regular hours, and the
+   watchlist is non-empty, do not end the run immediately after a NO_ACTION verdict. Run up to 3 additional
+   watchlist-only rechecks about 10-15 minutes apart (background wait, then re-quote, re-score), stopping as soon as the
+   market closes or a candidate qualifies. Each recheck is cheap: watchlist quotes + scoring.py only, no full scanner
+   sweep unless a new scanner symbol appears in a quick re-run of the four v2 scans. Journal each recheck on one line.
+5. RUN CADENCE. The routine schedule itself is set by the owner outside this repo. The owner has asked for denser
+   coverage; when the schedule is changed to every 15-30 minutes during regular hours, rule 4 may be skipped
+   because the schedule provides the rechecks. Scheduled runs must never edit the schedule, this file, or config.json.
+6. Recheck runs obey every hard rule above (PDT, same-day lots, review_equity_order, protective stop, persistence).
+
 V2 POSITION MIGRATION — NO GRANDFATHERED OLD SCORES
 Until every meaningful position has v2 fields, the migration itself is actionable work.
 - A meaningful position missing opportunity_score causes V2_POSITION_RESCORE_DUE in fast-check.

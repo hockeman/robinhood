@@ -93,7 +93,9 @@
   "entry:INTT:2026-10-05T16:07:42Z",
   "6ac3ac5c-8978-4431-90f9-52bb16709fc1",
   "6ac3ac68-4c8d-4bef-b3a6-3796b6e163b9",
-  "6ac3ac76-3000-4a69-83c8-8d7c7fb1119a"
+  "6ac3ac76-3000-4a69-83c8-8d7c7fb1119a",
+  "exit:DUOT:2026-10-09T13:32:14Z",
+  "entry:TEVA:2026-10-09T14:17:09Z"
  ],
  "critical_issue_fingerprints": {
   "angx-unprotected-lot-never-reported-20260923": {
@@ -484,6 +486,22 @@
    "sent_at": "2026-10-05T16:10:00Z",
    "provider": "gmail",
    "provider_message_id": "1a10cd289ddf8812"
+  },
+  "action-acct4292-2026-10-09T1420Z": {
+   "report_id": "action-acct4292-2026-10-09T1420Z",
+   "type": "ACTION_UPDATE",
+   "included_event_ids": [
+    "exit:DUOT:2026-10-09T13:32:14Z",
+    "entry:TEVA:2026-10-09T14:17:09Z"
+   ],
+   "recipient": "ferrell@chacetech.com",
+   "status": "accepted",
+   "prepared_at": "2026-10-09T14:24:00Z",
+   "sent_at": "2026-10-09T14:25:00Z",
+   "provider": "gmail",
+   "provider_message_id": "1a1210745a0ed794",
+   "provider_thread_id": "1a1210745a0ed794",
+   "note": "Sent a short summary body plus brief HTML (not the full rendered template); full rendered HTML saved at reporting/sent/action_update_2026-10-09T1420Z.html. Not yet re-read via get_message."
   }
  },
  "daily_summaries": {

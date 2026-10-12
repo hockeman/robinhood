@@ -1,0 +1,268 @@
+{
+  "audit_date": "2026-10-12",
+  "scope": "Run 2026-10-12T11:15Z plus repo history on claude/trading-state",
+  "read_only": true,
+  "evidence_legend": {
+    "V": "verified",
+    "A": "assumption",
+    "G": "gap"
+  },
+  "governing_sources": [
+    "routine prompt",
+    "PERSISTENCE.md",
+    "AGENT.md v5/v4",
+    "config.json",
+    "session/harness instructions"
+  ],
+  "instruction_conflicts": [
+    {
+      "id": "C1",
+      "desc": "Session says push only to claude/eloquent-maxwell-pvr616; routine/PERSISTENCE require claude/trading-state; run pushed to trading-state",
+      "status": "unresolved"
+    },
+    {
+      "id": "C2",
+      "desc": "Attribution reminder requires model-named trailer; environment prompt forbids model identifiers in pushed artifacts",
+      "status": "unresolved"
+    },
+    {
+      "id": "C3",
+      "desc": "Tactical/best_available tiers allow buys below standard gate (5); 4 of 5 holdings below it",
+      "status": "by_design"
+    },
+    {
+      "id": "C4",
+      "desc": "Hard rule 'stop on every long' vs unprotected dust AAPL/ANGX",
+      "status": "standing_anomaly"
+    }
+  ],
+  "this_run": {
+    "run_id": "2026-10-12T11:15Z",
+    "session": "pre_market 07:15 ET",
+    "outcome": "NO_ACTION",
+    "orders_placed": 0,
+    "email_sent": false,
+    "files_deleted": 0,
+    "commit": "511c21c123e9c5ac7b7d7539420b3de15d939025",
+    "previous_tip": "cdae4e2",
+    "push": "plain non-force, succeeded, tip observed via ls-remote",
+    "account": {
+      "total_value": 6934.3828,
+      "cash": 130.29,
+      "idle_cash_pct": 1.88,
+      "trigger_pct": 2.5
+    },
+    "stops": [
+      {
+        "symbol": "GME",
+        "qty": 70,
+        "stop": 20.14
+      },
+      {
+        "symbol": "INTT",
+        "qty": 75,
+        "stop": 12.54
+      },
+      {
+        "symbol": "APOG",
+        "qty": 51,
+        "stop": 33.29
+      },
+      {
+        "symbol": "BKV",
+        "qty": 10,
+        "stop": 20.51
+      },
+      {
+        "symbol": "TEVA",
+        "qty": 37,
+        "stop": 35.57
+      }
+    ],
+    "stops_verified": "5/5 confirmed GTC stop_market",
+    "unprotected_dust": [
+      "AAPL 0.005949",
+      "ANGX 4.329986"
+    ],
+    "tools_used": [
+      "git",
+      "Robinhood get_accounts/get_portfolio/get_equity_orders/get_equity_positions/get_equity_quotes",
+      "scripts/cost_estimate.py"
+    ],
+    "files_modified": [
+      "state.json"
+    ],
+    "files_created": [
+      "journal/2026-10-12-1115.md"
+    ]
+  },
+  "deficiencies_this_run": [
+    {
+      "id": "D1",
+      "severity": "high",
+      "desc": "scoring.py fast-check not run before NO_ACTION; idle cash computed by hand"
+    },
+    {
+      "id": "D2",
+      "severity": "high",
+      "desc": "state.json, notification_state.json, scoring.py not read in full at startup"
+    },
+    {
+      "id": "D3",
+      "severity": "low",
+      "desc": "get_alerts not read (watchlist empty)"
+    },
+    {
+      "id": "D4",
+      "severity": "medium",
+      "desc": "INTT/BKV pre-market bid/ask wide and stale; evidence for 'above stop' relies on last prints"
+    },
+    {
+      "id": "D5",
+      "severity": "low",
+      "desc": "day-trade count not re-checked (no entry considered)"
+    }
+  ],
+  "scheduling": {
+    "configured_schedule": "not in repo (evidence gap)",
+    "observed_cadence": "hourly at ~:15 UTC",
+    "observed_gap": "2026-10-09T17:15Z to 2026-10-12T08:15Z (weekend)",
+    "mitigation": [
+      "broker-side GTC stops",
+      "pre-market deployment_queue",
+      "in-session watchlist rechecks only when cash>=2.5%"
+    ],
+    "risks": [
+      "intraday spike/fade missed",
+      "stop slippage in gaps",
+      "delayed winner-stop raising",
+      "delayed bad-news exit"
+    ]
+  },
+  "performance": {
+    "account_first_point": {
+      "ts": "2026-09-18T22:16:00Z",
+      "value": 7390.56
+    },
+    "account_latest": {
+      "ts": "2026-10-12T11:15:00Z",
+      "value": 6934.38
+    },
+    "change_pct": -6.2,
+    "peak": 7954.86,
+    "drawdown_from_peak_pct": 12.8,
+    "drawdown_halt_pct": 40,
+    "closed_records": 9,
+    "realized_pnl_usd": -462.69,
+    "holding_opportunity_scores": {
+      "GME": 3.5,
+      "INTT": 5.08,
+      "APOG": 4.25,
+      "BKV": 3.755,
+      "TEVA": 3.803
+    },
+    "estimated_claude_cost_usd": 203.53,
+    "estimated_runs": 263,
+    "cost_basis": "assumed token profiles, not a bill",
+    "commits_on_branch": 57,
+    "journal_files": 264
+  },
+  "evidence_refs": {
+    "tip": "511c21c123e9c5ac7b7d7539420b3de15d939025",
+    "prior_runs": [
+      "cdae4e2",
+      "a1d7642",
+      "707a298",
+      "3a3cec4"
+    ],
+    "entries": {
+      "APOG": "3f74233",
+      "BKV": "abcacd1",
+      "INTT": "9041a8e",
+      "TEVA": "6322dd2"
+    },
+    "files": [
+      "AGENT.md",
+      "PERSISTENCE.md",
+      "config.json",
+      "state.json",
+      "notification_state.json",
+      "trades.jsonl",
+      "journal/2026-10-12-1115.md",
+      "scripts/scoring.py",
+      "scripts/cost_estimate.py"
+    ]
+  },
+  "evidence_gaps": [
+    "cron schedule definition",
+    "full broker order history re-fetch",
+    "per-entry compliance of 10-05..10-09 trades",
+    "content of reply segment withheld by classifier",
+    "actual model spend"
+  ],
+  "corrective_actions": [
+    {
+      "rank": 1,
+      "severity": "high",
+      "issue": "fast-check skipped",
+      "action": "Always run scoring.py fast-check and log result",
+      "acceptance": "every NO_ACTION journal has fast-check actionable=false; 0 exceptions in 20 runs"
+    },
+    {
+      "rank": 2,
+      "severity": "high",
+      "issue": "partial startup reads",
+      "action": "Read required files or have owner relax startup list",
+      "acceptance": "run log shows each named file opened; owner confirms list"
+    },
+    {
+      "rank": 3,
+      "severity": "high",
+      "issue": "branch instruction conflict",
+      "action": "Owner picks one persistence branch rule",
+      "acceptance": "single unambiguous rule; 0 conflicts next audit"
+    },
+    {
+      "rank": 4,
+      "severity": "medium",
+      "issue": "sub-gate holdings, negative realized P&L",
+      "action": "Per-tier outcome report; owner reviews thresholds",
+      "acceptance": "30-day tier report and owner sign-off"
+    },
+    {
+      "rank": 5,
+      "severity": "medium",
+      "issue": "stop slippage / stale pre-market quotes",
+      "action": "Journal spread and quote age; owner decides stop policy",
+      "acceptance": "spread and quote timestamp in every journal line"
+    },
+    {
+      "rank": 6,
+      "severity": "medium",
+      "issue": "hourly cadence",
+      "action": "Export schedule; owner decides on regular-hours cadence",
+      "acceptance": "schedule documented; max regular-hours gap within target"
+    },
+    {
+      "rank": 7,
+      "severity": "low",
+      "issue": "unprotected dust",
+      "action": "Owner sells or formally exempts",
+      "acceptance": "anomaly closed or exemption written by owner"
+    },
+    {
+      "rank": 8,
+      "severity": "low",
+      "issue": "assumed cost estimate",
+      "action": "Calibrate against usage page",
+      "acceptance": "within 15% of actual over 7 days"
+    },
+    {
+      "rank": 9,
+      "severity": "low",
+      "issue": "state.json growth / non-uniform records",
+      "action": "Owner-approved archive and schema validation",
+      "acceptance": "size and schema tests pass"
+    }
+  ]
+}

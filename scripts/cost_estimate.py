@@ -52,8 +52,12 @@ def classify_journal(text):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["update"])
-    ap.add_argument("--kind", choices=KINDS, required=True)
+    ap.add_argument("cmd", choices=["update", "record-actual"])
+    ap.add_argument("--kind", choices=KINDS)
+    ap.add_argument("--input-tokens", type=int)
+    ap.add_argument("--cache-read-tokens", type=int, default=0)
+    ap.add_argument("--output-tokens", type=int)
+    ap.add_argument("--usage-source", help="where the token counts came from (e.g. usage page export)")
     ap.add_argument("--run-id", required=True)
     ap.add_argument("--state", default="state.json")
     ap.add_argument("--config", default="config.json")
@@ -61,6 +65,25 @@ def main():
     a = ap.parse_args()
 
     config = json.load(open(a.config))
+    if a.cmd == "record-actual":
+        # Measured usage only: caller supplies real token counts and their source. Never inferred.
+        if a.input_tokens is None or a.output_tokens is None or not a.usage_source:
+            ap.error("record-actual needs --input-tokens --output-tokens --usage-source")
+        cfg0 = {**DEFAULTS, **(config.get("claude_cost_estimate") or {})}
+        st = json.load(open(a.state))
+        m = st.setdefault("claude_cost_measured", {"total_usd": 0.0, "runs": 0, "run_ids": [], "basis": "measured"})
+        if a.run_id not in m["run_ids"]:
+            usd = (a.input_tokens * cfg0["usd_per_mtok_input"] + a.cache_read_tokens * cfg0["usd_per_mtok_cache_read"]
+                   + a.output_tokens * cfg0["usd_per_mtok_output"]) / 1e6
+            m["total_usd"] = round(m["total_usd"] + usd, 4)
+            m["runs"] += 1
+            m["run_ids"] = (m["run_ids"] + [a.run_id])[-50:]
+            m["last_source"] = a.usage_source
+        json.dump(st, open(a.state, "w"), indent=2)
+        print(json.dumps(m, indent=2))
+        return
+    if not a.kind:
+        ap.error("update needs --kind")
     cfg = {**DEFAULTS, **(config.get("claude_cost_estimate") or {})}
     state = json.load(open(a.state))
     cc = state.get("claude_cost")
@@ -88,11 +111,16 @@ def main():
     state["claude_cost"] = cc
     json.dump(state, open(a.state, "w"), indent=2)
     today = cc["by_day"].get(a.run_id[:10], 0.0)
+    meas = state.get("claude_cost_measured")
+    meas_txt = (f"Measured (token counts from {meas.get('last_source')}): ${meas['total_usd']:,.2f} over "
+                f"{meas['runs']} run(s)." if meas and meas.get("runs") else
+                "Measured spend: unavailable (scheduled runs cannot read their own token usage).")
     line = (
-        f"Est. Claude cost to run this routine: ${cc['total_usd']:,.2f} total over {cc['runs']} runs "
-        f"(${today:,.2f} today, ~${this:,.2f} this run). Estimate from per-run token profiles, not a bill."
+        f"ESTIMATED Claude cost to run this routine: ${cc['total_usd']:,.2f} total over {cc['runs']} runs "
+        f"(${today:,.2f} today, ~${this:,.2f} this run) from ASSUMED per-run token profiles, not billed spend. "
+        + meas_txt
     )
-    print(json.dumps({"total_usd": cc["total_usd"], "today_usd": today, "this_run_usd": round(this, 2),
+    print(json.dumps({"basis": "estimate_from_assumed_profiles", "total_usd": cc["total_usd"], "today_usd": today, "this_run_usd": round(this, 2),
                       "runs": cc["runs"], "line": line}, indent=2))
 
 

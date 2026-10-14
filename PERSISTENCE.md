@@ -1,5 +1,11 @@
 # Persistence & serialization protocol (canonical, replaces every earlier convention)
 
+> 2026-10-14 addendum (workflow_version 2026-10-14-repair-1): the Save step below is performed by
+> `python3 scripts/persist_run.py ... --git .`, which validates the run (`scripts/run_complete.py`) and refuses to
+> label an unvalidated run as "no action". Brokerage-writing coordination (lease + durable intents) is in
+> `EXECUTION.md`; the end-of-run push below remains the shared compare-and-swap for STATE, not a broker lock.
+> Startup additionally requires `scripts/startup_check.py` to pass.
+
 **Canonical branch: `claude/trading-state`.** This is the one and only
 place run state lives. `main`, `claude/journal`, and every
 `claude/clever-thompson-*` / other per-session throwaway branch are

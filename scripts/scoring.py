@@ -98,7 +98,14 @@ TRANSFORMATIONAL_ANCHORS = [
     (20, 0.40),
 ]
 
+try:  # importable both as `scripts.scoring` and as a plain script/module
+    import lots as _lots
+    import discovery as _discovery
+except ImportError:  # pragma: no cover
+    from scripts import lots as _lots, discovery as _discovery
+
 DEFAULT_LEGACY_REPLACE_MIN_SCORE = 3
+DEFAULT_HOLDING_REASSESSMENT_MAX_AGE = {"momentum": 1, "durable": 2, "transformational": 3}
 DEFAULT_LEGACY_DEFAULT_SCORE = 0
 DEFAULT_LEGACY_OLD_SCORE_CAP_FOR_OPPORTUNITY = 4.0
 
@@ -432,16 +439,83 @@ def effective_score(position, as_of, legacy_default_score=DEFAULT_LEGACY_DEFAULT
     )
 
 
+def holding_lot_status(pos, as_of):
+    """
+    Derive sellability for one held position from lots, NEVER from a persisted
+    `same_day` boolean (which went stale and excluded October lots for days).
+    as_of is the America/New_York trading date. Positions carrying broker-derived
+    `lots` are verified; a bare entry_date yields an UNVERIFIED single-lot fallback
+    that may rank the holding but may not authorize a sale; nothing => unknown.
+    """
+    today = str(as_of)[:10]
+    lots = pos.get("lots")
+    if lots:
+        view = _lots.classify(lots, today)
+    elif pos.get("entry_date"):
+        qty = float(pos.get("qty") or 1.0)
+        fb = _lots.reconcile_lots(qty, [], fallback_entry_date=pos["entry_date"])
+        view = _lots.classify(fb, today)
+    else:
+        qty = float(pos.get("qty") or 1.0)
+        view = _lots.classify([{"qty": qty, "open_date": None, "source": "unreconciled_remainder"}], today)
+    if pos.get("same_day") is not None and bool(pos["same_day"]) != view["same_day"]:
+        view["persisted_same_day_ignored"] = bool(pos["same_day"])
+    return view
+
+
+def assessment_status(pos, as_of, config=None):
+    """
+    missing     no opportunity_score at all
+    unevidenced score+date present but no assessment_run_id/evidence ref (date refreshed
+                without a recorded review does not count)
+    stale       older than the per-class cadence in trading days
+    fresh       reviewed recently with evidence
+    """
+    config = config or {}
+    if pos.get("opportunity_score") is None:
+        return "missing"
+    if not (pos.get("assessment_run_id") or pos.get("assessment_evidence_ref")):
+        return "unevidenced"
+    cadence = {**DEFAULT_HOLDING_REASSESSMENT_MAX_AGE,
+               **(config.get("holding_reassessment_max_age_trading_days") or {})}
+    cls = pos.get("opportunity_class") or "durable"
+    sd = pos.get("opportunity_score_date")
+    if not sd:
+        return "unevidenced"
+    age = trading_days_between(sd, as_of)
+    if pos.get("material_development_since_assessment"):
+        return "stale"
+    return "stale" if age > cadence.get(cls, 2) else "fresh"
+
+
+def holding_status_table(positions, as_of, config=None):
+    rows = []
+    for symbol, pos in positions.items():
+        lot = holding_lot_status(pos, as_of)
+        rows.append({
+            "symbol": symbol,
+            "sellable_qty": lot["sellable_qty"],
+            "restricted_qty": lot["restricted_qty"],
+            "unknown_qty": lot["unknown_qty"],
+            "lots_verified": lot["lots_verified"],
+            "assessment_status": assessment_status(pos, as_of, config),
+            "persisted_same_day_ignored": lot.get("persisted_same_day_ignored"),
+        })
+    return rows
+
+
 def replaceable_holdings(
     positions,
     as_of,
     legacy_default_score=DEFAULT_LEGACY_DEFAULT_SCORE,
     legacy_old_score_cap=DEFAULT_LEGACY_OLD_SCORE_CAP_FOR_OPPORTUNITY,
+    config=None,
 ):
-    """Rank non-same-day holdings weakest to strongest by decayed v2 opportunity."""
+    """Rank holdings with a legally sellable quantity, weakest to strongest by decayed v2 opportunity."""
     rows = []
     for symbol, pos in positions.items():
-        if pos.get("same_day"):
+        lot = holding_lot_status(pos, as_of)
+        if lot["sellable_qty"] <= 0:
             continue
         base, legacy_v2 = _base_opportunity_score(pos, legacy_default_score, legacy_old_score_cap)
         eff = effective_opportunity_score(
@@ -460,6 +534,11 @@ def replaceable_holdings(
                 "legacy": bool(pos.get("legacy") or pos.get("score") is None),
                 "value_usd": pos.get("value_usd", 0.0),
                 "entry_date": pos.get("entry_date"),
+                "sellable_qty": lot["sellable_qty"],
+                "restricted_qty": lot["restricted_qty"],
+                "unknown_qty": lot["unknown_qty"],
+                "lots_verified": lot["lots_verified"],
+                "assessment_status": assessment_status(pos, as_of, config),
             }
         )
     rows.sort(
@@ -480,7 +559,16 @@ def rotation_eligible(
     min_opportunity_score=6.0,
     legacy_default_score=DEFAULT_LEGACY_DEFAULT_SCORE,
     legacy_old_score_cap=DEFAULT_LEGACY_OLD_SCORE_CAP_FOR_OPPORTUNITY,
+    config=None,
 ):
+    """
+    `eligible`   the candidate clears the score threshold against the weakest holding that
+                 has a legally sellable quantity (ranking question, read-only).
+    `executable` eligible AND the incumbent was freshly, evidentially reassessed AND its
+                 lots are broker-verified. If the incumbent is missing/stale/unevidenced the
+                 verdict is status=REASSESS_INCUMBENT_FIRST: neither automatic retention nor
+                 automatic sale; refresh the incumbent thesis, then re-run.
+    """
     candidate_opportunity_score = float(candidate_opportunity_score)
     if candidate_opportunity_score < min_opportunity_score:
         return {
@@ -496,11 +584,14 @@ def rotation_eligible(
         as_of,
         legacy_default_score=legacy_default_score,
         legacy_old_score_cap=legacy_old_score_cap,
+        config=config,
     )
     if not replaceable:
         return {
             "eligible": False,
-            "reason": "no replaceable holdings (all positions are same-day lots, or none held)",
+            "executable": False,
+            "reason": "no holdings with a legally sellable quantity (all restricted/unknown, or none held)",
+            "holding_status": holding_status_table(positions, as_of, config),
         }
 
     weakest = replaceable[0]
@@ -509,8 +600,23 @@ def rotation_eligible(
         weakest["effective_opportunity_score"] + rotation_min_opportunity_advantage,
     )
     eligible = candidate_opportunity_score >= threshold
+    fresh = weakest["assessment_status"] == "fresh"
+    executable = bool(eligible and fresh and weakest["lots_verified"])
+    if not eligible:
+        status = "NOT_ELIGIBLE"
+    elif not fresh:
+        status = "REASSESS_INCUMBENT_FIRST"
+    elif not weakest["lots_verified"]:
+        status = "LOTS_UNRECONCILED_SALE_BLOCKED"
+    else:
+        status = "EXECUTABLE"
     return {
         "eligible": eligible,
+        "executable": executable,
+        "status": status,
+        "weakest_assessment_status": weakest["assessment_status"],
+        "weakest_lots_verified": weakest["lots_verified"],
+        "weakest_sellable_qty": weakest["sellable_qty"],
         "weakest_symbol": weakest["symbol"],
         "weakest_effective_opportunity_score": weakest["effective_opportunity_score"],
         "weakest_legacy_v2": weakest["legacy_v2"],
@@ -531,12 +637,54 @@ def positions_missing_v2(positions, min_value_usd=100.0):
     """Return meaningful positions that still lack v2 opportunity fields."""
     missing = []
     for symbol, pos in positions.items():
-        value = float(pos.get("value_usd") or 0.0)
-        if value < float(min_value_usd):
+        raw_value = pos.get("value_usd")
+        # an unknown market value is NOT small: it must not exempt a holding from rescoring
+        if raw_value is not None and float(raw_value) < float(min_value_usd):
             continue
         if pos.get("opportunity_score") is None:
             missing.append(symbol)
     return sorted(missing)
+
+
+def positions_needing_reassessment(positions, as_of, config=None, min_value_usd=100.0):
+    """
+    Missing and stale/unevidenced scores are DIFFERENT conditions. Both need a real
+    review (quote, thesis/catalyst re-verification, dilution/bad-news check); neither
+    means automatic retention or automatic sale.
+    """
+    out = {"missing": [], "stale": [], "unevidenced": []}
+    for symbol, pos in positions.items():
+        raw_value = pos.get("value_usd")
+        if raw_value is not None and float(raw_value) < float(min_value_usd):
+            continue
+        st = assessment_status(pos, as_of, config)
+        if st in out:
+            out[st].append(symbol)
+    return {k: sorted(v) for k, v in out.items()}
+
+
+def protection_status(live):
+    """
+    Returns (state, detail). state in {"verified","problem","unknown"}.
+    Absent/None verification is UNKNOWN, never favorable. A structured `protection`
+    block {required_symbols, verified_symbols, accepted_exceptions} is preferred; the
+    legacy boolean `stop_orders_ok` is honored only when explicitly present.
+    """
+    prot = live.get("protection")
+    if isinstance(prot, dict):
+        req = set(prot.get("required_symbols") or [])
+        ver = set(prot.get("verified_symbols") or [])
+        exc = {e.get("symbol") for e in (prot.get("accepted_exceptions") or [])}
+        if not req and not ver and not exc and prot.get("checked_at") is None:
+            return "unknown", "protection block present but empty/unchecked"
+        missing = sorted(req - ver - exc)
+        detail = {"missing": missing, "accepted_exceptions": sorted(exc),
+                  "verified": sorted(ver), "checked_at": prot.get("checked_at")}
+        return ("problem" if missing else "verified"), detail
+    flag = live.get("stop_orders_ok")
+    if flag is None:
+        return "unknown", "no protection verification supplied"
+    return ("verified" if flag else "problem"), {"legacy_flag": bool(flag)}
 
 
 def idle_cash_status(live, config):
@@ -639,8 +787,12 @@ def fast_check(positions, live, as_of, config):
     """Decide whether an hourly run needs deep research."""
     reasons = []
 
-    if not live.get("stop_orders_ok", True):
-        reasons.append("STOP_ORDER_PROBLEM: a required protective order is missing or unconfirmed")
+    prot_state, prot_detail = protection_status(live)
+    if prot_state == "problem":
+        reasons.append(f"STOP_ORDER_PROBLEM: a required protective order is missing or unconfirmed {prot_detail}")
+    elif prot_state == "unknown":
+        reasons.append(f"STOP_VERIFICATION_UNKNOWN: protection was not verified this run ({prot_detail}); "
+                       "unknown is not safe")
     if live.get("new_high_any_position"):
         reasons.append("TRAILING_STOP_DUE: a position made a new high since entry")
     if live.get("position_count_changed"):
@@ -663,6 +815,30 @@ def fast_check(positions, live, as_of, config):
                 "V2_POSITION_RESCORE_DUE: "
                 + ", ".join(missing_v2)
                 + " are meaningful holdings without opportunity_score"
+            )
+
+    reassess = positions_needing_reassessment(
+        positions, as_of, config,
+        min_value_usd=config.get("v2_rescore_min_position_usd", config.get("strategic_position_min_usd", 100.0)),
+    )
+    if reassess["stale"] or reassess["unevidenced"]:
+        reasons.append(
+            "HOLDING_REASSESSMENT_DUE: stale=" + ",".join(reassess["stale"] or ["-"])
+            + " unevidenced=" + ",".join(reassess["unevidenced"] or ["-"])
+            + " (refresh with a real review; do not just bump the date)"
+        )
+
+    # Discovery is independent of cash: any active-market run owes the required sources.
+    disc = None
+    if config.get("discovery"):
+        session = live.get("market_session") or "unknown"
+        disc = _discovery.validate_ledger(live.get("discovery"), config, live.get("now"), session)
+        if not disc["no_requirements_for_session"] and not disc["complete"]:
+            reasons.append(
+                "DISCOVERY_INCOMPLETE: missing=" + ",".join(disc["missing"] or ["-"])
+                + " failed=" + ",".join(disc["failed"] or ["-"])
+                + " stale=" + ",".join(disc["stale"] or ["-"])
+                + " invalid=" + ",".join(disc["invalid"] or ["-"])
             )
 
     cash = idle_cash_status(live, config)
@@ -728,12 +904,18 @@ def fast_check(positions, live, as_of, config):
                 "legacy_old_score_cap_for_opportunity",
                 DEFAULT_LEGACY_OLD_SCORE_CAP_FOR_OPPORTUNITY,
             ),
+            config=config,
         )
-        if verdict["eligible"]:
+        if verdict.get("executable"):
             reasons.append(
                 f"ROTATION_NOW_OPEN: {cand_symbol} opportunity {float(candidate_opp):.3f} "
                 f"clears {verdict['weakest_symbol']} "
                 f"@ {verdict['weakest_effective_opportunity_score']:.3f}"
+            )
+        elif verdict.get("eligible"):
+            reasons.append(
+                f"ROTATION_PENDING: {cand_symbol} clears {verdict['weakest_symbol']} on score but "
+                f"status={verdict['status']}; reassess/reconcile the incumbent, then re-run"
             )
 
     ranking = replaceable_holdings(
@@ -744,12 +926,17 @@ def fast_check(positions, live, as_of, config):
             "legacy_old_score_cap_for_opportunity",
             DEFAULT_LEGACY_OLD_SCORE_CAP_FOR_OPPORTUNITY,
         ),
+        config=config,
     )
     return {
         "actionable": bool(reasons),
         "reasons": reasons,
         "current_ranking": ranking,
+        "holding_status": holding_status_table(positions, as_of, config),
+        "protection": {"state": prot_state, "detail": prot_detail},
+        "discovery": disc,
         "idle_cash": cash,
+        "deployment_work_required": bool(cash["requires_escalation"]),
     }
 
 
@@ -909,6 +1096,7 @@ def main():
                 "legacy_old_score_cap_for_opportunity",
                 DEFAULT_LEGACY_OLD_SCORE_CAP_FOR_OPPORTUNITY,
             ),
+            config=config,
         )
         print(json.dumps(verdict, indent=2))
         return

@@ -178,5 +178,87 @@
       }
     },
     "note": "ASSUMED rates/token profiles - calibrate against the real usage page"
-  }
+  },
+  "workflow_version": "2026-10-14-repair-1",
+  "discovery": {
+    "max_source_age_minutes": 45,
+    "max_data_age_minutes": null,
+    "catalyst_window_overlap_hours": 6,
+    "catalyst_window_max_hours": 72,
+    "seen_event_ttl_hours": 96,
+    "min_news_queries": 4,
+    "required_by_session": {
+      "regular_hours": [
+        "Agentic Catalyst Ignition v2",
+        "Agentic Nuclear Volume v2",
+        "Agentic Explosive Continuation v2",
+        "Agentic Gap Catalyst v2",
+        "Agentic Early Catalyst Fallback v3",
+        "Agentic Cheap Momentum",
+        "Agentic Exceptional Momentum",
+        "Agentic Catalyst Momentum",
+        "earnings_lookback",
+        "news_catalyst_search",
+        "held_and_watch_filings"
+      ],
+      "extended_hours": [
+        "Agentic Catalyst Ignition v2",
+        "Agentic Nuclear Volume v2",
+        "Agentic Explosive Continuation v2",
+        "Agentic Gap Catalyst v2",
+        "Agentic Early Catalyst Fallback v3",
+        "Agentic Cheap Momentum",
+        "Agentic Exceptional Momentum",
+        "Agentic Catalyst Momentum",
+        "earnings_lookback",
+        "news_catalyst_search",
+        "held_and_watch_filings"
+      ],
+      "all_day_hours": [
+        "earnings_lookback",
+        "news_catalyst_search",
+        "held_and_watch_filings"
+      ],
+      "closed": [
+        "earnings_lookback",
+        "news_catalyst_search",
+        "held_and_watch_filings"
+      ]
+    },
+    "scope_statement": "Robinhood saved scanners (top-N rows per scan), market-wide earnings calendar look-back, bounded web news searches, and per-symbol SEC filing index for held/watchlist/candidate names. NOT a continuous or market-wide filing/news feed; Robinhood has no market-wide SEC feed and polling is hourly at best.",
+    "material_price_move_pct": 5.0,
+    "material_rvol_increase": 1.0
+  },
+  "research_budget": {
+    "max_deep_reviews_per_run": 8,
+    "max_deep_reviews_per_run_cash_critical": 12
+  },
+  "holding_reassessment_max_age_trading_days": {
+    "momentum": 1,
+    "durable": 2,
+    "transformational": 3
+  },
+  "execution": {
+    "lease_ttl_minutes": 20,
+    "reconcile_grace_minutes": 5,
+    "require_intent_before_broker_write": true
+  },
+  "market_data_max_age_minutes": {
+    "quotes": 10,
+    "account": 10,
+    "orders": 10
+  },
+  "notification": {
+    "delivery_unknown_after_minutes": 30
+  },
+  "accepted_legacy_exceptions": [
+    {
+      "symbol": "AAPL",
+      "reason": "0.005949 sh fractional dust, owner-acknowledged, unprotected (anomaly aapl-fractional-lot)"
+    },
+    {
+      "symbol": "ANGX",
+      "reason": "4.33 sh fractional owner-requested speculative lot, no feasible protective order (position protective_order_type none_fractional_lot_infeasible)"
+    }
+  ]
 }

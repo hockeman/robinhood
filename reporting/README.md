@@ -83,3 +83,24 @@ Run it on EVERY run (including NO_ACTION) so the cumulative total stays complete
 - A report is `verified_sent` only after independently re-reading it back
   from the mailbox (e.g. Gmail `get_message` on the stored id shows
   `SENT`), not merely because `send_message` returned an id.
+
+## Run evidence, report contents and notification state (added 2026-10-14, workflow_version 2026-10-14-repair-1)
+
+Emails stay material-action (ACTION_UPDATE) and daily-close (DAILY_CLOSE) only — never one per scan. The underlying
+evidence is per run in `runs/<run_id>/` (ledger, raw result refs, candidate records, validator output); the email is
+the readable summary. Every ACTION_UPDATE / DAILY_CLOSE must also state:
+- whether required discovery completed (validator outcome and `discovery X/Y sources ok`; degraded coverage named);
+- new or materially changed candidates, and the strongest rejected or deferred one with its specific reason
+  (budget-deferred is labeled deferred, never "no opportunity");
+- whether a rotation was evaluated or blocked, and why;
+- significant protection / data / execution problems, including accepted legacy exceptions still unprotected
+  (AAPL and ANGX fractional lots are listed as exceptions, never as "protected");
+- the cost line from `cost_estimate.py` — labeled ESTIMATED (assumed token profiles) unless real token counts were
+  recorded with `record-actual`; never presented as billed spend.
+
+Notification state (`scripts/notify_state.py`): delivery states are derived from recorded evidence only —
+`pending` · `failed` · `delivery_unknown` (provider accepted/sent, no mailbox verification) ·
+`delivered_verified` (message id + verification). An HTML file on disk proves nothing. Observed events are
+`pending` until included in an outbox entry, then `reported`; the daily `pending_event_ids` aggregate replaces
+leaving old events permanently pending. `python3 scripts/notify_state.py migrate` is additive and non-destructive and
+is applied to production state by the first compliant run after promotion, not by a maintenance branch.

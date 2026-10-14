@@ -1,0 +1,72 @@
+{
+  "now": "2026-10-14T18:46:00Z",
+  "ny_date": "2026-10-14",
+  "account_value": 6864.7693806,
+  "buying_power": 130.29,
+  "deployable_buying_power": 125.28999999999999,
+  "account_observed_at": "2026-10-14T18:41:54Z",
+  "protection": {
+    "required_symbols": [
+      "APOG",
+      "BKV",
+      "GME",
+      "INTT",
+      "TEVA"
+    ],
+    "verified_symbols": [
+      "APOG",
+      "BKV",
+      "GME",
+      "INTT",
+      "TEVA"
+    ],
+    "accepted_exceptions": [
+      {
+        "symbol": "AAPL",
+        "reason": "0.005949 sh fractional dust, owner-acknowledged, unprotected (anomaly aapl-fractional-lot)"
+      },
+      {
+        "symbol": "ANGX",
+        "reason": "4.33 sh fractional owner-requested speculative lot, no feasible protective order (position protective_order_type none_fractional_lot_infeasible)"
+      }
+    ],
+    "details": {
+      "GME": {
+        "stop_qty": 70.0,
+        "position_qty": 70.0,
+        "stop_prices": [
+          "23.49"
+        ]
+      },
+      "INTT": {
+        "stop_qty": 75.0,
+        "position_qty": 75.0,
+        "stop_prices": [
+          "12.54"
+        ]
+      },
+      "APOG": {
+        "stop_qty": 51.0,
+        "position_qty": 51.0,
+        "stop_prices": [
+          "33.29"
+        ]
+      },
+      "BKV": {
+        "stop_qty": 10.0,
+        "position_qty": 10.0,
+        "stop_prices": [
+          "20.51"
+        ]
+      },
+      "TEVA": {
+        "stop_qty": 37.0,
+        "position_qty": 37.0,
+        "stop_prices": [
+          "35.57"
+        ]
+      }
+    },
+    "checked_at": "2026-10-14T18:46:00Z"
+  }
+}

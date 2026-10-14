@@ -1,0 +1,19 @@
+{
+ "data": {
+  "result": {
+   "scan_title": "Agentic Exceptional Momentum",
+   "total_items": 1,
+   "results": [
+    {
+     "ticker": "LQDA",
+     "columns": {
+      "% Change": 0.2551,
+      "Last": 33.65,
+      "Market cap": 2399700000.0,
+      "Relative volume": 2.26
+     }
+    }
+   ]
+  }
+ }
+}

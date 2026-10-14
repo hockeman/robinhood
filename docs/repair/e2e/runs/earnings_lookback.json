@@ -1,0 +1,216 @@
+{
+ "data": {
+  "results": [
+   {
+    "symbol": "NRIX",
+    "report": {
+     "date": "2026-10-12"
+    },
+    "eps": {
+     "estimate": 3.98,
+     "actual": 4.73
+    }
+   },
+   {
+    "symbol": "GS",
+    "report": {
+     "date": "2026-10-13"
+    },
+    "eps": {
+     "estimate": 13.05,
+     "actual": 17.01
+    }
+   },
+   {
+    "symbol": "UNH",
+    "report": {
+     "date": "2026-10-13"
+    },
+    "eps": {
+     "estimate": 4.14,
+     "actual": 4.69
+    }
+   },
+   {
+    "symbol": "C",
+    "report": {
+     "date": "2026-10-13"
+    },
+    "eps": {
+     "estimate": 2.63,
+     "actual": 2.85
+    }
+   },
+   {
+    "symbol": "DPZ",
+    "report": {
+     "date": "2026-10-13"
+    },
+    "eps": {
+     "estimate": 4.38,
+     "actual": 4.6
+    }
+   },
+   {
+    "symbol": "JPM",
+    "report": {
+     "date": "2026-10-13"
+    },
+    "eps": {
+     "estimate": 5.94,
+     "actual": 5.75
+    }
+   },
+   {
+    "symbol": "JNJ",
+    "report": {
+     "date": "2026-10-13"
+    },
+    "eps": {
+     "estimate": 2.53,
+     "actual": 2.59
+    }
+   },
+   {
+    "symbol": "AZZ",
+    "report": {
+     "date": "2026-10-13"
+    },
+    "eps": {
+     "estimate": 1.84,
+     "actual": 2.0
+    }
+   },
+   {
+    "symbol": "ASML",
+    "report": {
+     "date": "2026-10-14"
+    },
+    "eps": {
+     "estimate": 12.47,
+     "actual": 14.88
+    }
+   },
+   {
+    "symbol": "BLK",
+    "report": {
+     "date": "2026-10-14"
+    },
+    "eps": {
+     "estimate": 14.25,
+     "actual": 15.93
+    }
+   },
+   {
+    "symbol": "MS",
+    "report": {
+     "date": "2026-10-14"
+    },
+    "eps": {
+     "estimate": 2.9,
+     "actual": 3.03
+    }
+   },
+   {
+    "symbol": "PGR",
+    "report": {
+     "date": "2026-10-14"
+    },
+    "eps": {
+     "estimate": 4.37,
+     "actual": 4.6
+    }
+   },
+   {
+    "symbol": "BAC",
+    "report": {
+     "date": "2026-10-14"
+    },
+    "eps": {
+     "estimate": 1.11,
+     "actual": 1.08
+    }
+   },
+   {
+    "symbol": "FAST",
+    "report": {
+     "date": "2026-10-14"
+    },
+    "eps": {
+     "estimate": 0.34,
+     "actual": 0.35
+    }
+   },
+   {
+    "symbol": "WINA",
+    "report": {
+     "date": "2026-10-14"
+    },
+    "eps": {
+     "estimate": 3.23,
+     "actual": 3.21
+    }
+   },
+   {
+    "symbol": "ACI",
+    "report": {
+     "date": "2026-10-13"
+    },
+    "eps": {
+     "estimate": 0.43,
+     "actual": 0.36
+    }
+   },
+   {
+    "symbol": "WFC",
+    "report": {
+     "date": "2026-10-13"
+    },
+    "eps": {
+     "estimate": 1.85,
+     "actual": 1.87
+    }
+   },
+   {
+    "symbol": "FBK",
+    "report": {
+     "date": "2026-10-13"
+    },
+    "eps": {
+     "estimate": 1.21,
+     "actual": 1.21
+    }
+   },
+   {
+    "symbol": "UNTY",
+    "report": {
+     "date": "2026-10-13"
+    },
+    "eps": {
+     "estimate": 1.55,
+     "actual": 1.51
+    }
+   },
+   {
+    "symbol": "STT",
+    "report": {
+     "date": "2026-10-14"
+    },
+    "eps": {
+     "estimate": 3.67,
+     "actual": 3.69
+    }
+   },
+   {
+    "symbol": "SOTK",
+    "report": {
+     "date": "2026-10-14"
+    },
+    "eps": {
+     "estimate": 0.04,
+     "actual": 0.02
+    }
+   }
+  ]
+ }
+}

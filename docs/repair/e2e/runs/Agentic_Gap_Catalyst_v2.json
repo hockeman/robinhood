@@ -1,0 +1,19 @@
+{
+ "data": {
+  "result": {
+   "scan_title": "Agentic Gap Catalyst v2",
+   "total_items": 1,
+   "results": [
+    {
+     "ticker": "TC",
+     "columns": {
+      "% Change": 0.0425,
+      "Last": 1.35,
+      "Market cap": 34200000.0,
+      "Relative volume": 1034.9
+     }
+    }
+   ]
+  }
+ }
+}

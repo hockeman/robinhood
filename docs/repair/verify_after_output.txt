@@ -1,0 +1,14 @@
+== R1 (1.8% cash, no discovery evidence, protection omitted)
+actionable True
+   STOP_VERIFICATION_UNKNOWN: protection was not verified this run (no protection verification supplied); unknown is not safe
+   DISCOVERY_INCOMPLETE: missing=Agentic Catalyst Ignition v2,Agentic Nuclear Volume v2,Agentic Explosive Continuation v2,Agentic Gap Catalyst v2,Agentic
+== R2/R3 real state positions (no broker lots supplied => entry_date fallback = UNVERIFIED)
+replaceable: [('BKV', 0.0, 'assessment=unevidenced', 'lots_verified=False'), ('TEVA', 0.0, 'assessment=unevidenced', 'lots_verified=False'), ('ANGX', 1.0, 'assessment=missing', 'lots_verified=False'), ('GME', 1.19, 'assessment=unevidenced', 'lots_verified=False'), ('APOG', 1.7, 'assessment=unevidenced', 'lots_verified=False'), ('INTT', 1.727, 'assessment=unevidenced', 'lots_verified=False')]
+rotation 6.5 -> REASSESS_INCUMBENT_FIRST eligible True executable False weakest BKV
+needing reassessment: {'missing': ['ANGX'], 'stale': [], 'unevidenced': ['APOG', 'BKV', 'GME', 'INTT', 'TEVA']}
+== R5 boolean completion claim, no evidence
+actionable True
+   STOP_VERIFICATION_UNKNOWN: protection was not verified this run (no protection verification supplied); unknown is not safe
+   V2_POSITION_RESCORE_DUE: ANGX are meaningful holdings without opportunity_score
+   HOLDING_REASSESSMENT_DUE: stale=- unevidenced=APOG,BKV,GME,INTT,TEVA (refresh with a real review; do not just bump the date)
+   DISCOVERY_INCOMPLETE: missing=Agentic Catalyst Ignition v2,Agentic Nuclear Volume v2,Agentic Explosive Continuation v2,Agentic Gap

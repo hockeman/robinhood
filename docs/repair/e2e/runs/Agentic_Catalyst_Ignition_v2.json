@@ -1,0 +1,64 @@
+{
+ "data": {
+  "result": {
+   "scan_title": "Agentic Catalyst Ignition v2",
+   "total_items": 6,
+   "results": [
+    {
+     "ticker": "AEHL",
+     "columns": {
+      "% Change": 1.276,
+      "Last": 19.46,
+      "Market cap": 156100000.0,
+      "Relative volume": 3.1
+     }
+    },
+    {
+     "ticker": "VSTM",
+     "columns": {
+      "% Change": 0.0503,
+      "Last": 7.825,
+      "Market cap": 675400000.0,
+      "Relative volume": 8.49
+     }
+    },
+    {
+     "ticker": "GRML",
+     "columns": {
+      "% Change": 0.1868,
+      "Last": 6.575,
+      "Market cap": 74100000.0,
+      "Relative volume": 14.9
+     }
+    },
+    {
+     "ticker": "KPLT",
+     "columns": {
+      "% Change": 0.1281,
+      "Last": 5.02,
+      "Market cap": 377600000.0,
+      "Relative volume": 3.08
+     }
+    },
+    {
+     "ticker": "GLND",
+     "columns": {
+      "% Change": 0.6695,
+      "Last": 3.69,
+      "Market cap": 96600000.0,
+      "Relative volume": 69.4
+     }
+    },
+    {
+     "ticker": "TV",
+     "columns": {
+      "% Change": 0.0656,
+      "Last": 2.355,
+      "Market cap": 1164800000.0,
+      "Relative volume": 9.89
+     }
+    }
+   ]
+  }
+ }
+}

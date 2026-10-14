@@ -1,0 +1,200 @@
+{
+  "AAPL": {
+    "qty": 0.005949,
+    "lots": [
+      {
+        "qty": 0.005949,
+        "open_date": "2026-09-18",
+        "source": "broker_tax_lots",
+        "selectable": true
+      }
+    ],
+    "sellable_qty": 0.005949,
+    "restricted_qty": 0.0,
+    "unknown_qty": 0.0,
+    "lots_verified": true,
+    "same_day": false,
+    "average_buy_price": "0",
+    "last_price": 343.14,
+    "quote_as_of": "2026-10-14T18:41:54Z",
+    "value_usd": 2.04
+  },
+  "ANGX": {
+    "score": 4,
+    "score_signal_class": "durable",
+    "score_date": "2026-09-23",
+    "entry_date": "2026-09-23",
+    "high_since_entry": 4.8499,
+    "stop_price": null,
+    "qty": 4.329986,
+    "lots": [
+      {
+        "qty": 4.329986,
+        "open_date": "2026-09-23",
+        "source": "broker_tax_lots",
+        "selectable": true
+      }
+    ],
+    "sellable_qty": 4.329986,
+    "restricted_qty": 0.0,
+    "unknown_qty": 0.0,
+    "lots_verified": true,
+    "same_day": false,
+    "average_buy_price": "0",
+    "last_price": 3.555,
+    "quote_as_of": "2026-10-14T18:40:28Z",
+    "value_usd": 15.39
+  },
+  "GME": {
+    "opportunity_score": 3.5,
+    "opportunity_class": "durable",
+    "opportunity_score_date": "2026-10-05",
+    "explosive_upside_score": 4.0,
+    "remaining_upside_score": 3.0,
+    "signal_quality_score": 7,
+    "score": 10,
+    "score_signal_class": "durable",
+    "score_date": "2026-09-28",
+    "entry_date": "2026-10-05",
+    "high_since_entry": 27.98,
+    "stop_price": 23.49,
+    "qty": 70.0,
+    "lots": [
+      {
+        "qty": 70.0,
+        "open_date": "2026-10-05",
+        "source": "broker_tax_lots",
+        "selectable": true
+      }
+    ],
+    "sellable_qty": 70.0,
+    "restricted_qty": 0.0,
+    "unknown_qty": 0.0,
+    "lots_verified": true,
+    "same_day": false,
+    "average_buy_price": "0",
+    "persisted_same_day_ignored": true,
+    "last_price": 27.48,
+    "quote_as_of": "2026-10-14T18:41:45Z",
+    "value_usd": 1923.6
+  },
+  "INTT": {
+    "opportunity_score": 5.08,
+    "opportunity_class": "durable",
+    "opportunity_score_date": "2026-10-05",
+    "explosive_upside_score": 5.4,
+    "remaining_upside_score": 5,
+    "signal_quality_score": 8,
+    "entry_date": "2026-10-05",
+    "high_since_entry": 14.8,
+    "stop_price": 12.54,
+    "qty": 75.0,
+    "lots": [
+      {
+        "qty": 75.0,
+        "open_date": "2026-10-05",
+        "source": "broker_tax_lots",
+        "selectable": true
+      }
+    ],
+    "sellable_qty": 75.0,
+    "restricted_qty": 0.0,
+    "unknown_qty": 0.0,
+    "lots_verified": true,
+    "same_day": false,
+    "average_buy_price": "0",
+    "last_price": 12.93,
+    "quote_as_of": "2026-10-14T18:40:52Z",
+    "value_usd": 969.75
+  },
+  "APOG": {
+    "opportunity_score": 4.25,
+    "opportunity_class": "durable",
+    "opportunity_score_date": "2026-10-07",
+    "explosive_upside_score": 4.55,
+    "remaining_upside_score": 3.5,
+    "signal_quality_score": 9,
+    "entry_date": "2026-10-07",
+    "high_since_entry": 41.22,
+    "stop_price": 33.29,
+    "qty": 51.0,
+    "lots": [
+      {
+        "qty": 51.0,
+        "open_date": "2026-10-07",
+        "source": "broker_tax_lots",
+        "selectable": true
+      }
+    ],
+    "sellable_qty": 51.0,
+    "restricted_qty": 0.0,
+    "unknown_qty": 0.0,
+    "lots_verified": true,
+    "same_day": false,
+    "average_buy_price": "0",
+    "persisted_same_day_ignored": true,
+    "last_price": 40.6,
+    "quote_as_of": "2026-10-14T18:36:52Z",
+    "value_usd": 2070.6
+  },
+  "BKV": {
+    "opportunity_score": 3.755,
+    "opportunity_class": "momentum",
+    "opportunity_score_date": "2026-10-07",
+    "explosive_upside_score": 4.9,
+    "remaining_upside_score": 3.5,
+    "signal_quality_score": 8,
+    "entry_date": "2026-10-07",
+    "high_since_entry": 24.1346,
+    "stop_price": 20.51,
+    "qty": 10.0,
+    "lots": [
+      {
+        "qty": 10.0,
+        "open_date": "2026-10-07",
+        "source": "broker_tax_lots",
+        "selectable": true
+      }
+    ],
+    "sellable_qty": 10.0,
+    "restricted_qty": 0.0,
+    "unknown_qty": 0.0,
+    "lots_verified": true,
+    "same_day": false,
+    "average_buy_price": "0",
+    "persisted_same_day_ignored": true,
+    "last_price": 22.74,
+    "quote_as_of": "2026-10-14T18:41:33Z",
+    "value_usd": 227.4
+  },
+  "TEVA": {
+    "opportunity_score": 3.803,
+    "opportunity_class": "momentum",
+    "opportunity_score_date": "2026-10-09",
+    "explosive_upside_score": 3.45,
+    "remaining_upside_score": 3.0,
+    "signal_quality_score": 8,
+    "entry_date": "2026-10-09",
+    "high_since_entry": 41.93,
+    "stop_price": 35.57,
+    "qty": 37.0,
+    "lots": [
+      {
+        "qty": 37.0,
+        "open_date": "2026-10-09",
+        "source": "broker_tax_lots",
+        "selectable": true
+      }
+    ],
+    "sellable_qty": 37.0,
+    "restricted_qty": 0.0,
+    "unknown_qty": 0.0,
+    "lots_verified": true,
+    "same_day": false,
+    "average_buy_price": "0",
+    "persisted_same_day_ignored": true,
+    "last_price": 41.24,
+    "quote_as_of": "2026-10-14T18:41:53Z",
+    "value_usd": 1525.88
+  }
+}

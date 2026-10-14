@@ -1,0 +1,71 @@
+{
+ "data": {
+  "results": [
+   {
+    "symbol": "LQDA",
+    "filings": [
+     {
+      "form_type": "8-K",
+      "date_filed": "2026-10-13",
+      "filing_id": "bfa0e5e7-a70c-4e30-8f43-148abe10b675"
+     },
+     {
+      "form_type": "4",
+      "count": 6
+     }
+    ]
+   },
+   {
+    "symbol": "VSTM",
+    "filings": [
+     {
+      "form_type": "8-K",
+      "date_filed": "2026-10-14",
+      "filing_id": "fcd93ec8-3cdb-4e2a-98e2-3740c8725078"
+     }
+    ]
+   },
+   {
+    "symbol": "MXCT",
+    "filings": [
+     {
+      "form_type": "8-K",
+      "date_filed": "2026-10-14",
+      "filing_id": "0036c5ca-4b14-49ec-ab89-520ea53841bd"
+     }
+    ]
+   },
+   {
+    "symbol": "GME",
+    "filings": [
+     {
+      "form_type": "4",
+      "count": 2,
+      "date_filed": "2026-10-13"
+     }
+    ]
+   },
+   {
+    "symbol": "INTT",
+    "filings": [
+     {
+      "form_type": "4",
+      "date_filed": "2026-10-13"
+     }
+    ]
+   },
+   {
+    "symbol": "APOG",
+    "filings": []
+   },
+   {
+    "symbol": "BKV",
+    "filings": []
+   },
+   {
+    "symbol": "TEVA",
+    "filings": []
+   }
+  ]
+ }
+}

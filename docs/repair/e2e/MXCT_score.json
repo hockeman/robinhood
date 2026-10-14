@@ -1,0 +1,27 @@
+{
+ "symbol": "MXCT",
+ "eligible": false,
+ "signal_quality_score": 8.0,
+ "explosive_upside_score": 4.0,
+ "remaining_upside_score": 3.5,
+ "opportunity_score": 3.2,
+ "risk_penalty": 1.2,
+ "target_50_assessment": "implausible",
+ "target_100_assessment": "implausible",
+ "opportunity_tier": "reject",
+ "cash_deployment_eligible": false,
+ "cash_deployment_reasons": [
+  "opportunity_score 3.20 < tactical 3.50"
+ ],
+ "best_available_eligible": true,
+ "best_available_reasons": [],
+ "deployment_tier": "best_available",
+ "transformational": false,
+ "continuation_confirmed": false,
+ "chase_pct": 30.7,
+ "reasons": [
+  "explosive_upside_score 4.00 < 5.00",
+  "remaining_upside_score 3.50 < 4.00",
+  "opportunity_score 3.20 < 5.00"
+ ]
+}

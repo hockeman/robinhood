@@ -1,0 +1,26 @@
+{
+ "symbol": "LQDA",
+ "eligible": false,
+ "signal_quality_score": 7.0,
+ "explosive_upside_score": 4.7,
+ "remaining_upside_score": 4.0,
+ "opportunity_score": 3.265,
+ "risk_penalty": 1.5,
+ "target_50_assessment": "implausible",
+ "target_100_assessment": "implausible",
+ "opportunity_tier": "reject",
+ "cash_deployment_eligible": false,
+ "cash_deployment_reasons": [
+  "opportunity_score 3.27 < tactical 3.50"
+ ],
+ "best_available_eligible": true,
+ "best_available_reasons": [],
+ "deployment_tier": "best_available",
+ "transformational": false,
+ "continuation_confirmed": false,
+ "chase_pct": 25.5,
+ "reasons": [
+  "explosive_upside_score 4.70 < 5.00",
+  "opportunity_score 3.27 < 5.00"
+ ]
+}

@@ -254,7 +254,7 @@
   "accepted_legacy_exceptions": [
     {
       "symbol": "AAPL",
-      "reason": "0.005949 sh fractional dust, owner-acknowledged, unprotected (anomaly aapl-fractional-lot)"
+      "reason": "0.005949 sh fractional dust, unprotected; owner acknowledgment recorded in state anomaly aapl-fractional-lot but UNVERIFIED by any later session"
     },
     {
       "symbol": "ANGX",

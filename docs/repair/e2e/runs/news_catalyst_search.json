@@ -1,0 +1,30 @@
+{
+ "data": {
+  "articles": [
+   {
+    "query": "Liquidia LQDA stock surges October 14 2026",
+    "outcome": "no same-day article; older moves only"
+   },
+   {
+    "query": "Verastem VSTM news October 2026",
+    "outcome": "Q2 results, Oct-2 RAMP 201 analyses, VS-7375 update expected Oct; no same-day catalyst found"
+   },
+   {
+    "query": "MaxCyte MXCT shares jump October 14 2026",
+    "outcome": "no same-day article; spam pages"
+   },
+   {
+    "query": "small-cap biggest movers FDA OR acquisition OR contract Oct 14 2026",
+    "outcome": "no same-day coverage"
+   },
+   {
+    "query": "Liquidia announces October 13 2026 press release (extended)",
+    "outcome": "FOUND: global UTHR settlement 2026-10-13 (liquidia.com, GlobeNewswire)"
+   },
+   {
+    "query": "MaxCyte announces October 2026 press release agreement (extended)",
+    "outcome": "FOUND: prelim Q3 revenue + raised FY26 guidance 2026-10-14 (SEC ex99.1)"
+   }
+  ]
+ }
+}

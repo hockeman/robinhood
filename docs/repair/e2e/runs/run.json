@@ -1,0 +1,1119 @@
+{
+  "run": {
+    "run_id": "2026-10-14T1846Z",
+    "now": "2026-10-14T18:46:00Z",
+    "market_session": "regular_hours",
+    "manifest": {
+      "workflow_version_code": "2026-10-14-repair-1",
+      "branch": "claude/trading-state",
+      "commit": "5ba2ada0493de599ae20152de3efc4c147c593db",
+      "origin_tip": "5ba2ada0493de599ae20152de3efc4c147c593db",
+      "hashes": {
+        "AGENT.md": "9abc99436c72fec712af8262566f760ffc08c67a2c21b3974b43dd2557d33f98",
+        "WORKFLOW.md": "c39fc468bb831ada118f0ff64e8088d2d1bd5b2d663ca4d172ed8d03a21e1b87",
+        "EXECUTION.md": "81b4e5851fb8c3cb4d9e4176b939bb3beae41e22707129ff33c024ff7946686e",
+        "PERSISTENCE.md": "0191099a872517cc166e952a32b12106ac94195d02aaff992f8e05145564a3b1",
+        "config.json": "c0aef8185946a6f6e5d4840df822ba48b73f2e20e2350a53a6157ae34eef4c36",
+        "scripts/scoring.py": "0d241698c2c4e5ab7d3b2aeb71fa52d0a829220d15d1edb89e7558ef6f5c14bb",
+        "scripts/run_complete.py": "94c1ea5d45a293240d4d38f3b1345af6cb4926c57b30bde8a32974c3e740cdee"
+      },
+      "workflow_version": "2026-10-14-repair-1",
+      "validator_selftest": "INVALID_RUN_RECORD",
+      "ok": true,
+      "problems": []
+    },
+    "account": {
+      "observed_at": "2026-10-14T18:41:54Z",
+      "account_value": 6864.7693806,
+      "buying_power": 130.29,
+      "deployable_buying_power": 125.28999999999999
+    },
+    "protection": {
+      "required_symbols": [
+        "APOG",
+        "BKV",
+        "GME",
+        "INTT",
+        "TEVA"
+      ],
+      "verified_symbols": [
+        "APOG",
+        "BKV",
+        "GME",
+        "INTT",
+        "TEVA"
+      ],
+      "accepted_exceptions": [
+        {
+          "symbol": "AAPL",
+          "reason": "0.005949 sh fractional dust, owner-acknowledged, unprotected (anomaly aapl-fractional-lot)"
+        },
+        {
+          "symbol": "ANGX",
+          "reason": "4.33 sh fractional owner-requested speculative lot, no feasible protective order (position protective_order_type none_fractional_lot_infeasible)"
+        }
+      ],
+      "details": {
+        "GME": {
+          "stop_qty": 70.0,
+          "position_qty": 70.0,
+          "stop_prices": [
+            "23.49"
+          ]
+        },
+        "INTT": {
+          "stop_qty": 75.0,
+          "position_qty": 75.0,
+          "stop_prices": [
+            "12.54"
+          ]
+        },
+        "APOG": {
+          "stop_qty": 51.0,
+          "position_qty": 51.0,
+          "stop_prices": [
+            "33.29"
+          ]
+        },
+        "BKV": {
+          "stop_qty": 10.0,
+          "position_qty": 10.0,
+          "stop_prices": [
+            "20.51"
+          ]
+        },
+        "TEVA": {
+          "stop_qty": 37.0,
+          "position_qty": 37.0,
+          "stop_prices": [
+            "35.57"
+          ]
+        }
+      },
+      "checked_at": "2026-10-14T18:46:00Z"
+    },
+    "positions": {
+      "AAPL": {
+        "qty": 0.005949,
+        "lots": [
+          {
+            "qty": 0.005949,
+            "open_date": "2026-09-18",
+            "source": "broker_tax_lots",
+            "selectable": true
+          }
+        ],
+        "sellable_qty": 0.005949,
+        "restricted_qty": 0.0,
+        "unknown_qty": 0.0,
+        "lots_verified": true,
+        "same_day": false,
+        "average_buy_price": "0",
+        "last_price": 343.14,
+        "quote_as_of": "2026-10-14T18:41:54Z",
+        "value_usd": 2.04
+      },
+      "ANGX": {
+        "score": 4,
+        "score_signal_class": "durable",
+        "score_date": "2026-09-23",
+        "entry_date": "2026-09-23",
+        "high_since_entry": 4.8499,
+        "stop_price": null,
+        "qty": 4.329986,
+        "lots": [
+          {
+            "qty": 4.329986,
+            "open_date": "2026-09-23",
+            "source": "broker_tax_lots",
+            "selectable": true
+          }
+        ],
+        "sellable_qty": 4.329986,
+        "restricted_qty": 0.0,
+        "unknown_qty": 0.0,
+        "lots_verified": true,
+        "same_day": false,
+        "average_buy_price": "0",
+        "last_price": 3.555,
+        "quote_as_of": "2026-10-14T18:40:28Z",
+        "value_usd": 15.39
+      },
+      "GME": {
+        "opportunity_score": 3.5,
+        "opportunity_class": "durable",
+        "opportunity_score_date": "2026-10-05",
+        "explosive_upside_score": 4.0,
+        "remaining_upside_score": 3.0,
+        "signal_quality_score": 7,
+        "score": 10,
+        "score_signal_class": "durable",
+        "score_date": "2026-09-28",
+        "entry_date": "2026-10-05",
+        "high_since_entry": 27.98,
+        "stop_price": 23.49,
+        "qty": 70.0,
+        "lots": [
+          {
+            "qty": 70.0,
+            "open_date": "2026-10-05",
+            "source": "broker_tax_lots",
+            "selectable": true
+          }
+        ],
+        "sellable_qty": 70.0,
+        "restricted_qty": 0.0,
+        "unknown_qty": 0.0,
+        "lots_verified": true,
+        "same_day": false,
+        "average_buy_price": "0",
+        "persisted_same_day_ignored": true,
+        "last_price": 27.48,
+        "quote_as_of": "2026-10-14T18:41:45Z",
+        "value_usd": 1923.6
+      },
+      "INTT": {
+        "opportunity_score": 5.08,
+        "opportunity_class": "durable",
+        "opportunity_score_date": "2026-10-05",
+        "explosive_upside_score": 5.4,
+        "remaining_upside_score": 5,
+        "signal_quality_score": 8,
+        "entry_date": "2026-10-05",
+        "high_since_entry": 14.8,
+        "stop_price": 12.54,
+        "qty": 75.0,
+        "lots": [
+          {
+            "qty": 75.0,
+            "open_date": "2026-10-05",
+            "source": "broker_tax_lots",
+            "selectable": true
+          }
+        ],
+        "sellable_qty": 75.0,
+        "restricted_qty": 0.0,
+        "unknown_qty": 0.0,
+        "lots_verified": true,
+        "same_day": false,
+        "average_buy_price": "0",
+        "last_price": 12.93,
+        "quote_as_of": "2026-10-14T18:40:52Z",
+        "value_usd": 969.75
+      },
+      "APOG": {
+        "opportunity_score": 4.25,
+        "opportunity_class": "durable",
+        "opportunity_score_date": "2026-10-07",
+        "explosive_upside_score": 4.55,
+        "remaining_upside_score": 3.5,
+        "signal_quality_score": 9,
+        "entry_date": "2026-10-07",
+        "high_since_entry": 41.22,
+        "stop_price": 33.29,
+        "qty": 51.0,
+        "lots": [
+          {
+            "qty": 51.0,
+            "open_date": "2026-10-07",
+            "source": "broker_tax_lots",
+            "selectable": true
+          }
+        ],
+        "sellable_qty": 51.0,
+        "restricted_qty": 0.0,
+        "unknown_qty": 0.0,
+        "lots_verified": true,
+        "same_day": false,
+        "average_buy_price": "0",
+        "persisted_same_day_ignored": true,
+        "last_price": 40.6,
+        "quote_as_of": "2026-10-14T18:36:52Z",
+        "value_usd": 2070.6
+      },
+      "BKV": {
+        "opportunity_score": 3.755,
+        "opportunity_class": "momentum",
+        "opportunity_score_date": "2026-10-07",
+        "explosive_upside_score": 4.9,
+        "remaining_upside_score": 3.5,
+        "signal_quality_score": 8,
+        "entry_date": "2026-10-07",
+        "high_since_entry": 24.1346,
+        "stop_price": 20.51,
+        "qty": 10.0,
+        "lots": [
+          {
+            "qty": 10.0,
+            "open_date": "2026-10-07",
+            "source": "broker_tax_lots",
+            "selectable": true
+          }
+        ],
+        "sellable_qty": 10.0,
+        "restricted_qty": 0.0,
+        "unknown_qty": 0.0,
+        "lots_verified": true,
+        "same_day": false,
+        "average_buy_price": "0",
+        "persisted_same_day_ignored": true,
+        "last_price": 22.74,
+        "quote_as_of": "2026-10-14T18:41:33Z",
+        "value_usd": 227.4
+      },
+      "TEVA": {
+        "opportunity_score": 3.803,
+        "opportunity_class": "momentum",
+        "opportunity_score_date": "2026-10-09",
+        "explosive_upside_score": 3.45,
+        "remaining_upside_score": 3.0,
+        "signal_quality_score": 8,
+        "entry_date": "2026-10-09",
+        "high_since_entry": 41.93,
+        "stop_price": 35.57,
+        "qty": 37.0,
+        "lots": [
+          {
+            "qty": 37.0,
+            "open_date": "2026-10-09",
+            "source": "broker_tax_lots",
+            "selectable": true
+          }
+        ],
+        "sellable_qty": 37.0,
+        "restricted_qty": 0.0,
+        "unknown_qty": 0.0,
+        "lots_verified": true,
+        "same_day": false,
+        "average_buy_price": "0",
+        "persisted_same_day_ignored": true,
+        "last_price": 41.24,
+        "quote_as_of": "2026-10-14T18:41:53Z",
+        "value_usd": 1525.88
+      }
+    },
+    "holdings_reassessed": [],
+    "discovery": {
+      "run_id": "2026-10-14T1846Z",
+      "sources": [
+        {
+          "source_id": "Agentic Catalyst Ignition v2",
+          "kind": "scanner",
+          "params": {
+            "saved_scan_title": "Agentic Catalyst Ignition v2"
+          },
+          "requested_at": "2026-10-14T18:42:30Z",
+          "observed_at": "2026-10-14T18:43:00Z",
+          "data_as_of": "2026-10-14T18:43:00Z",
+          "coverage_note": "saved-scanner snapshot at request time; rows are a compact transcription of the returned list (ticker,%chg,last,mcap,RVOL); not market-wide; no history between runs",
+          "error": null,
+          "status": "success",
+          "returned_count": 6,
+          "result_ref": "runs/2026-10-14T1846Z/Agentic_Catalyst_Ignition_v2.json",
+          "result_sha256": "74e2004372743990069971e39802340b2a49622ba9929d3380865e3734033eab"
+        },
+        {
+          "source_id": "Agentic Nuclear Volume v2",
+          "kind": "scanner",
+          "params": {
+            "saved_scan_title": "Agentic Nuclear Volume v2"
+          },
+          "requested_at": "2026-10-14T18:42:30Z",
+          "observed_at": "2026-10-14T18:43:00Z",
+          "data_as_of": "2026-10-14T18:43:00Z",
+          "coverage_note": "saved-scanner snapshot at request time; rows are a compact transcription of the returned list (ticker,%chg,last,mcap,RVOL); not market-wide; no history between runs",
+          "error": null,
+          "status": "success",
+          "returned_count": 11,
+          "result_ref": "runs/2026-10-14T1846Z/Agentic_Nuclear_Volume_v2.json",
+          "result_sha256": "9c8729c370c2e7949117fad460fed98970d2b8281ab94b8d0ac88324e1840605"
+        },
+        {
+          "source_id": "Agentic Explosive Continuation v2",
+          "kind": "scanner",
+          "params": {
+            "saved_scan_title": "Agentic Explosive Continuation v2"
+          },
+          "requested_at": "2026-10-14T18:42:30Z",
+          "observed_at": "2026-10-14T18:43:00Z",
+          "data_as_of": "2026-10-14T18:43:00Z",
+          "coverage_note": "saved-scanner snapshot at request time; rows are a compact transcription of the returned list (ticker,%chg,last,mcap,RVOL); not market-wide; no history between runs",
+          "error": null,
+          "status": "success",
+          "returned_count": 2,
+          "result_ref": "runs/2026-10-14T1846Z/Agentic_Explosive_Continuation_v2.json",
+          "result_sha256": "de2b7f4e0cb77daf7d66362e2d7827248ac2f4a644ec5b5c76f52bd4a2ef28bf"
+        },
+        {
+          "source_id": "Agentic Gap Catalyst v2",
+          "kind": "scanner",
+          "params": {
+            "saved_scan_title": "Agentic Gap Catalyst v2"
+          },
+          "requested_at": "2026-10-14T18:42:30Z",
+          "observed_at": "2026-10-14T18:43:00Z",
+          "data_as_of": "2026-10-14T18:43:00Z",
+          "coverage_note": "saved-scanner snapshot at request time; rows are a compact transcription of the returned list (ticker,%chg,last,mcap,RVOL); not market-wide; no history between runs",
+          "error": null,
+          "status": "success",
+          "returned_count": 1,
+          "result_ref": "runs/2026-10-14T1846Z/Agentic_Gap_Catalyst_v2.json",
+          "result_sha256": "846d185772d418dc72d497edeeb39d1cd8f6b9535ff7c6ca79ccfda7910ab39f"
+        },
+        {
+          "source_id": "Agentic Early Catalyst Fallback v3",
+          "kind": "scanner",
+          "params": {
+            "saved_scan_title": "Agentic Early Catalyst Fallback v3"
+          },
+          "requested_at": "2026-10-14T18:42:30Z",
+          "observed_at": "2026-10-14T18:43:00Z",
+          "data_as_of": "2026-10-14T18:43:00Z",
+          "coverage_note": "saved-scanner snapshot at request time; rows are a compact transcription of the returned list (ticker,%chg,last,mcap,RVOL); not market-wide; no history between runs",
+          "error": null,
+          "status": "success",
+          "returned_count": 17,
+          "result_ref": "runs/2026-10-14T1846Z/Agentic_Early_Catalyst_Fallback_v3.json",
+          "result_sha256": "a8360c5ba0526a509b533c6a95adc52978726a8f8809de99030c0182468e99e8"
+        },
+        {
+          "source_id": "Agentic Cheap Momentum",
+          "kind": "scanner",
+          "params": {
+            "saved_scan_title": "Agentic Cheap Momentum"
+          },
+          "requested_at": "2026-10-14T18:42:30Z",
+          "observed_at": "2026-10-14T18:43:00Z",
+          "data_as_of": "2026-10-14T18:43:00Z",
+          "coverage_note": "saved-scanner snapshot at request time; rows are a compact transcription of the returned list (ticker,%chg,last,mcap,RVOL); not market-wide; no history between runs",
+          "error": null,
+          "status": "successful_empty",
+          "returned_count": 0,
+          "result_ref": "runs/2026-10-14T1846Z/Agentic_Cheap_Momentum.json",
+          "result_sha256": "d93b3d1e0f038fe69e105d3bcc0687566318e166ae4051a3d0c574d1789d05a5"
+        },
+        {
+          "source_id": "Agentic Exceptional Momentum",
+          "kind": "scanner",
+          "params": {
+            "saved_scan_title": "Agentic Exceptional Momentum"
+          },
+          "requested_at": "2026-10-14T18:42:30Z",
+          "observed_at": "2026-10-14T18:43:00Z",
+          "data_as_of": "2026-10-14T18:43:00Z",
+          "coverage_note": "saved-scanner snapshot at request time; rows are a compact transcription of the returned list (ticker,%chg,last,mcap,RVOL); not market-wide; no history between runs",
+          "error": null,
+          "status": "success",
+          "returned_count": 1,
+          "result_ref": "runs/2026-10-14T1846Z/Agentic_Exceptional_Momentum.json",
+          "result_sha256": "cd5b4eeb317320fcabe0c448512a307bbaac6bbaeb472ed877613a43dd2edc85"
+        },
+        {
+          "source_id": "Agentic Catalyst Momentum",
+          "kind": "scanner",
+          "params": {
+            "saved_scan_title": "Agentic Catalyst Momentum"
+          },
+          "requested_at": "2026-10-14T18:42:30Z",
+          "observed_at": "2026-10-14T18:43:00Z",
+          "data_as_of": "2026-10-14T18:43:00Z",
+          "coverage_note": "saved-scanner snapshot at request time; rows are a compact transcription of the returned list (ticker,%chg,last,mcap,RVOL); not market-wide; no history between runs",
+          "error": null,
+          "status": "success",
+          "returned_count": 13,
+          "result_ref": "runs/2026-10-14T1846Z/Agentic_Catalyst_Momentum.json",
+          "result_sha256": "d292921408ac69776e4bdd1b55784a5f72e42b68b1653b07fb2423d2a0c309c4"
+        },
+        {
+          "source_id": "earnings_lookback",
+          "kind": "earnings_calendar",
+          "params": {
+            "start_date": "2026-10-14",
+            "days": -3
+          },
+          "requested_at": "2026-10-14T18:43:10Z",
+          "observed_at": "2026-10-14T18:43:20Z",
+          "data_as_of": null,
+          "coverage_note": "market-wide earnings calendar look-back 3 days (compact transcription of 21 of 40 rows: reported names with actual EPS); reports EPS only, not guidance/revenue",
+          "error": null,
+          "status": "success",
+          "returned_count": 21,
+          "result_ref": "runs/2026-10-14T1846Z/earnings_lookback.json",
+          "result_sha256": "5a2e25aca5d7e560d4e0950a4902a09ea25c751c1ec2981d6f854b22226b1779"
+        },
+        {
+          "source_id": "news_catalyst_search",
+          "kind": "web_search",
+          "params": {
+            "queries": 6,
+            "mode": "standard x4 + extended x2"
+          },
+          "requested_at": "2026-10-14T18:43:30Z",
+          "observed_at": "2026-10-14T18:45:30Z",
+          "data_as_of": null,
+          "coverage_note": "bounded web search, sampled not exhaustive; weak for same-day news (4 of 6 queries returned nothing same-day); not a news feed",
+          "error": null,
+          "status": "success",
+          "returned_count": 6,
+          "result_ref": "runs/2026-10-14T1846Z/news_catalyst_search.json",
+          "result_sha256": "c96b19d132198bd67b6cf7530cdac9fe095436798d9f618fb09b1e03e5188850"
+        },
+        {
+          "source_id": "held_and_watch_filings",
+          "kind": "sec_filing_index",
+          "params": {
+            "since": "2026-10-11",
+            "symbols": [
+              "LQDA",
+              "VSTM",
+              "MXCT",
+              "GME",
+              "INTT",
+              "APOG",
+              "BKV",
+              "TEVA"
+            ]
+          },
+          "requested_at": "2026-10-14T18:43:40Z",
+          "observed_at": "2026-10-14T18:44:10Z",
+          "data_as_of": null,
+          "coverage_note": "per-symbol index only (no market-wide feed); filing CONTENT unavailable via API (404) for LQDA/VSTM/MXCT 8-Ks; AAPL/ANGX not checked (dust)",
+          "error": null,
+          "status": "success",
+          "returned_count": 8,
+          "result_ref": "runs/2026-10-14T1846Z/held_and_watch_filings.json",
+          "result_sha256": "1c46e1d2a09fa59058510c356049a33add8e656cff7c2bb8de6373596e8a647a"
+        }
+      ]
+    },
+    "catalyst_window": {
+      "since": "2026-10-14T11:15:00+00:00",
+      "until": "2026-10-14T18:46:00Z"
+    },
+    "catalyst_seen": {
+      "filing_id:bfa0e5e7-a70c-4e30-8f43-148abe10b675": "2026-10-14T18:46:00Z",
+      "filing_id:0036c5ca-4b14-49ec-ab89-520ea53841bd": "2026-10-14T18:46:00Z",
+      "filing_id:fcd93ec8-3cdb-4e2a-98e2-3740c8725078": "2026-10-14T18:46:00Z"
+    },
+    "research": {
+      "reviewed": [
+        {
+          "symbol": "LQDA",
+          "discovery_source": "news_catalyst_search (extended query) + Fallback v3/Exceptional Momentum scans",
+          "first_observed_at": "2026-10-14T18:43:00Z",
+          "quote_as_of": "2026-10-14T18:43:10Z",
+          "catalyst_status": "verified",
+          "catalyst_refs": [
+            "Liquidia global settlement with United Therapeutics, company release 2026-10-13 (GlobeNewswire copy via financialcontent.com; liquidia.com returned 403)",
+            "8-K filed 2026-10-13 bfa0e5e7 (index only; content 404 via API)"
+          ],
+          "facts": [
+            "Net $380.7M settlement of all pending litigation; $175M net due within 30 business days, $60.3M in Oct 2026, two $72.7M installments Jan/Apr 2027 (release's own figures do not sum exactly)",
+            "Company says funded from YUTREPIA sales and cash on hand 'without requiring additional financing'",
+            "Cash $396.1M at 2026-09-30; preliminary Q3 YUTREPIA net sales $222.7M; PH-ILD indication to be removed from label",
+            "Quote 33.65 vs prev close 26.81 (+25.5%); day open 35.63, high 38.64 (now 12.9% below high); 52w high 93.61 (Aug); spread 0.12%; volume 17.2M vs 30d avg 5.0M"
+          ],
+          "inferences": [
+            "Removes litigation overhang; stock remains ~64% below Aug high so a re-rating is conceivable",
+            "Fade from the 38.64 high suggests the news was partly priced and sellers are active (inference, VWAP unavailable)"
+          ],
+          "unknowns": [
+            "Short interest, VWAP, time-normalized volume",
+            "Whether 8-K contains terms beyond the press release",
+            "Source mismatch: scan market cap $2.4B vs fundamentals $3.0B"
+          ],
+          "dilution_check": "Company states no additional financing needed; settlement consumes a large share of cash (~$235M near-term of $396M) - dilution risk scored 3, not 0",
+          "adverse_info_check": "8-K index checked; Form 4s 2026-10-13 are routine tax-withholding style sales per search snippet (unverified); no offering found in sources read",
+          "score_inputs": {
+            "symbol": "LQDA",
+            "signal_quality_score": 7,
+            "catalyst_magnitude_score": 6,
+            "volume_price_discovery_score": 5,
+            "structure_squeeze_score": 1,
+            "remaining_upside_score": 4,
+            "dilution_risk_score": 3,
+            "exhaustion_risk_score": 5,
+            "primary_source_verified": true,
+            "catalyst_verified": true,
+            "transformational": false,
+            "continuation_confirmed": false,
+            "chase_pct": 25.5,
+            "live_heat_verified": false,
+            "market_catalyst_verified": false,
+            "disqualifier": false
+          },
+          "score_output": {
+            "opportunity_score": 3.265,
+            "explosive_upside_score": 4.7,
+            "remaining_upside_score": 4.0,
+            "eligible": false,
+            "cash_deployment_eligible": false,
+            "best_available_eligible": true,
+            "deployment_tier": "best_available",
+            "target_50_assessment": "implausible",
+            "target_100_assessment": "implausible"
+          },
+          "remaining_upside_case": "Litigation overhang removed and no financing needed could support recovery toward earlier levels; but the entry is after a +25% day with the price fading from the high",
+          "strongest_counterargument": "Cash falls sharply, label loses PH-ILD, and most of the news was priced into a +25-40% move; remaining upside from here is unproven",
+          "invalidation_conditions": [
+            "Offering/ATM announced",
+            "Price loses the 2026-10-13 close region (26.81)",
+            "8-K shows terms materially worse than the release"
+          ],
+          "decision": "reject",
+          "decision_reasons": [
+            "opportunity_score 3.265 < standard gate 5.0 and < tactical 3.5; explosive_upside 4.7 < 5.0",
+            "best_available tier only (3.265 >= 2.5): usable for idle-cash deployment, which is NOT triggered (1.82% < 2.5%); below rotation min 5.0 so no rotation",
+            "continuation not confirmed: faded 12.9% from the session high"
+          ],
+          "reconsider_trigger": "Re-score if price holds above 36 with RVOL>=3 for 2 consecutive runs, or if the 8-K reveals terms that raise remaining upside",
+          "reconsider_expiry": "2026-10-17",
+          "snapshot": {
+            "price": 33.65,
+            "rvol": 3.4,
+            "filing_ids": [
+              "bfa0e5e7-a70c-4e30-8f43-148abe10b675"
+            ],
+            "news_keys": []
+          }
+        },
+        {
+          "symbol": "MXCT",
+          "discovery_source": "Nuclear Volume v2 / Continuation v2 scans",
+          "first_observed_at": "2026-10-14T18:43:00Z",
+          "quote_as_of": "2026-10-14T18:43:09Z",
+          "catalyst_status": "verified",
+          "catalyst_refs": [
+            "MaxCyte company release 2026-10-14, SEC Form 8-K Ex. 99.1 (sec.gov .../000110465926115745/tm2627568d1_ex99-1.htm), fetched",
+            "8-K filed 2026-10-14 0036c5ca (index)"
+          ],
+          "facts": [
+            "Prelim Q3 core revenue ~$8.1M (+26% y/y); FY26 total revenue guidance ~ $34M vs prior $30-32M; core guide ~$28M vs $25-27M",
+            "Release states Q3 outperformance came from accelerated purchasing by a large customer originally expected in Q4; H2 core growth ~15% y/y",
+            "Quote 1.26 vs prev close 0.9643 (+30.7%); open 1.225 high 1.33 low 1.195; spread 1.26/1.27; volume 11.6M vs 30d avg 332k (~35x); 52w high 1.865"
+          ],
+          "inferences": [
+            "Guidance raise is modest and largely timing (pull-forward from Q4) rather than a step-change in economics",
+            "Stock holding near highs on huge volume = real price discovery, not a failed spike (VWAP unavailable)"
+          ],
+          "unknowns": [
+            "Cash balance, runway, buyback details (release is silent)",
+            "Short interest/float structure",
+            "Whether an offering follows the pop"
+          ],
+          "dilution_check": "Not addressed in the release; cash/financing UNKNOWN (scored dilution 3 as unknown-moderate, not 'none')",
+          "adverse_info_check": "8-K index only; no adverse item found; sources read were company release only",
+          "score_inputs": {
+            "symbol": "MXCT",
+            "signal_quality_score": 8,
+            "catalyst_magnitude_score": 4,
+            "volume_price_discovery_score": 6,
+            "structure_squeeze_score": 1,
+            "remaining_upside_score": 3.5,
+            "dilution_risk_score": 3,
+            "exhaustion_risk_score": 3,
+            "primary_source_verified": true,
+            "catalyst_verified": true,
+            "transformational": false,
+            "continuation_confirmed": false,
+            "chase_pct": 30.7,
+            "live_heat_verified": true,
+            "market_catalyst_verified": false,
+            "disqualifier": false
+          },
+          "score_output": {
+            "opportunity_score": 3.2,
+            "explosive_upside_score": 4.0,
+            "remaining_upside_score": 3.5,
+            "eligible": false,
+            "cash_deployment_eligible": false,
+            "best_available_eligible": true,
+            "deployment_tier": "best_available",
+            "target_50_assessment": "implausible",
+            "target_100_assessment": "implausible"
+          },
+          "remaining_upside_case": "Revenue guide raised with two pivotal partner trials possibly approving next year; micro-cap with 35x volume could extend",
+          "strongest_counterargument": "A one-quarter pull-forward on a loss-making company, already +31% on the day, pushes remaining upside close to nil and cash is unknown",
+          "invalidation_conditions": [
+            "Equity offering after the pop",
+            "Price back under 1.12 (open-gap fill)",
+            "Q4 pull-forward reversal on the Nov 10 call"
+          ],
+          "decision": "reject",
+          "decision_reasons": [
+            "opportunity_score 3.20 < standard 5.0 and < tactical 3.5; explosive 4.0 < 5.0; remaining 3.5 < 4.0",
+            "best_available only; idle-cash deployment not triggered; below rotation min 5.0",
+            "chase 30.7% with continuation unconfirmed"
+          ],
+          "reconsider_trigger": "Re-score on a fresh primary-source catalyst or if cash/runway is verified strong and price holds >1.30 with RVOL>=3",
+          "reconsider_expiry": "2026-10-17",
+          "snapshot": {
+            "price": 1.26,
+            "rvol": 35.0,
+            "filing_ids": [
+              "0036c5ca-4b14-49ec-ab89-520ea53841bd"
+            ],
+            "news_keys": []
+          }
+        },
+        {
+          "symbol": "VSTM",
+          "discovery_source": "Ignition/Nuclear/Fallback scans",
+          "first_observed_at": "2026-10-14T18:43:00Z",
+          "quote_as_of": "2026-10-14T18:43:13Z",
+          "catalyst_status": "unverified",
+          "catalyst_refs": [
+            "8-K filed 2026-10-14 fcd93ec8 (index only; content 404 via API)"
+          ],
+          "facts": [
+            "+4.8% (7.45->7.805), day range 6.705-8.955, open 8.0; volume 29.1M vs 30d avg 2.5M (~11.5x)",
+            "Public context from search: Oct-2 RAMP 201 analyses; VS-7375 clinical update expected in October; BTIG Buy/$18 (Oct 5)",
+            "Oberland royalty financing (Aug) extends runway into 2H27 per search summary"
+          ],
+          "inferences": [
+            "The 8-K today may be the October VS-7375 update, which would be a real catalyst (UNVERIFIED inference)"
+          ],
+          "unknowns": [
+            "Contents of today's 8-K",
+            "Whether the intraday plunge to 6.705 and recovery reflects news",
+            "VWAP, short interest"
+          ],
+          "dilution_check": "Royalty financing noted in search summary; no offering found; not verified from filings",
+          "adverse_info_check": "No adverse item identified; the filing content itself unread",
+          "score_inputs": {
+            "symbol": "VSTM",
+            "signal_quality_score": 3,
+            "catalyst_magnitude_score": 4,
+            "volume_price_discovery_score": 6,
+            "structure_squeeze_score": 3,
+            "remaining_upside_score": 3,
+            "dilution_risk_score": 4,
+            "exhaustion_risk_score": 5,
+            "primary_source_verified": false,
+            "catalyst_verified": false,
+            "transformational": false,
+            "continuation_confirmed": false,
+            "chase_pct": 4.8,
+            "live_heat_verified": true,
+            "market_catalyst_verified": false,
+            "disqualifier": false
+          },
+          "score_output": {
+            "opportunity_score": 1.88,
+            "explosive_upside_score": 4.4,
+            "remaining_upside_score": 3.0,
+            "eligible": false,
+            "cash_deployment_eligible": false,
+            "best_available_eligible": false,
+            "deployment_tier": "reject",
+            "target_50_assessment": "implausible",
+            "target_100_assessment": "implausible"
+          },
+          "remaining_upside_case": "If today's 8-K is a positive VS-7375 readout, a re-rating could be plausible - unknown",
+          "strongest_counterargument": "Violent 6.7-8.95 range on 11x volume with no verified catalyst looks like news-driven chop, and could be a sell-the-news",
+          "invalidation_conditions": [
+            "8-K read and shows a negative/neutral update",
+            "Equity raise"
+          ],
+          "decision": "reject",
+          "decision_reasons": [
+            "catalyst not_verified: 8-K filed today but content unavailable via get_sec_filing (404) and no corroborating primary source found - this is 'not verified', not 'no catalyst exists'",
+            "opportunity_score 1.88 below every tier"
+          ],
+          "reconsider_trigger": "Read the 8-K (EDGAR/IR) or find the company PR; re-run next scan if RVOL stays >5",
+          "reconsider_expiry": "2026-10-16",
+          "snapshot": {
+            "price": 7.805,
+            "rvol": 11.5,
+            "filing_ids": [
+              "fcd93ec8-3cdb-4e2a-98e2-3740c8725078"
+            ],
+            "news_keys": []
+          }
+        }
+      ],
+      "deferred": [
+        {
+          "symbol": "APOG",
+          "research_state": "deferred_budget",
+          "kind": "holding_reassessment",
+          "reason": "stale/missing/unevidenced score; reassessment not done in this run (e2e demonstration cap)"
+        },
+        {
+          "symbol": "BKV",
+          "research_state": "deferred_budget",
+          "kind": "holding_reassessment",
+          "reason": "stale/missing/unevidenced score; reassessment not done in this run (e2e demonstration cap)"
+        },
+        {
+          "symbol": "GME",
+          "research_state": "deferred_budget",
+          "kind": "holding_reassessment",
+          "reason": "stale/missing/unevidenced score; reassessment not done in this run (e2e demonstration cap)"
+        },
+        {
+          "symbol": "INTT",
+          "research_state": "deferred_budget",
+          "kind": "holding_reassessment",
+          "reason": "stale/missing/unevidenced score; reassessment not done in this run (e2e demonstration cap)"
+        },
+        {
+          "symbol": "TEVA",
+          "research_state": "deferred_budget",
+          "kind": "holding_reassessment",
+          "reason": "stale/missing/unevidenced score; reassessment not done in this run (e2e demonstration cap)"
+        },
+        {
+          "symbol": "GLND",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 2.0,
+          "rvol": 69.4,
+          "pct_change": 66.52
+        },
+        {
+          "symbol": "GRML",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 2.0,
+          "rvol": 14.9,
+          "pct_change": 18.68
+        },
+        {
+          "symbol": "TC",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 2.0,
+          "rvol": 1034.9,
+          "pct_change": 4.25
+        },
+        {
+          "symbol": "FFR",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 1.988,
+          "rvol": 9.94,
+          "pct_change": -5.5
+        },
+        {
+          "symbol": "TV",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 1.978,
+          "rvol": 9.89,
+          "pct_change": 6.5600000000000005
+        },
+        {
+          "symbol": "KMRK",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 1.944,
+          "rvol": 9.72,
+          "pct_change": 12.790000000000001
+        },
+        {
+          "symbol": "CNXU",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 0.664,
+          "rvol": 3.32,
+          "pct_change": 12.24
+        },
+        {
+          "symbol": "AEHL",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 0.62,
+          "rvol": 3.1,
+          "pct_change": 127.60000000000001
+        },
+        {
+          "symbol": "KPLT",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 0.616,
+          "rvol": 3.08,
+          "pct_change": 12.809999999999999
+        },
+        {
+          "symbol": "ETS",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 0.522,
+          "rvol": 2.61,
+          "pct_change": 14.95
+        },
+        {
+          "symbol": "MWYN",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 0.468,
+          "rvol": 2.34,
+          "pct_change": 17.5
+        },
+        {
+          "symbol": "ICG",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 0.418,
+          "rvol": 2.09,
+          "pct_change": 13.819999999999999
+        },
+        {
+          "symbol": "PRGO",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 0.386,
+          "rvol": 1.93,
+          "pct_change": 3.19
+        },
+        {
+          "symbol": "PALI",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 0.38,
+          "rvol": 1.9,
+          "pct_change": 1.71
+        },
+        {
+          "symbol": "WAY",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 0.376,
+          "rvol": 1.88,
+          "pct_change": 2.62
+        },
+        {
+          "symbol": "FTRE",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 0.356,
+          "rvol": 1.78,
+          "pct_change": 1.8599999999999999
+        },
+        {
+          "symbol": "PFE",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 0.188,
+          "rvol": 0.94,
+          "pct_change": 3.3300000000000005
+        },
+        {
+          "symbol": "MNSO",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 0.186,
+          "rvol": 0.93,
+          "pct_change": 2.77
+        },
+        {
+          "symbol": "CAI",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 0.174,
+          "rvol": 0.87,
+          "pct_change": 2.73
+        },
+        {
+          "symbol": "ARDT",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 0.172,
+          "rvol": 0.86,
+          "pct_change": 2.35
+        },
+        {
+          "symbol": "DOCU",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 0.17,
+          "rvol": 0.85,
+          "pct_change": 2.9499999999999997
+        },
+        {
+          "symbol": "MRNA",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 0.166,
+          "rvol": 0.83,
+          "pct_change": 3.82
+        },
+        {
+          "symbol": "EC",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 0.164,
+          "rvol": 0.82,
+          "pct_change": 2.74
+        },
+        {
+          "symbol": "WMT",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 0.164,
+          "rvol": 0.82,
+          "pct_change": 2.8000000000000003
+        },
+        {
+          "symbol": "BJ",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 0.156,
+          "rvol": 0.78,
+          "pct_change": 2.98
+        },
+        {
+          "symbol": "CL",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 0.144,
+          "rvol": 0.72,
+          "pct_change": 2.41
+        },
+        {
+          "symbol": "OLLI",
+          "research_state": "deferred_budget",
+          "kind": "scanner_candidate",
+          "priority": 0.142,
+          "rvol": 0.71,
+          "pct_change": 3.61
+        }
+      ],
+      "budget": 3,
+      "budget_note": "E2E DEMONSTRATION CAP of 3 deep reviews (production config research_budget is 8); holdings reassessment not performed",
+      "queued": 35,
+      "excluded": {
+        "SOUL": "SPAC trading at trust value (pinned) - hard exclusion",
+        "TLNC": "SPAC pinned",
+        "FCRS": "SPAC pinned",
+        "XTER": "SPAC pinned",
+        "MIN": "closed-end bond fund, not an operating company"
+      }
+    },
+    "rotation": {
+      "evaluated": true,
+      "result": {
+        "eligible": false,
+        "executable": null,
+        "status": null,
+        "reason": "candidate_opportunity_score 3.265 < min_opportunity_score 5",
+        "weakest_symbol": null,
+        "weakest_assessment_status": null,
+        "threshold": null
+      },
+      "blocked_reason": "best candidate 3.265 < min_opportunity_score 5.0"
+    },
+    "block": null,
+    "execution": {
+      "unresolved": {},
+      "orders": []
+    }
+  },
+  "validator": {
+    "outcome": "RESEARCH_DEFERRED_BUDGET",
+    "completed": false,
+    "ok_for_no_action": false,
+    "violations": [
+      "32 researchable item(s) deferred by budget"
+    ],
+    "notes": {
+      "protection": {
+        "state": "verified",
+        "detail": {
+          "missing": [],
+          "accepted_exceptions": [
+            "AAPL",
+            "ANGX"
+          ],
+          "verified": [
+            "APOG",
+            "BKV",
+            "GME",
+            "INTT",
+            "TEVA"
+          ],
+          "checked_at": "2026-10-14T18:46:00Z"
+        }
+      },
+      "discovery": {
+        "required": [
+          "Agentic Catalyst Ignition v2",
+          "Agentic Nuclear Volume v2",
+          "Agentic Explosive Continuation v2",
+          "Agentic Gap Catalyst v2",
+          "Agentic Early Catalyst Fallback v3",
+          "Agentic Cheap Momentum",
+          "Agentic Exceptional Momentum",
+          "Agentic Catalyst Momentum",
+          "earnings_lookback",
+          "news_catalyst_search",
+          "held_and_watch_filings"
+        ],
+        "missing": [],
+        "failed": [],
+        "stale": [],
+        "invalid": [],
+        "healthy_sources": [
+          "Agentic Catalyst Ignition v2",
+          "Agentic Nuclear Volume v2",
+          "Agentic Explosive Continuation v2",
+          "Agentic Gap Catalyst v2",
+          "Agentic Early Catalyst Fallback v3",
+          "Agentic Cheap Momentum",
+          "Agentic Exceptional Momentum",
+          "Agentic Catalyst Momentum",
+          "earnings_lookback",
+          "news_catalyst_search",
+          "held_and_watch_filings"
+        ]
+      },
+      "holdings_needing_review": {
+        "missing": [],
+        "stale": [],
+        "unevidenced": [
+          "APOG",
+          "BKV",
+          "GME",
+          "INTT",
+          "TEVA"
+        ]
+      }
+    },
+    "session": "regular_hours",
+    "deferred": [
+      "APOG",
+      "BKV",
+      "GME",
+      "INTT",
+      "TEVA",
+      "GLND",
+      "GRML",
+      "TC",
+      "FFR",
+      "TV",
+      "KMRK",
+      "CNXU",
+      "AEHL",
+      "KPLT",
+      "ETS",
+      "MWYN",
+      "ICG",
+      "PRGO",
+      "PALI",
+      "WAY",
+      "FTRE",
+      "PFE",
+      "MNSO",
+      "CAI",
+      "ARDT",
+      "DOCU",
+      "MRNA",
+      "EC",
+      "WMT",
+      "BJ",
+      "CL",
+      "OLLI"
+    ]
+  }
+}

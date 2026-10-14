@@ -1,0 +1,28 @@
+{
+ "data": {
+  "result": {
+   "scan_title": "Agentic Explosive Continuation v2",
+   "total_items": 2,
+   "results": [
+    {
+     "ticker": "GLND",
+     "columns": {
+      "% Change": 0.6695,
+      "Last": 3.69,
+      "Market cap": 96600000.0,
+      "Relative volume": 69.4
+     }
+    },
+    {
+     "ticker": "MXCT",
+     "columns": {
+      "% Change": 0.317,
+      "Last": 1.27,
+      "Market cap": 99500000.0,
+      "Relative volume": 35.2
+     }
+    }
+   ]
+  }
+ }
+}

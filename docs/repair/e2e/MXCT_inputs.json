@@ -1,0 +1,18 @@
+{
+ "symbol": "MXCT",
+ "signal_quality_score": 8,
+ "catalyst_magnitude_score": 4,
+ "volume_price_discovery_score": 6,
+ "structure_squeeze_score": 1,
+ "remaining_upside_score": 3.5,
+ "dilution_risk_score": 3,
+ "exhaustion_risk_score": 3,
+ "primary_source_verified": true,
+ "catalyst_verified": true,
+ "transformational": false,
+ "continuation_confirmed": false,
+ "chase_pct": 30.7,
+ "live_heat_verified": true,
+ "market_catalyst_verified": false,
+ "disqualifier": false
+}

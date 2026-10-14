@@ -238,6 +238,16 @@ class RotationAndHoldings(unittest.TestCase):
                             "opportunity_score": 1, "opportunity_score_date": TODAY}}
         self.assertEqual(scoring.replaceable_holdings(only_today, TODAY, config=CONFIG), [])
 
+    def test_B_dust_cannot_be_the_rotation_source(self):
+        positions = {"DUST": held("DUST", score=1.0, value=15.0), "REAL": held("REAL", score=4.0, value=1500.0)}
+        rows = scoring.replaceable_holdings(positions, TODAY, config=CONFIG)
+        self.assertEqual([r["symbol"] for r in rows], ["REAL"])
+        v = scoring.rotation_eligible(6.0, positions, TODAY, 0.5, 5.0, config=CONFIG)
+        self.assertEqual(v["weakest_symbol"], "REAL")
+        # unknown value is not treated as small
+        positions["UNK"] = dict(held("UNK", score=0.5), value_usd=None)
+        self.assertEqual(scoring.replaceable_holdings(positions, TODAY, config=CONFIG)[0]["symbol"], "UNK")
+
     def test_F_after_hours_buy_is_same_day_in_new_york_time(self):
         late = "2026-10-14T23:30:00Z"            # 19:30 ET on 10-14
         self.assertEqual(lots.ny_date(late), "2026-10-14")

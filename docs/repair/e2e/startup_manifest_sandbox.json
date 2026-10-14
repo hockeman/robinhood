@@ -1,0 +1,19 @@
+{
+  "workflow_version_code": "2026-10-14-repair-1",
+  "branch": "claude/trading-state",
+  "commit": "5ba2ada0493de599ae20152de3efc4c147c593db",
+  "origin_tip": "5ba2ada0493de599ae20152de3efc4c147c593db",
+  "hashes": {
+    "AGENT.md": "9abc99436c72fec712af8262566f760ffc08c67a2c21b3974b43dd2557d33f98",
+    "WORKFLOW.md": "c39fc468bb831ada118f0ff64e8088d2d1bd5b2d663ca4d172ed8d03a21e1b87",
+    "EXECUTION.md": "81b4e5851fb8c3cb4d9e4176b939bb3beae41e22707129ff33c024ff7946686e",
+    "PERSISTENCE.md": "0191099a872517cc166e952a32b12106ac94195d02aaff992f8e05145564a3b1",
+    "config.json": "c0aef8185946a6f6e5d4840df822ba48b73f2e20e2350a53a6157ae34eef4c36",
+    "scripts/scoring.py": "0d241698c2c4e5ab7d3b2aeb71fa52d0a829220d15d1edb89e7558ef6f5c14bb",
+    "scripts/run_complete.py": "94c1ea5d45a293240d4d38f3b1345af6cb4926c57b30bde8a32974c3e740cdee"
+  },
+  "workflow_version": "2026-10-14-repair-1",
+  "validator_selftest": "INVALID_RUN_RECORD",
+  "ok": true,
+  "problems": []
+}

@@ -85,7 +85,7 @@ def journal_text(run, result, note):
     rv = (run.get("research") or {}).get("reviewed", [])
     lines = [
         f"{label} | {run['now']} | account_value={acct.get('account_value')} | "
-        f"deployable={acct.get('deployable_buying_power')} | discovery={ok}/{len(srcs)} sources ok | "
+        f"deployable={round(acct['deployable_buying_power'], 2) if acct.get('deployable_buying_power') is not None else None} | discovery={ok}/{len(srcs)} sources ok | "
         f"reviewed={len(rv)} deferred={len((run.get('research') or {}).get('deferred', []))} | "
         f"rotation_evaluated={(run.get('rotation') or {}).get('evaluated')}",
     ]

@@ -1,0 +1,127 @@
+{
+ "data": {
+  "result": {
+   "scan_title": "Agentic Catalyst Momentum",
+   "total_items": 13,
+   "results": [
+    {
+     "ticker": "MRNA",
+     "columns": {
+      "% Change": 0.0382,
+      "Last": 224.51,
+      "Market cap": 86300000000.0,
+      "Relative volume": 0.83
+     }
+    },
+    {
+     "ticker": "WMT",
+     "columns": {
+      "% Change": 0.028,
+      "Last": 115.42,
+      "Market cap": 890800000000.0,
+      "Relative volume": 0.82
+     }
+    },
+    {
+     "ticker": "BJ",
+     "columns": {
+      "% Change": 0.0298,
+      "Last": 102.54,
+      "Market cap": 12600000000.0,
+      "Relative volume": 0.78
+     }
+    },
+    {
+     "ticker": "CL",
+     "columns": {
+      "% Change": 0.0241,
+      "Last": 92.12,
+      "Market cap": 71700000000.0,
+      "Relative volume": 0.72
+     }
+    },
+    {
+     "ticker": "OLLI",
+     "columns": {
+      "% Change": 0.0361,
+      "Last": 91.52,
+      "Market cap": 5200000000.0,
+      "Relative volume": 0.71
+     }
+    },
+    {
+     "ticker": "DOCU",
+     "columns": {
+      "% Change": 0.0295,
+      "Last": 74.44,
+      "Market cap": 13500000000.0,
+      "Relative volume": 0.85
+     }
+    },
+    {
+     "ticker": "CAI",
+     "columns": {
+      "% Change": 0.0273,
+      "Last": 30.34,
+      "Market cap": 8300000000.0,
+      "Relative volume": 0.87
+     }
+    },
+    {
+     "ticker": "PFE",
+     "columns": {
+      "% Change": 0.0333,
+      "Last": 29.32,
+      "Market cap": 161700000000.0,
+      "Relative volume": 0.94
+     }
+    },
+    {
+     "ticker": "WAY",
+     "columns": {
+      "% Change": 0.0262,
+      "Last": 26.99,
+      "Market cap": 5000000000.0,
+      "Relative volume": 1.88
+     }
+    },
+    {
+     "ticker": "EC",
+     "columns": {
+      "% Change": 0.0274,
+      "Last": 18.0,
+      "Market cap": 33500000000.0,
+      "Relative volume": 0.82
+     }
+    },
+    {
+     "ticker": "PRGO",
+     "columns": {
+      "% Change": 0.0319,
+      "Last": 15.86,
+      "Market cap": 2132900000.0,
+      "Relative volume": 1.93
+     }
+    },
+    {
+     "ticker": "ARDT",
+     "columns": {
+      "% Change": 0.0235,
+      "Last": 11.97,
+      "Market cap": 1648800000.0,
+      "Relative volume": 0.86
+     }
+    },
+    {
+     "ticker": "MNSO",
+     "columns": {
+      "% Change": 0.0277,
+      "Last": 10.2,
+      "Market cap": 2885400000.0,
+      "Relative volume": 0.93
+     }
+    }
+   ]
+  }
+ }
+}

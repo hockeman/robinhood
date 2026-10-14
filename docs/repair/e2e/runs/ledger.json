@@ -1,0 +1,193 @@
+{
+  "run_id": "2026-10-14T1846Z",
+  "sources": [
+    {
+      "source_id": "Agentic Catalyst Ignition v2",
+      "kind": "scanner",
+      "params": {
+        "saved_scan_title": "Agentic Catalyst Ignition v2"
+      },
+      "requested_at": "2026-10-14T18:42:30Z",
+      "observed_at": "2026-10-14T18:43:00Z",
+      "data_as_of": "2026-10-14T18:43:00Z",
+      "coverage_note": "saved-scanner snapshot at request time; rows are a compact transcription of the returned list (ticker,%chg,last,mcap,RVOL); not market-wide; no history between runs",
+      "error": null,
+      "status": "success",
+      "returned_count": 6,
+      "result_ref": "runs/2026-10-14T1846Z/Agentic_Catalyst_Ignition_v2.json",
+      "result_sha256": "74e2004372743990069971e39802340b2a49622ba9929d3380865e3734033eab"
+    },
+    {
+      "source_id": "Agentic Nuclear Volume v2",
+      "kind": "scanner",
+      "params": {
+        "saved_scan_title": "Agentic Nuclear Volume v2"
+      },
+      "requested_at": "2026-10-14T18:42:30Z",
+      "observed_at": "2026-10-14T18:43:00Z",
+      "data_as_of": "2026-10-14T18:43:00Z",
+      "coverage_note": "saved-scanner snapshot at request time; rows are a compact transcription of the returned list (ticker,%chg,last,mcap,RVOL); not market-wide; no history between runs",
+      "error": null,
+      "status": "success",
+      "returned_count": 11,
+      "result_ref": "runs/2026-10-14T1846Z/Agentic_Nuclear_Volume_v2.json",
+      "result_sha256": "9c8729c370c2e7949117fad460fed98970d2b8281ab94b8d0ac88324e1840605"
+    },
+    {
+      "source_id": "Agentic Explosive Continuation v2",
+      "kind": "scanner",
+      "params": {
+        "saved_scan_title": "Agentic Explosive Continuation v2"
+      },
+      "requested_at": "2026-10-14T18:42:30Z",
+      "observed_at": "2026-10-14T18:43:00Z",
+      "data_as_of": "2026-10-14T18:43:00Z",
+      "coverage_note": "saved-scanner snapshot at request time; rows are a compact transcription of the returned list (ticker,%chg,last,mcap,RVOL); not market-wide; no history between runs",
+      "error": null,
+      "status": "success",
+      "returned_count": 2,
+      "result_ref": "runs/2026-10-14T1846Z/Agentic_Explosive_Continuation_v2.json",
+      "result_sha256": "de2b7f4e0cb77daf7d66362e2d7827248ac2f4a644ec5b5c76f52bd4a2ef28bf"
+    },
+    {
+      "source_id": "Agentic Gap Catalyst v2",
+      "kind": "scanner",
+      "params": {
+        "saved_scan_title": "Agentic Gap Catalyst v2"
+      },
+      "requested_at": "2026-10-14T18:42:30Z",
+      "observed_at": "2026-10-14T18:43:00Z",
+      "data_as_of": "2026-10-14T18:43:00Z",
+      "coverage_note": "saved-scanner snapshot at request time; rows are a compact transcription of the returned list (ticker,%chg,last,mcap,RVOL); not market-wide; no history between runs",
+      "error": null,
+      "status": "success",
+      "returned_count": 1,
+      "result_ref": "runs/2026-10-14T1846Z/Agentic_Gap_Catalyst_v2.json",
+      "result_sha256": "846d185772d418dc72d497edeeb39d1cd8f6b9535ff7c6ca79ccfda7910ab39f"
+    },
+    {
+      "source_id": "Agentic Early Catalyst Fallback v3",
+      "kind": "scanner",
+      "params": {
+        "saved_scan_title": "Agentic Early Catalyst Fallback v3"
+      },
+      "requested_at": "2026-10-14T18:42:30Z",
+      "observed_at": "2026-10-14T18:43:00Z",
+      "data_as_of": "2026-10-14T18:43:00Z",
+      "coverage_note": "saved-scanner snapshot at request time; rows are a compact transcription of the returned list (ticker,%chg,last,mcap,RVOL); not market-wide; no history between runs",
+      "error": null,
+      "status": "success",
+      "returned_count": 17,
+      "result_ref": "runs/2026-10-14T1846Z/Agentic_Early_Catalyst_Fallback_v3.json",
+      "result_sha256": "a8360c5ba0526a509b533c6a95adc52978726a8f8809de99030c0182468e99e8"
+    },
+    {
+      "source_id": "Agentic Cheap Momentum",
+      "kind": "scanner",
+      "params": {
+        "saved_scan_title": "Agentic Cheap Momentum"
+      },
+      "requested_at": "2026-10-14T18:42:30Z",
+      "observed_at": "2026-10-14T18:43:00Z",
+      "data_as_of": "2026-10-14T18:43:00Z",
+      "coverage_note": "saved-scanner snapshot at request time; rows are a compact transcription of the returned list (ticker,%chg,last,mcap,RVOL); not market-wide; no history between runs",
+      "error": null,
+      "status": "successful_empty",
+      "returned_count": 0,
+      "result_ref": "runs/2026-10-14T1846Z/Agentic_Cheap_Momentum.json",
+      "result_sha256": "d93b3d1e0f038fe69e105d3bcc0687566318e166ae4051a3d0c574d1789d05a5"
+    },
+    {
+      "source_id": "Agentic Exceptional Momentum",
+      "kind": "scanner",
+      "params": {
+        "saved_scan_title": "Agentic Exceptional Momentum"
+      },
+      "requested_at": "2026-10-14T18:42:30Z",
+      "observed_at": "2026-10-14T18:43:00Z",
+      "data_as_of": "2026-10-14T18:43:00Z",
+      "coverage_note": "saved-scanner snapshot at request time; rows are a compact transcription of the returned list (ticker,%chg,last,mcap,RVOL); not market-wide; no history between runs",
+      "error": null,
+      "status": "success",
+      "returned_count": 1,
+      "result_ref": "runs/2026-10-14T1846Z/Agentic_Exceptional_Momentum.json",
+      "result_sha256": "cd5b4eeb317320fcabe0c448512a307bbaac6bbaeb472ed877613a43dd2edc85"
+    },
+    {
+      "source_id": "Agentic Catalyst Momentum",
+      "kind": "scanner",
+      "params": {
+        "saved_scan_title": "Agentic Catalyst Momentum"
+      },
+      "requested_at": "2026-10-14T18:42:30Z",
+      "observed_at": "2026-10-14T18:43:00Z",
+      "data_as_of": "2026-10-14T18:43:00Z",
+      "coverage_note": "saved-scanner snapshot at request time; rows are a compact transcription of the returned list (ticker,%chg,last,mcap,RVOL); not market-wide; no history between runs",
+      "error": null,
+      "status": "success",
+      "returned_count": 13,
+      "result_ref": "runs/2026-10-14T1846Z/Agentic_Catalyst_Momentum.json",
+      "result_sha256": "d292921408ac69776e4bdd1b55784a5f72e42b68b1653b07fb2423d2a0c309c4"
+    },
+    {
+      "source_id": "earnings_lookback",
+      "kind": "earnings_calendar",
+      "params": {
+        "start_date": "2026-10-14",
+        "days": -3
+      },
+      "requested_at": "2026-10-14T18:43:10Z",
+      "observed_at": "2026-10-14T18:43:20Z",
+      "data_as_of": null,
+      "coverage_note": "market-wide earnings calendar look-back 3 days (compact transcription of 21 of 40 rows: reported names with actual EPS); reports EPS only, not guidance/revenue",
+      "error": null,
+      "status": "success",
+      "returned_count": 21,
+      "result_ref": "runs/2026-10-14T1846Z/earnings_lookback.json",
+      "result_sha256": "5a2e25aca5d7e560d4e0950a4902a09ea25c751c1ec2981d6f854b22226b1779"
+    },
+    {
+      "source_id": "news_catalyst_search",
+      "kind": "web_search",
+      "params": {
+        "queries": 6,
+        "mode": "standard x4 + extended x2"
+      },
+      "requested_at": "2026-10-14T18:43:30Z",
+      "observed_at": "2026-10-14T18:45:30Z",
+      "data_as_of": null,
+      "coverage_note": "bounded web search, sampled not exhaustive; weak for same-day news (4 of 6 queries returned nothing same-day); not a news feed",
+      "error": null,
+      "status": "success",
+      "returned_count": 6,
+      "result_ref": "runs/2026-10-14T1846Z/news_catalyst_search.json",
+      "result_sha256": "c96b19d132198bd67b6cf7530cdac9fe095436798d9f618fb09b1e03e5188850"
+    },
+    {
+      "source_id": "held_and_watch_filings",
+      "kind": "sec_filing_index",
+      "params": {
+        "since": "2026-10-11",
+        "symbols": [
+          "LQDA",
+          "VSTM",
+          "MXCT",
+          "GME",
+          "INTT",
+          "APOG",
+          "BKV",
+          "TEVA"
+        ]
+      },
+      "requested_at": "2026-10-14T18:43:40Z",
+      "observed_at": "2026-10-14T18:44:10Z",
+      "data_as_of": null,
+      "coverage_note": "per-symbol index only (no market-wide feed); filing CONTENT unavailable via API (404) for LQDA/VSTM/MXCT 8-Ks; AAPL/ANGX not checked (dust)",
+      "error": null,
+      "status": "success",
+      "returned_count": 8,
+      "result_ref": "runs/2026-10-14T1846Z/held_and_watch_filings.json",
+      "result_sha256": "1c46e1d2a09fa59058510c356049a33add8e656cff7c2bb8de6373596e8a647a"
+    }
+  ]
+}

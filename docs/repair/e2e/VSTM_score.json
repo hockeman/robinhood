@@ -1,0 +1,33 @@
+{
+ "symbol": "VSTM",
+ "eligible": false,
+ "signal_quality_score": 3.0,
+ "explosive_upside_score": 4.4,
+ "remaining_upside_score": 3.0,
+ "opportunity_score": 1.88,
+ "risk_penalty": 1.75,
+ "target_50_assessment": "implausible",
+ "target_100_assessment": "implausible",
+ "opportunity_tier": "reject",
+ "cash_deployment_eligible": false,
+ "cash_deployment_reasons": [
+  "neither verified company catalyst nor verified market-catalyst + live-heat setup",
+  "opportunity_score 1.88 < tactical 3.50"
+ ],
+ "best_available_eligible": false,
+ "best_available_reasons": [
+  "no verified company catalyst, market-catalyst + heat, or verified momentum",
+  "opportunity_score 1.88 < best-available 2.50"
+ ],
+ "deployment_tier": "reject",
+ "transformational": false,
+ "continuation_confirmed": false,
+ "chase_pct": 4.8,
+ "reasons": [
+  "primary source not verified",
+  "catalyst not verified",
+  "explosive_upside_score 4.40 < 5.00",
+  "remaining_upside_score 3.00 < 4.00",
+  "opportunity_score 1.88 < 5.00"
+ ]
+}

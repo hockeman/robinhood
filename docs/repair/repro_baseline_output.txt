@@ -1,0 +1,15 @@
+== R1: ~1.8% cash, no scanner/discovery evidence, protection flag omitted -> baseline says nothing is needed
+actionable False []
+== R2/R3: replaceable ranking and v2-missing on the REAL state positions
+replaceable: [('ANGX', 1.0), ('INTT', 1.727)]
+excluded because persisted same_day=true: ['GME', 'APOG', 'BKV', 'TEVA']
+rotation 6.5 -> candidate 6.500 >= threshold 5.000 (weakest=ANGX @ 1.000)
+positions_missing_v2: [] | positions with no value_usd: ['ANGX', 'GME', 'INTT', 'APOG', 'BKV', 'TEVA']
+  ANGX score None None -> effective 1.0
+  GME score 3.5 2026-10-05 -> effective 1.19
+  INTT score 5.08 2026-10-05 -> effective 1.727
+  APOG score 4.25 2026-10-07 -> effective 1.7
+  BKV score 3.755 2026-10-07 -> effective 0.0
+  TEVA score 3.803 2026-10-09 -> effective 0.0
+== R5: boolean completion claims with no evidence
+actionable False | completed True | reasons []

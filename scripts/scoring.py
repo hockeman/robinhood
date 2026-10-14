@@ -517,6 +517,11 @@ def replaceable_holdings(
         lot = holding_lot_status(pos, as_of)
         if lot["sellable_qty"] <= 0:
             continue
+        # Fractional dust cannot fund a strategic position, so it is not a rotation source.
+        # (Unknown value stays eligible: unknown is not small.)
+        dust_floor = float((config or {}).get("strategic_position_min_usd") or 0.0)
+        if dust_floor and pos.get("value_usd") is not None and float(pos["value_usd"]) < dust_floor:
+            continue
         base, legacy_v2 = _base_opportunity_score(pos, legacy_default_score, legacy_old_score_cap)
         eff = effective_opportunity_score(
             pos,
@@ -573,6 +578,8 @@ def rotation_eligible(
     if candidate_opportunity_score < min_opportunity_score:
         return {
             "eligible": False,
+            "executable": False,
+            "status": "NOT_ELIGIBLE",
             "reason": (
                 f"candidate_opportunity_score {candidate_opportunity_score} "
                 f"< min_opportunity_score {min_opportunity_score}"

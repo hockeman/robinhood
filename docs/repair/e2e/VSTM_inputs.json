@@ -1,0 +1,18 @@
+{
+ "symbol": "VSTM",
+ "signal_quality_score": 3,
+ "catalyst_magnitude_score": 4,
+ "volume_price_discovery_score": 6,
+ "structure_squeeze_score": 3,
+ "remaining_upside_score": 3,
+ "dilution_risk_score": 4,
+ "exhaustion_risk_score": 5,
+ "primary_source_verified": false,
+ "catalyst_verified": false,
+ "transformational": false,
+ "continuation_confirmed": false,
+ "chase_pct": 4.8,
+ "live_heat_verified": true,
+ "market_catalyst_verified": false,
+ "disqualifier": false
+}

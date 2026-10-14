@@ -1,0 +1,18 @@
+{
+ "symbol": "LQDA",
+ "signal_quality_score": 7,
+ "catalyst_magnitude_score": 6,
+ "volume_price_discovery_score": 5,
+ "structure_squeeze_score": 1,
+ "remaining_upside_score": 4,
+ "dilution_risk_score": 3,
+ "exhaustion_risk_score": 5,
+ "primary_source_verified": true,
+ "catalyst_verified": true,
+ "transformational": false,
+ "continuation_confirmed": false,
+ "chase_pct": 25.5,
+ "live_heat_verified": false,
+ "market_catalyst_verified": false,
+ "disqualifier": false
+}

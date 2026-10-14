@@ -1,0 +1,109 @@
+{
+ "data": {
+  "result": {
+   "scan_title": "Agentic Nuclear Volume v2",
+   "total_items": 11,
+   "results": [
+    {
+     "ticker": "SOUL",
+     "columns": {
+      "% Change": 0,
+      "Last": 10.5,
+      "Market cap": 356500000.0,
+      "Relative volume": 148.1
+     }
+    },
+    {
+     "ticker": "TLNC",
+     "columns": {
+      "% Change": 0,
+      "Last": 10.21,
+      "Market cap": 346900000.0,
+      "Relative volume": 1201.9
+     }
+    },
+    {
+     "ticker": "FCRS",
+     "columns": {
+      "% Change": 0,
+      "Last": 10.2,
+      "Market cap": 366600000.0,
+      "Relative volume": 7.76
+     }
+    },
+    {
+     "ticker": "XTER",
+     "columns": {
+      "% Change": 0,
+      "Last": 9.78,
+      "Market cap": 267200000.0,
+      "Relative volume": 1439.1
+     }
+    },
+    {
+     "ticker": "VSTM",
+     "columns": {
+      "% Change": 0.0503,
+      "Last": 7.825,
+      "Market cap": 675400000.0,
+      "Relative volume": 8.49
+     }
+    },
+    {
+     "ticker": "GRML",
+     "columns": {
+      "% Change": 0.1868,
+      "Last": 6.575,
+      "Market cap": 74100000.0,
+      "Relative volume": 14.9
+     }
+    },
+    {
+     "ticker": "GLND",
+     "columns": {
+      "% Change": 0.6695,
+      "Last": 3.69,
+      "Market cap": 96600000.0,
+      "Relative volume": 69.4
+     }
+    },
+    {
+     "ticker": "TV",
+     "columns": {
+      "% Change": 0.0656,
+      "Last": 2.355,
+      "Market cap": 1164800000.0,
+      "Relative volume": 9.89
+     }
+    },
+    {
+     "ticker": "FFR",
+     "columns": {
+      "% Change": -0.055,
+      "Last": 1.37,
+      "Market cap": 30600000.0,
+      "Relative volume": 9.94
+     }
+    },
+    {
+     "ticker": "TC",
+     "columns": {
+      "% Change": 0.0425,
+      "Last": 1.35,
+      "Market cap": 34200000.0,
+      "Relative volume": 1034.9
+     }
+    },
+    {
+     "ticker": "MXCT",
+     "columns": {
+      "% Change": 0.317,
+      "Last": 1.27,
+      "Market cap": 99500000.0,
+      "Relative volume": 35.2
+     }
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,163 @@
+{
+ "data": {
+  "result": {
+   "scan_title": "Agentic Early Catalyst Fallback v3",
+   "total_items": 17,
+   "results": [
+    {
+     "ticker": "LQDA",
+     "columns": {
+      "% Change": 0.2551,
+      "Last": 33.65,
+      "Market cap": 2399700000.0,
+      "Relative volume": 2.26
+     }
+    },
+    {
+     "ticker": "FTRE",
+     "columns": {
+      "% Change": 0.0186,
+      "Last": 21.31,
+      "Market cap": 1989500000.0,
+      "Relative volume": 1.78
+     }
+    },
+    {
+     "ticker": "AEHL",
+     "columns": {
+      "% Change": 1.276,
+      "Last": 19.46,
+      "Market cap": 156100000.0,
+      "Relative volume": 3.1
+     }
+    },
+    {
+     "ticker": "PRGO",
+     "columns": {
+      "% Change": 0.0319,
+      "Last": 15.86,
+      "Market cap": 2132900000.0,
+      "Relative volume": 1.93
+     }
+    },
+    {
+     "ticker": "MIN",
+     "columns": {
+      "% Change": 0.0166,
+      "Last": 14.07,
+      "Market cap": 262500000.0,
+      "Relative volume": 2.85
+     }
+    },
+    {
+     "ticker": "VSTM",
+     "columns": {
+      "% Change": 0.0503,
+      "Last": 7.825,
+      "Market cap": 675400000.0,
+      "Relative volume": 8.49
+     }
+    },
+    {
+     "ticker": "GRML",
+     "columns": {
+      "% Change": 0.1868,
+      "Last": 6.575,
+      "Market cap": 74100000.0,
+      "Relative volume": 14.9
+     }
+    },
+    {
+     "ticker": "KPLT",
+     "columns": {
+      "% Change": 0.1281,
+      "Last": 5.02,
+      "Market cap": 377600000.0,
+      "Relative volume": 3.08
+     }
+    },
+    {
+     "ticker": "CNXU",
+     "columns": {
+      "% Change": 0.1224,
+      "Last": 3.715,
+      "Market cap": 93600000.0,
+      "Relative volume": 3.32
+     }
+    },
+    {
+     "ticker": "GLND",
+     "columns": {
+      "% Change": 0.6652,
+      "Last": 3.68,
+      "Market cap": 96600000.0,
+      "Relative volume": 69.4
+     }
+    },
+    {
+     "ticker": "TV",
+     "columns": {
+      "% Change": 0.0656,
+      "Last": 2.355,
+      "Market cap": 1164800000.0,
+      "Relative volume": 9.89
+     }
+    },
+    {
+     "ticker": "ETS",
+     "columns": {
+      "% Change": 0.1495,
+      "Last": 1.94,
+      "Market cap": 82300000.0,
+      "Relative volume": 2.61
+     }
+    },
+    {
+     "ticker": "MWYN",
+     "columns": {
+      "% Change": 0.175,
+      "Last": 1.88,
+      "Market cap": 32300000.0,
+      "Relative volume": 2.34
+     }
+    },
+    {
+     "ticker": "KMRK",
+     "columns": {
+      "% Change": 0.1279,
+      "Last": 1.5,
+      "Market cap": 28100000.0,
+      "Relative volume": 9.72
+     }
+    },
+    {
+     "ticker": "PALI",
+     "columns": {
+      "% Change": 0.0171,
+      "Last": 1.49,
+      "Market cap": 255600000.0,
+      "Relative volume": 1.9
+     }
+    },
+    {
+     "ticker": "ICG",
+     "columns": {
+      "% Change": 0.1382,
+      "Last": 1.4,
+      "Market cap": 75300000.0,
+      "Relative volume": 2.09
+     }
+    },
+    {
+     "ticker": "MXCT",
+     "columns": {
+      "% Change": 0.317,
+      "Last": 1.27,
+      "Market cap": 99500000.0,
+      "Relative volume": 35.2
+     }
+    }
+   ]
+  }
+ }
+}

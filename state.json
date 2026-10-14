@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-10-14T15:15:00Z",
+  "last_run": "2026-10-14T16:15:00Z",
   "canonical_branch": "claude/trading-state",
   "dashboard_url": "https://claude.ai/artifact/X1VoHT7aWVG18JqaH69iuw",
   "peak_account_value": 7954.86462317,
@@ -1143,6 +1143,10 @@
     {
       "ts": "2026-10-14T15:15:00Z",
       "value": 6966.20783455
+    },
+    {
+      "ts": "2026-10-14T16:15:00Z",
+      "value": 6931.621423773
     }
   ],
   "positions": {
@@ -2312,6 +2316,32 @@
         "score": 0,
         "decision": "rejected, mcap $19M<floor, noncompliant"
       }
+    },
+    "2026-10-14T1615Z": {
+      "VSTM": {
+        "decision": "rejected",
+        "notes": "+11% RVOL 6.8x, mcap $675M; no verified catalyst found in current-run search"
+      },
+      "GLND": {
+        "decision": "rejected",
+        "notes": "+77% RVOL 60x micro-cap; only stale Sept Greenland-security-pact narrative, no company primary source; chase"
+      },
+      "GRML": {
+        "decision": "rejected",
+        "notes": "+27% RVOL 13.5x micro-cap; no verified catalyst found"
+      },
+      "TC": {
+        "decision": "rejected",
+        "notes": "$34M mcap spike, no catalyst verified"
+      },
+      "MXCT": {
+        "decision": "rejected",
+        "notes": "+27% RVOL 30x, no catalyst verified this run"
+      },
+      "TV": {
+        "decision": "rejected",
+        "notes": "+5.7% RVOL 7x, no catalyst verified"
+      }
     }
   },
   "anomalies": [
@@ -2418,7 +2448,7 @@
   ],
   "watchlist": [],
   "claude_cost": {
-    "total_usd": 210.49,
+    "total_usd": 210.78,
     "by_day": {
       "2026-09-18": 1.44,
       "2026-09-19": 19.2,
@@ -2440,11 +2470,10 @@
       "2026-10-09": 4.7,
       "2026-10-12": 2.9,
       "2026-10-13": 2.9,
-      "2026-10-14": 2.32
+      "2026-10-14": 2.61
     },
-    "runs": 287,
+    "runs": 288,
     "run_ids": [
-      "2026-10-07T16:20:00Z",
       "2026-10-07T17:15Z",
       "2026-10-08T08:15Z",
       "2026-10-08T09:15:00Z",
@@ -2493,10 +2522,11 @@
       "2026-10-14T12:15:00Z",
       "2026-10-14T13:15Z",
       "2026-10-14T14:15Z",
-      "2026-10-14T15:15Z"
+      "2026-10-14T15:15Z",
+      "2026-10-14T16:15Z"
     ],
     "backfilled": true,
-    "last_updated": "2026-10-14T15:15Z"
+    "last_updated": "2026-10-14T16:15Z"
   },
   "deployment_queue": []
 }
